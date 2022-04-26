@@ -3,36 +3,15 @@ hide methods
 left to right direction
 skinparam classAttributeIconSize 0
 
-
-class Warehouse <<entity>>{
+package Warehouse <<Folder>> {
+class Warehouse <<entity root>>{
   -
 }
 
 class WarehousePlant <<value object>>{
   - 
 }
-
-class Survey <<entity>>{
-  -code
-  -description
-  -period
-}
-
-class SurveyRule <<value object>>{
-  - 
-}
-
-class ShipmentMethod <<value object>>{
-  -name
-  -cost
-  -volume
-  -weight
-}
-
-class Shipment <<entity>>{
-  - 
-}
-
+  
 class StorageArea <<value object>>{
   - aisleId
   - rowId
@@ -42,7 +21,36 @@ class StorageArea <<value object>>{
 class Bin <<value object>>{
   -size
 }
+}
 
+
+package Shipment <<Folder>>{
+class Shipment <<entity root>>{
+  - 
+}
+
+class ShipmentMethod <<value object>>{
+  -name
+  -cost
+  -volume
+  -weight
+}
+}
+
+package Survey <<Folder>>{
+class Survey <<entity root>>{
+  -code
+  -period
+}
+
+class SurveyDescription <<value object>>{
+  - 
+}
+  
+class SurveyRule <<value object>>{
+  - 
+}
+  
 class Questionnaire <<value object>>{
   - 
 }
@@ -54,33 +62,60 @@ class Notification <<entity>>{
 class SurveyAnswers <<value entity>>{
   -
 }
-
-class AGV <<entity>> {
+}
+  
+package AGV <<Folder>>{
+class AGV <<entity root>> {
   -id
-  -shortDescription
   -maxWeight
   -baseLocation
   -autonomyStatus
 }
 
-class AGVModel <<value object>> {
-  -
-}
-
-class AGVTask <<entity>>{
+class AGVShortDescription <<value object>>{
   - 
 }
 
+class AGVModel <<value object>> {
+  -
+}
+}
+
+package AGVTask <<Folder>>{
+class AGVTask <<entity root>>{
+  - 
+}
+  
+class ManualTask <<entity>>{
+  - 
+}
+  
+class AutomaticTask <<entity>>{
+  - 
+}
+}
+  
+package Order <<Folder>>{
 class Order <<entity>>{
   -id
   -dateTime
   -listProductsPricesQuantity
   -totalPriceWIthAndWithoutTaxes
   -registryUser
-  -state
+}
+  
+class OrderState <<Enum>>{
+  - 
+}
+  
+class PriceO <<value object>>{
+  -price
+}
+  
 }
 
-class Payment <<entity>>{
+package Payment <<Folder>>{
+class Payment <<entity root>>{
   - 
 }
 
@@ -91,20 +126,29 @@ class PaymentMethod <<value object>>{
 class PaymentConfirmation <<value object>>{
   - confirmationText
 }
-
-class ProductCategory <<value object>>{
-  -code
-  -description
 }
 
-class Product <<entity>>{
+package Product <<Folder>>{
+class Product <<entity root>>{
   -code
-  -setOfPhotos
   -reference
-  -barcode(has standard daclarations)
-  -[productioncode]
-  -listOfPricesPerCountryWithOrWithTaxes
   -availableForOrder
+}
+
+class Photo <<value object>>{
+  - 
+}
+
+class Barcode <<value object>>{
+  - 
+}
+
+class ProductionCode <<value object>>{
+  - 
+}
+
+class Price <<value object>>{
+  -price
 }
 
 class ProductDescription <<value object>>{
@@ -112,26 +156,34 @@ class ProductDescription <<value object>>{
   -extendedDescription
   -technicalDescription
 }
-
+  
 class Brand <<entity>>{
   -name 
+}  
+}
+
+package ProductCategory <<Folder>>{
+class ProductCategory <<value object>>{
+  -code
+}
+  
+class CategoryDescription <<value object>>{
+  -description
+}
 }
 
 class ProductCatalog <<entity>>{
   -
 }
 
-class User <<entity>>{
-  -  
-}
-
-class Customer <<entity>>{
+package Customer <<Folder>> {
+class Customer <<entity root>>{
   -id
-  -name
-  -VAT
+  -gender
+  -birthDate
 }
 
-class Email <<value object>>{
+class VAT <<value object>>{
   -
 }
 
@@ -139,15 +191,26 @@ class PhoneNumber <<value object>>{
   -
 }
 
-class PostalAddress <<value object>> {
+
+class Address <<value object>> {
   - 
+} 
 }
 
-class BirthDate <<value object>>{
+package User <<Folder>>{
+class User <<entity root>>{
+  -  
+}
+
+class Name <<value object>>{
   -
 }
 
-class Gender <<value object>>{
+class Email <<value object>>{
+  -
+}
+
+class Password <<value object>>{
   -
 }
 
@@ -166,26 +229,34 @@ class Administrator <<entity>>{
 class SalesClerk <<entity>>{
   - 
 }
+}
 
 class SalesReport <<entity>>{
   -
 }
 
+package ShoppingCart <<Folder root>>{
 class ShoppingCart <<entity>>{
   - 
 }
 
+class PriceSC <<value object>>{
+  -price
+}
+}
 
 
 Customer "1" -- "1" User : é >
 Customer "1" -- "1" ShoppingCart : tem >
 Customer "1" -- "0..*" SurveyAnswers : dá >
 Customer "1" -- "0..*" Notification : recebe >
-Customer "1" -- "1" Email : tem >
+User "1" -- "1" Name : tem >
+User "1" -- "1" Password : tem >
+User "1" -- "1" Email : tem >
 Customer "1" -- "1" PhoneNumber : tem >
-Customer "1" -- "1..*" PostalAddress : tem >
-Customer "1" -- "1" BirthDate : tem >
-Customer "1" -- "1" Gender : tem >
+Customer "1" -- "1" VAT : tem >
+Customer "1" -- "1..*" Address : tem BillingAddress >
+Customer "1" -- "1..*" Address : tem ShippingAddress >
 Customer "1" -- "1" PaymentConfirmation : confirma >
 SalesClerk "1" -- "1" User : é >
 SalesClerk "1" -- "0..*" Product : regista >
@@ -204,6 +275,11 @@ SalesManager "1..*" -- "1..*" SalesReport : acede >
 SalesManager "1" -- "0..*" Survey : cria >
 Product "0..*" -- "1" ProductCategory : tem >
 Product "1" -- "1" ProductDescription : descrito em >
+Product "1" -- "1..*" Photo : tem >
+Product "1" -- "1" Barcode : tem >
+Product "1" -- "1" ProductionCode : tem >
+Product "1" -- "1" Price : tem preço sem taxa >
+Product "1" -- "1" Price : tem preço com taxa >
 Brand "1" -- "1..*" Product : fabrica >
 Warehouse "1" -- "1" WarehousePlant : tem >
 WarehousePlant -- StorageArea : tem >
@@ -212,25 +288,35 @@ Shipment "1" -- "1*" Order : tem >
 Payment "1" -- "1" PaymentMethod : tem >
 Payment "1" -- "1" PaymentConfirmation : necessita >
 AGV "1" -- "0..*" AGVTask : realiza >
+AGV "1" -- "1" AGVShortDescription : tem >
+AGV "1" -- "1" AGVModel : tem >
 AGVTask "1" -- "1" Order : refere-se a >
+ManualTask "1" -- "1" AGVTask : é >
+AutomaticTask "1" -- "1" AGVTask : é >
 Order "0..*" -- "1..*" Product : tem >
 Order "1" -- "1" Payment : tem >
 Order "0..*" -- "1" Customer : em nome de >
 Order "0..*" -- "1" PaymentMethod : guarda >
 Order "0..*" -- "1" ShipmentMethod : guarda >
-Order "1..*" -- "1" PostalAddress : enviado para >
+Order "1..*" -- "1" Address : efetuado em BillingAddress >
+Order "1..*" -- "1" Address : enviado para ShippingAddress >
+Order "1" -- "1..*" PriceO : tem preço sem taxa >
+Order "1" -- "1..*" PriceO : tem preço com taxa >
 ShoppingCart "1" -- "1" Order : origina >
 ShoppingCart "0..*" -- "1..*" Product : tem >
+ShoppingCart "1" -- "1" PriceSC : tem preço sem taxa >
+ShoppingCart "1" -- "1" PriceSC : tem preço com taxa >
 Bin "1" -- "1" Product : tem >
 StorageArea "1" -- "1..*" Bin : contém >
 ProductCatalog "1" -- "1..*" Product : contém >
 ProductCatalog "1" -- "1*" Customer : visto por >
 Survey "1" -- "1" SurveyAnswers : guarda >
-Survey "0..*" -- "1" Customer : referente a >
+Survey "0..*" -- "0..*" Customer : referente a >
 Survey "1" -- "1" Notification : envia >
 Survey "1" -- "1" Questionnaire : contém >
+Survey "1" -- "1" SurveyDescription : tem >
 Survey "1..*" -- "1..*" SurveyRule : varia mediante >
-Questionnaire "0..*" -- "1" Customer : respondido por >
+Questionnaire "0..*" -- "0..*" Customer : respondido por >
 WarehouseEmployee "1..*" -- "1..*" Warehouse : gere >
 WarehouseEmployee "1..*" -- "1..*" WarehousePlant : gere >
 WarehouseEmployee "1..*" -- "1..*" AGV : gere >
