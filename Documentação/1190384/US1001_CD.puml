@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Package Presentation{
+class SpecifyProductUI {
+}
+}
+
+Package Application{
+
+class SpecifyProductController {
+ + newUser(String name, String email)
+ + addUser()
+}
+}
+
+Package Domain{
+
+class Product {
+  -String name
+  -Email email
+  -Password password;
+  + User(Email id, Password pwd, String name)
+}
+
+class ProductFactory{
+}
+
+class ProductCategory{
+}
+}
+
+
+Package Persistence{
+class RepositoryFactory{
+   + generatePassword(email)
+}
+
+class ProductRepository{
+}
+
+class ProductCategoryRepository{
+}
+}
+
+SpecifyProductUI ..> SpecifyProductController
+SpecifyProductController ..> Product
+SpecifyProductController ..> ProductRepository
+SpecifyProductController ..> RepositoryFactory
+SpecifyProductController ..> ProductFactory
+RepositoryFactory ..> ProductRepository
+RepositoryFactory ..> ProductCategoryRepository
+ProductFactory..> Product
+Product..> ProductCategory
+ProductCategoryRepository ..|> ProductRepository
+@enduml

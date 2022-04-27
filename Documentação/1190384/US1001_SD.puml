@@ -1,0 +1,36 @@
+@startuml
+autonumber
+hide footbox
+
+title SD - Specify Product
+
+		participant ":SpecifyProductUI" as ui
+		participant ":SpecifyProductController" as ctrl
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		participant ":ProductCategoryRepository" as repoPC
+		participant ":NutricionalInfo" as ni
+		participant ":Product" as prod
+		participant ":ProductRepository" as repo
+
+		ui->ctrl:create
+		ui->ctrl:getProductCategory
+		ctrl->pc:repositories()
+		pc->rf:create
+		rf->repoPC:create
+		ctrl->repoPC:findAll
+		ctrl-->ui:ProductCategory
+
+		ui->ui:doShow()
+		ui->ctrl:registerProduct(cat, name, cal, salt)
+
+		ctrl->ni:ni = create(cal, salt)
+		ctrl->prod:newProduct = create(cat, name, ni)
+
+		ctrl->pc:repositories()
+		pc->rf:create
+		rf->repo:create
+		ctrl->repo:save(newProduct)
+
+
+@enduml
