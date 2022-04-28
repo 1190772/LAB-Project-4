@@ -15,22 +15,40 @@ title SD - Specify Product
 
 		ui->ctrl:create
 		ui->ctrl:getProductCategory
+		activate ctrl
 		ctrl->pc:repositories()
 		pc->rf:create
 		rf->repoPC:create
 		ctrl->repoPC:findAll
+		activate repoPC
+		deactivate repoPC
 		ctrl-->ui:ProductCategory
+		deactivate ctrl
 
 		ui->ui:doShow()
 		ui->ctrl:registerProduct(cat, name, cal, salt)
+        activate ctrl
 
 		ctrl->ni:ni = create(cal, salt)
+		activate ni
+		deactivate ni
 		ctrl->prod:newProduct = create(cat, name, ni)
+        activate prod
+        deactivate prod
 
 		ctrl->pc:repositories()
+		activate pc
 		pc->rf:create
+		activate rf
 		rf->repo:create
+		activate repo
+		deactivate repo
+		deactivate rf
+		deactivate pc
 		ctrl->repo:save(newProduct)
+		activate repo
+		deactivate repo
+		deactivate ctrl
 
 
 @enduml

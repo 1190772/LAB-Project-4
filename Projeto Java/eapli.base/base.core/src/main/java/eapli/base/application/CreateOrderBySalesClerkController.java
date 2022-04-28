@@ -2,7 +2,7 @@ package eapli.base.application;
 
 public class CreateOrderBySalesClerkController {
 
-    final Customer customer;
+    final eapli.base.domain.model.Customer customer;
     final Product product;
     final Order order;
     List<Product> products;
