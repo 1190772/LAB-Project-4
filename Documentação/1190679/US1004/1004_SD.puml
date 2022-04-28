@@ -1,0 +1,123 @@
+@startuml
+autonumber
+actor "SalesClerk" as SC
+participant "CriarOrdemParaClienteUI" as UI <<presentation>>
+participant "CriarOrdemParaClienteController" as CTRL <<application>>
+participant PersistenceContext as PER <<persistence>>
+participant "RepositoryFactory" as REPOFACT <<factory>>
+participant "customer : Customer" as CUST <<domain>>
+participant "customerDto : CustomerDto" as custDTO <<domain>>
+participant "product : Product" as PROD <<domain>>
+participant "productDto : ProductDto" as prodDTO <<domain>>
+participant "order : Order" as ORD <<domain>>
+database "CustomerRepository" as custREPO <<repository>>
+database "ProductRepository" as prodREPO <<repository>>
+database "OrderRepository" as ordREPO <<repository>>
+
+
+
+activate SC
+SC -> UI : inicia a criação de uma ordem para um cliente
+activate UI
+UI -> CTRL : create
+UI --> SC : solicita o id do cliente
+deactivate UI
+SC -> UI : submete informação
+activate UI
+UI -> CTRL : findCustomerById(id)
+activate CTRL
+CTRL -> PER : repositories()
+activate PER
+PER -> REPOFACT : create
+PER --> CTRL : factory
+deactivate PER
+CTRL -> REPOFACT : customers()
+activate REPOFACT
+REPOFACT -> custREPO : create
+REPOFACT --> CTRL : customerRepository
+deactivate REPOFACT
+CTRL -> custREPO : findCustomerById(id)
+activate custREPO
+custREPO --> CTRL : customer
+deactivate custREPO
+deactivate CTRL
+UI -> CTRL : showCustomerDto()
+activate CTRL
+CTRL -> CUST : toDto()
+activate CUST
+CUST -> custDTO : create
+activate custDTO
+custDTO --> CUST : customerDto
+deactivate custDTO
+CUST --> CTRL : customerDto
+deactivate CUST
+CTRL --> UI : customerDto
+deactivate CTRL
+UI --> SC : mostra a informação sobre o cliente e pede confirmação
+deactivate UI
+SC -> UI : confirma os dados
+activate UI
+
+loop for each produto
+UI --> SC : solicita o code do produto
+deactivate UI
+SC -> UI : submete informação
+activate UI
+UI -> CTRL : findProductById(id)
+activate CTRL
+CTRL -> REPOFACT : products()
+activate REPOFACT
+REPOFACT -> prodREPO : create
+REPOFACT --> CTRL : productRepository
+deactivate REPOFACT
+CTRL -> prodREPO : findProductById(id)
+activate prodREPO
+prodREPO --> CTRL : product
+deactivate prodREPO
+deactivate CTRL
+UI -> CTRL : ShowProductDto()
+activate CTRL
+CTRL -> PROD : toDto()
+activate PROD
+PROD -> prodDTO : create
+activate prodDTO
+prodDTO --> PROD : productDto
+deactivate prodDTO
+PROD --> CTRL : productDto
+deactivate PROD
+CTRL --> UI : productDto
+deactivate CTRL
+UI --> SC : mostra a informação sobre o produto e pede confirmação
+deactivate UI
+SC -> UI : confirma os dados
+activate UI
+UI -> CTRL : AddProduct()
+activate CTRL
+CTRL -> CTRL : AddToProductList(product)
+deactivate CTRL
+UI --> SC : informa da adição do produto
+deactivate UI
+SC -> UI : continua a adicionar produtos ou conclui a adição de produtos
+activate UI
+end
+UI -> CTRL : SaveOrder()
+activate CTRL
+CTRL -> ORD : create(productsList)
+activate ORD
+ORD --> CTRL : order
+deactivate ORD
+CTRL --> REPOFACT : orders()
+activate REPOFACT
+REPOFACT -> ordREPO : create
+REPOFACT --> CTRL : orderRepository
+deactivate REPOFACT
+CTRL -> ordREPO : saveOrder(order)
+activate ordREPO
+deactivate ordREPO
+deactivate CTRL
+UI --> SC : informa do sucesso da operação
+deactivate UI
+
+deactivate SC
+
+@enduml
