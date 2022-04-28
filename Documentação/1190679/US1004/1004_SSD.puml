@@ -23,6 +23,10 @@ activate ":System"
 deactivate ":System"
 SC -> ":System" : confirma os dados
 activate ":System"
+":System" --> SC : informa da adição do produto
+deactivate ":System"
+SC -> ":System" : continua a adicionar produtos ou conclui a adição de produtos
+activate ":System"
 end
 
 ":System" --> SC : informa do sucesso da operação
