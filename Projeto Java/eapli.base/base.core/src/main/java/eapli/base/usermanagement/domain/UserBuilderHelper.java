@@ -27,6 +27,7 @@ import eapli.base.clientusermanagement.domain.SignupRequestBuilder;
 import eapli.framework.infrastructure.authz.domain.model.PlainTextEncoder;
 import eapli.framework.infrastructure.authz.domain.model.SystemUserBuilder;
 import eapli.framework.util.Utility;
+import eapli.base.usermanagement.domain.BasePasswordPolicy;
 
 /**
  *

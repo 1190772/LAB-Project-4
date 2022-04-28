@@ -22,6 +22,8 @@ package eapli.base.clientusermanagement.domain;
 
 import eapli.framework.domain.model.DomainFactory;
 import eapli.framework.infrastructure.authz.domain.model.SystemUser;
+import eapli.base.clientusermanagement.domain.ClientUser;
+import eapli.base.clientusermanagement.domain.MecanographicNumber;
 
 /**
  * A factory for User entities.

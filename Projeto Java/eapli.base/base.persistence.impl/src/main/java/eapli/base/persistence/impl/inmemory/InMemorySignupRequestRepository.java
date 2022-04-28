@@ -40,4 +40,5 @@ public class InMemorySignupRequestRepository extends
     public Iterable<SignupRequest> pendingSignupRequests() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
+
 }

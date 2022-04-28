@@ -32,6 +32,7 @@ import eapli.framework.presentation.console.AbstractUI;
 import eapli.framework.presentation.console.ExitWithMessageAction;
 import eapli.framework.presentation.console.menu.MenuItemRenderer;
 import eapli.framework.presentation.console.menu.MenuRenderer;
+import eapli.base.app.user.console.presentation.MainMenu;
 import eapli.framework.presentation.console.menu.VerticalMenuRenderer;
 
 /**

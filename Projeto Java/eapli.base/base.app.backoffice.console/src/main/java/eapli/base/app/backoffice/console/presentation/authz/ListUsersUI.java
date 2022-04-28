@@ -27,6 +27,7 @@ import eapli.base.usermanagement.application.ListUsersController;
 import eapli.framework.infrastructure.authz.domain.model.SystemUser;
 import eapli.framework.presentation.console.AbstractListUI;
 import eapli.framework.visitor.Visitor;
+import eapli.base.app.backoffice.console.presentation.authz.SystemUserPrinter;
 
 /**
  *

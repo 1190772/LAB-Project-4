@@ -54,4 +54,24 @@ public class InMemoryClientUserRepository
     public Iterable<ClientUser> findAllActive() {
         return match(e -> e.user().isActive());
     }
+
+    @Override
+    public <S extends ClientUser> S save(S entity) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ClientUser> findAll() {
+        return null;
+    }
+
+    @Override
+    public void delete(ClientUser entity) {
+
+    }
+
+    @Override
+    public long count() {
+        return 0;
+    }
 }

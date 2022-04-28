@@ -30,6 +30,8 @@ import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.strings.util.Strings;
 import eapli.framework.validations.Invariants;
+import eapli.base.infrastructure.bootstrapers.demo.BackofficeUsersBootstrapper;
+import eapli.base.infrastructure.bootstrapers.demo.ClientUserBootstrapper;
 
 /**
  * Base Bootstrapping data app

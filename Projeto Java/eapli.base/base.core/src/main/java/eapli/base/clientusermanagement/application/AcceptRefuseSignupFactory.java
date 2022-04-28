@@ -23,6 +23,9 @@
  */
 package eapli.base.clientusermanagement.application;
 
+import eapli.base.clientusermanagement.application.AcceptRefuseSignupRequestController;
+import eapli.base.clientusermanagement.application.AcceptRefuseSignupRequestControllerEventfullImpl;
+
 /**
  * A simple factory to obtain the desired implementation of the
  * {@link AcceptRefuseSignupController}.
@@ -39,6 +42,6 @@ public final class AcceptRefuseSignupFactory {
         // decide and try
 
         // return new AcceptRefuseSignupRequestControllerTxImpl();
-        return new AcceptRefuseSignupRequestControllerEventfullImpl();
+        return (AcceptRefuseSignupRequestController) new AcceptRefuseSignupRequestControllerEventfullImpl();
     }
 }

@@ -39,6 +39,7 @@ import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.infrastructure.authz.application.UserManagementService;
 import eapli.framework.infrastructure.authz.domain.model.Role;
 import eapli.framework.infrastructure.authz.domain.model.SystemUser;
+import eapli.base.clientusermanagement.application.AcceptRefuseSignupRequestController;
 
 /**
  * The transactional controller for the use case "accept/refuse a signup

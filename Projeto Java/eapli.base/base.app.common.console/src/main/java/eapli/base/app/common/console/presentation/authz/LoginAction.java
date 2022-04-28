@@ -22,6 +22,7 @@ package eapli.base.app.common.console.presentation.authz;
 
 import eapli.framework.actions.Action;
 import eapli.framework.infrastructure.authz.domain.model.Role;
+import eapli.base.app.common.console.presentation.authz.LoginUI;
 
 /**
  * Menu action for user login. Created by nuno on 20/03/16.

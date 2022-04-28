@@ -27,6 +27,8 @@ import eapli.base.infrastructure.persistence.RepositoryFactory;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 import eapli.framework.infrastructure.authz.repositories.impl.InMemoryUserRepository;
+import eapli.base.persistence.impl.inmemory.InMemoryClientUserRepository;
+import eapli.base.persistence.impl.inmemory.InMemorySignupRequestRepository;
 
 /**
  *

@@ -25,6 +25,7 @@ import org.slf4j.LoggerFactory;
 
 import eapli.base.Application;
 import eapli.framework.util.Utility;
+import eapli.base.infrastructure.persistence.RepositoryFactory;
 
 /**
  * provides easy access to the persistence layer. works as a factory of

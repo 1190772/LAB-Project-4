@@ -32,7 +32,9 @@ import javax.persistence.Enumerated;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
+import javax.persistence.Embedded;
 
+import eapli.base.clientusermanagement.domain.MecanographicNumber;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.general.domain.model.EmailAddress;
@@ -40,6 +42,8 @@ import eapli.framework.infrastructure.authz.domain.model.Name;
 import eapli.framework.infrastructure.authz.domain.model.Password;
 import eapli.framework.infrastructure.authz.domain.model.Username;
 import eapli.framework.validations.Preconditions;
+import eapli.framework.infrastructure.authz.domain.model.Username;
+import eapli.base.clientusermanagement.domain.ApprovalStatus;
 
 /**
  * A Signup Request. This class represents the Signup Request created right
@@ -55,7 +59,7 @@ import eapli.framework.validations.Preconditions;
  *
  */
 @Entity
-public class SignupRequest implements AggregateRoot<Username> {
+public class SignupRequest implements eapli.framework.domain.model.AggregateRoot<eapli.framework.infrastructure.authz.domain.model.Username>, eapli.framework.domain.model.DomainEntity<Comparable> {
 
     private static final long serialVersionUID = 1L;
 
@@ -64,16 +68,36 @@ public class SignupRequest implements AggregateRoot<Username> {
 
     @EmbeddedId
     private Username username;
+    @Embedded
     private Password password;
+    @Embedded
     private Name name;
+    @Embedded
     private EmailAddress email;
 
+    @Embedded
     private MecanographicNumber mecanographicNumber;
 
     @Enumerated(EnumType.STRING)
     private ApprovalStatus approvalStatus;
     @Temporal(TemporalType.DATE)
     private Calendar createdOn;
+
+    public MecanographicNumber getMecanographicNumber() {
+        return mecanographicNumber;
+    }
+
+    public EmailAddress getEmail() {
+        return email;
+    }
+
+    public eapli.framework.infrastructure.authz.domain.model.Name getName() {
+        return name;
+    }
+
+    public eapli.framework.infrastructure.authz.domain.model.Password getPassword() {
+        return password;
+    }
 
     /* package */ SignupRequest(final Username username, final Password password, final Name name,
             final EmailAddress email, final MecanographicNumber mecanographicNumber,

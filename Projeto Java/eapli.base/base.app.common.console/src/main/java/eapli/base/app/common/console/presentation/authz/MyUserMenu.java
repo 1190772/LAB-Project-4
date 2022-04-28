@@ -29,6 +29,9 @@ import eapli.framework.actions.menu.MenuItem;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.infrastructure.authz.domain.model.Role;
+import eapli.base.app.common.console.presentation.authz.ChangePasswordUI;
+import eapli.base.app.common.console.presentation.authz.LoginUI;
+import eapli.base.app.common.console.presentation.authz.LogoutUI;
 
 public class MyUserMenu extends Menu {
 

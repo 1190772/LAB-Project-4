@@ -31,6 +31,7 @@ import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 import eapli.framework.presentation.console.SelectWidget;
+import eapli.base.app.backoffice.console.presentation.clientuser.SignupRequestPrinter;
 
 /**
  *

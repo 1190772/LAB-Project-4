@@ -39,6 +39,7 @@ import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.infrastructure.eventpubsub.EventPublisher;
 import eapli.framework.infrastructure.eventpubsub.impl.inprocess.InProcessPubSub;
 import eapli.framework.validations.Preconditions;
+import eapli.base.clientusermanagement.application.AcceptRefuseSignupRequestController;
 
 /**
  * the controller for the use case "Accept or refuse signup request"
@@ -46,7 +47,7 @@ import eapli.framework.validations.Preconditions;
  * this implementation makes use of domain events to (1) follow the rule that
  * one controller should only modify one aggregate, and (2) notify other parts
  * of the system to react accordingly. For an alternative transactional approach
- * see {@link AcceptRefuseSignupRequestControllerTxImpl}
+ * see {@link eapli.base.clientusermanagement.application.AcceptRefuseSignupRequestControllerTxImpl}
  *
  * @author Paulo Gandra de Sousa
  */
@@ -86,7 +87,7 @@ public class AcceptRefuseSignupRequestControllerEventfullImpl
         theSignupRequest = signupRequestsRepository.save(theSignupRequest);
 
         // notify interested parties (if any)
-        final DomainEvent event = new SignupAcceptedEvent(theSignupRequest);
+        final DomainEvent event = (DomainEvent) new SignupAcceptedEvent(theSignupRequest);
         dispatcher.publish(event);
 
         return theSignupRequest;

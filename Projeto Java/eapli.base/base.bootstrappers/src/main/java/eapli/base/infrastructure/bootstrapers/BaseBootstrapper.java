@@ -40,6 +40,7 @@ import eapli.framework.infrastructure.authz.domain.model.SystemUserBuilder;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 import eapli.framework.strings.util.Strings;
 import eapli.framework.validations.Invariants;
+import eapli.base.infrastructure.bootstrapers.MasterUsersBootstrapper;
 
 /**
  * Base Bootstrapping data app

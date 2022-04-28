@@ -26,6 +26,8 @@ import java.util.Set;
 import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.actions.Action;
 import eapli.framework.infrastructure.authz.domain.model.Role;
+import eapli.base.infrastructure.bootstrapers.UsersBootstrapperBase;
+import eapli.base.infrastructure.bootstrapers.TestDataConstants;
 
 /**
  * @author Paulo Gandra Sousa

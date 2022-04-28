@@ -21,6 +21,7 @@
 package eapli.base.app.backoffice.console.presentation.authz;
 
 import eapli.framework.actions.Action;
+import eapli.base.app.backoffice.console.presentation.authz.AddUserUI;
 
 /**
  * Menu action for adding a new user to the application. Created by nuno on

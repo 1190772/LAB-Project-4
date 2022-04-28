@@ -23,6 +23,7 @@
  */
 package eapli.base.clientusermanagement.domain;
 
+import eapli.base.clientusermanagement.domain.MecanographicNumber;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -47,7 +48,7 @@ import eapli.framework.infrastructure.authz.domain.model.SystemUser;
  *
  */
 @Entity
-public class ClientUser implements AggregateRoot<MecanographicNumber> {
+public class ClientUser implements eapli.framework.domain.model.AggregateRoot<MecanographicNumber>, eapli.framework.domain.model.DomainEntity<Comparable> {
 
     @Version
     private Long version;

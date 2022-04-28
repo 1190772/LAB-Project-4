@@ -27,6 +27,8 @@ import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 import eapli.framework.infrastructure.authz.repositories.impl.JpaAutoTxUserRepository;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
+import eapli.base.persistence.impl.jpa.JpaClientUserRepository;
+import eapli.base.persistence.impl.jpa.JpaSignupRequestRepository;
 
 /**
  *

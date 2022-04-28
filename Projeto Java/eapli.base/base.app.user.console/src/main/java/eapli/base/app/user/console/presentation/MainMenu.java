@@ -32,6 +32,7 @@ import eapli.framework.presentation.console.ExitWithMessageAction;
 import eapli.framework.presentation.console.menu.MenuItemRenderer;
 import eapli.framework.presentation.console.menu.MenuRenderer;
 import eapli.framework.presentation.console.menu.VerticalMenuRenderer;
+import eapli.base.app.user.console.presentation.ClientUserBaseUI;
 
 /**
  * @author Paulo Gandra Sousa
@@ -94,4 +95,5 @@ class MainMenu extends ClientUserBaseUI {
 
         return mainMenu;
     }
+
 }

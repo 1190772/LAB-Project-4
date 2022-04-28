@@ -26,6 +26,7 @@ package eapli.base.clientusermanagement.application.eventhandlers;
 import eapli.base.clientusermanagement.domain.events.NewUserRegisteredFromSignupEvent;
 import eapli.framework.domain.events.DomainEvent;
 import eapli.framework.infrastructure.eventpubsub.EventHandler;
+import eapli.base.clientusermanagement.application.eventhandlers.AddClientUserOnSignupAcceptedController;
 
 /**
  * @author Paulo Gandra de Sousa

@@ -21,6 +21,7 @@
 package eapli.base.app.backoffice.console.presentation.clientuser;
 
 import eapli.framework.actions.Action;
+import eapli.base.app.backoffice.console.presentation.clientuser.AcceptRefuseSignupRequestUI;
 
 /**
  * Created by AJS on 08/04/2016.

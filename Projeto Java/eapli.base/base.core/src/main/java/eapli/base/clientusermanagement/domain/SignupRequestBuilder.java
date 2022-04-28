@@ -35,6 +35,8 @@ import eapli.framework.infrastructure.authz.domain.model.Name;
 import eapli.framework.infrastructure.authz.domain.model.Password;
 import eapli.framework.infrastructure.authz.domain.model.Username;
 import eapli.framework.time.util.Calendars;
+import eapli.base.clientusermanagement.domain.SignupRequest;
+import eapli.base.clientusermanagement.domain.MecanographicNumber;
 
 /**
  * A factory for Signup Requests.

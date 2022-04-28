@@ -35,6 +35,7 @@ import eapli.base.usermanagement.domain.BasePasswordPolicy;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.infrastructure.authz.domain.model.PlainTextEncoder;
 import eapli.framework.infrastructure.eventpubsub.EventDispatcher;
+import eapli.framework.infrastructure.authz.application.PasswordPolicy;
 
 /**
  *
@@ -56,7 +57,7 @@ public final class BaseBackoffice extends BaseApplication {
     public static void main(final String[] args) {
 
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
-                new BasePasswordPolicy(), new PlainTextEncoder());
+                new PasswordPolicy(), new PlainTextEncoder());
 
         new BaseBackoffice().run(args);
     }
