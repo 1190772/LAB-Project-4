@@ -1,0 +1,26 @@
+@startuml
+
+autonumber
+
+actor "Sales Clerk" as SC
+
+activate SC
+SC -> ":System" : Asks to view the Product Catalog
+activate ":System"
+":System" --> SC : Asks what he wants to filter
+deactivate ":System"
+
+SC -> ":System" : Gives filter options
+activate ":System"
+":System" --> SC : Asks how he wants to sort the data
+deactivate ":System"
+
+SC -> ":System" : Gives the sort options
+activate ":System"
+":System" --> SC : Shows the Product Catalog sorted and filtered
+deactivate ":System"
+
+deactivate SC
+
+
+@enduml

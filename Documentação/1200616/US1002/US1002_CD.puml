@@ -1,0 +1,40 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Package Presentation{
+class SearchProductCatalogUI {
+}
+}
+
+Package Application{
+
+class SearchProductCatalogController {
+}
+}
+
+Package Domain{
+
+class ProductCatalog {
+}
+
+class ProductCatalogFactory{
+}
+}
+
+
+Package Persistence{
+class RepositoryFactory{
+}
+
+class ProductCatalogRepository{
+}
+}
+
+SearchProductCatalogUI ..> SearchProductCatalogController
+SearchProductCatalogController ..> ProductCatalog
+SearchProductCatalogController ..> ProductCatalogRepository
+SearchProductCatalogController ..> RepositoryFactory
+SearchProductCatalogController ..> ProductCatalogFactory
+RepositoryFactory ..> ProductCatalogRepository
+ProductCatalogFactory..> ProductCatalog
+@enduml
