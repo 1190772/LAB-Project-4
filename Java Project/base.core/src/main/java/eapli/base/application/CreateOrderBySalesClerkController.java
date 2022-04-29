@@ -1,44 +1,50 @@
-package eapli.base.application;
+/*package eapli.base.application;
+
+import eapli.base.domain.model.*;
+import eapli.base.service.CreateOrderBySalesClerkService;
+import eapli.base.usermanagement.domain.BaseRoles;
+import eapli.framework.infrastructure.authz.application.AuthorizationService;
+import eapli.framework.infrastructure.authz.application.AuthzRegistry;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CreateOrderBySalesClerkController {
-/*
-    final eapli.base.domain.model.Customer customer;
-    final Product product;
-    final Order order;
+
+    private final AuthorizationService authz = AuthzRegistry.authorizationService();
+    Customer customer;
+    Product product;
+    Order order;
     List<Product> products;
 
-    public CreateOrderBySaleClerkController {
+    public CreateOrderBySaleClerkController() {
+        authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
         products=new ArrayList<>();
     }
 
-    public findCustomerById(int id){
-
+    public Customer findCustomerById(int id){
+        return CreateOrderBySalesClerkService.findCustomerById(id);
     }
 
-    public ShowCustomerDto(){
-
+    public Product findProductById(int id){
+        return CreateOrderBySalesClerkService.findProductById(id);
     }
 
-    public findProductById(int id){
-
-    }
-
-    public ShowProductDto(){
-
-    }
-
-    public AddProduct(){
+    public void AddProduct(){
         AddToProductList(product);
     }
 
-    public AddToProductList(Product product){
+    public void AddToProductList(Product product){
         products.add(product);
     }
 
-    public SaveOrder(){
 
+    public boolean SaveOrder(){
+        if(CreateOrderBySalesClerkService.saveOrder(order)!=null){
+            return true;
+        }
+        return false;
     }
-    */
 
 
-}
+}*/
