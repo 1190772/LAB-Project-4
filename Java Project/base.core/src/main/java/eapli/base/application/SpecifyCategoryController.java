@@ -1,6 +1,7 @@
 package eapli.base.application;
 
 import eapli.base.domain.model.*;
+import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.service.SpecifyCategoryService;
 import eapli.base.usermanagement.domain.BaseRoles;

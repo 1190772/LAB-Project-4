@@ -1,6 +1,7 @@
 /*package eapli.base.service;
 
 import eapli.base.domain.model.*;
+import eapli.base.domain.persistence.OrderRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
 public class CreateOrderBySalesClerkService {
@@ -17,7 +18,7 @@ public class CreateOrderBySalesClerkService {
         return productRepository.findProductById(id);
     }
 
-    public Order saveOrder(order){
+    public Order saveOrder(Order order){
         return orderRepository.save(order);
     }
 
