@@ -11,13 +11,13 @@ public
 class AlphaNumericCode implements ValueObject, Serializable, Comparable<AlphaNumericCode>{
     private static final long serialVersionUID = 1L;
 
-    private String codAlfaNum;
+    private String code;
 
-    public AlphaNumericCode(final String codAlfaNum) throws AlphaNumericCodeException {
-        if(!codAlfaNum.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")||StringPredicates.isNullOrEmpty(codAlfaNum)||codAlfaNum.length()>15) {
+    public AlphaNumericCode(final String code) throws AlphaNumericCodeException {
+        if(!code.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")||StringPredicates.isNullOrEmpty(code)||code.length()>15) {
             throw new AlphaNumericCodeException("Codigo Alfa Numerico inválido");
         }
-        this.codAlfaNum = codAlfaNum;
+        this.code = code;
     }
 
     protected AlphaNumericCode() {
@@ -38,29 +38,29 @@ class AlphaNumericCode implements ValueObject, Serializable, Comparable<AlphaNum
         }
 
         final AlphaNumericCode that = (AlphaNumericCode) o;
-        return this.codAlfaNum.equals(that.codAlfaNum);
+        return this.code.equals(that.code);
     }
 
     @Override
     public int hashCode() {
-        return this.codAlfaNum.hashCode();
+        return this.code.hashCode();
     }
 
     @Override
     public String toString() {
-        return this.codAlfaNum;
+        return this.code;
     }
 
     @Override
     public int compareTo(final AlphaNumericCode arg0) {
-        return codAlfaNum.compareTo(arg0.codAlfaNum);
+        return code.compareTo(arg0.code);
     }
 
     public String codAlfaNum(){
-        return this.codAlfaNum;
+        return this.code;
     }
 
     public void changeCodAlfaNumTo(String codAlfaNum){
-        this.codAlfaNum=codAlfaNum;
+        this.code =codAlfaNum;
     }
 }

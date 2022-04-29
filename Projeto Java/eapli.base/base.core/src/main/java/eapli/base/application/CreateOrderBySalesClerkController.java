@@ -1,7 +1,7 @@
 package eapli.base.application;
 
 public class CreateOrderBySalesClerkController {
-
+/*
     final eapli.base.domain.model.Customer customer;
     final Product product;
     final Order order;
@@ -38,5 +38,7 @@ public class CreateOrderBySalesClerkController {
     public SaveOrder(){
 
     }
+    */
+
 
 }

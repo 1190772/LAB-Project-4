@@ -11,21 +11,21 @@ public class Description implements ValueObject, Serializable, Comparable<Descri
 
     private static final long serialVersionUID = 1L;
 
-    private String descricao;
+    private String description;
 
-    public Description(final String descricao) throws DescriptionException {
-        if (descricao.length() > 50 || StringPredicates.isNullOrEmpty(descricao)) {
+    public Description(final String description) throws DescriptionException {
+        if (description.length() > 50 || StringPredicates.isNullOrEmpty(description)) {
             throw new DescriptionException("Descricao inválida");
         }
-        this.descricao = descricao;
+        this.description = description;
     }
 
     protected Description() {
         // for ORM
     }
 
-    public static Description valueOf(final String descricao) throws DescriptionException {
-        return new Description(descricao);
+    public static Description valueOf(final String description) throws DescriptionException {
+        return new Description(description);
     }
 
     @Override
@@ -38,30 +38,30 @@ public class Description implements ValueObject, Serializable, Comparable<Descri
         }
 
         final Description that = (Description) o;
-        return this.descricao.equals(that.descricao);
+        return this.description.equals(that.description);
     }
 
     @Override
     public int hashCode() {
-        return this.descricao.hashCode();
+        return this.description.hashCode();
     }
 
     @Override
     public String toString() {
-        return this.descricao;
+        return this.description;
     }
 
     @Override
     public int compareTo(final Description arg0) {
-        return descricao.compareTo(arg0.descricao);
+        return description.compareTo(arg0.description);
     }
 
     public String descricao() {
-        return this.descricao;
+        return this.description;
     }
 
-    public void changeDescricaoTo(String descricao) {
-        this.descricao = descricao;
+    public void changeDescricaoTo(String description) {
+        this.description = description;
     }
 
 }

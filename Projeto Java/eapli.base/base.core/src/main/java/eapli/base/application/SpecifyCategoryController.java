@@ -20,7 +20,7 @@ public class SpecifyCategoryController {
     }
 
     public Category specifyCategory (final String code, final String description) throws DescriptionException, AlphaNumericCodeException {
-        //authz.ensureAuthenticatedUserHasAnyOf(HelpdeskRoles.HR_MANAGER,HelpdeskRoles.POWER_USER);
+        //ver as roles
         AlphaNumericCode cod=registerAlphaNumericCode(code);
         Description description1=registerDescription(description);
         Category category=new Category(cod,description1);

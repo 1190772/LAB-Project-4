@@ -47,7 +47,7 @@ public class Category implements AggregateRoot<AlphaNumericCode> {
         return String.format("AlphaNumeric Code: %s - Description: %s ", this.code, this.description);
     }
 
-    public AlphaNumericCode codigoAlfaNumerico() {
+    public AlphaNumericCode alphaNumericCode() {
         return identity();
     }
 
