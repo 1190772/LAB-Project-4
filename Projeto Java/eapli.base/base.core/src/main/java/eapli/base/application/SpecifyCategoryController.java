@@ -2,10 +2,9 @@ package eapli.base.application;
 
 import eapli.base.domain.model.*;
 import eapli.base.infrastructure.persistence.PersistenceContext;
+import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
-
-import javax.management.Descriptor;
 
 public class SpecifyCategoryController {
     private final AuthorizationService authz = AuthzRegistry.authorizationService();
@@ -20,7 +19,7 @@ public class SpecifyCategoryController {
     }
 
     public Category specifyCategory (final String code, final String description) throws DescriptionException, AlphaNumericCodeException {
-        //ver as roles
+        authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
         AlphaNumericCode cod=registerAlphaNumericCode(code);
         Description description1=registerDescription(description);
         Category category=new Category(cod,description1);
