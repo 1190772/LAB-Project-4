@@ -6,6 +6,7 @@ actor "SalesClerk" as SC
 
 participant ":SearchProductCatalogUI" as UI
 participant ":SearchProductCatalogController" as CTRL
+participant ":SearchProductCatalogService" as SERV
 participant ":PersistenceContext" as PERS
 participant ":RepositoryFactory" as REPF
 participant ":ProductCatalogRepository" as REP
@@ -19,7 +20,10 @@ activate UI
 UI -> CTRL : create()
 activate CTRL
 
-CTRL -> PERS : repositories()
+CTRL -> SERV : create()
+activate SERV
+
+SERV -> PERS : repositories()
 
 PERS -> REPF : create()
 
@@ -29,26 +33,34 @@ REPF -> REP : create()
 
 deactivate REPF
 
-REP --> CTRL
+REP --> SERV
 
-deactivate REP
+
+SERV --> CTRL
+deactivate SERV
+
 
 CTRL --> UI
-
 deactivate CTRL
 
-UI --> SC : Asks what he wants to filter
 
+UI --> SC : Asks what he wants to filter
+deactivate CTRL
 deactivate UI
 
+
 SC -> UI : Gives filter options
+
 activate UI
 
 UI -> CTRL : SearchProductCatalog()
 
 activate CTRL
 
-CTRL -> PERS : repositories()
+CTRL -> SERV : SearchProductCatalog()
+activate SERV
+
+SERV -> PERS : repositories()
 
 PERS -> REPF : SearchProductCatalog()
 
@@ -58,11 +70,16 @@ REPF -> REP : SearchProductCatalog()
 
 deactivate REPF
 
-REP --> CTRL
+REP --> SERV
+
+
+SERV --> CTRL
+deactivate SERV
+
 
 CTRL --> UI
-
 deactivate CTRL
+
 
 UI --> SC : Asks how he wants to sort the data
 
@@ -75,7 +92,10 @@ UI -> CTRL : SortProductCatalog()
 
 activate CTRL
 
-CTRL -> PERS : repositories()
+CTRL -> SERV : SortProductCatalog()
+activate SERV
+
+SERV -> PERS : repositories()
 
 PERS -> REPF : SortProductCatalog()
 
@@ -85,18 +105,17 @@ REPF -> REP : SortProductCatalog()
 
 deactivate REPF
 
-REP --> CTRL
+REP --> SERV
 
-deactivate REP
+SERV --> CTRL
+deactivate SERV
 
 CTRL --> UI
-
 deactivate CTRL
 
 UI --> SC : Shows the Product Catalog sorted and filtered
 
 deactivate UI
-
 
 deactivate SC
 
