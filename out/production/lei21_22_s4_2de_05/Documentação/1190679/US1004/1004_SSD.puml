@@ -1,0 +1,38 @@
+@startuml
+autonumber
+actor "SalesClerk" as SC
+
+activate SC
+SC -> ":System" : inicia a criação de uma ordem para um cliente
+activate ":System"
+":System" --> SC : solicita o id do cliente
+deactivate ":System"
+SC -> ":System" : submete informação
+activate ":System"
+":System" --> SC : mostra a informação sobre o cliente e pede confirmação
+deactivate ":System"
+SC -> ":System" : confirma os dados
+activate ":System"
+
+loop for each produto
+":System" --> SC : solicita o code do produto
+deactivate ":System"
+SC -> ":System" : submete informação
+activate ":System"
+":System" --> SC : mostra a informação sobre o produto e pede confirmação
+deactivate ":System"
+SC -> ":System" : confirma os dados
+activate ":System"
+":System" --> SC : informa da adição do produto
+deactivate ":System"
+SC -> ":System" : continua a adicionar produtos ou conclui a adição de produtos
+activate ":System"
+end
+
+":System" --> SC : informa do sucesso da operação
+deactivate ":System"
+
+deactivate SC
+
+@enduml
+

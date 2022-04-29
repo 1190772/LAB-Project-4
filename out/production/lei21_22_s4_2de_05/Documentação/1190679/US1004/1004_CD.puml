@@ -1,0 +1,79 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class CreateOrderBySalesClerkUI {
+}
+}
+
+Package Application{
+class CreateOrderBySalesClerkController {
+  +findCustomerById(id)
+  +ShowCustomerDto()
+  +findProductById(id)
+  +ShowProductDto()
+  +AddProduct()
+  +AddToProductList(product)
+  +SaveOrder()
+}
+}
+
+
+Package Domain{
+class Customer {
+  +toDto()
+}
+
+class Product {
+  -decricao
+  -cor
+  +toDto()
+}
+
+class Order {
+  +create(productsList)
+}
+}
+
+Package Persistence{
+class RepositoryFactory{
+  +customers()
+  +products()
+  +orders()
+}
+
+class CustomerRepository{
+  +findCustomerById(id)
+}
+
+class ProductRepository{
+  +findProductById(id)
+}
+  
+class OrderRepository{
+  +saveOrder(order)
+}
+}
+
+
+
+CreateOrderBySalesClerkUI ..> CreateOrderBySalesClerkController
+CreateOrderBySalesClerkController ..> Customer
+CreateOrderBySalesClerkController ..> Product
+CreateOrderBySalesClerkController ..> Order
+CreateOrderBySalesClerkController ..> RepositoryFactory
+CreateOrderBySalesClerkController ..> CustomerRepository
+CreateOrderBySalesClerkController ..> ProductRepository
+CreateOrderBySalesClerkController ..> OrderRepository
+RepositoryFactory ..|> CustomerRepository
+RepositoryFactory ..|> ProductRepository
+RepositoryFactory ..|> OrderRepository
+CustomerRepository ..|> Customer
+ProductRepository ..|> Product
+OrderRepository ..|> Order
+Order "0..*" --> "1" Customer : encomendado para
+Order "1" --> "*" Product : contém
+
+
+@enduml

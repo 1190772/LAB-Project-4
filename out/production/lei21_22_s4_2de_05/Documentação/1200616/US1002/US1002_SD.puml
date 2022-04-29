@@ -1,0 +1,122 @@
+@startuml
+
+autonumber
+
+actor "SalesClerk" as SC
+
+participant ":SearchProductCatalogUI" as UI
+participant ":SearchProductCatalogController" as CTRL
+participant ":SearchProductCatalogService" as SERV
+participant ":PersistenceContext" as PERS
+participant ":RepositoryFactory" as REPF
+participant ":ProductCatalogRepository" as REP
+
+
+activate SC
+
+SC -> UI : Asks to view the Product Catalog
+activate UI
+
+UI -> CTRL : create()
+activate CTRL
+
+CTRL -> SERV : create()
+activate SERV
+
+SERV -> PERS : repositories()
+
+PERS -> REPF : create()
+
+activate REPF
+
+REPF -> REP : create()
+
+deactivate REPF
+
+REP --> SERV
+
+
+SERV --> CTRL
+deactivate SERV
+
+
+CTRL --> UI
+deactivate CTRL
+
+
+UI --> SC : Asks what he wants to filter
+deactivate CTRL
+deactivate UI
+
+
+SC -> UI : Gives filter options
+
+activate UI
+
+UI -> CTRL : SearchProductCatalog()
+
+activate CTRL
+
+CTRL -> SERV : SearchProductCatalog()
+activate SERV
+
+SERV -> PERS : repositories()
+
+PERS -> REPF : SearchProductCatalog()
+
+activate REPF
+
+REPF -> REP : SearchProductCatalog()
+
+deactivate REPF
+
+REP --> SERV
+
+
+SERV --> CTRL
+deactivate SERV
+
+
+CTRL --> UI
+deactivate CTRL
+
+
+UI --> SC : Asks how he wants to sort the data
+
+deactivate UI
+
+SC -> UI : Gives the sort options
+activate UI
+
+UI -> CTRL : SortProductCatalog()
+
+activate CTRL
+
+CTRL -> SERV : SortProductCatalog()
+activate SERV
+
+SERV -> PERS : repositories()
+
+PERS -> REPF : SortProductCatalog()
+
+activate REPF
+
+REPF -> REP : SortProductCatalog()
+
+deactivate REPF
+
+REP --> SERV
+
+SERV --> CTRL
+deactivate SERV
+
+CTRL --> UI
+deactivate CTRL
+
+UI --> SC : Shows the Product Catalog sorted and filtered
+
+deactivate UI
+
+deactivate SC
+
+@enduml

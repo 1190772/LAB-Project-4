@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentScriptType="application/ecmascript" contentStyleType="text/css" height="923px" preserveAspectRatio="none" style="width:1235px;height:923px;background:#FFFFFF;" version="1.1" viewBox="0 0 1235 923" width="1235px" zoomAndPan="magnify"><defs><filter height="300%" id="f1ctyphcicbao5" width="300%" x="-1" y="-1"><feGaussianBlur result="blurOut" stdDeviation="2.0"/><feColorMatrix in="blurOut" result="blurOut2" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .4 0"/><feOffset dx="4.0" dy="4.0" in="blurOut2" result="blurOut3"/><feBlend in="SourceGraphic" in2="blurOut3" mode="normal"/></filter></defs><g><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="720.4375" style="stroke:#A80036;stroke-width:1.0;" width="10" x="37" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="364.7734"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="607.5859"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="395.125"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="637.9375"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="213.0156"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="455.8281"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="698.6406"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="42" x2="42" y1="89.6094" y2="838.0469"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="358.5" x2="358.5" y1="89.6094" y2="838.0469"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="570.5" x2="570.5" y1="89.6094" y2="838.0469"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="766.5" x2="766.5" y1="89.6094" y2="838.0469"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="946.5" x2="946.5" y1="89.6094" y2="838.0469"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:5.0,5.0;" x1="1131.5" x2="1131.5" y1="89.6094" y2="838.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="86.5332">SalesClerk</text><ellipse cx="42" cy="15" fill="#FEFECE" filter="url(#f1ctyphcicbao5)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M42,23 L42,50 M29,31 L55,31 M42,50 L29,65 M42,50 L55,65 " fill="none" filter="url(#f1ctyphcicbao5)" style="stroke:#A80036;stroke-width:2.0;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="68" x="5" y="851.5801">SalesClerk</text><ellipse cx="42" cy="864.6563" fill="#FEFECE" filter="url(#f1ctyphcicbao5)" rx="8" ry="8" style="stroke:#A80036;stroke-width:2.0;"/><path d="M42,872.6563 L42,899.6563 M29,880.6563 L55,880.6563 M42,899.6563 L29,914.6563 M42,899.6563 L55,914.6563 " fill="none" filter="url(#f1ctyphcicbao5)" style="stroke:#A80036;stroke-width:2.0;"/><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="173" x="270.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="277.5" y="74.5332">:SearchProductCatalogUI</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="173" x="270.5" y="837.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="159" x="277.5" y="858.5801">:SearchProductCatalogUI</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="223" x="457.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="464.5" y="74.5332">:SearchProductCatalogController</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="223" x="457.5" y="837.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="209" x="464.5" y="858.5801">:SearchProductCatalogController</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="140" x="694.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="701.5" y="74.5332">:PersistenceContext</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="140" x="694.5" y="837.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="126" x="701.5" y="858.5801">:PersistenceContext</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="134" x="877.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="884.5" y="74.5332">:RepositoryFactory</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="134" x="877.5" y="837.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120" x="884.5" y="858.5801">:RepositoryFactory</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="184" x="1037.5" y="53"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="1044.5" y="74.5332">:ProductCatalogRepository</text><rect fill="#FEFECE" filter="url(#f1ctyphcicbao5)" height="31.6094" style="stroke:#A80036;stroke-width:1.5;" width="184" x="1037.5" y="837.0469"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="170" x="1044.5" y="858.5801">:ProductCatalogRepository</text><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="720.4375" style="stroke:#A80036;stroke-width:1.0;" width="10" x="37" y="99.6094"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="121.9609"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="364.7734"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="212.4609" style="stroke:#A80036;stroke-width:1.0;" width="10" x="354" y="607.5859"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="152.3125"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="395.125"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="151.7578" style="stroke:#A80036;stroke-width:1.0;" width="10" x="566" y="637.9375"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="213.0156"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="455.8281"/><rect fill="#FFFFFF" filter="url(#f1ctyphcicbao5)" height="30.3516" style="stroke:#A80036;stroke-width:1.0;" width="10" x="941.5" y="698.6406"/><polygon fill="#A80036" points="342,117.9609,352,121.9609,342,125.9609,346,121.9609" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="47" x2="348" y1="121.9609" y2="121.9609"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="54" y="117.1045">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="192" x="65" y="117.1045">Asks to view the Product Catalog</text><polygon fill="#A80036" points="554,148.3125,564,152.3125,554,156.3125,558,152.3125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="364" x2="560" y1="152.3125" y2="152.3125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="371" y="147.4561">2</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="382" y="147.4561">create()</text><polygon fill="#A80036" points="754.5,178.6641,764.5,182.6641,754.5,186.6641,758.5,182.6641" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="576" x2="760.5" y1="182.6641" y2="182.6641"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="583" y="177.8076">3</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="594" y="177.8076">repositories()</text><polygon fill="#A80036" points="929.5,209.0156,939.5,213.0156,929.5,217.0156,933.5,213.0156" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="766.5" x2="935.5" y1="213.0156" y2="213.0156"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="773.5" y="208.1592">4</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="784.5" y="208.1592">create()</text><polygon fill="#A80036" points="1119.5,239.3672,1129.5,243.3672,1119.5,247.3672,1123.5,243.3672" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="946.5" x2="1125.5" y1="243.3672" y2="243.3672"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="953.5" y="238.5107">5</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="44" x="964.5" y="238.5107">create()</text><polygon fill="#A80036" points="587,269.7188,577,273.7188,587,277.7188,583,273.7188" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="581" x2="1130.5" y1="273.7188" y2="273.7188"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="593" y="268.8623">6</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="608" y="268.8623"/><polygon fill="#A80036" points="375,300.0703,365,304.0703,375,308.0703,371,304.0703" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="369" x2="570" y1="304.0703" y2="304.0703"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="381" y="299.2139">7</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="396" y="299.2139"/><polygon fill="#A80036" points="58,330.4219,48,334.4219,58,338.4219,54,334.4219" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="52" x2="358" y1="334.4219" y2="334.4219"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="64" y="329.5654">8</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="160" x="75" y="329.5654">Asks what he wants to filter</text><polygon fill="#A80036" points="342,360.7734,352,364.7734,342,368.7734,346,364.7734" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="47" x2="348" y1="364.7734" y2="364.7734"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="7" x="54" y="359.917">9</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="106" x="65" y="359.917">Gives filter options</text><polygon fill="#A80036" points="554,391.125,564,395.125,554,399.125,558,395.125" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="364" x2="560" y1="395.125" y2="395.125"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="371" y="390.2686">10</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="389" y="390.2686">SearchProductCatalog()</text><polygon fill="#A80036" points="754.5,421.4766,764.5,425.4766,754.5,429.4766,758.5,425.4766" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="576" x2="760.5" y1="425.4766" y2="425.4766"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="583" y="420.6201">11</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="601" y="420.6201">repositories()</text><polygon fill="#A80036" points="929.5,451.8281,939.5,455.8281,929.5,459.8281,933.5,455.8281" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="766.5" x2="935.5" y1="455.8281" y2="455.8281"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="773.5" y="450.9717">12</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="791.5" y="450.9717">SearchProductCatalog()</text><polygon fill="#A80036" points="1119.5,482.1797,1129.5,486.1797,1119.5,490.1797,1123.5,486.1797" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="946.5" x2="1125.5" y1="486.1797" y2="486.1797"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="953.5" y="481.3232">13</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="138" x="971.5" y="481.3232">SearchProductCatalog()</text><polygon fill="#A80036" points="587,512.5313,577,516.5313,587,520.5313,583,516.5313" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="581" x2="1130.5" y1="516.5313" y2="516.5313"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="593" y="511.6748">14</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="615" y="511.6748"/><polygon fill="#A80036" points="375,542.8828,365,546.8828,375,550.8828,371,546.8828" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="369" x2="570" y1="546.8828" y2="546.8828"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="381" y="542.0264">15</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="403" y="542.0264"/><polygon fill="#A80036" points="58,573.2344,48,577.2344,58,581.2344,54,577.2344" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="52" x2="358" y1="577.2344" y2="577.2344"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="64" y="572.3779">16</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="205" x="82" y="572.3779">Asks how he wants to sort the data</text><polygon fill="#A80036" points="342,603.5859,352,607.5859,342,611.5859,346,607.5859" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="47" x2="348" y1="607.5859" y2="607.5859"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="54" y="602.7295">17</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="126" x="72" y="602.7295">Gives the sort options</text><polygon fill="#A80036" points="554,633.9375,564,637.9375,554,641.9375,558,637.9375" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="364" x2="560" y1="637.9375" y2="637.9375"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="371" y="633.0811">18</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="389" y="633.0811">SortProductCatalog()</text><polygon fill="#A80036" points="754.5,664.2891,764.5,668.2891,754.5,672.2891,758.5,668.2891" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="576" x2="760.5" y1="668.2891" y2="668.2891"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="583" y="663.4326">19</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="75" x="601" y="663.4326">repositories()</text><polygon fill="#A80036" points="929.5,694.6406,939.5,698.6406,929.5,702.6406,933.5,698.6406" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="766.5" x2="935.5" y1="698.6406" y2="698.6406"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="773.5" y="693.7842">20</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="791.5" y="693.7842">SortProductCatalog()</text><polygon fill="#A80036" points="1119.5,724.9922,1129.5,728.9922,1119.5,732.9922,1123.5,728.9922" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;" x1="946.5" x2="1125.5" y1="728.9922" y2="728.9922"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="953.5" y="724.1357">21</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="121" x="971.5" y="724.1357">SortProductCatalog()</text><polygon fill="#A80036" points="587,755.3438,577,759.3438,587,763.3438,583,759.3438" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="581" x2="1130.5" y1="759.3438" y2="759.3438"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="593" y="754.4873">22</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="615" y="754.4873"/><polygon fill="#A80036" points="375,785.6953,365,789.6953,375,793.6953,371,789.6953" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="369" x2="570" y1="789.6953" y2="789.6953"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="381" y="784.8389">23</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="0" x="403" y="784.8389"/><polygon fill="#A80036" points="53,816.0469,43,820.0469,53,824.0469,49,820.0469" style="stroke:#A80036;stroke-width:1.0;"/><line style="stroke:#A80036;stroke-width:1.0;stroke-dasharray:2.0,2.0;" x1="47" x2="358" y1="820.0469" y2="820.0469"/><text fill="#000000" font-family="sans-serif" font-size="13" font-weight="bold" lengthAdjust="spacing" textLength="14" x="59" y="815.1904">24</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthAdjust="spacing" textLength="265" x="77" y="815.1904">Shows the Product Catalog sorted and filtered</text><!--MD5=[848d1b8785213a2dc71e9e4e4db24ccf]
+@startuml
+
+autonumber
+
+actor "SalesClerk" as SC
+
+participant ":SearchProductCatalogUI" as UI
+participant ":SearchProductCatalogController" as CTRL
+participant ":PersistenceContext" as PERS
+participant ":RepositoryFactory" as REPF
+participant ":ProductCatalogRepository" as REP
+
+
+activate SC
+
+SC -> UI : Asks to view the Product Catalog
+activate UI
+
+UI -> CTRL : create()
+activate CTRL
+
+CTRL -> PERS : repositories()
+
+PERS -> REPF : create()
+
+activate REPF
+
+REPF -> REP : create()
+
+deactivate REPF
+
+REP - -> CTRL
+
+deactivate REP
+
+CTRL - -> UI
+
+deactivate CTRL
+
+UI - -> SC : Asks what he wants to filter
+
+deactivate UI
+
+SC -> UI : Gives filter options
+activate UI
+
+UI -> CTRL : SearchProductCatalog()
+
+activate CTRL
+
+CTRL -> PERS : repositories()
+
+PERS -> REPF : SearchProductCatalog()
+
+activate REPF
+
+REPF -> REP : SearchProductCatalog()
+
+deactivate REPF
+
+REP - -> CTRL
+
+CTRL - -> UI
+
+deactivate CTRL
+
+UI - -> SC : Asks how he wants to sort the data
+
+deactivate UI
+
+SC -> UI : Gives the sort options
+activate UI
+
+UI -> CTRL : SortProductCatalog()
+
+activate CTRL
+
+CTRL -> PERS : repositories()
+
+PERS -> REPF : SortProductCatalog()
+
+activate REPF
+
+REPF -> REP : SortProductCatalog()
+
+deactivate REPF
+
+REP - -> CTRL
+
+deactivate REP
+
+CTRL - -> UI
+
+deactivate CTRL
+
+UI - -> SC : Shows the Product Catalog sorted and filtered
+
+deactivate UI
+
+
+deactivate SC
+
+@enduml
+
+PlantUML version 1.2021.11(Sat Oct 02 14:26:11 BST 2021)
+(GPL source distribution)
+Java Runtime: OpenJDK Runtime Environment
+JVM: OpenJDK 64-Bit Server VM
+Default Encoding: Cp1252
+Language: pt
+Country: PT
+--></g></svg>
