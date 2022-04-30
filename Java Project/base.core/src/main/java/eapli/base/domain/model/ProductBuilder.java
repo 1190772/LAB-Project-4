@@ -18,7 +18,9 @@ public class ProductBuilder implements DomainFactory<Product> {
 
     private TechnicalDescription technicalDeescription;
 
-    private Price price;
+    private Price priceWithTaxes;
+
+    private Price priceWithoutTaxes;
 
     private Reference reference;
 
@@ -92,11 +94,6 @@ public class ProductBuilder implements DomainFactory<Product> {
         return this;
     }
 
-    public ProductBuilder located(final StorageArea storageArea) {
-        buildOrThrow();
-        product.changeStorageAreaTo(storageArea);
-        return this;
-    }
 
 
     private Product buildOrThrow() {
@@ -105,7 +102,7 @@ public class ProductBuilder implements DomainFactory<Product> {
         } else if (category != null && internalCode != null && shortDescription != null && extendedDescription != null && barcode != null) {
             product = new Product(category ,  internalCode,  shortDescription,
                      extendedDescription,  technicalDeescription,
-                     brand,  reference,  productionCode,  barcode,  price);
+                     brand,  reference,  productionCode,  barcode,  priceWithTaxes,priceWithoutTaxes);
             return product;
         } else {
             throw new IllegalStateException();

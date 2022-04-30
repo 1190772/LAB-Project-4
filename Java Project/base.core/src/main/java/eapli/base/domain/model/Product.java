@@ -57,7 +57,11 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     private Barcode barcode;
 
     @Embedded
-    private Price price;
+    private Price priceWithTaxes;
+
+    @Embedded
+    private Price priceWithoutTaxes;
+
 
     @Embedded
     private Mesurements mesurements;
@@ -71,7 +75,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
 
    public Product(Category productCategory, InternalCode internalCode, ShortDescription shortDescription,
                   ExtendedDescription extendedDescription, TechnicalDescription technicalDeescription,
-                   Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode, Price price
+                   Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode,Price priceWithTaxes, Price priceWithoutTaxes
     ) {
         Preconditions.noneNull(productCategory, internalCode, shortDescription, extendedDescription, barcode);
         this.productCategory = productCategory;
@@ -81,9 +85,10 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         this.technicalDeescription = technicalDeescription;
         this.brand = brand;
         this.reference = reference;
-       this.productionCode = productionCode;
+        this.productionCode = productionCode;
         this.barcode = barcode;
-        this.price = price;
+        this.priceWithTaxes = priceWithTaxes;
+        this.priceWithoutTaxes = priceWithoutTaxes;
         this.productStatus = true;
    }
 
@@ -138,10 +143,17 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     }
 
     /**
-     * @return the Price of this Product
+     * @return the Price with taxes of this Product
      */
-    public Optional<Price> price() {
-        return Optional.ofNullable(price);
+    public Optional<Price> priceWithTaxes() {
+        return Optional.ofNullable(priceWithTaxes);
+    }
+
+    /**
+     * @return the Price with taxes of this Product
+     */
+    public Optional<Price> priceWithoutTaxes() {
+        return Optional.ofNullable(priceWithoutTaxes);
     }
 
     /**
@@ -151,13 +163,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         return Optional.ofNullable(mesurements);
     }
 
-    /**
-     * @return the StorageArea of this Product
-     */
-  /*  public Optional<StorageArea> storageArea() {
-        return Optional.ofNullable(storageArea);
-    }
-*/
+
     /**
      * @param photo
      * @return
@@ -198,7 +204,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         }
 
         return identity().equals(that.identity()) && productCategory.equals(that.productCategory)
-                && internalCode.equals(that.internalCode) && price.equals(that.price) && productStatus == that.productStatus;
+                && internalCode.equals(that.internalCode) && priceWithTaxes.equals(that.priceWithTaxes) && productStatus == that.productStatus;
     }
 
 
@@ -307,7 +313,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         if (newPrice == null) {
             throw new IllegalArgumentException();
         }
-        this.price = newPrice;
+        this.priceWithoutTaxes = newPrice;
     }
 
     /**
@@ -327,11 +333,5 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
      *
      * @param storageArea The new mesurements.
      */
-   /* public void changeStorageAreaTo(final StorageArea storageArea) {
-        if (storageArea == null) {
-            throw new IllegalArgumentException();
-        }
-        this.storageArea = storageArea;
-    }
-    */
+
 }

@@ -1,14 +1,7 @@
 package eapli.base.application;
 
-import eapli.base.domain.model.*;
-import eapli.base.infrastructure.persistence.PersistenceContext;
-
-import javax.transaction.Transactional;
-import java.util.Set;
-
-/*public class SpecifyProductController {
-
-    //    private AuthorizationService authorizationService;
+public class SpecifyProductController {
+ /*   //    private AuthorizationService authorizationService;
     private StorageAreaRepository productStorageArea =  PersistenceContext.repositories().storageAreas();
     private ProductCategoryRepository productCategoryRepository =  PersistenceContext.repositories().productCategories();
     private final ProductRepository productRepository = PersistenceContext.repositories().products();
@@ -62,4 +55,4 @@ import java.util.Set;
         return this.productStorageArea.availableStorageAreas() ;
     }
  */
-//}
+}
