@@ -1,6 +1,8 @@
 package eapli.base.persistence.impl.jpa;
 
+import eapli.base.domain.model.Brand;
 import eapli.base.domain.model.Category;
+import eapli.base.domain.model.Price;
 import eapli.base.domain.model.ProductCatalog;
 import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.framework.domain.model.AggregateRoot;
@@ -43,6 +45,26 @@ public class JpaProductCatalogRepository extends JpaAutoTxRepository implements 
 
     @Override
     public Iterable<ProductCatalog> FilterByCategory(Category category) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ProductCatalog> FilterByBrand(Brand brand) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ProductCatalog> SortByPrice(Price price) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ProductCatalog> SortByCategory(Category category) {
+        return null;
+    }
+
+    @Override
+    public Iterable<ProductCatalog> SortByBrand(Brand brand) {
         return null;
     }
 }
