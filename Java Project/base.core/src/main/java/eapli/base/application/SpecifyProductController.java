@@ -16,11 +16,11 @@ public class SpecifyProductController {
 
     @Transactional
     public Product registerProduct(final Category productCategory, final String internalCode, final String shortDescription,
-                                   final String extendedDescription, final String technicalDeescription, final String brand, final String reference,
+                                   final String extendedDescription, final String technicalDescription, final String brand, final String reference,
                                    final String productionCode, final Long barcode, final Double width, final Double length
             , final Double height, final Double weight, final double price) {
 
-        return registerProduct(productCategory, internalCode,shortDescription,extendedDescription,technicalDeescription,
+        return registerProduct(productCategory, internalCode,shortDescription,extendedDescription,technicalDescription,
                 brand, reference, productionCode, barcode,width,length,height,weight, price, null);
     }
 
@@ -31,7 +31,7 @@ public class SpecifyProductController {
      */
   @Transactional
     public Product registerProduct(final Category productCategory, final String internalCode, final String shortDescription,
-                                   final String extendedDescription, final String technicalDeescription, final String brand, final String reference,
+                                   final String extendedDescription, final String technicalDescription, final String brand, final String reference,
                                    final String productionCode, final Long barcode, final Double width, final Double length
           , final Double height, final Double weight, final double price, final Set<byte[]> photos) {
 
@@ -41,7 +41,7 @@ public class SpecifyProductController {
               .internalCoded(InternalCode.valueOf(internalCode))
               .shortDesignated(ShortDescription.shortDescriptedAs(shortDescription))
               .extendedDesignated(ExtendedDescription.extendedDescriptedAs(extendedDescription))
-              .technicalDesignated(TechnicalDescription.tehcnincalDescriptedAs(technicalDeescription))
+              .technicalDesignated(TechnicalDescription.tehcnincalDescriptedAs(technicalDescription))
               .branded(Brand.fromBrand(brand))
               .referenced(Reference.withReference(reference))
               .productionCoded(ProductionCode.productedCodedAs(productionCode))
