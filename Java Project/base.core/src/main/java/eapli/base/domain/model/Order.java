@@ -1,8 +1,33 @@
-/*package eapli.base.domain.model;
+package eapli.base.domain.model;
 
 import eapli.framework.domain.model.AggregateRoot;
+import eapli.framework.general.domain.model.Money;
 
-public class Order implements AggregateRoot<AlphaNumericCode> {
+import javax.persistence.*;
+
+@Entity
+public class Order implements AggregateRoot<Long> {
+
+    @Id
+    @GeneratedValue // (strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Embedded
+    private ProductsList prod;
+
+    @Embedded
+    private Price priceWithoutTaxes;
+
+    @Embedded
+    private Price priceWithTaxes;
+
+
+    public Order(ProductsList products) {
+        this.prod=products;
+        this.priceWithoutTaxes=products.totalPrice(false);
+        this.priceWithTaxes=products.totalPrice(true);
+
+    }
 
     public Order() {
 
@@ -10,12 +35,23 @@ public class Order implements AggregateRoot<AlphaNumericCode> {
 
     @Override
     public boolean sameAs(Object other) {
-        return false;
+        if (!(other instanceof Order)) {
+            return false;
+        }
+
+        final Order that = (Order) other;
+        if (this == that) {
+            return true;
+        }
+
+        return (this.id==that.identity());
     }
 
     @Override
-    public AlphaNumericCode identity() {
-        return null;
+    public Long identity() {
+        return id;
     }
+
+
+
 }
-*/

@@ -2,12 +2,8 @@
 
 import eapli.base.domain.model.*;
 import eapli.base.service.CreateOrderBySalesClerkService;
-import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class CreateOrderBySalesClerkController {
 
@@ -15,11 +11,10 @@ public class CreateOrderBySalesClerkController {
     Customer customer;
     Product product;
     Order order;
-    List<Product> products;
+    final ProductsList products= new ProductsList();
 
     public CreateOrderBySaleClerkController() {
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-        products=new ArrayList<>();
     }
 
     public Customer findCustomerById(int id){
@@ -30,12 +25,8 @@ public class CreateOrderBySalesClerkController {
         return CreateOrderBySalesClerkService.findProductById(id);
     }
 
-    public void AddProduct(){
-        AddToProductList(product);
-    }
-
-    public void AddToProductList(Product product){
-        products.add(product);
+    public void AddProduct(Product prod){
+        products.addProduct(prod);
     }
 
 
