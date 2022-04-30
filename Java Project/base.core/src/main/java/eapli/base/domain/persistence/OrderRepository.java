@@ -1,9 +1,7 @@
-/*package eapli.base.domain.persistence;
+package eapli.base.domain.persistence;
 
-import eapli.base.domain.model.AlphaNumericCode;
 import eapli.base.domain.model.Order;
-import eapli.framework.domain.repositories.DomainRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderRepository
-        extends DomainRepository<Order> {
-}*/
+public interface OrderRepository extends JpaRepository<Order, Long> {
+}
