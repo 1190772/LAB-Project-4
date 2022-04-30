@@ -9,37 +9,44 @@ class SpecifyProductUI {
 Package Application{
 
 class SpecifyProductController {
- + newUser(String name, String email)
- + addUser()
+ + getCategory()
+ + registerProduct()
 }
 }
 
 Package Domain{
 
 class Product {
-  -String name
-  -Email email
-  -Password password;
-  + User(Email id, Password pwd, String name)
+  -internal Code
+  -short description
+  -extended description
+  -technical description
+  -brand
+  -reference
+  -production code
+  -price
+  -barcode
+  -photo
 }
 
-class ProductFactory{
-}
 
-class ProductCategory{
+class Category{
 }
 }
 
 
 Package Persistence{
 class RepositoryFactory{
-   + generatePassword(email)
 }
 
+class ProductFactory{
+}
 class ProductRepository{
+  +save(newProduct)
 }
 
-class ProductCategoryRepository{
+class CategoryRepository{
+  +findall()
 }
 }
 
@@ -49,8 +56,8 @@ SpecifyProductController ..> ProductRepository
 SpecifyProductController ..> RepositoryFactory
 SpecifyProductController ..> ProductFactory
 RepositoryFactory ..> ProductRepository
-RepositoryFactory ..> ProductCategoryRepository
-ProductFactory..> Product
-Product..> ProductCategory
-ProductCategoryRepository ..|> ProductRepository
+RepositoryFactory ..> CategoryRepository
+ProductFactory ..> RepositoryFactory
+Product..> Category
+CategoryRepository ..|> ProductRepository
 @enduml

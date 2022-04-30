@@ -1,0 +1,62 @@
+@startuml
+autonumber
+hide footbox
+
+title SD - Specify Product
+    actor "SalesClerk" as SC
+		participant ":SpecifyProductUI" as ui
+		participant ":SpecifyProductController" as ctrl
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		participant ":CategoryRepository" as repoPC
+		participant ":Product" as prod
+		participant ":ProductRepository" as repo
+
+activate SC
+SC -> ui : Inicia o registo do produto
+activate ui
+		ui->ctrl:create
+    ui-->SC: Pede para escolher categoria
+deactivate ui
+SC ->ui: Seleciona a categoria
+activate ui
+		ui->ctrl:getProductCategory
+		activate ctrl
+		ctrl->pc:repositories()
+		pc->rf:create
+		rf->repoPC:create
+		ctrl->repoPC:findAll
+		activate repoPC
+		deactivate repoPC
+		ctrl-->ui:ProductCategory
+		deactivate ctrl
+
+		ui->ui:doShow()
+    ui --> SC : Pede para inserir a informação do produto(short description, extended description, technical description, brand,\n reference, production code, internal code, price, photo,barcode)
+    SC->ui: Insere os dados pedidos
+    
+ui->ctrl:registerProduct(cat,short description, extended description,technical description,\nbrand,reference,production code, internal code, price, photo,barcode)
+        activate ctrl
+		ctrl->prod:newProduct = create(cat,short description, extended description,technical description,\nbrand,reference,production code, internal code, price, photo and barcode)
+        activate prod
+        deactivate prod
+
+		ctrl->pc:repositories()
+		activate pc
+		pc->rf:create
+		activate rf
+		rf->repo:create
+		activate repo
+		deactivate repo
+		deactivate rf
+		deactivate pc
+    ui-->SC :Mostra toda a informação e pede confirmação
+    SC->ui:Confirma os dados
+		ctrl->repo:save(newProduct)
+		activate repo
+		deactivate repo
+		deactivate ctrl
+    ui--> SC :  Informa do sucesso da operação
+
+
+@enduml

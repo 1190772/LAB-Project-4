@@ -1,0 +1,28 @@
+@startuml
+autonumber
+actor "Sales Clerk" as SL
+
+activate SL
+SL -> ":System" : Inicia o registo do produto
+activate ":System"
+":System" --> SL : Pede para escolher categoria
+deactivate ":System"
+
+SL -> ":System" : Seleciona a categoria
+activate ":System"
+":System" --> SL : Pede para inserir a informação do produto \n(short description, extended description, technical description,brand,\n reference, production code, internal code, price, photo, barcode)
+deactivate ":System"
+
+SL -> ":System" : Insere os dados pedidos
+activate ":System"
+":System" --> SL : Mostra toda a informação e pede confirmação
+deactivate ":System"
+
+SL -> ":System" : Confirma os dados
+activate ":System"
+":System" --> SL : Informa do sucesso da operação
+deactivate ":System"
+
+deactivate SL
+
+@enduml
