@@ -1,4 +1,4 @@
-package eapli.base.application;
+/*package eapli.base.application;
 
 import java.io.FileReader;
 import java.io.IOException;
@@ -21,3 +21,4 @@ public class ReadJSONFile {
         }
     }
 }
+*/
