@@ -1,21 +1,17 @@
 package eapli.base.domain.persistence;
 
-import eapli.base.domain.model.Brand;
-import eapli.base.domain.model.Category;
-import eapli.base.domain.model.Price;
-import eapli.base.domain.model.ProductCatalog;
+import eapli.base.domain.model.*;
 import eapli.framework.domain.repositories.DomainRepository;
+import org.springframework.data.repository.PagingAndSortingRepository;
+
+import java.util.List;
 
 
-public interface ProductCatalogRepository extends DomainRepository {
+public interface ProductCatalogRepository extends PagingAndSortingRepository {
 
-    Iterable<ProductCatalog> FilterByCategory(Category category);
+    Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand);
 
-    Iterable<ProductCatalog> FilterByBrand(Brand brand);
+    Iterable<ProductCatalog> findProductCatalogByCategory(Category category);
 
-    Iterable<ProductCatalog> SortByPrice(Price price);
-
-    Iterable<ProductCatalog> SortByCategory(Category category);
-
-    Iterable<ProductCatalog> SortByBrand(Brand brand);
+    Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc);
 }

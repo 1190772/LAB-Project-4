@@ -62,13 +62,12 @@
 			<version>5.8.2</version>
 			<scope>test</scope>
 		</dependency>
-		
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <version>1.4.200</version>
             <scope>runtime</scope>
-        </dependency>	
+        </dependency>
         <dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>

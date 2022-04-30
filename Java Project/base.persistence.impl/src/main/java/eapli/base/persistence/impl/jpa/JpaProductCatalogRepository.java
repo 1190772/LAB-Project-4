@@ -1,9 +1,6 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.Brand;
-import eapli.base.domain.model.Category;
-import eapli.base.domain.model.Price;
-import eapli.base.domain.model.ProductCatalog;
+import eapli.base.domain.model.*;
 import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
@@ -13,58 +10,72 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import javax.persistence.TypedQuery;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 
 public class JpaProductCatalogRepository extends JpaAutoTxRepository implements ProductCatalogRepository {
 
+    private static final String NOT_SUPPORTED = "This feature is not yet supported";
+
     public JpaProductCatalogRepository(String persistenceUnitName, String identityFieldName) {
         super(persistenceUnitName, identityFieldName);
     }
 
+
     @Override
-    public AggregateRoot save(AggregateRoot entity) {
+    public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
+        return match("e.brand=:brand", "brand", brand);
+    }
+
+    @Override
+    public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
+        throw new UnsupportedOperationException(NOT_SUPPORTED);
+    }
+
+    @Override
+    public Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc) {
+        throw new UnsupportedOperationException(NOT_SUPPORTED);
+    }
+
+    @Override
+    public Iterable findAll(Sort sort) {
         return null;
     }
 
     @Override
-    public Optional ofIdentity(Comparable id) {
-        return Optional.empty();
-    }
-
-    @Override
-    public void delete(AggregateRoot entity) {
-
-    }
-
-    @Override
-    public void deleteOfIdentity(Comparable entityId) {
-
-    }
-
-    @Override
-    public Iterable<ProductCatalog> FilterByCategory(Category category) {
+    public Page findAll(Pageable pageable) {
         return null;
     }
 
     @Override
-    public Iterable<ProductCatalog> FilterByBrand(Brand brand) {
+    public Iterable saveAll(Iterable entities) {
         return null;
     }
 
     @Override
-    public Iterable<ProductCatalog> SortByPrice(Price price) {
+    public boolean existsById(Object o) {
+        return false;
+    }
+
+    @Override
+    public Iterable findAllById(Iterable iterable) {
         return null;
     }
 
     @Override
-    public Iterable<ProductCatalog> SortByCategory(Category category) {
-        return null;
+    public void deleteAllById(Iterable iterable) {
+
     }
 
     @Override
-    public Iterable<ProductCatalog> SortByBrand(Brand brand) {
-        return null;
+    public void deleteAll(Iterable entities) {
+
+    }
+
+    @Override
+    public void deleteAll() {
+
     }
 }
