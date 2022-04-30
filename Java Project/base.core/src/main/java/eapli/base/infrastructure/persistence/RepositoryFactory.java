@@ -23,6 +23,7 @@ package eapli.base.infrastructure.persistence;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.domain.persistence.CategoryRepository;
+import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 
@@ -91,5 +92,7 @@ public interface RepositoryFactory {
 /*    OrderRepository order(TransactionalContext autoTx);
 
     OrderRepository order();*/
+
+    ProductCatalogRepository productCatalog();
 
 }
