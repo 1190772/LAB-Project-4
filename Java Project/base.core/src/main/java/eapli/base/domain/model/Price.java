@@ -26,4 +26,8 @@ public class Price implements ValueObject {
     public static Price pricedAs(double price) {
         return new Price(price);
     }
+
+    public Double priceValue(){
+        return price;
+    }
 }

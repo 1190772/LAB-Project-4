@@ -22,20 +22,36 @@ public class Order implements AggregateRoot<Long> {
     private Price priceWithTaxes;
 
 
-    public Order(ProductsList products,) {
+    public Order(ProductsList products) {
         this.prod=products;
-        this.priceWithoutTaxes=products.totalPriceWithoutTaxes();
-        this.priceWithTaxes=products.totalPriceWithTaxes();
+        this.priceWithoutTaxes=products.totalPrice(false);
+        this.priceWithTaxes=products.totalPrice(true);
 
+    }
+
+    public Order() {
+        
     }
 
     @Override
     public boolean sameAs(Object other) {
-        return false;
+        if (!(other instanceof Order)) {
+            return false;
+        }
+
+        final Order that = (Order) other;
+        if (this == that) {
+            return true;
+        }
+
+        return (this.id==that.identity());
     }
 
     @Override
     public Long identity() {
         return id;
     }
+
+
+
 }

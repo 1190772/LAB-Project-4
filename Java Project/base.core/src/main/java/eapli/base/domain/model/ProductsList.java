@@ -12,15 +12,22 @@ public class ProductsList {
     
     private List<Product> products;
 
-    private double price;
+    private double priceWithoutTaxes;
+
+    private double priceWithTaxes;
 
     public ProductsList(){
         products = new ArrayList<>();
-        price=0;
+        priceWithoutTaxes=0;
+        priceWithTaxes=0;
     }
 
     public boolean addProduct(Product prod){
-        Optional<Price> pr=(Price)prod.price();
+        Optional<Price> pwot=prod.priceWithoutTaxes();
+        priceWithoutTaxes+=pwot.get().priceValue().doubleValue();
+        Optional<Price> pwt=prod.priceWithTaxes();
+        priceWithTaxes+=pwt.get().priceValue().doubleValue();
+        pwt.get().priceValue().doubleValue();
         return products.add(prod);
     }
 
@@ -29,9 +36,10 @@ public class ProductsList {
     }
 
     public Price totalPrice(boolean withTax){
-        double totalPrice=0;
+        if(withTax)
+            return new Price(priceWithTaxes);
 
-
+        return new Price(priceWithoutTaxes);
     }
 
 }
