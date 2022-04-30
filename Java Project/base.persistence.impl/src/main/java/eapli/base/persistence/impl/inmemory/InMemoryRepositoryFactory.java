@@ -23,6 +23,7 @@ package eapli.base.persistence.impl.inmemory;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.domain.persistence.CategoryRepository;
+import eapli.base.domain.persistence.OrderRepository;
 import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.base.domain.persistence.ProductRepository;
 import eapli.base.infrastructure.bootstrapers.BaseBootstrapper;
@@ -75,6 +76,26 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public CategoryRepository category() {
+        return null;
+    }
+
+    @Override
+    public ProductRepository product(TransactionalContext autoTx) {
+        return null;
+    }
+
+    @Override
+    public ProductRepository product() {
+        return null;
+    }
+
+    @Override
+    public OrderRepository order(TransactionalContext autoTx) {
+        return null;
+    }
+
+    @Override
+    public OrderRepository order() {
         return null;
     }
 

@@ -2,6 +2,7 @@
 
 import eapli.base.domain.model.*;
 import eapli.base.service.CreateOrderBySalesClerkService;
+import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 
