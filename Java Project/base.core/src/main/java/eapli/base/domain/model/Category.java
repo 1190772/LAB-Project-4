@@ -4,6 +4,10 @@ import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.domain.model.DomainEntity;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
 public class Category implements AggregateRoot<AlphaNumericCode> {
 
     private AlphaNumericCode code;
@@ -25,6 +29,9 @@ public class Category implements AggregateRoot<AlphaNumericCode> {
         this.description = description;
 
 
+    }
+
+    public Category(AlphaNumericCode code) {
     }
 
     @Override
@@ -58,6 +65,13 @@ public class Category implements AggregateRoot<AlphaNumericCode> {
     @Override
     public boolean hasIdentity(AlphaNumericCode id) {
         return AggregateRoot.super.hasIdentity(id);
+    }
+
+    public static AlphaNumericCode readCode(final String prompt) throws IOException, AlphaNumericCodeException {
+        System.out.println(prompt);
+        InputStreamReader converter = new InputStreamReader(System.in);
+        BufferedReader in = new BufferedReader(converter);
+        return AlphaNumericCode.valueOf(in.readLine());
     }
 
     /*

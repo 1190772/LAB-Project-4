@@ -30,7 +30,7 @@ public class Order implements AggregateRoot<Long> {
     }
 
     public Order() {
-        
+
     }
 
     @Override

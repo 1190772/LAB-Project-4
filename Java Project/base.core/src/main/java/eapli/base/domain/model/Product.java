@@ -62,7 +62,6 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     @Embedded
     private Price priceWithoutTaxes;
 
-
     @Embedded
     private Mesurements mesurements;
 
@@ -203,8 +202,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
             return true;
         }
 
-        return identity().equals(that.identity()) && productCategory.equals(that.productCategory)
-                && internalCode.equals(that.internalCode) && priceWithTaxes.equals(that.priceWithTaxes) && productStatus == that.productStatus;
+        return identity().equals(that.identity());
     }
 
 
