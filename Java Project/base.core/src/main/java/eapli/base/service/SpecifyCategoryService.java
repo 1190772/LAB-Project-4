@@ -1,3 +1,4 @@
+/*
 package eapli.base.service;
 
 import eapli.base.domain.model.*;
@@ -24,3 +25,4 @@ public class SpecifyCategoryService {
     }
 
 }
+*/
