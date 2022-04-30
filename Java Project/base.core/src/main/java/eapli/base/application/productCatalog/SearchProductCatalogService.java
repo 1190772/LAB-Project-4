@@ -11,11 +11,15 @@ public class SearchProductCatalogService {
 
     private final ProductCatalogRepository repo = PersistenceContext.repositories().productCatalog();
 
+    private static final String NO_RESULTS = "No results with those filters";
+
     private AuthorizationService auth;
 
     public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
         auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-
+        if(repo == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }
         return repo.findProductCatalogByBrand(brand);
     }
 
@@ -29,12 +33,6 @@ public class SearchProductCatalogService {
         auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
         return repo.findProductCatalogByShortDescription(desc);
-    }
-
-    public Iterable<ProductCatalog> AllProducts(){
-        auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-
-        return repo.findAll();
     }
 
 

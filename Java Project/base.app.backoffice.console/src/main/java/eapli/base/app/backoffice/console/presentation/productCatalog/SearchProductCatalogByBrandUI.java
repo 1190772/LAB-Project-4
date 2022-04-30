@@ -7,11 +7,12 @@ import eapli.base.domain.model.BrandException;
 import eapli.base.domain.model.ProductCatalog;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractListUI;
+import eapli.framework.presentation.console.AbstractUI;
 import eapli.framework.visitor.Visitor;
 
-public class SearchProductCatalogByBrandUI extends AbstractListUI {
+public class SearchProductCatalogByBrandUI extends AbstractUI {
 
-    private SearchProductCatalogByBrandController theController = new SearchProductCatalogByBrandController();
+    private final SearchProductCatalogByBrandController theController = new SearchProductCatalogByBrandController();
 
     @Override
     protected boolean doShow() {
@@ -27,32 +28,7 @@ public class SearchProductCatalogByBrandUI extends AbstractListUI {
     }
 
     @Override
-    protected Iterable<ProductCatalog> elements() {
-        return null;
-    }
-
-    @Override
-    protected Visitor<ProductCatalog> elementPrinter() {
-        return null;
-    }
-
-    @Override
-    protected String elementName() {
-        return "Product Catalog";
-    }
-
-    @Override
-    protected String listHeader() {
-        return "PRODUCT CATALOG";
-    }
-
-    @Override
-    protected String emptyMessage() {
-        return "No data.";
-    }
-
-    @Override
     public String headline() {
-        return "Search Product Catalog";
+        return "Search Product Catalog by Brand";
     }
 }

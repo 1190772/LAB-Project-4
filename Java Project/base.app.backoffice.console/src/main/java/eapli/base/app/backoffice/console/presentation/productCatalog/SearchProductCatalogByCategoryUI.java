@@ -4,14 +4,15 @@ import eapli.base.application.productCatalog.SearchProductCatalogByCategoryContr
 import eapli.base.domain.model.*;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractListUI;
+import eapli.framework.presentation.console.AbstractUI;
 import eapli.framework.visitor.Visitor;
 
 import java.io.IOException;
 
-public class SearchProductCatalogByCategoryUI extends AbstractListUI {
+public class SearchProductCatalogByCategoryUI extends AbstractUI {
 
 
-    private SearchProductCatalogByCategoryController theController = new SearchProductCatalogByCategoryController();
+    private final SearchProductCatalogByCategoryController theController = new SearchProductCatalogByCategoryController();
 
     @Override
     protected boolean doShow() {
@@ -30,33 +31,9 @@ public class SearchProductCatalogByCategoryUI extends AbstractListUI {
         return false;
     }
 
-    @Override
-    protected Iterable<ProductCatalog> elements() {
-        return null;
-    }
-
-    @Override
-    protected Visitor<ProductCatalog> elementPrinter() {
-        return null;
-    }
-
-    @Override
-    protected String elementName() {
-        return "Product Catalog";
-    }
-
-    @Override
-    protected String listHeader() {
-        return "PRODUCT CATALOG";
-    }
-
-    @Override
-    protected String emptyMessage() {
-        return "No data.";
-    }
 
     @Override
     public String headline() {
-        return "Search Product Catalog";
+        return "Search Product Catalog By Category";
     }
 }

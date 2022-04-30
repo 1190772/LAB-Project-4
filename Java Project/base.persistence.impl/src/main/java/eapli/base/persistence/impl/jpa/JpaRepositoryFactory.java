@@ -24,6 +24,7 @@ import eapli.base.Application;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.domain.persistence.ProductCatalogRepository;
+import eapli.base.domain.persistence.ProductRepository;
 import eapli.base.infrastructure.persistence.RepositoryFactory;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
@@ -79,6 +80,16 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 
     @Override
     public ProductCatalogRepository productCatalog() {
+        return null;
+    }
+
+    @Override
+    public ProductRepository products(TransactionalContext autoTx) {
+        return null;
+    }
+
+    @Override
+    public ProductRepository products() {
         return null;
     }
 

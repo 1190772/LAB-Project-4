@@ -8,14 +8,11 @@ import eapli.base.domain.model.ProductCatalog;
 public class SearchProductCatalogByCategoryController {
 
 
-    private SearchProductCatalogService svc = new SearchProductCatalogService();
+    private final SearchProductCatalogService svc = new SearchProductCatalogService();
 
     public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
 
         return svc.findProductCatalogByCategory(category);
     }
 
-    public Iterable<ProductCatalog> SearchProductCatalog(){
-        return svc.AllProducts();
-    }
 }

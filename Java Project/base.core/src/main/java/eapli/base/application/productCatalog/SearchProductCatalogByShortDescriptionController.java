@@ -6,7 +6,7 @@ import eapli.base.domain.model.ShortDescription;
 
 public class SearchProductCatalogByShortDescriptionController {
 
-    private SearchProductCatalogService svc = new SearchProductCatalogService();
+    private final SearchProductCatalogService svc = new SearchProductCatalogService();
     public Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc) {
 
         return svc.findProductCatalogByShortDescription(desc);

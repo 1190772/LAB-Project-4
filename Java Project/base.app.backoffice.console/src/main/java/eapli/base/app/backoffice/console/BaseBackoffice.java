@@ -41,7 +41,7 @@ import eapli.framework.infrastructure.eventpubsub.EventDispatcher;
  * @author Paulo Gandra Sousa
  */
 @SuppressWarnings("squid:S106")
-public final class BaseBackoffice extends BaseApplication {
+public final class BaseBackoffice extends BaseApplication { // extends BaseApplication
 
     /**
      * avoid instantiation of this class.
@@ -54,6 +54,8 @@ public final class BaseBackoffice extends BaseApplication {
      *            the command line arguments
      */
     public static void main(final String[] args) {
+
+        // new SearchProductCatalogByBrandUI().show();
 
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
                 new BasePasswordPolicy(), new PlainTextEncoder());

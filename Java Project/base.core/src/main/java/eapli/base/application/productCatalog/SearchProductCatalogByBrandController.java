@@ -5,7 +5,7 @@ import eapli.base.domain.model.ProductCatalog;
 
 public class SearchProductCatalogByBrandController {
 
-    private SearchProductCatalogService svc = new SearchProductCatalogService();
+    private final SearchProductCatalogService svc = new SearchProductCatalogService();
 
     public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
 
