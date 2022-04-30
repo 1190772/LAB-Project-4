@@ -1,4 +1,4 @@
-package eapli.base.app.user.console.presentation;
+package eapli.base.app.backoffice.console.presentation;
 
 import eapli.base.application.SpecifyCategoryController;
 import eapli.base.domain.model.AlphaNumericCodeException;
