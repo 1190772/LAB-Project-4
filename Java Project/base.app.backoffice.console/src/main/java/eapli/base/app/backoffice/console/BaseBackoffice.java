@@ -23,6 +23,10 @@
  */
 package eapli.base.app.backoffice.console;
 
+import eapli.base.app.backoffice.console.presentation.authz.AddUserUI;
+import eapli.base.app.backoffice.console.presentation.authz.DeactivateUserAction;
+import eapli.base.app.backoffice.console.presentation.authz.ListUsersAction;
+import eapli.base.app.backoffice.console.presentation.productCatalog.*;
 import eapli.base.app.common.console.BaseApplication;
 import eapli.base.app.common.console.presentation.authz.LoginUI;
 import eapli.base.app.backoffice.console.presentation.MainMenu;
@@ -32,6 +36,7 @@ import eapli.base.clientusermanagement.domain.events.SignupAcceptedEvent;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.usermanagement.application.eventhandlers.SignupAcceptedWatchDog;
 import eapli.base.usermanagement.domain.BasePasswordPolicy;
+import eapli.framework.actions.menu.Menu;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.infrastructure.authz.domain.model.PlainTextEncoder;
 import eapli.framework.infrastructure.eventpubsub.EventDispatcher;
@@ -41,7 +46,7 @@ import eapli.framework.infrastructure.eventpubsub.EventDispatcher;
  * @author Paulo Gandra Sousa
  */
 @SuppressWarnings("squid:S106")
-public final class BaseBackoffice extends BaseApplication { // extends BaseApplication
+public final class BaseBackoffice extends BaseApplication{ // extends BaseApplication
 
     /**
      * avoid instantiation of this class.
@@ -55,8 +60,17 @@ public final class BaseBackoffice extends BaseApplication { // extends BaseAppli
      */
     public static void main(final String[] args) {
 
+        /*final int SEARCH_CATALOG_BY_BRAND = 1;
+        final int SEARCH_CATALOG_BY_CATEGORY = 2;
+        final int SEARCH_CATALOG_BY_DESCRIPTION = 3;
         // new SearchProductCatalogByBrandUI().show();
-
+        // new SearchProductCatalogByCategoryUI().show();
+        // new SearchProductCatalogByShortDescriptionUI().show();
+        Menu menu = new Menu();
+        menu.addItem(SEARCH_CATALOG_BY_BRAND, "Search Catalog By Brand", new SearchProductCatalogByBrandAction());
+        menu.addItem(SEARCH_CATALOG_BY_CATEGORY, "Search Catalog By Catalog", new SearchProductCatalogByCategoryAction());
+        menu.addItem(SEARCH_CATALOG_BY_DESCRIPTION, "Search Catalog By Description", new SearchProductCatalogByShortDescriptionAction());
+  */
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
                 new BasePasswordPolicy(), new PlainTextEncoder());
 
