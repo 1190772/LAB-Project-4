@@ -24,6 +24,7 @@ import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.domain.persistence.ProductCatalogRepository;
+import eapli.base.domain.persistence.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 
@@ -94,5 +95,9 @@ public interface RepositoryFactory {
     OrderRepository order();*/
 
     ProductCatalogRepository productCatalog();
+
+    ProductRepository products(TransactionalContext autoTx);
+
+    ProductRepository products();
 
 }
