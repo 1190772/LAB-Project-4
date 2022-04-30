@@ -91,12 +91,12 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public OrderRepository order(TransactionalContext autoTx) {
-        return null;
+        return new InMemoryOrderRepository();
     }
 
     @Override
     public OrderRepository order() {
-        return null;
+        return new InMemoryOrderRepository();
     }
 
     @Override
