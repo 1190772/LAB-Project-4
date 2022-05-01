@@ -1,15 +1,19 @@
 package eapli.base.domain.model;
 
 import eapli.framework.domain.model.AggregateRoot;
-import javax.persistence.*;
+import eapli.framework.general.domain.model.EmailAddress;
+import eapli.framework.infrastructure.authz.domain.model.SystemUser;
+import org.springframework.security.core.userdetails.User;
 
+import javax.persistence.*;
+import java.util.Date;
 
 
 @Entity
 public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
     @Id
-    @GeneratedValue // (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Embedded
@@ -21,12 +25,20 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Embedded
     private Price priceWithTaxes;
 
+    @Embedded
+    private Date creationDate;
 
-    public Order(ProductsList products) {
+
+    @Embedded
+    EmailAddress email;
+
+
+    public Order(ProductsList products, Date date, EmailAddress e) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
         this.priceWithTaxes=products.totalPrice(true);
-
+        this.creationDate=date;
+        this.email=e;
     }
 
     public Order() {
@@ -46,6 +58,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
         return (this.id==that.identity());
     }
+
 
     @Override
     public Long identity() {
