@@ -2,13 +2,41 @@
 skinparam classAttributeIconSize 0
 
 Package Presentation{
-class SearchProductCatalogUI {
+class SearchProductCatalogByBrandUI {
+    +doShow()
+    +findProductsByBrand()
 }
+
+class SearchProductCatalogByCategoryUI {
+    +doShow()
+    +findProductsByCategory()
+}
+
+class SearchProductCatalogByShortDescriptionUI {
+    +doShow()
+    +findProductsByShortDescription()
+}
+
 }
 
 Package Application{
 
-class SearchProductCatalogController {
+class SearchProductCatalogByBrandController {
+    +findProductsByBrand()
+}
+
+class SearchProductCatalogByCategoryController {
+    +findProductsByCategory()
+}
+
+class SearchProductCatalogByShortDescriptionController {
+    +findProductsByShortDescription()
+}
+
+class SearchProductCatalogService{
+    +findProductsByBrand()
+    +findProductsByCategory()
+    +findProductsByShortDescription()
 }
 }
 
@@ -17,24 +45,73 @@ Package Domain{
 class ProductCatalog {
 }
 
-class ProductCatalogFactory{
+class Product{
+  -internalCode
+  -shortDescription
+  -extendedDescription
+  -technicalDescription
+  -brand
+  -reference
+  -productionCode
+  -price
+  -barcode
+  -photo
 }
 }
 
 
 Package Persistence{
 class RepositoryFactory{
+    productCatalog()
 }
 
 class ProductCatalogRepository{
+    +findProductsByBrand()
+    +findProductsByCategory()
+    +findProductsByShortDescription()
 }
 }
 
-SearchProductCatalogUI ..> SearchProductCatalogController
-SearchProductCatalogController ..> ProductCatalog
-SearchProductCatalogController ..> ProductCatalogRepository
-SearchProductCatalogController ..> RepositoryFactory
-SearchProductCatalogController ..> ProductCatalogFactory
+Package InMemory{
+class InMemoryProductCatalogRepository{
+    +findProductsByBrand()
+    +findProductsByCategory()
+    +findProductsByShortDescription()
+}
+
+class InMemoryRepositoryFactory{
+    productCatalog()
+}
+}
+
+Package Jpa{
+class JpaProductCatalogRepository{
+    +findProductsByBrand()
+    +findProductsByCategory()
+    +findProductsByShortDescription()
+}
+
+class JpaRepositoryFactory{
+    productCatalog()
+}   
+}
+
+SearchProductCatalogByBrandUI ..> SearchProductCatalogByBrandController
+SearchProductCatalogByCategoryUI ..> SearchProductCatalogByCategoryController
+SearchProductCatalogByShortDescriptionUI ..> SearchProductCatalogByShortDescriptionController
+SearchProductCatalogByBrandController ..> SearchProductCatalogService
+SearchProductCatalogByCategoryController ..> SearchProductCatalogService
+SearchProductCatalogByShortDescriptionController ..> SearchProductCatalogService
+SearchProductCatalogService ..> ProductCatalog
+ProductCatalog ..> Product
+SearchProductCatalogService ..> ProductCatalogRepository
+SearchProductCatalogService ..> RepositoryFactory
 RepositoryFactory ..> ProductCatalogRepository
-ProductCatalogFactory..> ProductCatalog
+InMemoryRepositoryFactory ..> RepositoryFactory : implements
+JpaRepositoryFactory ..> RepositoryFactory : implements
+InMemoryRepositoryFactory ..> InMemoryProductCatalogRepository : creates
+JpaRepositoryFactory ..> JpaProductCatalogRepository : creates
+InMemoryProductCatalogRepository ..> ProductCatalogRepository : implements
+JpaProductCatalogRepository ..> ProductCatalogRepository : implements
+
 @enduml
