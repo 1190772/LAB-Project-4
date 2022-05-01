@@ -1,8 +1,8 @@
 @startuml
 autonumber
 actor "SalesClerk" as SC
-participant "CriarOrdemParaClienteUI" as UI <<presentation>>
-participant "CriarOrdemParaClienteController" as CTRL <<application>>
+participant "CreateOrderBySalesClerkUI" as UI <<presentation>>
+participant "CreateOrderBySalesClerkController" as CTRL <<application>>
 participant PersistenceContext as PER <<persistence>>
 participant "RepositoryFactory" as REPOFACT <<factory>>
 participant "customer : Customer" as CUST <<domain>>

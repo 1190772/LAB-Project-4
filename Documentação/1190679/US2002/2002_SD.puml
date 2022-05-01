@@ -1,0 +1,51 @@
+@startuml
+autonumber
+actor "WarehouseEmployee" as WE
+participant "ConfigureAGVUI" as UI <<presentation>>
+participant "ConfigureAGVController" as CTRL <<application>>
+participant PersistenceContext as PER <<persistence>>
+participant "RepositoryFactory" as REPOFACT <<factory>>
+participant "agv : AGV" as AGV <<domain>>
+participant "desc : ShortDescription" as DESC <<domain>>
+participant "agvmodel : AGVModel" as MODEL <<domain>>
+database "AGVRepository" as agvREPO <<repository>>
+
+
+
+activate WE
+WE -> UI : inicia a criação de um agv
+activate UI
+UI -> CTRL : create
+UI --> WE : solicita uma descricao breve\nid do modelo do AGV\ncapacidade de peso maxima
+deactivate UI
+WE -> UI : submete informação
+activate UI
+UI -> DESC : create
+UI -> MODEL : create
+UI -> CTRL : saveAGV(desc,agvmodel,maxweight)
+activate CTRL
+CTRL -> PER : repositories()
+activate PER
+PER -> REPOFACT : create
+PER --> CTRL : factory
+deactivate PER
+CTRL -> REPOFACT : agvs()
+activate REPOFACT
+REPOFACT -> agvREPO : create
+REPOFACT --> CTRL : agvRepository
+deactivate REPOFACT
+CTRL -> AGV : create(desc,agvmodel,maxweight)
+activate AGV
+AGV --> CTRL : agv
+deactivate AGV
+CTRL -> agvREPO : saveAGV(agv)
+activate agvREPO
+deactivate agvREPO
+CTRL -> UI : agv
+deactivate CTRL
+UI --> WE : Mostra agv e informa do sucesso da operação
+deactivate UI
+
+deactivate WE
+
+@enduml
