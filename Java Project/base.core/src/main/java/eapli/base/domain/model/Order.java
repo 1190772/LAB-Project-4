@@ -1,14 +1,12 @@
 package eapli.base.domain.model;
 
 import eapli.framework.domain.model.AggregateRoot;
-import eapli.framework.general.domain.model.Money;
-
 import javax.persistence.*;
-import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement
+
+
 @Entity
-public class Order implements AggregateRoot<Long> {
+public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
     @Id
     @GeneratedValue // (strategy = GenerationType.IDENTITY)
