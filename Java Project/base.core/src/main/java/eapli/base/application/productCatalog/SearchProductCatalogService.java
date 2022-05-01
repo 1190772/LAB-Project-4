@@ -3,9 +3,7 @@ package eapli.base.application.productCatalog;
 import eapli.base.domain.model.*;
 import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
-import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
-import org.springframework.data.domain.Sort;
 
 
 public class SearchProductCatalogService {
@@ -16,35 +14,35 @@ public class SearchProductCatalogService {
 
     private AuthorizationService auth;
 
-    public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
+    public Iterable<ProductCatalog> findProductsByBrand(Brand brand) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductCatalogByBrand(brand) == null){
+        if(repo.findProductsByBrand(brand) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductCatalogByBrand(brand);
+            return repo.findProductsByBrand(brand);
         }
 
     }
 
-    public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
+    public Iterable<ProductCatalog> findProductsByCategory(Category category) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductCatalogByCategory(category) == null){
+        if(repo.findProductsByCategory(category) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductCatalogByCategory(category);
+            return repo.findProductsByCategory(category);
         }
 
     }
 
-    public Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc) {
+    public Iterable<ProductCatalog> findProductsByShortDescription(ShortDescription desc) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductCatalogByShortDescription(desc) == null){
+        if(repo.findProductsByShortDescription(desc) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductCatalogByShortDescription(desc);
+            return repo.findProductsByShortDescription(desc);
         }
 
     }

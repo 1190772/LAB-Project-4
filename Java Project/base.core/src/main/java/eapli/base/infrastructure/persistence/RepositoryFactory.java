@@ -96,6 +96,8 @@ public interface RepositoryFactory {
 
     OrderRepository order();
 
+    ProductCatalogRepository productCatalog(TransactionalContext autoTx);
+
     ProductCatalogRepository productCatalog();
 
     ProductRepository products(TransactionalContext autoTx);

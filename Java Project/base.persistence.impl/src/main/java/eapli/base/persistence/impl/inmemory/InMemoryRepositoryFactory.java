@@ -88,12 +88,19 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public OrderRepository order(TransactionalContext autoTx) {
-        return new InMemoryOrderRepository();
+        //return new InMemoryOrderRepository();
+        return null;
     }
 
     @Override
     public OrderRepository order() {
-        return new InMemoryOrderRepository();
+        //return new InMemoryOrderRepository();
+        return null;
+    }
+
+    @Override
+    public ProductCatalogRepository productCatalog(TransactionalContext autoTx) {
+        return null;
     }
 
     @Override

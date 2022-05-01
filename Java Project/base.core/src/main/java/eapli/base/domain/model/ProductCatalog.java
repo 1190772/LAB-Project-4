@@ -6,18 +6,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "product_catalog")
-public class ProductCatalog {
+public class ProductCatalog implements AggregateRoot<Long> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
 
 
     @ManyToOne
-    @JoinColumns({
-            @JoinColumn(name = "product_internalCode", referencedColumnName = "internalCode")
-    })
     private Product product;
 
     public Product getProduct() {
@@ -47,10 +42,20 @@ public class ProductCatalog {
     }
 
     @Override
+    public boolean sameAs(Object other) {
+        return false;
+    }
+
+    @Override
     public String toString() {
         return "ProductCatalog{" +
                 "id=" + id +
                 ", product=" + product +
                 '}';
+    }
+
+    @Override
+    public Long identity() {
+        return null;
     }
 }

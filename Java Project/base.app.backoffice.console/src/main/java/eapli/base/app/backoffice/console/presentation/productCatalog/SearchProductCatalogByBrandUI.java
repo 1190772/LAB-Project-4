@@ -5,7 +5,6 @@ import eapli.base.domain.model.Brand;
 import eapli.base.domain.model.ProductCatalog;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
-import org.springframework.data.domain.Sort;
 
 public class SearchProductCatalogByBrandUI extends AbstractUI {
 
@@ -17,7 +16,7 @@ public class SearchProductCatalogByBrandUI extends AbstractUI {
         brand = Console.readLine("Brand:");
         System.out.println("Results with the Brand : " + brand);
         Brand brand1 = new Brand(brand);
-        for (ProductCatalog cat: theController.findProductCatalogByBrand(brand1)) {
+        for (ProductCatalog cat: theController.findProductsByBrand(brand1)) {
             System.out.println(cat.toString());
         }
         return false;

@@ -8,11 +8,11 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import java.util.List;
 
 
-public interface ProductCatalogRepository extends PagingAndSortingRepository {
+public interface ProductCatalogRepository extends DomainRepository<Long, ProductCatalog> {
 
-    Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand);
+    Iterable<ProductCatalog> findProductsByBrand(Brand brand);
 
-    Iterable<ProductCatalog> findProductCatalogByCategory(Category category);
+    Iterable<ProductCatalog> findProductsByCategory(Category category);
 
-    Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc);
+    Iterable<ProductCatalog> findProductsByShortDescription(ShortDescription desc);
 }
