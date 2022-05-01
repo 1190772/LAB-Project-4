@@ -1,15 +1,11 @@
 package eapli.base.domain.model.customer;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import eapli.framework.domain.model.ValueObject;
-import eapli.framework.validations.Preconditions;
 
 import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
 import java.util.Date;
 
 @Embeddable

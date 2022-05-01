@@ -1,12 +1,9 @@
 package eapli.base.domain.model.customer;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-import eapli.base.domain.model.Price;
 import eapli.framework.domain.model.ValueObject;
 import eapli.framework.validations.Preconditions;
 
 import javax.persistence.Embeddable;
-import javax.xml.bind.annotation.XmlElement;
 import java.io.Serializable;
 
 @Embeddable

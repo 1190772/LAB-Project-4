@@ -26,9 +26,5 @@ class CategoryTest {
         Assertions.assertEquals("55AA", this.category.alphaNumericCode().toString());
     }
 
-    @Test
-    void identity() {
-        Assertions.assertEquals("55AA", this.category.identity().toString());
-    }
 
 }

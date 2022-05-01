@@ -18,9 +18,9 @@ public class ProductBuilder implements DomainFactory<Product> {
 
     private TechnicalDescription technicalDeescription;
 
-    private Price priceWithTaxes;
+    private PriceWithTaxes priceWithTaxes;
 
-    private Price priceWithoutTaxes;
+    private PriceWithoutTaxes priceWithoutTaxes;
 
     private Reference reference;
 
@@ -82,9 +82,9 @@ public class ProductBuilder implements DomainFactory<Product> {
         return this;
     }
 
-    public ProductBuilder costing(final Price price) {
+    public ProductBuilder costing(final PriceWithoutTaxes priceWithoutTaxes) {
         buildOrThrow();
-        product.changePriceTo(price);
+        product.changePriceTo(priceWithoutTaxes);
         return this;
     }
 
@@ -102,7 +102,7 @@ public class ProductBuilder implements DomainFactory<Product> {
         } else if (category != null && internalCode != null && shortDescription != null && extendedDescription != null && barcode != null) {
             product = new Product(category ,  internalCode,  shortDescription,
                      extendedDescription,  technicalDeescription,
-                     brand,  reference,  productionCode,  barcode,  priceWithTaxes,priceWithoutTaxes);
+                     brand,  reference,  productionCode,  barcode, priceWithTaxes,priceWithoutTaxes);
             return product;
         } else {
             throw new IllegalStateException();

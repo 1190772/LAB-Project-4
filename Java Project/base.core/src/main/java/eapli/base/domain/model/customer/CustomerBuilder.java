@@ -1,11 +1,9 @@
 package eapli.base.domain.model.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import eapli.base.domain.model.*;
 import eapli.framework.domain.model.DomainFactory;
 
 import javax.xml.bind.annotation.XmlElement;
-import java.util.Set;
 
 public class CustomerBuilder implements DomainFactory<Customer> {
 

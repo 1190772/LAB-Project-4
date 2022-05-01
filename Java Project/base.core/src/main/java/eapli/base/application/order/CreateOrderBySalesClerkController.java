@@ -1,6 +1,7 @@
 package eapli.base.application.order;
 
 import eapli.base.domain.model.*;
+import eapli.base.domain.model.customer.Address;
 import eapli.base.domain.model.customer.Customer;
 import eapli.base.domain.model.customer.VATiD;
 import eapli.base.service.CreateOrderBySalesClerkService;
@@ -8,7 +9,6 @@ import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.general.domain.model.EmailAddress;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
-import eapli.framework.infrastructure.authz.domain.model.SystemUser;
 
 import java.util.Date;
 
@@ -37,13 +37,9 @@ public class CreateOrderBySalesClerkController {
     }
 
 
-    public boolean saveOrder(ProductsList pl, Date date, EmailAddress emailAddress){
-        Order order=new Order(pl,date,emailAddress);
-        if(CreateOrderBySalesClerkService.saveOrder(order)!=null){
-            return true;
-        }
-        return false;
-
+    public Order saveOrder(ProductsList pl, Date date, EmailAddress emailAddress, Address address){
+        Order order=new Order(pl,date,emailAddress,address);
+        return CreateOrderBySalesClerkService.saveOrder(order);
     }
 
 

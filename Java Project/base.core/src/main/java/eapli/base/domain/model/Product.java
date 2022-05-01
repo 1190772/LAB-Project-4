@@ -57,10 +57,10 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     private Barcode barcode;
 
     @Embedded
-    private Price priceWithTaxes;
+    private PriceWithTaxes priceWithTaxes;
 
     @Embedded
-    private Price priceWithoutTaxes;
+    private PriceWithoutTaxes priceWithoutTaxes;
 
     @Embedded
     private Mesurements mesurements;
@@ -74,7 +74,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
 
    public Product(Category productCategory, InternalCode internalCode, ShortDescription shortDescription,
                   ExtendedDescription extendedDescription, TechnicalDescription technicalDeescription,
-                   Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode,Price priceWithTaxes, Price priceWithoutTaxes
+                  Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode, PriceWithTaxes priceWithTaxes, PriceWithoutTaxes priceWithoutTaxes
     ) {
         Preconditions.noneNull(productCategory, internalCode, shortDescription, extendedDescription, barcode);
         this.productCategory = productCategory;
@@ -144,14 +144,14 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     /**
      * @return the Price with taxes of this Product
      */
-    public Optional<Price> priceWithTaxes() {
+    public Optional<PriceWithTaxes> priceWithTaxes() {
         return Optional.ofNullable(priceWithTaxes);
     }
 
     /**
      * @return the Price with taxes of this Product
      */
-    public Optional<Price> priceWithoutTaxes() {
+    public Optional<PriceWithoutTaxes> priceWithoutTaxes() {
         return Optional.ofNullable(priceWithoutTaxes);
     }
 
@@ -305,13 +305,13 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     /**
      * Changes the Product price to a new price.
      *
-     * @param newPrice the new price of this dish
+     * @param newPriceWithoutTaxes the new price of this dish
      */
-    public void changePriceTo(final Price newPrice) {
-        if (newPrice == null) {
+    public void changePriceTo(final PriceWithoutTaxes newPriceWithoutTaxes) {
+        if (newPriceWithoutTaxes == null) {
             throw new IllegalArgumentException();
         }
-        this.priceWithoutTaxes = newPrice;
+        this.priceWithoutTaxes = newPriceWithoutTaxes;
     }
 
     /**

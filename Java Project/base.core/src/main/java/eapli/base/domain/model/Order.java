@@ -1,9 +1,8 @@
 package eapli.base.domain.model;
 
+import eapli.base.domain.model.customer.Address;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
-import eapli.framework.infrastructure.authz.domain.model.SystemUser;
-import org.springframework.security.core.userdetails.User;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -20,25 +19,28 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     private ProductsList prod;
 
     @Embedded
-    private Price priceWithoutTaxes;
+    private PriceWithoutTaxes priceWithoutTaxes;
 
     @Embedded
-    private Price priceWithTaxes;
+    private PriceWithoutTaxes priceWithoutTaxesWithTaxes;
 
     @Embedded
     private Date creationDate;
 
-
     @Embedded
     EmailAddress email;
 
+    @Embedded
+    Address address;
 
-    public Order(ProductsList products, Date date, EmailAddress e) {
+
+    public Order(ProductsList products, Date date, EmailAddress e, Address a) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
-        this.priceWithTaxes=products.totalPrice(true);
+        this.priceWithoutTaxesWithTaxes =products.totalPrice(true);
         this.creationDate=date;
         this.email=e;
+        this.address=a;
     }
 
     public Order() {
@@ -59,6 +61,18 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         return (this.id==that.identity());
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", prod=" + prod +
+                ", priceWithoutTaxes=" + priceWithoutTaxes +
+                ", priceWithTaxes=" + priceWithoutTaxesWithTaxes +
+                ", creationDate=" + creationDate +
+                ", email=" + email +
+                ", address=" + address +
+                '}';
+    }
 
     @Override
     public Long identity() {

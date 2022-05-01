@@ -1,11 +1,14 @@
-package eapli.base.app.backoffice.console.presentation;
+package eapli.base.app.backoffice.console.presentation.category;
 
+import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerUI;
 import eapli.base.application.SpecifyCategoryController;
 import eapli.base.domain.model.AlphaNumericCodeException;
 import eapli.base.domain.model.DescriptionException;
 import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class SpecifyCategoryUI extends AbstractUI {
 

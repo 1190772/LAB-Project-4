@@ -119,7 +119,22 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
     }
 
     @Override
+    public CustomerRepository customers(TransactionalContext autoTx) {
+        return null;
+    }
+
+    @Override
     public CustomerRepository customers() {
+        return null;
+    }
+
+    @Override
+    public AGVRepository agvs(TransactionalContext autoTx) {
+        return null;
+    }
+
+    @Override
+    public AGVRepository agvs() {
         return null;
     }
 
