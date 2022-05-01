@@ -1,4 +1,4 @@
-package eapli.base.domain.model;
+package eapli.base.domain.model.product;
 
 import eapli.framework.domain.model.ValueObject;
 import eapli.framework.validations.Preconditions;

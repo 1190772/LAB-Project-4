@@ -1,6 +1,6 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.AGV;
+import eapli.base.domain.model.avg.AGV;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 public class JpaAGVRepository extends JpaAutoTxRepository {

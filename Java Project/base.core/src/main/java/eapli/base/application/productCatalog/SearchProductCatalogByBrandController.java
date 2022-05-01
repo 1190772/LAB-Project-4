@@ -1,6 +1,6 @@
 package eapli.base.application.productCatalog;
 
-import eapli.base.domain.model.Brand;
+import eapli.base.domain.model.product.Brand;
 import eapli.base.domain.model.ProductCatalog;
 
 public class SearchProductCatalogByBrandController {

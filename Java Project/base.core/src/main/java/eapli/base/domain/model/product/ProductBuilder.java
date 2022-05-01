@@ -1,5 +1,6 @@
-package eapli.base.domain.model;
+package eapli.base.domain.model.product;
 
+import eapli.base.domain.model.category.Category;
 import eapli.framework.domain.model.DomainFactory;
 
 import java.util.Set;

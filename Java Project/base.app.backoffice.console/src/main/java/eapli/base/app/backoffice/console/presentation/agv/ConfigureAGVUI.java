@@ -1,7 +1,9 @@
 package eapli.base.app.backoffice.console.presentation.agv;
 
 import eapli.base.application.agv.ConfigureAGVController;
-import eapli.base.domain.model.*;
+import eapli.base.domain.model.avg.AGV;
+import eapli.base.domain.model.avg.AGVModel;
+import eapli.base.domain.model.product.ShortDescription;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 

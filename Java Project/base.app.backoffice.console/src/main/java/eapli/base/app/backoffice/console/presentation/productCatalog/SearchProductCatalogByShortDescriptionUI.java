@@ -3,7 +3,7 @@ package eapli.base.app.backoffice.console.presentation.productCatalog;
 import eapli.base.app.backoffice.console.presentation.validations.Validate;
 import eapli.base.application.productCatalog.SearchProductCatalogByShortDescriptionController;
 import eapli.base.domain.model.ProductCatalog;
-import eapli.base.domain.model.ShortDescription;
+import eapli.base.domain.model.product.ShortDescription;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 

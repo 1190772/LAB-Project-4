@@ -1,5 +1,6 @@
 package eapli.base.domain.model;
 
+import eapli.base.domain.model.product.Product;
 import eapli.framework.domain.model.AggregateRoot;
 
 import javax.persistence.*;

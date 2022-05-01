@@ -1,5 +1,6 @@
-package eapli.base.domain.model;
+package eapli.base.domain.model.product;
 
+import eapli.base.domain.model.category.Category;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.validations.Preconditions;

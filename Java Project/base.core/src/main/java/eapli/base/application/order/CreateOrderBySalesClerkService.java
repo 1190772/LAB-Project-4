@@ -1,8 +1,10 @@
-package eapli.base.service;
+package eapli.base.application.order;
 
 import eapli.base.domain.model.*;
 import eapli.base.domain.model.customer.Customer;
 import eapli.base.domain.model.customer.VATiD;
+import eapli.base.domain.model.product.InternalCode;
+import eapli.base.domain.model.product.Product;
 import eapli.base.domain.persistence.*;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 

@@ -1,9 +1,9 @@
 package eapli.base.app.backoffice.console.presentation.order;
 
 
-import eapli.base.domain.model.InternalCode;
+import eapli.base.domain.model.product.InternalCode;
 import eapli.base.domain.model.Order;
-import eapli.base.domain.model.Product;
+import eapli.base.domain.model.product.Product;
 import eapli.base.domain.model.ProductsList;
 import eapli.base.domain.model.customer.Address;
 import eapli.base.domain.model.customer.Customer;

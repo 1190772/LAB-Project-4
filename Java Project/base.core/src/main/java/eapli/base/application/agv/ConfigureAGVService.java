@@ -1,6 +1,6 @@
-package eapli.base.service;
+package eapli.base.application.agv;
 
-import eapli.base.domain.model.AGV;
+import eapli.base.domain.model.avg.AGV;
 import eapli.base.domain.persistence.AGVRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 

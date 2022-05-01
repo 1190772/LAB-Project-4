@@ -1,9 +1,6 @@
 package eapli.base.app.backoffice.console.presentation.customer;
 
-import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProductUI;
-import eapli.base.application.SpecifyProductController;
 import eapli.base.application.customer.RegisterCustomerController;
-import eapli.base.domain.model.Category;
 import eapli.base.domain.model.customer.EmailException;
 import eapli.base.domain.model.customer.NameException;
 import eapli.base.domain.model.customer.PhoneNumberException;
@@ -11,13 +8,11 @@ import eapli.framework.domain.repositories.ConcurrencyException;
 import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
-import eapli.framework.presentation.console.SelectWidget;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.ParseException;
-import java.util.Set;
 
 public class RegisterCustomerUI extends AbstractUI {
 

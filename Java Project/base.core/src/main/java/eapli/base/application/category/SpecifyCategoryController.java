@@ -1,9 +1,12 @@
-package eapli.base.application;
+package eapli.base.application.category;
 
-import eapli.base.domain.model.*;
+import eapli.base.domain.model.category.AlphaNumericCode;
+import eapli.base.domain.model.category.Category;
+import eapli.base.domain.model.category.Description;
+import eapli.base.domain.model.category.DescriptionException;
+import eapli.base.domain.model.product.AlphaNumericCodeException;
 import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
-import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 

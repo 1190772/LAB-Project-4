@@ -1,6 +1,7 @@
-package eapli.base.domain.model;
+package eapli.base.domain.model.avg;
 
 
+import eapli.base.domain.model.product.ShortDescription;
 import eapli.framework.domain.model.AggregateRoot;
 
 import javax.persistence.*;

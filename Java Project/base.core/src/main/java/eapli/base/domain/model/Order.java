@@ -1,6 +1,7 @@
 package eapli.base.domain.model;
 
 import eapli.base.domain.model.customer.Address;
+import eapli.base.domain.model.product.PriceWithoutTaxes;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
 

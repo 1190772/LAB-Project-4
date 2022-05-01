@@ -1,6 +1,7 @@
-package eapli.base.application;
+package eapli.base.application.product;
 
-import eapli.base.domain.model.*;
+import eapli.base.domain.model.category.Category;
+import eapli.base.domain.model.product.*;
 import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.domain.persistence.ProductRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;

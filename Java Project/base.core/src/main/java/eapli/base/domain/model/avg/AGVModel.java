@@ -1,4 +1,4 @@
-package eapli.base.domain.model;
+package eapli.base.domain.model.avg;
 
 import eapli.framework.domain.model.ValueObject;
 

@@ -1,7 +1,9 @@
 package eapli.base.application.agv;
 
 import eapli.base.domain.model.*;
-import eapli.base.service.ConfigureAGVService;
+import eapli.base.domain.model.avg.AGV;
+import eapli.base.domain.model.avg.AGVModel;
+import eapli.base.domain.model.product.ShortDescription;
 import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;

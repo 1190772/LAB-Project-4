@@ -1,6 +1,9 @@
 package eapli.base.application.productCatalog;
 
 import eapli.base.domain.model.*;
+import eapli.base.domain.model.category.Category;
+import eapli.base.domain.model.product.Brand;
+import eapli.base.domain.model.product.ShortDescription;
 import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;

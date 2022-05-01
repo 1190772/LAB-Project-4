@@ -1,6 +1,9 @@
 package eapli.base.domain.model;
 
 
+import eapli.base.domain.model.product.PriceWithTaxes;
+import eapli.base.domain.model.product.PriceWithoutTaxes;
+import eapli.base.domain.model.product.Product;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

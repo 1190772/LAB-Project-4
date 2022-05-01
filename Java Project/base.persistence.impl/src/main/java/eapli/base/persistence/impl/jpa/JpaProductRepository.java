@@ -1,8 +1,8 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.InternalCode;
-import eapli.base.domain.model.Product;
-import eapli.base.domain.model.Reference;
+import eapli.base.domain.model.product.InternalCode;
+import eapli.base.domain.model.product.Product;
+import eapli.base.domain.model.product.Reference;
 import eapli.base.domain.persistence.ProductRepository;
 import eapli.framework.domain.model.AggregateRoot;
 import javax.persistence.TypedQuery;
