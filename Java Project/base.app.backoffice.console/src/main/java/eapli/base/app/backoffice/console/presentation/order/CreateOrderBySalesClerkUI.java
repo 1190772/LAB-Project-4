@@ -13,7 +13,6 @@ import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 import eapli.base.application.order.*;
-import org.springframework.security.core.userdetails.User;
 
 import java.util.Calendar;
 import java.util.Date;
