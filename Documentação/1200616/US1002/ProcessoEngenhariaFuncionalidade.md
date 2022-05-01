@@ -10,11 +10,23 @@
 
 *Exemplo*
 
-**Demo1** Como {Ator} pretendo...
+**Demo1** Como Sales Clerk pretendo...
 
-- Demo1.1. Blá Blá Blá ...
+- Demo1.1. Filtrar o 'Product Catalog' por 'Brand'
 
-- Demo1.2. Blá Blá Blá ...
+- Demo1.2. Filtrar o 'Product Catalog' por 'Category'
+
+- Demo1.3. Filtrar o 'Product Catalog' por 'Short Description'
+
+**Demo2** Como Sales Clerk pretendo...
+
+- Demo2.1. Ordenar os resultados por 'Internal Code'
+
+- Demo2.2. Ordenar os resultados por 'Brand'
+
+- Demo2.3. Ordenar os resultados por 'Category'
+
+- Demo2.4. Ordenar os resultados por 'Unit Price'
 
 A interpretação feita deste requisito foi no sentido de que o Sales Clerk precisa de uma opção para ver o catálogo de produtos e nela pode especificar como quer filtrar a pesquisa e também como quer ordenar os resultados.
 Não há nenhuma dependencia para além de ser preciso haver dados no catálogo de produtos para podes testar a pesquisa.
