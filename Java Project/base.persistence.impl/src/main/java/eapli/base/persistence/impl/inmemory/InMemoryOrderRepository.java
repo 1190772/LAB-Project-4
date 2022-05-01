@@ -1,12 +1,11 @@
 /*package eapli.base.persistence.impl.inmemory;
 
-import eapli.base.domain.model.*;
+
 import eapli.base.domain.persistence.OrderRepository;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
-import java.util.Optional;
 
-public class InMemoryOrderRepository extends InMemoryDomainRepository<Order, Long> implements OrderRepository {
+public class InMemoryOrderRepository extends InMemoryDomainRepository{
 
     static {
         InMemoryInitializer.init();
@@ -15,5 +14,13 @@ public class InMemoryOrderRepository extends InMemoryDomainRepository<Order, Lon
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
 
 
+    @Override
+    public AggregateRoot save(AggregateRoot entity) {
+        return null;
+    }
 
+    @Override
+    public void delete(AggregateRoot entity) {
+
+    }
 }*/

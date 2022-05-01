@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+Package Presentation{
+class RegisterCustomerUI {
+    +doShow()
+}
+}
+
+Package Application{
+
+class RegisterCustomerController {
+    +registerCustomer()
+}
+}
+
+Package Domain{
+
+class Customer {
+    -name
+    -vatId
+    -birthdate
+    -phoneNumber
+    -email
+    -address
+    -gender
+}
+
+class CustomerBuilder{
+    +build(customer)
+}
+}
+
+
+Package Persistence{
+class RepositoryFactory{
+    +customers()
+}
+
+class CustomerRepository{
+    +findCustomerByVATiD
+    +save(newCustomer)
+}
+}
+
+RegisterCustomerUI ..> RegisterCustomerController
+RegisterCustomerController ..> Customer
+RegisterCustomerController ..> CustomerRepository
+RegisterCustomerController ..> RepositoryFactory
+RegisterCustomerController ..> CustomerBuilder
+RepositoryFactory ..> CustomerRepository
+CustomerBuilder..> Customer
+@enduml

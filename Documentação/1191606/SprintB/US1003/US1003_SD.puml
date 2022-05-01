@@ -1,0 +1,81 @@
+@startuml
+
+title SD - Register Customer
+
+autonumber
+
+actor "SalesClerk" as SC
+
+participant ":RegisterCustomerUI" as UI
+participant ":RegisterCustomerController" as CTRL
+participant ":CustomerBuilder" as BUILD
+participant ":Customer" as CUST
+participant ":PersistenceContext" as PERS
+participant ":RepositoryFactory" as REPF
+participant ":CustomerRepository" as REP
+
+
+activate SC
+
+SC -> UI : Wants to register a new customer.
+activate UI
+
+UI -> CTRL : create
+
+UI --> SC : Asks the data about the customer.
+
+deactivate UI
+
+SC -> UI : Inserts the requested data.
+activate UI
+
+UI -> CTRL : RegisterCustomer(name, VATid, phone number, \n email, gender, birthdate, address)
+
+activate CTRL
+
+CTRL -> BUILD: createCustomer()
+activate BUILD
+
+BUILD -> CUST: create(name, VATid, phone number, \n email, gender, birthdate, address)
+
+CUST -> BUILD: customer
+BUILD -> CTRL: customer
+deactivate BUILD
+
+CTRL -> PERS : repositories()
+activate PERS
+
+PERS -> REPF: create
+PERS -> CTRL: factory
+
+deactivate PERS
+
+
+CTRL -> REPF: customers()
+
+activate REPF
+
+REPF -> REP: create
+REPF -> CTRL: customerRepository
+deactivate REPF
+
+CTRL -> REP: save(customer)
+
+CTRL -> UI: customer
+
+deactivate CTRL
+
+UI --> SC : Shows the inserted data and requests confirmation.
+
+deactivate UI
+
+SC -> UI : Confirms the information.
+activate UI
+
+UI --> SC : Operation Successful
+deactivate UI
+
+
+deactivate SC
+
+@enduml

@@ -6,9 +6,7 @@ participant "CriarOrdemParaClienteController" as CTRL <<application>>
 participant PersistenceContext as PER <<persistence>>
 participant "RepositoryFactory" as REPOFACT <<factory>>
 participant "customer : Customer" as CUST <<domain>>
-participant "customerDto : CustomerDto" as custDTO <<domain>>
 participant "product : Product" as PROD <<domain>>
-participant "productDto : ProductDto" as prodDTO <<domain>>
 participant "order : Order" as ORD <<domain>>
 database "CustomerRepository" as custREPO <<repository>>
 database "ProductRepository" as prodREPO <<repository>>
@@ -40,18 +38,7 @@ CTRL -> custREPO : findCustomerById(id)
 activate custREPO
 custREPO --> CTRL : customer
 deactivate custREPO
-deactivate CTRL
-UI -> CTRL : showCustomerDto()
-activate CTRL
-CTRL -> CUST : toDto()
-activate CUST
-CUST -> custDTO : create
-activate custDTO
-custDTO --> CUST : customerDto
-deactivate custDTO
-CUST --> CTRL : customerDto
-deactivate CUST
-CTRL --> UI : customerDto
+CTRL --> UI : customer
 deactivate CTRL
 UI --> SC : mostra a informação sobre o cliente e pede confirmação
 deactivate UI
@@ -74,18 +61,7 @@ CTRL -> prodREPO : findProductById(id)
 activate prodREPO
 prodREPO --> CTRL : product
 deactivate prodREPO
-deactivate CTRL
-UI -> CTRL : ShowProductDto()
-activate CTRL
-CTRL -> PROD : toDto()
-activate PROD
-PROD -> prodDTO : create
-activate prodDTO
-prodDTO --> PROD : productDto
-deactivate prodDTO
-PROD --> CTRL : productDto
-deactivate PROD
-CTRL --> UI : productDto
+CTRL --> UI : product
 deactivate CTRL
 UI --> SC : mostra a informação sobre o produto e pede confirmação
 deactivate UI

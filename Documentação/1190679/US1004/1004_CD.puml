@@ -10,9 +10,7 @@ class CreateOrderBySalesClerkUI {
 Package Application{
 class CreateOrderBySalesClerkController {
   +findCustomerById(id)
-  +ShowCustomerDto()
   +findProductById(id)
-  +ShowProductDto()
   +AddProduct()
   +AddToProductList(product)
   +SaveOrder()
@@ -22,13 +20,9 @@ class CreateOrderBySalesClerkController {
 
 Package Domain{
 class Customer {
-  +toDto()
 }
 
 class Product {
-  -decricao
-  -cor
-  +toDto()
 }
 
 class Order {
