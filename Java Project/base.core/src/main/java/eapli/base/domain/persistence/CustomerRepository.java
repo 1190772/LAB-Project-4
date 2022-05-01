@@ -7,7 +7,7 @@ import eapli.base.domain.model.customer.Customer;
 import eapli.base.domain.model.customer.VATiD;
 import eapli.framework.domain.repositories.DomainRepository;
 
-public interface CustomerRepository extends DomainRepository {
+public interface CustomerRepository extends  DomainRepository<Long, Customer> {
 
     Iterable<Customer> findCustomerByVATiD(VATiD vatId);
 }
