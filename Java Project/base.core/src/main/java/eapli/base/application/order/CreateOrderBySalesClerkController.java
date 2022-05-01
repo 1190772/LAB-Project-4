@@ -1,4 +1,4 @@
-/*package eapli.base.application;
+/*package eapli.base.application.order;
 
 import eapli.base.domain.model.*;
 import eapli.base.service.CreateOrderBySalesClerkService;
@@ -31,7 +31,8 @@ public class CreateOrderBySalesClerkController {
     }
 
 
-    public boolean SaveOrder(){
+    public boolean SaveOrder(ProductsList pl){
+        Order order=new Order(pl);
         if(CreateOrderBySalesClerkService.saveOrder(order)!=null){
             return true;
         }
