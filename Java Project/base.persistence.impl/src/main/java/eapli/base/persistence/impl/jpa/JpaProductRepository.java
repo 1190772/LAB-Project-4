@@ -1,27 +1,19 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.Category;
-import eapli.base.domain.model.ProductCatalog;
-import eapli.base.domain.persistence.ProductCatalogRepository;
+import eapli.base.domain.model.InternalCode;
+import eapli.base.domain.model.Product;
+import eapli.base.domain.model.Reference;
 import eapli.base.domain.persistence.ProductRepository;
 import eapli.framework.domain.model.AggregateRoot;
-import eapli.framework.domain.repositories.TransactionalContext;
-import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
-
-import java.util.Map;
+import javax.persistence.TypedQuery;
 import java.util.Optional;
 
-public class JpaProductRepository  extends JpaAutoTxRepository implements ProductRepository {
+public class JpaProductRepository extends BasepaRepositoryBase<Product, InternalCode, Reference> implements ProductRepository
+        {
 
-    public JpaProductRepository(String persistenceUnitName, String identityFieldName) {
-        super(persistenceUnitName, identityFieldName);
+    public JpaProductRepository() {
+        super("internalcode");
     }
-
-    @Override
-    public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
-        return null;
-    }
-
     @Override
     public AggregateRoot save(AggregateRoot entity) {
         return null;
@@ -41,4 +33,26 @@ public class JpaProductRepository  extends JpaAutoTxRepository implements Produc
     public void deleteOfIdentity(Comparable entityId) {
 
     }
+
+    @Override
+    public Iterable<Product> findProductByInternalCode(InternalCode internalCode) {
+        final TypedQuery<Product> query = entityManager().createQuery(
+                "SELECT c FROM Product c WHERE c.internalCode = :internalCode",
+                Product.class);
+        query.setParameter("internalCode", internalCode);
+
+        return query.getResultList();
+    }
+
+
+    @Override
+    public Iterable<Product> findProductByReference(Reference reference) {
+        final TypedQuery<Product> query = entityManager().createQuery(
+                "SELECT c FROM Product c WHERE c.reference = :reference",
+                Product.class);
+        query.setParameter("reference", reference);
+
+        return query.getResultList();
+    }
+
 }
