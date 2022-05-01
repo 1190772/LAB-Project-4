@@ -9,7 +9,7 @@ import javax.persistence.*;
 public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
     @Id
-    @GeneratedValue // (strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Embedded
