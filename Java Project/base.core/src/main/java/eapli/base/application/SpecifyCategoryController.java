@@ -20,9 +20,7 @@ public class SpecifyCategoryController {
         return new Description(descricao);
     }
 
-    public Category specifyCategory (final String code, final String description) throws DescriptionException, AlphaNumericCodeException {
-        authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-        AlphaNumericCode cod=registerAlphaNumericCode(code);
+    public Category specifyCategory (final String code, final String description) throws DescriptionException, AlphaNumericCodeException {AlphaNumericCode cod=registerAlphaNumericCode(code);
         Description description1=registerDescription(description);
         Category category=new Category(cod,description1);
         return this.repository.save(category);
