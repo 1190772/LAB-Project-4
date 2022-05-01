@@ -1,0 +1,201 @@
+@startuml
+hide methods
+left to right direction
+skinparam classAttributeIconSize 0
+
+package Warehouse <<Folder>> {
+entity Warehouse <<entity root>>{
+  -
+}
+
+
+}
+
+
+package Survey <<Folder>>{
+class Survey <<entity root>>{
+  -code
+  -period
+}
+
+
+class Notification <<entity>>{
+  - 
+}
+
+class SurveyAnswers <<value entity>>{
+  -
+}
+}
+  
+package AGV <<Folder>>{
+class AGV <<entity root>> {
+  -id
+  -maxWeight
+  -baseLocation
+  -autonomyStatus
+}
+
+
+class AGVModel <<value object>> {
+  -
+}
+}
+
+package AGVTask <<Folder>>{
+class AGVTask <<entity root>>{
+  - 
+}
+  
+class ManualTask <<entity>>{
+  - 
+}
+  
+class AutomaticTask <<entity>>{
+  - 
+}
+}
+  
+package Order <<Folder>>{
+class Order <<entity>>{
+  -id
+  -dateTime
+  -listProductsPricesQuantity
+  -totalPriceWIthAndWithoutTaxes
+  -registryUser
+}
+class Shipment <<entity root>>{
+    -
+}
+
+class Payment <<entity root>>{
+  -
+}
+}
+
+package Customer <<Folder>>{
+class Customer <<entity root>>{
+  -id
+  -gender
+  -birthDate
+}
+}
+
+
+package Product <<Folder>>{
+
+class Product <<entity root>>{
+  -code
+  -reference
+  -availableForOrder
+}
+
+class ProductCategory <<entity root>>{
+}
+  
+class Brand <<entity>>{
+  -name 
+}
+
+class ProductCatalog <<entity>>{
+  -
+}
+}
+
+
+
+package User <<Folder>>{
+class User <<entity root>>{
+  -  
+}
+
+class SalesManager <<entity>>{
+  - 
+}
+
+class WarehouseEmployee <<entity>>{
+  -  
+}
+
+class Administrator <<entity>>{
+ - 
+}
+
+class SalesClerk <<entity>>{
+  - 
+}
+}
+
+
+package ShoppingCart <<Folder root>>{
+class ShoppingCart <<entity>>{
+  - 
+}
+
+}
+
+
+Customer "1" -- "1" User : é >
+Customer "1" -- "1" ShoppingCart : tem >
+Customer "1" -- "0..*" SurveyAnswers : dá >
+Customer "1" -- "0..*" Notification : recebe >
+
+
+SalesClerk "1" -- "1" User : é >
+SalesClerk "1" -- "0..*" Product : regista >
+SalesClerk "1..*" -- "1..*" ProductCatalog : gere >
+SalesClerk "1..*" -- "1..*" ProductCategory : gere >
+SalesClerk "1" -- "0..*" Customer : regista >
+SalesClerk "1" -- "0..*" Order : regista >
+WarehouseEmployee "1" -- "1" User : é >
+SalesManager "1" -- "1" User : é >
+SalesManager "1" -- "0..*" Product : regista >
+SalesManager "1" -- "0..*" Customer : regista >
+SalesManager "1" -- "0..*" Order : regista >
+SalesManager "1..*" -- "1..*" ProductCatalog : gere >
+SalesManager "1..*" -- "1..*" ProductCategory : gere >
+
+
+Product "0..*" -- "1" ProductCategory : tem >
+
+Brand "1" -- "1..*" Product : fabrica >
+
+
+
+Shipment "1" -- "1*" Order : tem >
+
+
+AGV "1" -- "0..*" AGVTask : realiza >
+
+
+AGVTask "1" -- "1" Order : refere-se a >
+ManualTask "1" -- "1" AGVTask : é >
+AutomaticTask "1" -- "1" AGVTask : é >
+Order "0..*" -- "1..*" Product : tem >
+Order "1" -- "1" Payment : tem >
+Order "0..*" -- "1" Customer : em nome de >
+
+
+
+ShoppingCart "1" -- "1" Order : origina >
+ShoppingCart "0..*" -- "1..*" Product : tem >
+
+ProductCatalog "1" -- "1..*" Product : contém >
+ProductCatalog "1" -- "1*" Customer : visto por >
+Survey "1" -- "1" SurveyAnswers : guarda >
+Survey "0..*" -- "0..*" Customer : referente a >
+
+
+WarehouseEmployee "1..*" -- "1..*" Warehouse : gere >
+
+WarehouseEmployee "1..*" -- "1..*" AGV : gere >
+
+Administrator "1" -- "1" User : é >
+Administrator "1..*" -- "1..*" User : gere >
+User "1" -- "0..*" Order : efetua >
+
+
+
+
+
+@enduml
