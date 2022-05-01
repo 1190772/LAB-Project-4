@@ -14,35 +14,35 @@ public class SearchProductCatalogService {
 
     private AuthorizationService auth;
 
-    public Iterable<ProductCatalog> findProductsByBrand(Brand brand) {
+    public Iterable<ProductCatalog> findProductsByBrand(Brand brand, String sort) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductsByBrand(brand) == null){
+        if(repo.findProductsByBrand(brand, sort) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductsByBrand(brand);
+            return repo.findProductsByBrand(brand, sort);
         }
 
     }
 
-    public Iterable<ProductCatalog> findProductsByCategory(Category category) {
+    public Iterable<ProductCatalog> findProductsByCategory(Category category, String sort) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductsByCategory(category) == null){
+        if(repo.findProductsByCategory(category, sort) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductsByCategory(category);
+            return repo.findProductsByCategory(category, sort);
         }
 
     }
 
-    public Iterable<ProductCatalog> findProductsByShortDescription(ShortDescription desc) {
+    public Iterable<ProductCatalog> findProductsByShortDescription(ShortDescription desc, String sort) {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        if(repo.findProductsByShortDescription(desc) == null){
+        if(repo.findProductsByShortDescription(desc, sort) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
         }else{
-            return repo.findProductsByShortDescription(desc);
+            return repo.findProductsByShortDescription(desc, sort);
         }
 
     }

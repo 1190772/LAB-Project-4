@@ -8,9 +8,9 @@ public class SearchProductCatalogByCategoryController {
 
     private final SearchProductCatalogService svc = new SearchProductCatalogService();
 
-    public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
+    public Iterable<ProductCatalog> findProductCatalogByCategory(Category category, String sort) {
 
-        return svc.findProductsByCategory(category);
+        return svc.findProductsByCategory(category, sort);
     }
 
 }

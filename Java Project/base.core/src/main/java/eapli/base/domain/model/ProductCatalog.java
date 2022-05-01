@@ -13,15 +13,15 @@ public class ProductCatalog implements AggregateRoot<Long> {
 
 
     @ManyToOne
-    private Product product;
+    private Product products;
 
     public Product getProduct() {
-        return product;
+        return products;
     }
 
-    public ProductCatalog(Product product) {
-        if(product.productStatus()){
-            this.product = product;
+    public ProductCatalog(Product products) {
+        if(products.productStatus()){
+            this.products = products;
         }
     }
 
@@ -33,12 +33,12 @@ public class ProductCatalog implements AggregateRoot<Long> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ProductCatalog that = (ProductCatalog) o;
-        return id.equals(that.id) && product.equals(that.product);
+        return id.equals(that.id) && products.equals(that.products);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, product);
+        return Objects.hash(id, products);
     }
 
     @Override
@@ -50,12 +50,12 @@ public class ProductCatalog implements AggregateRoot<Long> {
     public String toString() {
         return "ProductCatalog{" +
                 "id=" + id +
-                ", product=" + product +
+                ", product=" + products +
                 '}';
     }
 
     @Override
     public Long identity() {
-        return null;
+        return id;
     }
 }

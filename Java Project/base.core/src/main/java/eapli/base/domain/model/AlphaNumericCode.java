@@ -28,6 +28,14 @@ class AlphaNumericCode implements ValueObject, Serializable, Comparable<AlphaNum
         return new AlphaNumericCode(codAlfaNum);
     }
 
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
+
     @Override
     public boolean equals(final Object o) {
         if (this == o) {

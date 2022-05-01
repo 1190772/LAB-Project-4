@@ -22,6 +22,14 @@ public class ShortDescription implements ValueObject, Serializable, Comparable<S
     protected ShortDescription() {
     }
 
+    public String getShtDescription() {
+        return shtDescription;
+    }
+
+    public void setShtDescription(String shtDescription) {
+        this.shtDescription = shtDescription;
+    }
+
     private static boolean validateShortDescription(String shtDescription) {
         return shtDescription.length() > Constantes.MIN_SHTHDESC_LENGTH && shtDescription.length() < Constantes.MAX_SHTHDESC_LENGTH;
     }
