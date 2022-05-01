@@ -1,57 +1,90 @@
 package eapli.base.domain.model.customer;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import eapli.base.domain.model.Barcode;
-import eapli.base.domain.model.InternalCode;
-import eapli.base.domain.model.Product;
-import eapli.base.domain.model.TechnicalDescription;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.validations.Preconditions;
 
-import javax.persistence.EmbeddedId;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.util.Optional;
 
 @XmlRootElement
 @Entity
-public class Customer implements AggregateRoot<VATiD>, Comparable<VATiD> {
+public class Customer implements AggregateRoot<Long>, Comparable<Long> {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Embedded
     @XmlElement
     @JsonProperty
     private Name name;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private VATiD vatId;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private Birthdate birthdate;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private PhoneNumber phoneNumber;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private Email email;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private Address address;
 
+    @Embedded
     @XmlElement
     @JsonProperty
     private Gender gender;
 
     @OneToOne
     private Customer customer;
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public Email getEmail() {
+        return email;
+    }
+
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public Birthdate getBirthdate() {
+        return birthdate;
+    }
+
+    public VATiD getVatId() {
+        return vatId;
+    }
+
+    public Name getName() {
+        return name;
+    }
 
 
     public Customer(final Name name, VATiD vatId, Birthdate birthdate, PhoneNumber phoneNumber, Email email, Address address, Gender gender) {
@@ -104,9 +137,6 @@ public class Customer implements AggregateRoot<VATiD>, Comparable<VATiD> {
     }
 
 
-
-
-
     /**
      * @return the Birthdate of this Customer
      */
@@ -122,10 +152,6 @@ public class Customer implements AggregateRoot<VATiD>, Comparable<VATiD> {
     }
 
 
-
-
-
-
     @Override
     public boolean equals(final Object o) {
         return DomainEntities.areEqual(this, o);
@@ -135,8 +161,6 @@ public class Customer implements AggregateRoot<VATiD>, Comparable<VATiD> {
     public int hashCode() {
         return DomainEntities.hashCode(this);
     }
-
-
 
 
     @Override
@@ -221,8 +245,8 @@ public class Customer implements AggregateRoot<VATiD>, Comparable<VATiD> {
     }
 
     @Override
-    public VATiD identity() {
-        return vatId;
+    public Long identity() {
+        return id;
     }
 }
 
