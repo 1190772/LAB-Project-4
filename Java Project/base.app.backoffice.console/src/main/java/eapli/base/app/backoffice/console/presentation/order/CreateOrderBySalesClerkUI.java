@@ -2,8 +2,10 @@ package eapli.base.app.backoffice.console.presentation.order;
 
 
 import eapli.base.domain.model.InternalCode;
+import eapli.base.domain.model.Order;
 import eapli.base.domain.model.Product;
 import eapli.base.domain.model.ProductsList;
+import eapli.base.domain.model.customer.Address;
 import eapli.base.domain.model.customer.Customer;
 import eapli.base.domain.model.customer.VATiD;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
@@ -53,8 +55,15 @@ public class CreateOrderBySalesClerkUI extends AbstractUI {
             }
         }
 
+        String district = Console.readLine("District's destiny adress: ");
+        String country = Console.readLine("Country's destiny adress: ");
+        String street = Console.readLine("Street's destiny adress: ");
+        String door = Console.readLine("Door's destiny adress: ");
+        Address a= new Address(district,country,street,door);
         Date date = Calendar.getInstance().getTime();
-        if (theController.saveOrder(pl, date,authz.session().get().authenticatedUser().email())){
+        Order o=theController.saveOrder(pl, date,authz.session().get().authenticatedUser().email(),a);
+        if (o!=null){
+            o.toString();
             System.out.println("Order Registration managed successfully");
         }else{
             System.out.println("Order Registration wasn't managed successfully");

@@ -104,5 +104,9 @@ public interface RepositoryFactory {
 
     ProductRepository products();
 
+    AGVRepository agvs(TransactionalContext autoTx);
+
+    AGVRepository agvs();
+
     CustomerRepository customers();
 }
