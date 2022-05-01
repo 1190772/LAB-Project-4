@@ -5,6 +5,7 @@ import eapli.base.domain.persistence.ProductCatalogRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
+import org.springframework.data.domain.Sort;
 
 
 public class SearchProductCatalogService {
@@ -16,23 +17,36 @@ public class SearchProductCatalogService {
     private AuthorizationService auth;
 
     public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
-        auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-        if(repo == null){
+        //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
+
+        if(repo.findProductCatalogByBrand(brand) == null){
             throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return repo.findProductCatalogByBrand(brand);
         }
-        return repo.findProductCatalogByBrand(brand);
+
     }
 
     public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
-        auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
+        //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        return repo.findProductCatalogByCategory(category);
+        if(repo.findProductCatalogByCategory(category) == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return repo.findProductCatalogByCategory(category);
+        }
+
     }
 
     public Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc) {
-        auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
+        //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
 
-        return repo.findProductCatalogByShortDescription(desc);
+        if(repo.findProductCatalogByShortDescription(desc) == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return repo.findProductCatalogByShortDescription(desc);
+        }
+
     }
 
 

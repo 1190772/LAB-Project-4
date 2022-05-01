@@ -18,6 +18,7 @@ import java.util.function.Function;
 public class JpaProductCatalogRepository extends JpaAutoTxRepository implements ProductCatalogRepository {
 
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
+    private static final String NO_RESULTS = "No results with those filters";
 
     public JpaProductCatalogRepository(String persistenceUnitName, String identityFieldName) {
         super(persistenceUnitName, identityFieldName);
@@ -26,17 +27,29 @@ public class JpaProductCatalogRepository extends JpaAutoTxRepository implements 
 
     @Override
     public Iterable<ProductCatalog> findProductCatalogByBrand(Brand brand) {
-        return match("e.brand=:brand", "brand", brand);
+        if(match("e.brand=:brand", "brand", brand) == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return match("e.brand=:brand", "brand", brand);
+        }
     }
 
     @Override
     public Iterable<ProductCatalog> findProductCatalogByCategory(Category category) {
-        throw new UnsupportedOperationException(NOT_SUPPORTED);
+        if(match("e.category=:category", "category", category) == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return match("e.category=:category", "category", category);
+        }
     }
 
     @Override
     public Iterable<ProductCatalog> findProductCatalogByShortDescription(ShortDescription desc) {
-        throw new UnsupportedOperationException(NOT_SUPPORTED);
+        if(match("e.desc=:desc", "desc", desc) == null){
+            throw new UnsupportedOperationException(NO_RESULTS);
+        }else{
+            return match("e.desc=:desc", "desc", desc);
+        }
     }
 
     @Override

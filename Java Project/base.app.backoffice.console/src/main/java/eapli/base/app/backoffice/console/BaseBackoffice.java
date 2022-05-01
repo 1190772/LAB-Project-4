@@ -60,48 +60,48 @@ public final class BaseBackoffice extends BaseApplication{ // extends BaseApplic
      */
     public static void main(final String[] args) {
 
-        /*final int SEARCH_CATALOG_BY_BRAND = 1;
-        final int SEARCH_CATALOG_BY_CATEGORY = 2;
-        final int SEARCH_CATALOG_BY_DESCRIPTION = 3;
-        // new SearchProductCatalogByBrandUI().show();
-        // new SearchProductCatalogByCategoryUI().show();
-        // new SearchProductCatalogByShortDescriptionUI().show();
-        Menu menu = new Menu();
-        menu.addItem(SEARCH_CATALOG_BY_BRAND, "Search Catalog By Brand", new SearchProductCatalogByBrandAction());
-        menu.addItem(SEARCH_CATALOG_BY_CATEGORY, "Search Catalog By Catalog", new SearchProductCatalogByCategoryAction());
-        menu.addItem(SEARCH_CATALOG_BY_DESCRIPTION, "Search Catalog By Description", new SearchProductCatalogByShortDescriptionAction());
-  */
+//        final int SEARCH_CATALOG_BY_BRAND = 1;
+//        final int SEARCH_CATALOG_BY_CATEGORY = 2;
+//        final int SEARCH_CATALOG_BY_DESCRIPTION = 3;
+//        new SearchProductCatalogByBrandUI().show();
+//        new SearchProductCatalogByCategoryUI().show();
+//        new SearchProductCatalogByShortDescriptionUI().show();
+//        Menu menu = new Menu();
+//        menu.addItem(SEARCH_CATALOG_BY_BRAND, "Search Catalog By Brand", new SearchProductCatalogByBrandAction());
+//        menu.addItem(SEARCH_CATALOG_BY_CATEGORY, "Search Catalog By Catalog", new SearchProductCatalogByCategoryAction());
+//        menu.addItem(SEARCH_CATALOG_BY_DESCRIPTION, "Search Catalog By Description", new SearchProductCatalogByShortDescriptionAction());
+
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
                 new BasePasswordPolicy(), new PlainTextEncoder());
 
         new BaseBackoffice().run(args);
-    }
-
-    @Override
-    protected void doMain(final String[] args) {
-        // login and go to main menu
-        if (new LoginUI().show()) {
-            // go to main menu
-            final MainMenu menu = new MainMenu();
-            menu.mainLoop();
         }
-    }
 
-    @Override
-    protected String appTitle() {
-        return "Base Back Office";
-    }
+        @Override
+        protected void doMain(final String[] args) {
+            // login and go to main menu
+            if (new LoginUI().show()) {
+                // go to main menu
+                final MainMenu menu = new MainMenu();
+                menu.mainLoop();
+            }
+        }
 
-    @Override
-    protected String appGoodbye() {
-        return "Base Back Office";
-    }
+        @Override
+        protected String appTitle() {
+            return "Base Back Office";
+        }
 
-    @SuppressWarnings("unchecked")
-    @Override
-    protected void doSetupEventHandlers(final EventDispatcher dispatcher) {
-        dispatcher.subscribe(new NewUserRegisteredFromSignupWatchDog(),
-                NewUserRegisteredFromSignupEvent.class);
-        dispatcher.subscribe(new SignupAcceptedWatchDog(), SignupAcceptedEvent.class);
+        @Override
+        protected String appGoodbye() {
+            return "Base Back Office";
+        }
+
+        @SuppressWarnings("unchecked")
+        @Override
+        protected void doSetupEventHandlers(final EventDispatcher dispatcher) {
+            dispatcher.subscribe(new NewUserRegisteredFromSignupWatchDog(),
+                    NewUserRegisteredFromSignupEvent.class);
+            dispatcher.subscribe(new SignupAcceptedWatchDog(), SignupAcceptedEvent.class);
     }
 }

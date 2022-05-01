@@ -19,7 +19,7 @@ public class SearchProductCatalogByCategoryUI extends AbstractUI {
         AlphaNumericCode code = null;
 
         try {
-            code = Category.readCode(Console.readLine("Category:"));
+            code = Category.readCode(Console.readLine("Category Code:"));
         } catch (IOException | AlphaNumericCodeException e) {
             e.printStackTrace();
         }

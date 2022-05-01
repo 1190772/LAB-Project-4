@@ -19,7 +19,7 @@ public class SearchProductCatalogByShortDescriptionUI extends AbstractUI {
     protected boolean doShow() {
         String desc;
 
-        desc = Console.readLine("Short Description?:");
+        desc = Console.readLine("Short Description : ");
         System.out.println("Results with the Short Description : " + desc);
         ShortDescription desc1 = new ShortDescription(desc);
         for (ProductCatalog cat : theController.findProductCatalogByShortDescription(desc1)) {

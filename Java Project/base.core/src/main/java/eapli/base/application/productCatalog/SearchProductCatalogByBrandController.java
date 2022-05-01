@@ -2,6 +2,7 @@ package eapli.base.application.productCatalog;
 
 import eapli.base.domain.model.Brand;
 import eapli.base.domain.model.ProductCatalog;
+import org.springframework.data.domain.Sort;
 
 public class SearchProductCatalogByBrandController {
 

@@ -13,11 +13,16 @@ public class ProductCatalog {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
     @ManyToOne
     @JoinColumns({
             @JoinColumn(name = "product_internalCode", referencedColumnName = "internalCode")
     })
     private Product product;
+
+    public Product getProduct() {
+        return product;
+    }
 
     public ProductCatalog(Product product) {
         if(product.productStatus()){
