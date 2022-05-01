@@ -1,0 +1,16 @@
+@startuml
+autonumber
+actor "Warehouse Employee" as WE
+
+activate WE
+WE -> ":System" : inicia a criação de um agv
+activate ":System"
+":System" --> WE : solicita uma descricao breve\nid do modelo do AGV\ncapacidade de peso maxima
+deactivate ":System"
+WE -> ":System" : submete informaçao
+activate ":System"
+":System" --> WE : Mostra agv e informa do sucesso da operação
+deactivate ":System"
+deactivate WE
+
+@enduml

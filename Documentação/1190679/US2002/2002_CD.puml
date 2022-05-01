@@ -1,0 +1,62 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class ConfigureAGVUI {
+}
+}
+
+Package Application{
+class ConfigureAGVController {
+  +findCustomerById(id)
+  +findProductById(id)
+  +AddProduct()
+  +AddToProductList(product)
+  +SaveOrder()
+}
+}
+
+
+Package Domain{
+class AGVModel {
+  +create(string model)
+}
+
+class AGV {
+  +create(shortDesc,agvModel,maxWeight)
+}
+
+class ShortDescription {
+  +create(string desc)
+}
+}
+
+Package Persistence{
+class RepositoryFactory{
+  +agvs()
+}
+
+
+  
+class AGVRepository{
+  +saveAGV(agv)
+}
+}
+
+
+
+ConfigureAGVUI ..> ConfigureAGVController
+ConfigureAGVController ..> AGVModel
+ConfigureAGVController ..> ShortDescription
+ConfigureAGVController ..> Order
+ConfigureAGVController ..> RepositoryFactory
+ConfigureAGVController ..> AGVRepository
+RepositoryFactory ..|> AGVRepository
+AGVRepository ..|> AGV
+OrderRepository ..|> Order
+AGV "1" --> "1" AGVModel : tem
+AGV "1" --> "1" ShortDescription : contém
+
+
+@enduml
