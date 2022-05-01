@@ -47,7 +47,7 @@ public class SpecifyProductController {
               .productionCoded(ProductionCode.productedCodedAs(productionCode))
               .barcoded(Barcode.withBarcode(barcode))
               .mesuring(new Mesurements(width,length,height,weight))
-              .costing(Price.pricedAs(price))
+              .costing(PriceWithoutTaxes.pricedAs(price))
               .withPhotos(photos)
               .build();
       return (Product) productRepository.save(newProduct);

@@ -19,10 +19,10 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     private ProductsList prod;
 
     @Embedded
-    private Price priceWithoutTaxes;
+    private PriceWithoutTaxes priceWithoutTaxes;
 
     @Embedded
-    private Price priceWithTaxes;
+    private PriceWithoutTaxes priceWithoutTaxesWithTaxes;
 
     @Embedded
     private Date creationDate;
@@ -37,7 +37,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     public Order(ProductsList products, Date date, EmailAddress e, Address a) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
-        this.priceWithTaxes=products.totalPrice(true);
+        this.priceWithoutTaxesWithTaxes =products.totalPrice(true);
         this.creationDate=date;
         this.email=e;
         this.address=a;
@@ -67,7 +67,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
                 "id=" + id +
                 ", prod=" + prod +
                 ", priceWithoutTaxes=" + priceWithoutTaxes +
-                ", priceWithTaxes=" + priceWithTaxes +
+                ", priceWithTaxes=" + priceWithoutTaxesWithTaxes +
                 ", creationDate=" + creationDate +
                 ", email=" + email +
                 ", address=" + address +

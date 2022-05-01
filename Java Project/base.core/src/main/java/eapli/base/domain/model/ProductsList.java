@@ -22,9 +22,9 @@ public class ProductsList {
     }
 
     public void addProduct(Product prod){
-        Optional<Price> pwot=prod.priceWithoutTaxes();
+        Optional<PriceWithoutTaxes> pwot=prod.priceWithoutTaxes();
         priceWithoutTaxes+=pwot.get().priceValue().doubleValue();
-        Optional<Price> pwt=prod.priceWithTaxes();
+        Optional<PriceWithTaxes> pwt=prod.priceWithTaxes();
         priceWithTaxes+=pwt.get().priceValue().doubleValue();
         pwt.get().priceValue().doubleValue();
         if(products.containsKey(prod)){
@@ -38,11 +38,11 @@ public class ProductsList {
         return products;
     }
 
-    public Price totalPrice(boolean withTax){
+    public PriceWithoutTaxes totalPrice(boolean withTax){
         if(withTax)
-            return new Price(priceWithTaxes);
+            return new PriceWithoutTaxes(priceWithTaxes);
 
-        return new Price(priceWithoutTaxes);
+        return new PriceWithoutTaxes(priceWithoutTaxes);
     }
 
 }
