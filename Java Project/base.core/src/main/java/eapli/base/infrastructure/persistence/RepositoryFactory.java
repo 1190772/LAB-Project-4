@@ -104,7 +104,13 @@ public interface RepositoryFactory {
 
     ProductRepository products();
 
+<<<<<<< HEAD
     CustomerRepository customers(TransactionalContext autoTx);
+=======
+    AGVRepository agvs(TransactionalContext autoTx);
+
+    AGVRepository agvs();
+>>>>>>> f8a3f16d8df89391f0ea9b4d7f628ca2380f7724
 
     CustomerRepository customers();
 }

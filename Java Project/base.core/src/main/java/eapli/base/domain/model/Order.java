@@ -1,5 +1,6 @@
 package eapli.base.domain.model;
 
+import eapli.base.domain.model.customer.Address;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
 
@@ -26,17 +27,20 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Embedded
     private Date creationDate;
 
-
     @Embedded
     EmailAddress email;
 
+    @Embedded
+    Address address;
 
-    public Order(ProductsList products, Date date, EmailAddress e) {
+
+    public Order(ProductsList products, Date date, EmailAddress e, Address a) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
         this.priceWithTaxes=products.totalPrice(true);
         this.creationDate=date;
         this.email=e;
+        this.address=a;
     }
 
     public Order() {
@@ -57,6 +61,18 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         return (this.id==that.identity());
     }
 
+    @Override
+    public String toString() {
+        return "Order{" +
+                "id=" + id +
+                ", prod=" + prod +
+                ", priceWithoutTaxes=" + priceWithoutTaxes +
+                ", priceWithTaxes=" + priceWithTaxes +
+                ", creationDate=" + creationDate +
+                ", email=" + email +
+                ", address=" + address +
+                '}';
+    }
 
     @Override
     public Long identity() {

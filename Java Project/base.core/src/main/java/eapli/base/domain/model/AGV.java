@@ -31,6 +31,15 @@ public class AGV implements AggregateRoot<Long>, Comparable<Long> {
     public AGV() {
     }
 
+    @Override
+    public String toString() {
+        return "AGV{" +
+                "id=" + id +
+                ", shortDesc=" + shortDesc +
+                ", model=" + model +
+                ", maxWeight=" + maxWeight +
+                '}';
+    }
 
     @Override
     public boolean sameAs(Object other) {
