@@ -2,8 +2,6 @@ package eapli.base.domain.model;
 
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
-import eapli.framework.infrastructure.authz.domain.model.SystemUser;
-import org.springframework.security.core.userdetails.User;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -8,7 +8,6 @@ import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.general.domain.model.EmailAddress;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
-import eapli.framework.infrastructure.authz.domain.model.SystemUser;
 
 import java.util.Date;
 
