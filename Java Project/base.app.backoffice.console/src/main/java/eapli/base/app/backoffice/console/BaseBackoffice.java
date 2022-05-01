@@ -23,9 +23,14 @@
  */
 package eapli.base.app.backoffice.console;
 
+import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProductUI;
+import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVUI;
 import eapli.base.app.backoffice.console.presentation.authz.AddUserUI;
 import eapli.base.app.backoffice.console.presentation.authz.DeactivateUserAction;
 import eapli.base.app.backoffice.console.presentation.authz.ListUsersAction;
+import eapli.base.app.backoffice.console.presentation.category.SpecifyCategoryUI;
+import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerUI;
+import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkUI;
 import eapli.base.app.backoffice.console.presentation.productCatalog.*;
 import eapli.base.app.common.console.BaseApplication;
 import eapli.base.app.common.console.presentation.authz.LoginUI;
@@ -66,10 +71,11 @@ public final class BaseBackoffice extends BaseApplication{ // extends BaseApplic
 //        new SearchProductCatalogByBrandUI().show();
 //        new SearchProductCatalogByCategoryUI().show();
 //        new SearchProductCatalogByShortDescriptionUI().show();
-//        Menu menu = new Menu();
-//        menu.addItem(SEARCH_CATALOG_BY_BRAND, "Search Catalog By Brand", new SearchProductCatalogByBrandAction());
-//        menu.addItem(SEARCH_CATALOG_BY_CATEGORY, "Search Catalog By Catalog", new SearchProductCatalogByCategoryAction());
-//        menu.addItem(SEARCH_CATALOG_BY_DESCRIPTION, "Search Catalog By Description", new SearchProductCatalogByShortDescriptionAction());
+//        new SpecifyCategoryUI().show();
+//        new SpecifyProductUI().show();
+//        new CreateOrderBySalesClerkUI().show();
+//        new RegisterCustomerUI().show();
+//        new ConfigureAGVUI().show();
 
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
                 new BasePasswordPolicy(), new PlainTextEncoder());

@@ -23,6 +23,11 @@
  */
 package eapli.base.app.backoffice.console.presentation;
 
+import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProductAction;
+import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVAction;
+import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
+import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
+import eapli.base.app.backoffice.console.presentation.productCatalog.SearchProductCatalogByBrandAction;
 import eapli.base.app.common.console.presentation.authz.MyUserMenu;
 import eapli.base.Application;
 import eapli.base.app.backoffice.console.presentation.authz.AddUserUI;
@@ -63,36 +68,21 @@ public class MainMenu extends AbstractUI {
     // SETTINGS
     private static final int SET_KITCHEN_ALERT_LIMIT_OPTION = 1;
 
-    // DISH TYPES
-    private static final int DISH_TYPE_REGISTER_OPTION = 1;
-    private static final int DISH_TYPE_LIST_OPTION = 2;
-    private static final int DISH_TYPE_CHANGE_OPTION = 3;
-    private static final int DISH_TYPE_ACTIVATE_DEACTIVATE_OPTION = 4;
+    //Sales Clerk
+    private static final int CUSTOMER_OPTION = 1;
 
-    // DISHES
-    private static final int DISH_REGISTER_OPTION = 5;
-    private static final int DISH_LIST_OPTION = 6;
-    private static final int DISH_REGISTER_DTO_OPTION = 7;
-    private static final int DISH_LIST_DTO_OPTION = 8;
-    private static final int DISH_ACTIVATE_DEACTIVATE_OPTION = 9;
-    private static final int DISH_CHANGE_OPTION = 10;
+    // CUSTOMER MENU
+    private static final int REGISTER_CUSTOMER_OPTION = 1;
 
-    // DISH PROPERTIES
-    private static final int CHANGE_DISH_NUTRICIONAL_INFO_OPTION = 1;
-    private static final int CHANGE_DISH_PRICE_OPTION = 2;
+    // PRODUCT MENU
+    private static final int SPECIFY_PRODUCT_OPTION = 1;
+    private static final int SEARCH_PRODUCTS_OPTION = 2;
+    private static final int NEW_PRODUCT_ORDER_OPTION = 3;
+    private static final int NEW_CATEGORY_OPTION = 4;
 
-    // MATERIALS
-    private static final int MATERIAL_REGISTER_OPTION = 1;
-    private static final int MATERIAL_LIST_OPTION = 2;
-
-    // REPORTING
-    private static final int REPORTING_DISHES_PER_DISHTYPE_OPTION = 1;
-    private static final int REPORTING_HIGH_CALORIES_DISHES_OPTION = 2;
-    private static final int REPORTING_DISHES_PER_CALORIC_CATEGORY_OPTION = 3;
-
-    // MEALS
-    private static final int LIST_MEALS_OPTION = 1;
-    private static final int MEAL_REGISTER_OPTION = 2;
+    // WAREHOUSE MENU
+    private static final int CONFIG_AVG_OPTION = 1;
+    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 2;
 
     // MAIN MENU
     private static final int MY_USER_OPTION = 1;
@@ -150,6 +140,22 @@ public class MainMenu extends AbstractUI {
             mainMenu.addSubMenu(USERS_OPTION, usersMenu);
             final Menu settingsMenu = buildAdminSettingsMenu();
             mainMenu.addSubMenu(SETTINGS_OPTION, settingsMenu);
+            final Menu customerMenu = buildCustomerMenu();
+            mainMenu.addSubMenu(CUSTOMER_OPTION, customerMenu);
+            final Menu productMenu = buildProductMenu();
+            mainMenu.addSubMenu(CUSTOMER_OPTION, productMenu);
+        }
+
+        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.POWER_USER, BaseRoles.SALES_CLERK)) {
+            final Menu customerMenu = buildCustomerMenu();
+            mainMenu.addSubMenu(CUSTOMER_OPTION, customerMenu);
+            final Menu productMenu = buildProductMenu();
+            mainMenu.addSubMenu(CUSTOMER_OPTION, productMenu);
+        }
+
+        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.POWER_USER, BaseRoles.WAREHOUSE_EMPLOYEE)) {
+            final Menu warehouseMenu = buildWarehouseMenu();
+            mainMenu.addSubMenu(CUSTOMER_OPTION, warehouseMenu);
         }
 
         if (!Application.settings().isMenuLayoutHorizontal()) {
@@ -184,7 +190,35 @@ public class MainMenu extends AbstractUI {
         return menu;
     }
 
+    private Menu buildCustomerMenu() {
+        final Menu menu = new Menu("Customer >");
 
+        menu.addItem(REGISTER_CUSTOMER_OPTION, "Register Customer", new RegisterCustomerAction());
+        menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
+
+        return menu;
+    }
+
+    private Menu buildProductMenu() {
+        final Menu menu = new Menu("Product >");
+
+        menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify Product", new SpecifyProductAction());
+        menu.addItem(SEARCH_PRODUCTS_OPTION, "Search Product Catalog", new SearchProductCatalogByBrandAction());
+        menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
+        menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyProductAction());
+        menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
+
+        return menu;
+    }
+
+    private Menu buildWarehouseMenu() {
+        final Menu menu = new Menu("Warehouse >");
+
+        menu.addItem(CONFIG_AVG_OPTION, "Config AVG", new ConfigureAGVAction());
+        menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
+
+        return menu;
+    }
 
 
 
