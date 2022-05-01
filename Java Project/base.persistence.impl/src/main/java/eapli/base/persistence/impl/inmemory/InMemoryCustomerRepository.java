@@ -6,7 +6,7 @@ import eapli.base.domain.persistence.CustomerRepository;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
 
-public class InMemoryCustomerRepository extends InMemoryDomainRepository implements CustomerRepository {
+public class InMemoryCustomerRepository extends InMemoryDomainRepository<Customer, Long> implements CustomerRepository {
 
     static {
         InMemoryInitializer.init();
@@ -18,12 +18,4 @@ public class InMemoryCustomerRepository extends InMemoryDomainRepository impleme
     }
 
 
-    @Override
-    public AggregateRoot save(AggregateRoot entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(AggregateRoot entity) {
-    }
 }
