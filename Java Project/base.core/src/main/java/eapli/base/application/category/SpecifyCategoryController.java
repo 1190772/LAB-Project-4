@@ -4,7 +4,7 @@ import eapli.base.domain.model.category.AlphaNumericCode;
 import eapli.base.domain.model.category.Category;
 import eapli.base.domain.model.category.Description;
 import eapli.base.domain.model.category.DescriptionException;
-import eapli.base.domain.model.product.AlphaNumericCodeException;
+import eapli.base.domain.model.category.AlphaNumericCodeException;
 import eapli.base.domain.persistence.CategoryRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;

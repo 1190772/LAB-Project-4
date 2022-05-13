@@ -1,7 +1,7 @@
 package eapli.base.app.backoffice.console.presentation.category;
 
 import eapli.base.application.category.SpecifyCategoryController;
-import eapli.base.domain.model.product.AlphaNumericCodeException;
+import eapli.base.domain.model.category.AlphaNumericCodeException;
 import eapli.base.domain.model.category.DescriptionException;
 import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;

@@ -1,4 +1,4 @@
-package eapli.base.domain.model.product;
+package eapli.base.domain.model.category;
 
 public class AlphaNumericCodeException extends Exception {
 

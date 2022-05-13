@@ -14,9 +14,7 @@ activate SC
 SC -> UI : inicia a especificação de uma nova categoria
 activate UI
 UI --> SC : solicita o código alfanumérico e a descrição da categoria
-deactivate UI
 SC -> UI : submete informação
-activate UI
 UI -> CTRL : specifyCategory(alphaNumericCode,description);
 activate CTRL
 CTRL -> PER : repositories()

@@ -1,6 +1,5 @@
 package eapli.base.domain.model.category;
 
-import eapli.base.domain.model.product.AlphaNumericCodeException;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.domain.model.DomainEntity;

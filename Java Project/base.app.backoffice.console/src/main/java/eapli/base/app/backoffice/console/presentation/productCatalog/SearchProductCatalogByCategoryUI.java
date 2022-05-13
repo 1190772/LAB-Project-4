@@ -5,7 +5,7 @@ import eapli.base.application.productCatalog.SearchProductCatalogByCategoryContr
 import eapli.base.domain.model.*;
 import eapli.base.domain.model.category.AlphaNumericCode;
 import eapli.base.domain.model.category.Category;
-import eapli.base.domain.model.product.AlphaNumericCodeException;
+import eapli.base.domain.model.category.AlphaNumericCodeException;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
