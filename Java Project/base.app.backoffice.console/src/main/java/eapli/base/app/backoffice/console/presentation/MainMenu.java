@@ -25,6 +25,7 @@ package eapli.base.app.backoffice.console.presentation;
 
 import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProductAction;
 import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVAction;
+import eapli.base.app.backoffice.console.presentation.category.SpecifyCategoryAction;
 import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.SearchProductCatalogByBrandAction;
@@ -69,7 +70,11 @@ public class MainMenu extends AbstractUI {
     private static final int SET_KITCHEN_ALERT_LIMIT_OPTION = 1;
 
     //Sales Clerk
-    private static final int CUSTOMER_OPTION = 1;
+    private static final int CUSTOMER_OPTION = 2;
+    private static final int PRODUCT_OPTION = 3;
+
+    //Warehouse Employee
+    private static final int WAREHOUSE_OPTION = 2;
 
     // CUSTOMER MENU
     private static final int REGISTER_CUSTOMER_OPTION = 1;
@@ -140,22 +145,18 @@ public class MainMenu extends AbstractUI {
             mainMenu.addSubMenu(USERS_OPTION, usersMenu);
             final Menu settingsMenu = buildAdminSettingsMenu();
             mainMenu.addSubMenu(SETTINGS_OPTION, settingsMenu);
+        }
+
+        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.SALES_CLERK)) {
             final Menu customerMenu = buildCustomerMenu();
             mainMenu.addSubMenu(CUSTOMER_OPTION, customerMenu);
             final Menu productMenu = buildProductMenu();
-            mainMenu.addSubMenu(CUSTOMER_OPTION, productMenu);
+            mainMenu.addSubMenu(PRODUCT_OPTION, productMenu);
         }
 
-        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.POWER_USER, BaseRoles.SALES_CLERK)) {
-            final Menu customerMenu = buildCustomerMenu();
-            mainMenu.addSubMenu(CUSTOMER_OPTION, customerMenu);
-            final Menu productMenu = buildProductMenu();
-            mainMenu.addSubMenu(CUSTOMER_OPTION, productMenu);
-        }
-
-        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.POWER_USER, BaseRoles.WAREHOUSE_EMPLOYEE)) {
+        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.WAREHOUSE_EMPLOYEE)) {
             final Menu warehouseMenu = buildWarehouseMenu();
-            mainMenu.addSubMenu(CUSTOMER_OPTION, warehouseMenu);
+            mainMenu.addSubMenu(WAREHOUSE_OPTION, warehouseMenu);
         }
 
         if (!Application.settings().isMenuLayoutHorizontal()) {
@@ -205,7 +206,7 @@ public class MainMenu extends AbstractUI {
         menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify Product", new SpecifyProductAction());
         menu.addItem(SEARCH_PRODUCTS_OPTION, "Search Product Catalog", new SearchProductCatalogByBrandAction());
         menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
-        menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyProductAction());
+        menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
@@ -215,6 +216,7 @@ public class MainMenu extends AbstractUI {
         final Menu menu = new Menu("Warehouse >");
 
         menu.addItem(CONFIG_AVG_OPTION, "Config AVG", new ConfigureAGVAction());
+        //menu.addItem(SET_UP_WAREHOUSE_PLANT_OPTION, "Set Up Warehouse Plant", new ConfigureAGVAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
