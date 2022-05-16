@@ -67,4 +67,6 @@ public class BackofficeUsersBootstrapper extends UsersBootstrapperBase implement
 
         registerUser(username, password, firstName, lastName, email, roles);
     }
+
+
 }
