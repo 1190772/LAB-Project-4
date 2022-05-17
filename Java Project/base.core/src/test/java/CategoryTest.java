@@ -1,8 +1,4 @@
-import eapli.base.domain.model.category.AlphaNumericCode;
-import eapli.base.domain.model.category.Category;
-import eapli.base.domain.model.category.Description;
-import eapli.base.domain.model.category.DescriptionException;
-import eapli.base.domain.model.category.AlphaNumericCodeException;
+import eapli.base.domain.model.category.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

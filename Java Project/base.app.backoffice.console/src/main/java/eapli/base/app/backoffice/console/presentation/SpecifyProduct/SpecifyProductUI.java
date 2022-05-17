@@ -1,7 +1,6 @@
 package eapli.base.app.backoffice.console.presentation.SpecifyProduct;
 
 import eapli.base.application.product.SpecifyProductController;
-import eapli.base.domain.model.category.Category;
 import eapli.framework.domain.repositories.ConcurrencyException;
 import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;

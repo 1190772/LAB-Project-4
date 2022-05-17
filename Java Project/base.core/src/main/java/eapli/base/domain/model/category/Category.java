@@ -4,14 +4,26 @@ import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.domain.model.DomainEntity;
 
+import javax.persistence.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Category implements AggregateRoot<AlphaNumericCode> {
+@Entity
+public class Category implements AggregateRoot<AlphaNumericCode>{
 
+    @EmbeddedId
     private AlphaNumericCode code;
+    @Embedded
     private Description description;
+
+    public Description getDescription() {
+        return description;
+    }
+
+    public AlphaNumericCode getCode() {
+        return code;
+    }
 
     public Category() {
 

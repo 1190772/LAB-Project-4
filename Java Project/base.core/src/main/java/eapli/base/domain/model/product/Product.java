@@ -28,6 +28,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     private Long version;
 
 
+    @OneToOne
     private Category productCategory;
 
   /*  @OneToOne

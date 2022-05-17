@@ -4,8 +4,8 @@ import eapli.base.app.backoffice.console.presentation.validations.Validate;
 import eapli.base.application.productCatalog.SearchProductCatalogByCategoryController;
 import eapli.base.domain.model.*;
 import eapli.base.domain.model.category.AlphaNumericCode;
-import eapli.base.domain.model.category.Category;
 import eapli.base.domain.model.category.AlphaNumericCodeException;
+import eapli.base.domain.model.category.Category;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
