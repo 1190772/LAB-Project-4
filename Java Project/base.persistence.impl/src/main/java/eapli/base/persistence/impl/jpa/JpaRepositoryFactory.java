@@ -27,7 +27,6 @@ import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.customer.domain.persistence.CustomerRepository;
 import eapli.base.infrastructure.persistence.RepositoryFactory;
 import eapli.base.order.domain.persistence.OrderRepository;
-import eapli.base.product.domain.persistence.ProductCatalogRepository;
 import eapli.base.product.domain.persistence.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
@@ -102,16 +101,6 @@ public class JpaRepositoryFactory implements RepositoryFactory {
         return null;
     }
 
-    @Override
-    public ProductCatalogRepository productCatalog(final TransactionalContext autoTx) {
-        return new JpaProductCatalogRepository(autoTx);
-    }
-
-
-    @Override
-    public ProductCatalogRepository productCatalog() {
-        return new JpaProductCatalogRepository(Application.settings().getPersistenceUnitName());
-    }
 
     @Override
     public ProductRepository products(TransactionalContext autoTx) {

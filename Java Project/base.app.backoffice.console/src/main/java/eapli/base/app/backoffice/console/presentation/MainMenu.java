@@ -28,6 +28,7 @@ import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVAction;
 import eapli.base.app.backoffice.console.presentation.category.SpecifyCategoryAction;
 import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
+import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.SearchProductCatalogByBrandAction;
 import eapli.base.app.common.console.presentation.authz.MyUserMenu;
 import eapli.base.Application;
@@ -204,7 +205,7 @@ public class MainMenu extends AbstractUI {
         final Menu menu = new Menu("Product >");
 
         menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify Product", new SpecifyProductAction());
-        menu.addItem(SEARCH_PRODUCTS_OPTION, "Search Product Catalog", new SearchProductCatalogByBrandAction());
+        menu.addItem(SEARCH_PRODUCTS_OPTION, "Search Product Catalog", new ListProductsAction());
         menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);

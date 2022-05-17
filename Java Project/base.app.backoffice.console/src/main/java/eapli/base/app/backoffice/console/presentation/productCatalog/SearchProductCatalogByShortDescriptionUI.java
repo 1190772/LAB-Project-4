@@ -2,7 +2,7 @@ package eapli.base.app.backoffice.console.presentation.productCatalog;
 
 import eapli.base.app.backoffice.console.presentation.validations.Validate;
 import eapli.base.product.application.SearchProductCatalogByShortDescriptionController;
-import eapli.base.product.domain.model.ProductCatalog;
+import eapli.base.product.domain.model.Product;
 import eapli.base.product.domain.model.ShortDescription;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
@@ -25,7 +25,7 @@ public class SearchProductCatalogByShortDescriptionUI extends AbstractUI {
         System.out.println("Results with the Short Description : " + desc);
         ShortDescription desc1 = new ShortDescription(desc.toString());
 
-        for (ProductCatalog cat : theController.findProductCatalogByShortDescription(desc1, sort)) {
+        for (Product cat : theController.findProductCatalogByShortDescription(desc1, sort)) {
             System.out.println(cat.toString());
         }
         return false;

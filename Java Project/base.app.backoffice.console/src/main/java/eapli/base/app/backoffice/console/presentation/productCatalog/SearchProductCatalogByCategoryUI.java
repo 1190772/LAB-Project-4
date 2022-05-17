@@ -5,7 +5,7 @@ import eapli.base.product.application.SearchProductCatalogByCategoryController;
 import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.AlphaNumericCodeException;
 import eapli.base.category.domain.model.Category;
-import eapli.base.product.domain.model.ProductCatalog;
+import eapli.base.product.domain.model.Product;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
@@ -31,7 +31,7 @@ public class SearchProductCatalogByCategoryUI extends AbstractUI {
 
         System.out.println("Results with the category : " + code);
         Category category1 = new Category(code);
-        for (ProductCatalog cat: theController.findProductCatalogByCategory(category1, sort)) {
+        for (Product cat: theController.findProductCatalogByCategory(category1, sort)) {
             System.out.println(cat.toString());
         }
         return false;

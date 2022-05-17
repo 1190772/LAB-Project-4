@@ -3,7 +3,7 @@ package eapli.base.app.backoffice.console.presentation.productCatalog;
 import eapli.base.app.backoffice.console.presentation.validations.Validate;
 import eapli.base.product.application.SearchProductCatalogByBrandController;
 import eapli.base.product.domain.model.Brand;
-import eapli.base.product.domain.model.ProductCatalog;
+import eapli.base.product.domain.model.Product;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
@@ -27,7 +27,7 @@ public class SearchProductCatalogByBrandUI extends AbstractUI {
 
         System.out.println("Results with the Brand : " + brand);
         Brand brand1 = new Brand(brand.toString());
-        for (ProductCatalog cat: theController.findProductsByBrand(brand1, sort)) {
+        for (Product cat: theController.findProductsByBrand(brand1, sort)) {
             System.out.println(cat.toString());
         }
         return false;
