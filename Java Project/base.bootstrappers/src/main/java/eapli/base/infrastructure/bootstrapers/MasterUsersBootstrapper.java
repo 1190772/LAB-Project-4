@@ -40,7 +40,7 @@ public class MasterUsersBootstrapper extends UsersBootstrapperBase implements Ac
                 "josef.aze@email.local");
         registerWarehouseEmployee("WarehouseEmployee", TestDataConstants.PASSWORD1, "Miguel", "Cristo",
                 "miguel.cristo@email.local");
-        registerSalesManager("SalesManager", TestDataConstants.PASSWORD1, "José", "Rei",
+        registerSalesManager("SalesManager", TestDataConstants.PASSWORD1, "Jose", "Rei",
                 "jose.rei@email.local");
         return true;
     }
