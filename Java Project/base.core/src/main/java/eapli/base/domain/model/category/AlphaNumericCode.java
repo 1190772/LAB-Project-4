@@ -14,9 +14,9 @@ class AlphaNumericCode implements ValueObject, Serializable, Comparable<AlphaNum
     private String code;
 
     public AlphaNumericCode(final String code) throws AlphaNumericCodeException {
-        if(!code.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")||StringPredicates.isNullOrEmpty(code)||code.length()>15) {
+        /*if(!code.matches("^(?=.*[a-zA-Z])(?=.*[0-9])[A-Za-z0-9]+$")||StringPredicates.isNullOrEmpty(code)||code.length()>15) {
             throw new AlphaNumericCodeException("Codigo Alfa Numerico inválido");
-        }
+        }*/
         this.code = code;
     }
 
