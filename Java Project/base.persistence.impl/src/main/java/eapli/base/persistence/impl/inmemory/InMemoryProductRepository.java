@@ -8,7 +8,7 @@ import eapli.base.domain.persistence.ProductRepository;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
 
-public class InMemoryProductRepository extends InMemoryDomainRepository implements ProductRepository {
+public class InMemoryProductRepository extends InMemoryDomainRepository<Product, InternalCode> implements ProductRepository {
 
     static {
         InMemoryInitializer.init();
@@ -25,14 +25,5 @@ public class InMemoryProductRepository extends InMemoryDomainRepository implemen
     }
 
 
-    @Override
-    public AggregateRoot save(AggregateRoot entity) {
-        return null;
-    }
-
-    @Override
-    public void delete(AggregateRoot entity) {
-
-    }
 
 }
