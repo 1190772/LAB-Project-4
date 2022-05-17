@@ -1,11 +1,11 @@
 package eapli.base.app.backoffice.console.presentation.productCatalog;
 
 import eapli.base.app.backoffice.console.presentation.validations.Validate;
-import eapli.base.application.productCatalog.SearchProductCatalogByCategoryController;
-import eapli.base.domain.model.*;
-import eapli.base.domain.model.category.AlphaNumericCode;
-import eapli.base.domain.model.category.AlphaNumericCodeException;
-import eapli.base.domain.model.category.Category;
+import eapli.base.product.application.SearchProductCatalogByCategoryController;
+import eapli.base.category.domain.model.AlphaNumericCode;
+import eapli.base.category.domain.model.AlphaNumericCodeException;
+import eapli.base.category.domain.model.Category;
+import eapli.base.product.domain.model.ProductCatalog;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 

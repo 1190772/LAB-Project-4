@@ -12,10 +12,10 @@
     <class>eapli.framework.infrastructure.authz.domain.model.RoleAssignment</class>
     <class>eapli.base.clientusermanagement.domain.ClientUser</class>
     <class>eapli.base.clientusermanagement.domain.SignupRequest</class>
-    <class>eapli.base.domain.model.ProductCatalog</class>
-    <class>eapli.base.domain.model.product.Product</class>
-    <class>eapli.base.domain.model.category.Category</class>
-    <class>eapli.base.domain.model.customer.Customer</class>
+    <class>eapli.base.product.domain.model.ProductCatalog</class>
+    <class>eapli.base.product.domain.model.Product</class>
+    <class>eapli.base.category.domain.model.Category</class>
+    <class>eapli.base.customer.domain.model.Customer</class>
 
       <properties>
       <!--<property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/base"/>-->

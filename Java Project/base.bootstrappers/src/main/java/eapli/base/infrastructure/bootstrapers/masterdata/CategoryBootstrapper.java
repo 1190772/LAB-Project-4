@@ -1,12 +1,9 @@
 package eapli.base.infrastructure.bootstrapers.masterdata;
 
-import eapli.base.application.category.SpecifyCategoryController;
-import eapli.base.domain.model.category.AlphaNumericCode;
-import eapli.base.domain.model.category.AlphaNumericCodeException;
-import eapli.base.domain.model.category.Category;
-import eapli.base.domain.model.category.DescriptionException;
-import eapli.base.domain.model.product.Product;
-import eapli.base.domain.persistence.CategoryRepository;
+import eapli.base.category.application.SpecifyCategoryController;
+import eapli.base.category.domain.model.AlphaNumericCodeException;
+import eapli.base.category.domain.model.Category;
+import eapli.base.category.domain.model.DescriptionException;
 import eapli.framework.actions.Action;
 import eapli.framework.domain.repositories.ConcurrencyException;
 import eapli.framework.domain.repositories.IntegrityViolationException;

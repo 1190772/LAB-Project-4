@@ -1,10 +1,9 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.product.InternalCode;
-import eapli.base.domain.model.product.Product;
-import eapli.base.domain.model.product.Reference;
-import eapli.base.domain.persistence.ProductRepository;
-import eapli.framework.domain.model.AggregateRoot;
+import eapli.base.product.domain.model.InternalCode;
+import eapli.base.product.domain.model.Product;
+import eapli.base.product.domain.model.Reference;
+import eapli.base.product.domain.persistence.ProductRepository;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 import javax.persistence.TypedQuery;

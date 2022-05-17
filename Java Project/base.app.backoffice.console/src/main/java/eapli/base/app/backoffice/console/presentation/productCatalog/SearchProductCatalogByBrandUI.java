@@ -1,9 +1,9 @@
 package eapli.base.app.backoffice.console.presentation.productCatalog;
 
 import eapli.base.app.backoffice.console.presentation.validations.Validate;
-import eapli.base.application.productCatalog.SearchProductCatalogByBrandController;
-import eapli.base.domain.model.product.Brand;
-import eapli.base.domain.model.ProductCatalog;
+import eapli.base.product.application.SearchProductCatalogByBrandController;
+import eapli.base.product.domain.model.Brand;
+import eapli.base.product.domain.model.ProductCatalog;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 

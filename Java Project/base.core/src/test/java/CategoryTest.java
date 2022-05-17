@@ -1,4 +1,4 @@
-import eapli.base.domain.model.category.*;
+import eapli.base.category.domain.model.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

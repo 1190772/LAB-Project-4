@@ -1,10 +1,10 @@
 package eapli.base.persistence.impl.inmemory;
 
-import eapli.base.domain.model.*;
-import eapli.base.domain.model.category.Category;
-import eapli.base.domain.model.product.Brand;
-import eapli.base.domain.model.product.ShortDescription;
-import eapli.base.domain.persistence.ProductCatalogRepository;
+import eapli.base.category.domain.model.Category;
+import eapli.base.product.domain.model.Brand;
+import eapli.base.product.domain.model.ProductCatalog;
+import eapli.base.product.domain.model.ShortDescription;
+import eapli.base.product.domain.persistence.ProductCatalogRepository;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
 
 public class InMemoryProductCatalogRepository extends InMemoryDomainRepository<ProductCatalog, Long> implements ProductCatalogRepository {

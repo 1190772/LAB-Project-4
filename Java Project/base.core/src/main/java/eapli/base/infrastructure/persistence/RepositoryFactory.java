@@ -20,9 +20,14 @@
  */
 package eapli.base.infrastructure.persistence;
 
+import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.category.domain.persistence.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
-import eapli.base.domain.persistence.*;
+import eapli.base.customer.domain.persistence.CustomerRepository;
+import eapli.base.order.domain.persistence.OrderRepository;
+import eapli.base.product.domain.persistence.ProductCatalogRepository;
+import eapli.base.product.domain.persistence.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 

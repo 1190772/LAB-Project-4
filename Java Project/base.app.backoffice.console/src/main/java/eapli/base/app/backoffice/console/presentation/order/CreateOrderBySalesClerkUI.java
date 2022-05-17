@@ -1,18 +1,18 @@
 package eapli.base.app.backoffice.console.presentation.order;
 
 
-import eapli.base.domain.model.product.InternalCode;
-import eapli.base.domain.model.Order;
-import eapli.base.domain.model.product.Product;
-import eapli.base.domain.model.ProductsList;
-import eapli.base.domain.model.customer.Address;
-import eapli.base.domain.model.customer.Customer;
-import eapli.base.domain.model.customer.VATiD;
+import eapli.base.order.application.CreateOrderBySalesClerkController;
+import eapli.base.product.domain.model.InternalCode;
+import eapli.base.order.domain.model.Order;
+import eapli.base.product.domain.model.Product;
+import eapli.base.product.domain.model.ProductsList;
+import eapli.base.customer.domain.model.Address;
+import eapli.base.customer.domain.model.Customer;
+import eapli.base.customer.domain.model.VATiD;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
-import eapli.base.application.order.*;
 
 import java.util.Calendar;
 import java.util.Date;

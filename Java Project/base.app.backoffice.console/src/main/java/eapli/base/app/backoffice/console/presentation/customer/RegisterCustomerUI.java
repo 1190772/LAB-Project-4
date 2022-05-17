@@ -1,9 +1,9 @@
 package eapli.base.app.backoffice.console.presentation.customer;
 
-import eapli.base.application.customer.RegisterCustomerController;
-import eapli.base.domain.model.customer.EmailException;
-import eapli.base.domain.model.customer.NameException;
-import eapli.base.domain.model.customer.PhoneNumberException;
+import eapli.base.customer.application.RegisterCustomerController;
+import eapli.base.customer.domain.model.EmailException;
+import eapli.base.customer.domain.model.NameException;
+import eapli.base.customer.domain.model.PhoneNumberException;
 import eapli.framework.domain.repositories.ConcurrencyException;
 import eapli.framework.domain.repositories.IntegrityViolationException;
 import eapli.framework.io.util.Console;

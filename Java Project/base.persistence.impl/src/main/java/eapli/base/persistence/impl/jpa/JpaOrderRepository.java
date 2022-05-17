@@ -1,6 +1,6 @@
 package eapli.base.persistence.impl.jpa;
 
-import eapli.base.domain.model.Order;
+import eapli.base.order.domain.model.Order;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
  public class JpaOrderRepository extends JpaAutoTxRepository{

@@ -21,9 +21,14 @@
 package eapli.base.persistence.impl.jpa;
 
 import eapli.base.Application;
+import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.category.domain.persistence.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
-import eapli.base.domain.persistence.*;
+import eapli.base.customer.domain.persistence.CustomerRepository;
 import eapli.base.infrastructure.persistence.RepositoryFactory;
+import eapli.base.order.domain.persistence.OrderRepository;
+import eapli.base.product.domain.persistence.ProductCatalogRepository;
+import eapli.base.product.domain.persistence.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 import eapli.framework.infrastructure.authz.repositories.impl.JpaAutoTxUserRepository;
