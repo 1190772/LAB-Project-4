@@ -1,0 +1,22 @@
+@startuml
+autonumber
+actor "Customer" as C
+
+activate C
+C -> ":System" : inicia a visualizacao do catalogo de produtos
+activate ":System"
+":System" --> C : apresenta o catalogo de produtos
+deactivate ":System"
+loop for each produto
+C -> ":System" : inicia selecao de um produto
+activate ":System"
+":System" --> C : solicita id do produto
+deactivate ":System"
+C -> ":System" : submete informação
+activate ":System"
+":System" -> C : informa do sucesso da operação
+deactivate ":System"
+end
+deactivate C
+
+@enduml
