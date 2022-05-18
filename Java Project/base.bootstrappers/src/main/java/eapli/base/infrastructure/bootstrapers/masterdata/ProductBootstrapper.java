@@ -1,5 +1,6 @@
 package eapli.base.infrastructure.bootstrapers.masterdata;
 
+import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.product.application.SpecifyProductController;
 import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.AlphaNumericCodeException;
@@ -18,7 +19,7 @@ public class ProductBootstrapper implements Action {
 
 
     SpecifyProductController controller = new SpecifyProductController();
-    CategoryRepository repo;
+    private final CategoryRepository repo = PersistenceContext.repositories().category();
 
 
     @Override

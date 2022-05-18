@@ -6,9 +6,11 @@ import eapli.base.product.domain.model.PriceWithoutTaxes;
 import eapli.base.product.domain.model.Product;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.Embeddable;
 import java.util.*;
 
 @Service
+@Embeddable
 public class ProductsList {
 
     

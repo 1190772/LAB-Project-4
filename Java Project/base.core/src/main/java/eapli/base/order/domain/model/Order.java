@@ -8,6 +8,7 @@ import eapli.framework.general.domain.model.EmailAddress;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 
 @Entity
@@ -60,7 +61,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
             return true;
         }
 
-        return (this.id==that.identity());
+        return (Objects.equals(this.id, that.identity()));
     }
 
     @Override
