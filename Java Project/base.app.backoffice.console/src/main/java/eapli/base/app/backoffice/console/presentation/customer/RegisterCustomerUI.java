@@ -25,25 +25,25 @@ public class RegisterCustomerUI extends AbstractUI {
     protected boolean doShow() {
 
 
-        final String name = Console.readLine("Name: ");
-
-        final String vatId = Console.readLine("VAT Id: ");
-
-        final String birthdate = Console.readLine("Birthdate: ");
-
-        final String phoneNumber = Console.readLine("Phone number: ");
-
-        final String email = Console.readLine("Email: ");
-
-        final String district = Console.readLine("District: ");
-        final String county = Console.readLine("County: ");
-        final String street = Console.readLine("Street: ");
-        final String door = Console.readLine("Door: ");
-
-        final String gender = Console.readLine("Gender: ");
-
-
         try {
+
+            final String name = Console.readLine("Name: ");
+
+            final String vatId = Console.readLine("VAT Id: ");
+
+            final String birthdate = Console.readLine("Birthdate: ");
+
+            final String phoneNumber = Console.readLine("Phone number: ");
+
+            final String email = Console.readLine("Email: ");
+
+            final String district = Console.readLine("District: ");
+            final String county = Console.readLine("County: ");
+            final String street = Console.readLine("Street: ");
+            final String door = Console.readLine("Door: ");
+
+            final String gender = Console.readLine("Gender: ");
+
             controller.registerCustomer(name, vatId, birthdate, phoneNumber, email, district, county, street, door, gender);
         } catch (final IntegrityViolationException e) {
             System.out.println("You tried to register a customer which already exists in the database.");

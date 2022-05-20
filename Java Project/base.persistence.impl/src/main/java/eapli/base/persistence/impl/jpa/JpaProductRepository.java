@@ -1,8 +1,10 @@
 package eapli.base.persistence.impl.jpa;
 
+import eapli.base.Application;
 import eapli.base.category.domain.model.Category;
 import eapli.base.product.domain.model.*;
 import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 import javax.persistence.TypedQuery;
@@ -13,8 +15,12 @@ import java.util.function.Consumer;
 public class JpaProductRepository extends JpaAutoTxRepository<Product, InternalCode, Reference> implements ProductRepository {
 
 
-    public JpaProductRepository(String persistenceUnitName, String identityFieldName) {
-        super(persistenceUnitName, identityFieldName);
+    public JpaProductRepository(TransactionalContext autoTx) {
+        super(autoTx, "id");
+    }
+
+    public JpaProductRepository(final String puName){
+        super(puName, Application.settings().getExtendedPersistenceProperties(), "id");
     }
 
     @Override

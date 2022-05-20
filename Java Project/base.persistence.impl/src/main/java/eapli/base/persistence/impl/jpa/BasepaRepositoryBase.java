@@ -23,6 +23,8 @@ package eapli.base.persistence.impl.jpa;
 import eapli.base.Application;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaTransactionalRepository;
 
+import java.util.Map;
+
 /**
  * a base class for all transactional repositories to use the same persistence
  * unit
@@ -44,4 +46,6 @@ import eapli.framework.infrastructure.repositories.impl.jpa.JpaTransactionalRepo
         super(Application.settings().getPersistenceUnitName(),
                 Application.settings().getExtendedPersistenceProperties(), identityFieldName);
     }
+
+
 }
