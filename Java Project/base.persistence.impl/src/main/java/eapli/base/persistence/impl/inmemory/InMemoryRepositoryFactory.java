@@ -81,12 +81,12 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
     }
 
     @Override
-    public ProductRepository product(TransactionalContext autoTx) {
+    public ProductRepository products(TransactionalContext autoTx) {
         return null;
     }
 
     @Override
-    public ProductRepository product() {
+    public ProductRepository products() {
         return null;
     }
 
@@ -99,17 +99,6 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
     @Override
     public OrderRepository order() {
         //return new InMemoryOrderRepository();
-        return null;
-    }
-
-
-    @Override
-    public ProductRepository products(TransactionalContext autoTx) {
-        return null;
-    }
-
-    @Override
-    public ProductRepository products() {
         return null;
     }
 

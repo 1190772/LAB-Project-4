@@ -92,17 +92,13 @@ public interface RepositoryFactory {
 
     CategoryRepository category();
 
-    ProductRepository product(TransactionalContext autoTx);
+    ProductRepository products(TransactionalContext autoTx);
 
-    ProductRepository product();
+    ProductRepository products();
 
     OrderRepository order(TransactionalContext autoTx);
 
     OrderRepository order();
-
-    ProductRepository products(TransactionalContext autoTx);
-
-    ProductRepository products();
 
     CustomerRepository customers(TransactionalContext autoTx);
 

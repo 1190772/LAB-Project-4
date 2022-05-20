@@ -13,7 +13,7 @@ import eapli.base.product.domain.persistence.ProductRepository;
 public class CreateOrderBySalesClerkService {
 
     private static final CustomerRepository customerRepository = PersistenceContext.repositories().customers();
-    private static final ProductRepository productRepository = PersistenceContext.repositories().product();
+    private static final ProductRepository productRepository = PersistenceContext.repositories().products();
     private static final OrderRepository orderRepository = PersistenceContext.repositories().order();
 
     public static Customer findCustomerById(VATiD id){

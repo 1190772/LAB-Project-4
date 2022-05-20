@@ -81,14 +81,16 @@ public class JpaRepositoryFactory implements RepositoryFactory {
     }
 
     @Override
-    public ProductRepository product(final TransactionalContext autoTx) {
+    public ProductRepository products(final TransactionalContext autoTx) {
         return new JpaProductRepository(autoTx);
     }
 
     @Override
-    public ProductRepository product() {
+    public ProductRepository products() {
         return new JpaProductRepository(Application.settings().getPersistenceUnitName());
     }
+
+
 
     @Override
     public OrderRepository order(TransactionalContext autoTx) {
@@ -101,16 +103,6 @@ public class JpaRepositoryFactory implements RepositoryFactory {
         return null;
     }
 
-
-    @Override
-    public ProductRepository products(TransactionalContext autoTx) {
-        return null;
-    }
-
-    @Override
-    public ProductRepository products() {
-        return null;
-    }
 
     @Override
     public CustomerRepository customers(final TransactionalContext autoTx) {

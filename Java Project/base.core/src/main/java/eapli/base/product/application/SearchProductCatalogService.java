@@ -12,7 +12,7 @@ import eapli.framework.infrastructure.authz.application.AuthorizationService;
 
 public class SearchProductCatalogService {
 
-    private final ProductRepository repo = PersistenceContext.repositories().product();
+    private final ProductRepository repo = PersistenceContext.repositories().products();
 
     private static final String NO_RESULTS = "No results with those filters";
 

@@ -12,7 +12,7 @@ import java.util.Set;
 
 public class SpecifyProductController {
     private AuthorizationService authorizationService;
-    private CategoryRepository categoryRepository =  PersistenceContext.repositories().category();
+    private final CategoryRepository categoryRepository =  PersistenceContext.repositories().category();
     private final ProductRepository productRepository = PersistenceContext.repositories().products();
 
     @Transactional
