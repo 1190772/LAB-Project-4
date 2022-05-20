@@ -4,8 +4,10 @@ import eapli.base.Constantes;
 import eapli.framework.domain.model.ValueObject;
 import eapli.framework.validations.Preconditions;
 
+import javax.persistence.Embeddable;
 import java.util.Objects;
 
+@Embeddable
 public class Barcode implements ValueObject, Comparable<Barcode> {
 
     private long barcode;

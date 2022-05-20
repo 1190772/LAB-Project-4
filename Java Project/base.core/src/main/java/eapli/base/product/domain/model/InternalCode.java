@@ -57,6 +57,6 @@ public class InternalCode implements ValueObject, Serializable, Comparable<Inter
 
     @Override
     public String toString() {
-        return "internalCode= " + internalCode;
+        return internalCode;
     }
 }
