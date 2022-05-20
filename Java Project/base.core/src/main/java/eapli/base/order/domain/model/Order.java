@@ -27,7 +27,6 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Embedded
     private PriceWithoutTaxes priceWithoutTaxesWithTaxes;
 
-    @Embedded
     private Date creationDate;
 
     @Embedded
