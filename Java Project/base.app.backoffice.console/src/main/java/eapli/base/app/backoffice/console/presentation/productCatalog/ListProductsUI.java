@@ -23,13 +23,11 @@ public class ListProductsUI extends AbstractListUI<Product> {
 
     @Override
     protected Iterable<Product> elements() {
-        System.out.println("1");
         return theController.listProducts();
     }
 
     @Override
     protected Visitor<Product> elementPrinter() {
-        System.out.println("2");
         return new ProductPrinter();
 
     }
@@ -41,7 +39,7 @@ public class ListProductsUI extends AbstractListUI<Product> {
 
     @Override
     protected String listHeader() {
-        return String.format("#  %-10s%-30s%-4s", "Brand", "Internal Code", "Availability");
+        return String.format("#  %-20s%-30s%-4s", "Brand", "Internal Code", "Availability");
     }
 
     @Override

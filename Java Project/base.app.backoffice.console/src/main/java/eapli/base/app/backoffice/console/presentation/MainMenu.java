@@ -205,7 +205,7 @@ public class MainMenu extends AbstractUI {
         final Menu menu = new Menu("Product >");
 
         menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify Product", new SpecifyProductAction());
-        menu.addItem(SEARCH_PRODUCTS_OPTION, "Search Product Catalog", new SearchProductCatalogByBrandAction());
+        menu.addItem(SEARCH_PRODUCTS_OPTION, "Product Catalog", new ListProductsAction());
         menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);

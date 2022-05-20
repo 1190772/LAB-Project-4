@@ -65,17 +65,6 @@ public final class BaseBackoffice extends BaseApplication{ // extends BaseApplic
      */
     public static void main(final String[] args) {
 
-//        final int SEARCH_CATALOG_BY_BRAND = 1;
-//        final int SEARCH_CATALOG_BY_CATEGORY = 2;
-//        final int SEARCH_CATALOG_BY_DESCRIPTION = 3;
-//        new SearchProductCatalogByBrandUI().show();
-//        new SearchProductCatalogByCategoryUI().show();
-//        new SearchProductCatalogByShortDescriptionUI().show();
-//        new SpecifyCategoryUI().show();
-//        new SpecifyProductUI().show();
-//        new CreateOrderBySalesClerkUI().show();
-//        new RegisterCustomerUI().show();
-//        new ConfigureAGVUI().show();
 
         AuthzRegistry.configure(PersistenceContext.repositories().users(),
                 new BasePasswordPolicy(), new PlainTextEncoder());
