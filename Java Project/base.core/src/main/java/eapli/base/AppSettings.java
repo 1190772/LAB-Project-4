@@ -44,6 +44,7 @@ public class AppSettings {
     private static final String PERSISTENCE_UNIT_KEY = "persistence.persistenceUnit";
     private static final String SCHEMA_GENERATION_KEY = "javax.persistence.schema-generation.database.action";
     private static final String HIGH_CALORIES_DISH_LIMIT = "HighCaloriesDishLimit";
+    private static final String ALGORITHM_NUMBER_KEY = "algorithm_number";
 
     private final Properties applicationProperties = new Properties();
 
@@ -91,6 +92,10 @@ public class AppSettings {
 
     public Integer getHighCaloriesDishLimit() {
         return Integer.valueOf(this.applicationProperties.getProperty(HIGH_CALORIES_DISH_LIMIT));
+    }
+
+    public int getAlgorithmNumber(){
+        return  Integer.parseInt(this.applicationProperties.getProperty(ALGORITHM_NUMBER_KEY));
     }
 
     @SuppressWarnings({ "rawtypes", "unchecked" })
