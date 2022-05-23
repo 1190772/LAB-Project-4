@@ -44,7 +44,7 @@ C -> UI : submete informação
 activate UI
 UI -> CTRL : AddProductToShoppingCart(id)
 activate CTRL
-CTRL -> prodREPO : getProductById(id)
+CTRL -> prodREPO : findProductByInternalCode(id)
 activate prodREPO
 prodREPO --> CTRL : prod
 deactivate prodREPO
