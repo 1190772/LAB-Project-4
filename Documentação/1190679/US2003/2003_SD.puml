@@ -15,7 +15,7 @@ database "AGVRepository" as agvREPO <<repository>>
 activate WE
 WE -> UI : inicia a visualizacao das encomendas que precisam\nde ser preparadas pelo Warehouse Employee
 activate UI
-UI -> CTRL : getPreparedOrders
+UI -> CTRL : getPreparedOrders()
 activate CTRL
 CTRL -> PER : repositories()
 activate PER
