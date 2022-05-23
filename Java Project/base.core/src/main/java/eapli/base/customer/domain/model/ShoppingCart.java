@@ -8,6 +8,7 @@ import javax.persistence.Id;
 
 @Entity
 public class ShoppingCart {
+    
     @Id
     private Long id;
 
@@ -20,10 +21,15 @@ public class ShoppingCart {
     @Embedded
     PriceWithTaxes pwt;
 
-    public ShoppingCart(){
+    public ShoppingCart(Long id){
+        this.id=id;
         this.prodList = new ProductsList();
         pwTt=new PriceWithoutTaxes((double) 0);
         pwt=new PriceWithTaxes((double) 0);
+    }
+
+    public ShoppingCart(){
+
     }
 
     public ProductsList addProduct(Product prod){
