@@ -70,6 +70,7 @@ activate agvREPO
 orderREPO --> CTRL : agv
 deactivate CTRL
 UI -> WE : informa do sucesso da operação
+end
 deactivate UI
 deactivate WE
 
