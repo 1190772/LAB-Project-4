@@ -1,0 +1,66 @@
+@startuml
+autonumber
+actor "Customer" as C
+participant "AddToShoppingCartUI" as UI <<presentation>>
+participant "AddToShoppingCartController" as CTRL <<application>>
+participant PersistenceContext as PER <<persistence>>
+participant "RepositoryFactory" as REPOFACT <<factory>>
+participant "product : Product" as PROD <<domain>>
+participant "customer : Customer" as CUST <<domain>>
+participant "shoppingCart : ShoppingCart" as SC <<domain>>
+database "prodRepository" as prodREPO <<repository>>
+
+
+
+activate C
+C -> UI : inicia a visualizacao do catalogo de produtos
+activate UI
+UI -> CTRL : getAvailableProducts()
+activate CTRL
+CTRL -> PER : repositories()
+activate PER
+PER -> REPOFACT : create
+PER --> CTRL : factory
+deactivate PER
+CTRL -> REPOFACT : products()
+activate REPOFACT
+REPOFACT -> prodREPO : create
+REPOFACT --> CTRL : prodRepository
+deactivate REPOFACT
+CTRL -> prodREPO : findAvailableProducts()
+activate prodREPO
+prodREPO --> CTRL : availableProducts
+deactivate prodREPO
+CTRL --> UI : availableProducts
+deactivate CTRL
+UI --> C : apresenta o catalogo de produtos
+deactivate UI
+loop for each produto
+C -> UI : inicia selecao de um produto
+activate UI
+UI --> C : solicita id do produto
+deactivate UI
+C -> UI : submete informação
+activate UI
+UI -> CTRL : AddProductToShoppingCart(id)
+activate CTRL
+CTRL -> prodREPO : getProductById(id)
+activate prodREPO
+prodREPO --> CTRL : prod
+deactivate prodREPO
+CTRL -> CUST : AddToCustomersShoppingCart(prod)
+activate CUST
+CUST -> SC : addProduct(prod)
+activate SC
+SC --> CUST : productsList
+deactivate SC
+CUST --> CTRL : productsList
+deactivate CUST
+CTRL --> UI : productsList
+deactivate CTRL
+UI -> C : mostra os produtos presentes do carrinho\ninforma do sucesso da operação
+end
+deactivate UI
+deactivate C
+
+@enduml
