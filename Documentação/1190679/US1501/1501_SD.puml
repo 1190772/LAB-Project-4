@@ -27,7 +27,7 @@ activate REPOFACT
 REPOFACT -> prodREPO : create
 REPOFACT --> CTRL : prodRepository
 deactivate REPOFACT
-CTRL -> prodREPO : findAvailableProducts()
+CTRL -> prodREPO : availableProducts()
 activate prodREPO
 prodREPO --> CTRL : availableProducts
 deactivate prodREPO
