@@ -1,0 +1,77 @@
+@startuml
+autonumber
+actor "Warehouse Employee" as WE
+participant "ListOrderToAGVUI" as UI <<presentation>>
+participant "ListOrderToAGVController" as CTRL <<application>>
+participant PersistenceContext as PER <<persistence>>
+participant "RepositoryFactory" as REPOFACT <<factory>>
+participant "agv : AGV" as AGV <<domain>>
+participant "order : Order" as ORDER <<domain>>
+database "OrderRepository" as orderREPO <<repository>>
+database "AGVRepository" as agvREPO <<repository>>
+
+
+
+activate WE
+WE -> UI : inicia a visualizacao das encomendas que precisam\nde ser preparadas pelo Warehouse Employee
+activate UI
+UI -> CTRL : getPreparedOrders()
+activate CTRL
+CTRL -> PER : repositories()
+activate PER
+PER -> REPOFACT : create
+PER --> CTRL : factory
+deactivate PER
+CTRL -> REPOFACT : orders()
+activate REPOFACT
+REPOFACT -> orderREPO : create
+REPOFACT --> CTRL : orderRepository
+deactivate REPOFACT
+CTRL -> orderREPO : findPreparedOrders()
+activate orderREPO
+orderREPO --> CTRL : preparedOrders
+deactivate orderREPO
+CTRL --> UI : preparedOrders
+deactivate CTRL
+UI --> WE : apresenta as encomendas correspondentes
+deactivate UI
+loop for each encomenda
+WE -> UI : inicia o pedido para uma encomenda ser preparada\npor um AGV
+activate UI
+UI --> WE : solicita id da encomenda
+deactivate UI
+WE -> UI : submete informação
+activate UI
+UI -> CTRL : getOrderById(id)
+activate CTRL
+CTRL -> orderREPO : getOrderById(id)
+activate orderREPO
+orderREPO --> CTRL : order
+deactivate orderREPO
+deactivate CTRL
+UI --> WE : solicita id do AGV
+deactivate UI
+WE -> UI : submete informação
+activate UI
+UI -> CTRL : getAGVById(id)
+activate CTRL
+CTRL -> PER : repositories()
+activate PER
+PER -> REPOFACT : create
+PER --> CTRL : factory
+deactivate PER
+CTRL -> REPOFACT : agvs()
+activate REPOFACT
+REPOFACT -> agvREPO : create
+REPOFACT --> CTRL : agvRepository
+deactivate REPOFACT
+CTRL -> agvREPO : getAGVById(id)
+activate agvREPO
+orderREPO --> CTRL : agv
+deactivate CTRL
+UI -> WE : informa do sucesso da operação
+end
+deactivate UI
+deactivate WE
+
+@enduml
