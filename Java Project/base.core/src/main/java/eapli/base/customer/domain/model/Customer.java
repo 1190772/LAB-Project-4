@@ -140,11 +140,11 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     }
 
 
-    public ShoppingCart getshoppingCart() {
+    public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
 
-    public void setSc(ShoppingCart shoppingCart) {
+    public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
