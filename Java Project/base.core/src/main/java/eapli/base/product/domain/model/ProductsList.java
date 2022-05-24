@@ -50,4 +50,14 @@ public class ProductsList {
         return new PriceWithoutTaxes(priceWithoutTaxes);
     }
 
+    @Override
+    public String toString() {
+        String s="ProductsList{\n";
+        for(Map.Entry<Product, Integer> prod : products.entrySet()){
+            s.concat("\n\tProduct:" + products + "\n\tPriceWithoutTaxes=" + priceWithoutTaxes +
+            "\n\tPriceWithTaxes=" + priceWithTaxes + "}\n");
+        }
+        s.concat("}");
+        return s;
+    }
 }
