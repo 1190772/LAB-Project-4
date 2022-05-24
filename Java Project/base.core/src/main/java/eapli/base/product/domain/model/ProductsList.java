@@ -54,8 +54,8 @@ public class ProductsList {
     public String toString() {
         String s="ProductsList{\n";
         for(Map.Entry<Product, Integer> prod : products.entrySet()){
-            s.concat("\n\tProduct:" + products + "\n\tPriceWithoutTaxes=" + priceWithoutTaxes +
-            "\n\tPriceWithTaxes=" + priceWithTaxes + "}\n");
+            s.concat("\n\tProduct:" + prod.getKey() +"\n\tQuantidade:" + prod.getValue().intValue() + "\n\tPriceWithoutTaxes=" + prod.getKey().priceWithoutTaxes() +
+            "\n\tPriceWithTaxes=" + prod.getKey().priceWithTaxes() + "}\n");
         }
         s.concat("}");
         return s;

@@ -56,7 +56,14 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     private Gender gender;
 
     @OneToOne
+    @XmlElement
+    @JsonProperty
+    private ShoppingCart shoppingCart;
+
+    @OneToOne
     private Customer customer;
+
+
 
     public Gender getGender() {
         return gender;
@@ -97,6 +104,7 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
         this.email = email;
         this.address = address;
         this.gender = gender;
+        this.shoppingCart= new ShoppingCart(this.id);
     }
 
     protected Customer() {
@@ -131,6 +139,14 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
         return this.address;
     }
 
+
+    public ShoppingCart getshoppingCart() {
+        return shoppingCart;
+    }
+
+    public void setSc(ShoppingCart shoppingCart) {
+        this.shoppingCart = shoppingCart;
+    }
 
     public String name() {
         return this.name.toString();
