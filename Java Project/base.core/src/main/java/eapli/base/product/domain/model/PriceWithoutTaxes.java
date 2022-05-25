@@ -30,4 +30,10 @@ public class PriceWithoutTaxes implements ValueObject {
     public Double priceValue(){
         return priceWithoutTaxes;
     }
+
+    @Override
+    public String toString() {
+        return "PriceWithoutTaxes{ " + priceWithoutTaxes.doubleValue() +
+                " }";
+    }
 }

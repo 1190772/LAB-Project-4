@@ -16,6 +16,7 @@ public class PriceWithTaxes implements ValueObject {
         this.priceWithTaxes = newPrice;
     }
 
+
     protected PriceWithTaxes() {
     }
 
@@ -29,5 +30,11 @@ public class PriceWithTaxes implements ValueObject {
 
     public Double priceValue(){
         return priceWithTaxes;
+    }
+
+    @Override
+    public String toString() {
+        return "PriceWithTaxes{ " + priceWithTaxes.doubleValue() +
+                " }";
     }
 }
