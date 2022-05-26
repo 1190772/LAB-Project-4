@@ -16,6 +16,7 @@
     <class>eapli.base.category.domain.model.Category</class>
     <class>eapli.base.customer.domain.model.Customer</class>
     <class>eapli.base.agv.domain.model.AGV</class>
+    <!--<class>eapli.base.customer.domain.model.ShoppingCart</class> -->
     <!--<class>eapli.base.order.domain.model.Order</class> -->
 
 

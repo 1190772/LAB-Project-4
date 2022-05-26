@@ -39,7 +39,7 @@ public class ListProductsUI extends AbstractListUI<Product> {
 
     @Override
     protected String listHeader() {
-        return String.format("#  %-20s%-30s%-4s", "Brand", "Internal Code", "Availability");
+        return String.format("#  %-20s%-20s%-30s%-4s", "Internal Code", "Brand", "Short Description", "Price");
     }
 
     @Override

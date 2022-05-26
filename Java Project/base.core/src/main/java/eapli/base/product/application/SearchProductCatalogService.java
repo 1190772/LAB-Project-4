@@ -53,7 +53,6 @@ public class SearchProductCatalogService {
 
     public Iterable<Product> availableProducts() {
         //auth.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-        System.out.println("7");
         return repo.availableProducts();
     }
 
