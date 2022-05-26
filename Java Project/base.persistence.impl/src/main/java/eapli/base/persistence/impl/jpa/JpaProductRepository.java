@@ -79,7 +79,6 @@ public class JpaProductRepository extends JpaAutoTxRepository<Product, InternalC
 
     @Override
     public Iterable<Product> availableProducts() {
-        System.out.println("8");
         return match("e.productStatus=true");
     }
 

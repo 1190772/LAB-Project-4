@@ -12,7 +12,11 @@ public class TcpOrdersServer {
 
     public static void main(String[] args) throws Exception {
         Socket cliSock;
-        try { sock = new ServerSocket(9999); }
+
+        try {
+            sock = new ServerSocket(9999);
+            System.out.println("Server is Running!");
+        }
         catch(IOException ex) {
             System.out.println("Failed to open server socket"); System.exit(1);
         }
@@ -39,7 +43,7 @@ class TcpOrdersServerThread implements Runnable{
         InetAddress clientIP;
         try {
             clientIP = s.getInetAddress();
-            System.out.println("New client connection from " + clientIP.getHostAddress() + ", port number: " + s.getPort());
+            System.out.println("New client connection from " + clientIP.getHostAddress() + " , port number: " + s.getPort());
 
             sOut = new DataOutputStream(s.getOutputStream());
             sIn = new DataInputStream(s.getInputStream());
@@ -50,18 +54,23 @@ class TcpOrdersServerThread implements Runnable{
 
                 //Dizer ao cliente para continuar
                 byte[] serverMessage = {(byte) 0, (byte) 2, (byte) 0, (byte) 0};
+                byte[] serverpcMessage = {(byte) 0, (byte) 3, (byte) 0, (byte) 0};
+                byte[] serverosMessage = {(byte) 0, (byte) 4, (byte) 0, (byte) 0};
                 sOut.write(serverMessage);
                 sOut.flush();
-
                 byte[] clientMessageOpt = sIn.readNBytes(4);
                 int option = clientMessageOpt[1];
 
-                sOut.write(serverMessage);
-                sOut.flush();
 
-                ObjectInputStream sInputObject = new ObjectInputStream(this.s.getInputStream());
-                ObjectOutputStream sOutputObject = new ObjectOutputStream(this.s.getOutputStream());
-
+                if(option == 1){
+                    System.out.println("Showing Product Catalog to the client");
+                    sOut.write(serverpcMessage);
+                    sOut.flush();
+                }else if(option == 2){
+                    System.out.println("Showing Order Status to the client");
+                    sOut.write(serverosMessage);
+                    sOut.flush();
+                }
 
 
             }

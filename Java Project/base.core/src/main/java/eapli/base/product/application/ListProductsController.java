@@ -8,7 +8,6 @@ public class ListProductsController {
     SearchProductCatalogService svc = new SearchProductCatalogService();
 
     public Iterable<Product> listProducts() {
-        System.out.println("3");
         return svc.availableProducts();
     }
 }
