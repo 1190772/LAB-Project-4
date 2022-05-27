@@ -6,10 +6,17 @@ import java.util.List;
 
 public class Form<T> implements Iterable<Section<T>>{
 
-    private List<Section<T>> sections;
+    protected List<Section<T>> sections;
 
     public Form() {
         this.sections = new LinkedList<>();
+    }
+
+    public Form(Form<T> form){
+        for (Section s :
+                form.sections) {
+            sections.add(new Section<>(s));
+        }
     }
 
     public void add(Section<T> object){
@@ -25,4 +32,9 @@ public class Form<T> implements Iterable<Section<T>>{
     public Iterator<Section<T>> iterator() {
         return sections.iterator();
     }
+
+    public StaticForm<T> toStaticForm(){
+        return new StaticForm<>(this);
+    }
+
 }

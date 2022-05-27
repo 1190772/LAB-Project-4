@@ -19,9 +19,9 @@ validation: 'text'('('')'|'('intArg','intArg')')
            | 'isInt''()'
            | 'isNumeric''()'
            | 'singleChoice''('optionalArg')'
-           | 'multipleChoice''('optionalArg (',' intArg) ')'
+           | 'multipleChoice''('optionalArg (',' intArg)? ')'
            | 'singleChoiceT''('optionalArg')'
-           | 'multipleChoiceT''('optionalArg (',' intArg) ')'
+           | 'multipleChoiceT''('optionalArg (',' intArg)? ')'
            | 'sort''('optionalArg')'
            | 'scale''('intArg ','optionalArg')'
            ;

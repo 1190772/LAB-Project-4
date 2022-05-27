@@ -5,16 +5,23 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Section<T> implements Iterable<T> {
+    protected boolean isOptional;
 
     @Override
     public Iterator<T> iterator() {
         return objects.iterator();
     }
 
-    private List<T> objects;
+    protected List<T> objects;
 
-    public Section(){
+    public Section(boolean isOptional){
         objects = new LinkedList<>();
+        this.isOptional=isOptional;
+    }
+
+    public Section(Section<T> section){
+        this(section.isOptional());
+        this.objects.addAll(section.objects);
     }
 
     public void add(T object){
@@ -26,5 +33,7 @@ public class Section<T> implements Iterable<T> {
     }
 
 
-
+    public boolean isOptional() {
+        return isOptional;
+    }
 }
