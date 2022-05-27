@@ -1,4 +1,4 @@
-/*
+
 package eapli.base.customer.application;
 
 
@@ -9,8 +9,6 @@ import eapli.base.product.domain.model.Product;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.base.product.domain.persistence.ProductRepository;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
-
-import javax.transaction.Transactional;
 
 
 public class AddToShoppingCartController {
@@ -23,13 +21,9 @@ public class AddToShoppingCartController {
         this.cust=c;
     }
 
-    public ProductsList getAvaliableProducts(){
-        ProductsList pl = new ProductsList();
-        for(Product prod : productRepository.availableProducts()){
-            pl.addProduct(prod);
-        }
-        return pl;
-    }
+    /*public void getAvaliableProducts(){
+        new ListProductsUI().show();
+    }*/
 
 
     public ProductsList AddProductToShoppingCart(String id){
@@ -41,4 +35,4 @@ public class AddToShoppingCartController {
         }
         return pl;
     }
-}*/
+}
