@@ -1,19 +1,18 @@
 grammar Validator;
 
 
-
-
 start: include atrribution* (section | question)*;
 
 atrribution: NAME '<-' val;
+
 
 val: INT | optional;
 question: 'Q'opt='x'?'<-''{' INT',' INT','validation'}';
 section: 'S'opt='x'?'<-''{'INT'}';
 
+
 intArg: NAME | INT;
 optionalArg: NAME| optional;
-
 
 
 validation: 'text'('('')'|'('intArg','intArg')')
@@ -28,16 +27,10 @@ validation: 'text'('('')'|'('intArg','intArg')')
            ;
 
 
-
 include: '#include' NAME;
 
 
-
-
-
 optional: '|' (STRING ',')+ STRING '|';
-
-
 
 
 fragment LowerChar: [a-z];
