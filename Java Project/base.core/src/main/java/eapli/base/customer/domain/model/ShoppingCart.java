@@ -1,4 +1,3 @@
-/*
 package eapli.base.customer.domain.model;
 
 import eapli.base.product.domain.model.*;
@@ -52,4 +51,3 @@ public class ShoppingCart {
                 '}';
     }
 }
-*/
