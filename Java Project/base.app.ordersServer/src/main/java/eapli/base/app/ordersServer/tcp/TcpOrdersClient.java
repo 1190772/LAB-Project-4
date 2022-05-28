@@ -1,9 +1,8 @@
 package eapli.base.app.ordersServer.tcp;
 
-import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
+
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
 
-import javax.net.ssl.SSLSocket;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -50,6 +49,7 @@ public class TcpOrdersClient {
         byte[] serverMessage = sInData.readNBytes(4);
         int option;
         if (serverMessage[1] == 2) {
+
             System.out.println("1. Product Catalog");
             System.out.println("2. Order Status");
             option = Integer.parseInt(in.readLine());
