@@ -1,0 +1,22 @@
+.div{
+    min-height: 10vmax;
+    min-width: 10vmax;
+}
+
+.lora{
+    font-family: 'Lora', serif;
+}
+
+.imgdivjson{
+    min-height: 80vmax;
+    min-width: 80vmax;
+    background-repeat: no-repeat;
+    background-image: url("warehouse.png");
+    background-size: inherit;
+    background-position: center center;
+    opacity: 1;
+    visibility: visible;
+    margin-top: -20vmax;
+    margin-left: 10vmax;
+    margin-right: 10vmax;
+}
