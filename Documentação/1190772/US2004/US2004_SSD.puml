@@ -1,0 +1,25 @@
+@startuml
+autonumber
+hide footbox
+actor "Warehouse Employee" as LC
+
+activate LC
+LC -> ":System" : Wishes to update an order
+
+
+
+
+activate ":System"
+":System" --> LC : shows order list and asks to select one
+deactivate ":System"
+
+LC -> ":System" : updates order
+activate ":System"
+
+":System" -> LC : successful
+deactivate ":System"
+
+deactivate LC
+
+
+@enduml

@@ -1,8 +1,8 @@
-package eapli.base.agv.domain;
+package eapli.base.agv.domain.model;
 
 public enum Status {
-    NOT_STARTED,
-    ASSOCIATED,
-    DOING,
-    FINISH;
+    FREE,
+    CHARGING,
+    OCCUPIED,
+    IN_MAINTENANCE
 }

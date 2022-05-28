@@ -1,0 +1,53 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class UpdateOrderUI {
+}
+}
+
+Package Application{
+
+class UpdateOrderController {
+
+
+}
+}
+
+Package Domain{
+
+class Order {
+
+
+}
+
+class OrderFactory{
+}
+
+
+}
+
+
+Package Persistence{
+class RepositoryFactory{
+
+}
+
+class OrderRepository{
+
+}
+
+
+}
+
+UpdateOrderUI ..> UpdateOrderController
+UpdateOrderController ..> Order
+UpdateOrderController ..> OrderRepository
+UpdateOrderController ..> RepositoryFactory
+UpdateOrderController ..> OrderFactory
+RepositoryFactory ..> OrderRepository
+OrderFactory..> Order
+
+
+@enduml

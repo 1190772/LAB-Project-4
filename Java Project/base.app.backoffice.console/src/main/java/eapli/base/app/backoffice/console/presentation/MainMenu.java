@@ -30,6 +30,8 @@ import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerA
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.SearchProductCatalogByBrandAction;
+import eapli.base.app.backoffice.console.presentation.webdashboard.WebDashboardAction;
+import eapli.base.app.backoffice.console.presentation.webdashboard.WebDashboardUI;
 import eapli.base.app.common.console.presentation.authz.MyUserMenu;
 import eapli.base.Application;
 import eapli.base.app.backoffice.console.presentation.authz.AddUserUI;
@@ -88,7 +90,8 @@ public class MainMenu extends AbstractUI {
 
     // WAREHOUSE MENU
     private static final int CONFIG_AVG_OPTION = 1;
-    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 2;
+    private static final int OPEN_WEB_DASHBOARD = 2;
+    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 3;
 
     // MAIN MENU
     private static final int MY_USER_OPTION = 1;
@@ -217,6 +220,7 @@ public class MainMenu extends AbstractUI {
         final Menu menu = new Menu("Warehouse >");
 
         menu.addItem(CONFIG_AVG_OPTION, "Config AVG", new ConfigureAGVAction());
+        menu.addItem(OPEN_WEB_DASHBOARD, "Web Warehouse Dashboard", new WebDashboardAction());
         //menu.addItem(SET_UP_WAREHOUSE_PLANT_OPTION, "Set Up Warehouse Plant", new ConfigureAGVAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
