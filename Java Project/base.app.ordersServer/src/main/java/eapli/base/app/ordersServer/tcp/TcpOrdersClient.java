@@ -1,7 +1,6 @@
 package eapli.base.app.ordersServer.tcp;
 
-import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
-import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
+//import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
 
 import javax.net.ssl.SSLSocket;
 import java.io.*;
@@ -60,7 +59,7 @@ public class TcpOrdersClient {
 
             serverMessage = sInData.readNBytes(4);
             if(serverMessage[1] == 3){
-                new ListProductsUI().show();
+            //    new ListProductsUI().show();
             }else if(serverMessage[1] == 4){
                 System.out.println("You are seeing orders status");
             }

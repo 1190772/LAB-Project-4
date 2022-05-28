@@ -20,7 +20,9 @@
  */
 package eapli.base.infrastructure.persistence;
 
-import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.agv.Repository.AGVRepository;
+import eapli.base.agv.Repository.AutomaticTaskRepository;
+import eapli.base.agv.Repository.InfoRepository;
 import eapli.base.category.domain.persistence.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
@@ -102,9 +104,15 @@ public interface RepositoryFactory {
 
     CustomerRepository customers(TransactionalContext autoTx);
 
+    CustomerRepository customers();
+
+    InfoRepository info();
+
+    AGVRepository agv();
+
+    AutomaticTaskRepository automaticTask();
+
     AGVRepository agvs(TransactionalContext autoTx);
 
     AGVRepository agvs();
-
-    CustomerRepository customers();
 }
