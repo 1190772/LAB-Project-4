@@ -1,4 +1,4 @@
-package eapli.base.agv.domain;
+package eapli.base.agv.domain.model;
 
 import eapli.base.Application;
 import eapli.base.agv.application.AutomaticTaskController;
