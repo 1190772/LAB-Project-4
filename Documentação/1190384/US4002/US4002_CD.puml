@@ -1,0 +1,52 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class TaskAssignUI {
+}
+}
+
+Package Application{
+
+class TaskAssignController {
+
+}
+}
+
+Package Domain{
+
+class Order {
+
+
+}
+
+class AGVFactory{
+}
+
+
+}
+
+
+Package Persistence{
+class RepositoryFactory{
+
+}
+
+class OrderRepository{
+
+}
+
+
+}
+
+TaskAssignUI ..> TaskAssignController
+TaskAssignController ..> Order
+TaskAssignController ..> OrderRepository
+TaskAssignController ..> AGVFactory
+TaskAssignController ..> AGVFactory
+RepositoryFactory ..> OrderRepository
+AGVFactory..> Order
+
+
+@enduml

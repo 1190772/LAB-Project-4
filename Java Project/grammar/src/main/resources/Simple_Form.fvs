@@ -1,0 +1,17 @@
+#include Simple_Form
+
+AgeNumCharLine<-10
+AgeNumLines<-3
+Sex<-|"Teste1", "Teste2"|
+Religion<-|"Teste1", "Teste2"|
+HelpInt<-55
+HelpOpt<-|"Teste1", "Teste2","Teste3", "Teste4","Teste5"|
+
+
+S<-{1}
+Q<-{1,1,text(AgeNumCharLine,AgeNumLines)}
+Qx<-{1,2,singleChoiceT(Sex)}
+Sx<-{2}
+Qx<-{2,3,singleChoice(Religion)}
+Q<-{2,4,scale(HelpInt,HelpOpt)}
+

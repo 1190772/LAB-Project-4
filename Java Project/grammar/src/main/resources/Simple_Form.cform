@@ -1,0 +1,40 @@
+{
+  "sections": [
+    {
+      "questions": [
+        {
+          "index": 1,
+          "optional": false,
+          "id": "A",
+          "validation": "TEXT"
+        },
+        {
+          "index": 2,
+          "optional": true,
+          "id": "B",
+          "validation": "SINGLE_CHOICE_T"
+        }
+      ],
+      "index": 1,
+      "optional": false
+    },
+    {
+      "questions": [
+        {
+          "index": 1,
+          "optional": true,
+          "id": "C",
+          "validation": "SINGLE_CHOICE"
+        },
+        {
+          "index": 2,
+          "optional": false,
+          "id": "D",
+          "validation": "SCALE"
+        }
+      ],
+      "index": 2,
+      "optional": true
+    }
+  ]
+}

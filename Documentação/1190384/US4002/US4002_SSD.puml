@@ -1,0 +1,21 @@
+@startuml
+autonumber
+hide footbox
+actor "Project Manager" as LC
+
+activate LC
+LC -> ":System" : Wishes that "AGVManager" component is enhanced with a basic FIFO algorithm to automatically assign tasks to AGVs.
+
+
+
+
+activate ":System"
+":System" --> LC : automatically assigns AGV tasks
+deactivate ":System"
+
+
+
+deactivate LC
+
+
+@enduml

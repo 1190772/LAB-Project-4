@@ -55,10 +55,10 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     @JsonProperty
     private Gender gender;
 
-/*    @OneToOne
+    @OneToOne
     @XmlElement
     @JsonProperty
-    private ShoppingCart shoppingCart;*/
+    private ShoppingCart shoppingCart;
 
     @OneToOne
     private Customer customer;
@@ -104,7 +104,7 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
         this.email = email;
         this.address = address;
         this.gender = gender;
-        //this.shoppingCart= new ShoppingCart(this.id);
+        this.shoppingCart= new ShoppingCart(this.id);
     }
 
     protected Customer() {
@@ -140,13 +140,13 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     }
 
 
-    /*public ShoppingCart getShoppingCart() {
+    public ShoppingCart getShoppingCart() {
         return shoppingCart;
     }
 
     public void setShoppingCart(ShoppingCart shoppingCart) {
         this.shoppingCart = shoppingCart;
-    }*/
+    }
 
     public String name() {
         return this.name.toString();
