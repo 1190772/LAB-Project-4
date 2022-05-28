@@ -29,7 +29,7 @@ public class TcpOrdersServer {
 
 class TcpOrdersServerThread implements Runnable{
 
-    private Socket s;
+    private final Socket s;
     private DataOutputStream sOut;
     private DataInputStream sIn;
 
