@@ -1,7 +1,7 @@
 package eapli.base.agv.application;
 
-import eapli.base.agv.domain.model.AGV;
-import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.agv.Repository.AGVRepository;
+import eapli.base.agv.domain.AGV;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
 public class ConfigureAGVService {

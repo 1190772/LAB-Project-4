@@ -45,7 +45,7 @@ public class AppSettings {
     private static final String SCHEMA_GENERATION_KEY = "javax.persistence.schema-generation.database.action";
     private static final String HIGH_CALORIES_DISH_LIMIT = "HighCaloriesDishLimit";
     private static final String ALGORITHM_NUMBER_KEY = "algorithm_number";
-
+    private static final String ALGORITHM_OPTION2 = "AlgortihmOption2";
     private final Properties applicationProperties = new Properties();
 
     public AppSettings() {
@@ -108,5 +108,9 @@ public class AppSettings {
 
     public String getProperty(final String prop) {
         return this.applicationProperties.getProperty(prop);
+    }
+
+    public Integer getAlgortihmOption2(){
+        return Integer.parseInt(this.applicationProperties.getProperty(ALGORITHM_OPTION2));
     }
 }
