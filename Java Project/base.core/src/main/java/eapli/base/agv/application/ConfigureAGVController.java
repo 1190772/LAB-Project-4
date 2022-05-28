@@ -1,6 +1,6 @@
 package eapli.base.agv.application;
 
-import eapli.base.agv.domain.AGV;
+import eapli.base.agv.domain.model.AGV;
 import eapli.base.agv.domain.model.AGVModel;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.base.product.domain.model.ShortDescription;

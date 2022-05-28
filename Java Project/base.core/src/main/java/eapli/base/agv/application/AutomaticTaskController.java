@@ -3,7 +3,7 @@ package eapli.base.agv.application;
 import eapli.base.agv.Repository.AGVRepository;
 import eapli.base.agv.Repository.AutomaticTaskRepository;
 import eapli.base.agv.Repository.InfoRepository;
-import eapli.base.agv.domain.AGV;
+import eapli.base.agv.domain.model.AGV;
 import eapli.base.agv.domain.model.AutomaticTask;
 import eapli.base.agv.domain.model.Info;
 import eapli.base.agv.domain.model.Status;

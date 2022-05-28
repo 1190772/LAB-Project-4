@@ -1,6 +1,5 @@
 package eapli.base.agv.domain.model;
 
-import eapli.base.agv.domain.AGV;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.domain.model.AggregateRoot;
 
@@ -31,7 +30,7 @@ public class Info implements AggregateRoot<Integer>, Serializable {
     private Order order;
 
     @OneToOne
-    private eapli.base.agv.domain.AGV agv;
+    private AGV agv;
 
     @OneToOne
     private Task task;
@@ -77,7 +76,7 @@ public class Info implements AggregateRoot<Integer>, Serializable {
         return order;
     }
 
-    public eapli.base.agv.domain.AGV getAgv() {
+    public AGV getAgv() {
         return agv;
     }
 
