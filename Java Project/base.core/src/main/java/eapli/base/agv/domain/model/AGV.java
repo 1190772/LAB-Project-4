@@ -11,9 +11,11 @@ public class AGV implements AggregateRoot<Long>, Comparable<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(nullable = false)
+    @Column(name = "id")
     private Long id;
 
+    @Column(unique = true, nullable = false)
+    private String agvId;
     @Embedded
     ShortDescription shortDesc;
 
@@ -21,6 +23,12 @@ public class AGV implements AggregateRoot<Long>, Comparable<Long> {
     AGVModel model;
 
     double maxWeight;
+
+    double maxVolume;
+
+
+
+    private Status status;
 
 
     public AGV(ShortDescription desc, AGVModel mod, double limit){
