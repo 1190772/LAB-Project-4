@@ -20,11 +20,11 @@ public class ListOrderToAGVUI extends AbstractUI {
         String orderID= Console.readLine("Order's ID:");
         theController.findOrderById(Long.getLong(orderID));
         String agvID= Console.readLine("AGV's ID:");
-        if(theController.listOrderToAGV(Long.getLong(agvID))){
-            System.out.println("Operação Finalizada com sucesso.");
-        }else{
-            System.out.println("Operação Finalizada sem sucesso.");
-        }
+        if(theController.listOrderToAGV(Long.getLong(agvID)))
+            System.out.println("Order listed to AGV successfully.");
+        else
+            System.out.println("Unsuccessful Operation.");
+
 
 
         return false;
