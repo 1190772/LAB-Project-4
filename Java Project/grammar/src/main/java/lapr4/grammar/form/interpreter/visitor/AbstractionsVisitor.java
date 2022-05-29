@@ -22,7 +22,6 @@ public class AbstractionsVisitor extends MainVisitor<Integer>{
         }
 
         try {
-            //TODO put answer in stack
             int index =Integer.parseInt(ctx.qIndex.getText());
             String qId=frame.getQuestionMap().get(index).getId();
             frame.getStack().push(frame.getAnswers().get(qId).getAnswer());

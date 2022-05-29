@@ -46,7 +46,7 @@ public class MemoryFrame {
         cache.put(q, sectionIndex);
     }
 
-    public void compose() {
+    private void compose() {
         for (QuestionAbstraction q : cache.keySet()) {
             SectionAbstraction s = abstractions.get(cache.get(q));
             if (s == null) {
@@ -93,6 +93,18 @@ public class MemoryFrame {
     }
 
     public boolean validate() {
-
+        compose();
+        for (SectionAbstraction s : abstractions.values()) {
+            if (!s.isOptional()){
+                for (QuestionAbstraction q : s.getQuestions()) {
+                    if (!q.isOptional()){
+                        if (!q.isValidated()||!q.isValid()){
+                            return false;
+                        }
+                    }
+                }
+            }
+        }
+        return true;
     }
 }

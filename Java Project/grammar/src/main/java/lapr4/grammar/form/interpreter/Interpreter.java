@@ -41,12 +41,4 @@ public class Interpreter {
         this.enviroment=old;
         return flag;
     }
-
-
-
-
-
-
-
-
 }
