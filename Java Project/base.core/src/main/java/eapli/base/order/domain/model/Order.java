@@ -11,6 +11,7 @@ import java.util.Date;
 import java.util.Objects;
 
 
+
 @Entity
 public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
@@ -37,6 +38,9 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Embedded
     Address address;
 
+    @Enumerated(EnumType.ORDINAL)
+    OrderStatus status;
+
 
     public Order(ProductsList products, Date date, EmailAddress e, Address a) {
         this.prod=products;
@@ -45,6 +49,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         this.creationDate=date;
         this.email=e;
         this.address=a;
+        this.status=OrderStatus.NOT_PAID;
     }
 
     protected Order() {
@@ -63,6 +68,10 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         }
 
         return (Objects.equals(this.id, that.identity()));
+    }
+
+    public void changeStatus(OrderStatus s){
+        this.status=s;
     }
 
     @Override

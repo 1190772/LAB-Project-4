@@ -3,6 +3,7 @@ package eapli.base.agv.domain.model;
 
 import eapli.base.agv.domain.model.AGVModel;
 import eapli.base.agv.domain.model.Info;
+import eapli.base.order.domain.model.OrderStatus;
 import eapli.base.product.domain.model.ShortDescription;
 import eapli.framework.domain.model.AggregateRoot;
 
@@ -31,7 +32,8 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
 
     private Double autonamy;
 
-    private boolean ocuppied;
+    @Enumerated(EnumType.ORDINAL)
+    AGVStatus status;
 
     @Transient
     private List<Info> tasks = new ArrayList<>();
@@ -43,7 +45,7 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         this.description = description;
         this.model = model;
         this.maxWeight = limit;
-        this.ocuppied = false;
+        this.status = AGVStatus.FREE;
     }
 
 
@@ -60,8 +62,16 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         return model;
     }
 
-    public boolean isOcuppied() {
-        return ocuppied;
+    public boolean isFree() {
+        return status==AGVStatus.FREE;
+    }
+
+    public boolean isCharging() {
+        return status==AGVStatus.CHARGING;
+    }
+
+    public boolean isOccupied() {
+        return status==AGVStatus.OCCUPIED;
     }
 
     public List<Info> getTasks() {
@@ -73,9 +83,8 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         return false;
     }
 
-
-    public void changeOcuppied(boolean ocuppied) {
-        this.ocuppied = ocuppied;
+    public void changeStatus(AGVStatus s){
+        this.status=s;
     }
 
     public int getId() {
