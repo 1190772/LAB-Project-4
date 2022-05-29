@@ -21,4 +21,11 @@ public class Coords {
         return wSquare;
     }
 
+    public int getlSquare() {
+        return lSquare;
+    }
+
+    public int getwSquare() {
+        return wSquare;
+    }
 }

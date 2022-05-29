@@ -1,9 +1,9 @@
 package eapli.base.jsonreader.domain.aisles;
 
-public class AislesId {
+public class AisleId {
     private Long id;
 
-    public AislesId(long id){
+    public AisleId(long id){
         this.id=id;
     }
 
@@ -11,4 +11,7 @@ public class AislesId {
         return id;
     }
 
+    public Long getId() {
+        return id;
+    }
 }

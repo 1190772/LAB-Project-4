@@ -14,4 +14,8 @@ public class Area {
     public double area(){
         return area;
     }
+
+    public double getArea() {
+        return area;
+    }
 }
