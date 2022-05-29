@@ -1,6 +1,7 @@
 /*package eapli.base.app.backoffice.console.presentation.customer;
 
 import eapli.base.customer.application.AddToShoppingCartController;
+import eapli.base.product.domain.model.ProductsList;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import eapli.framework.io.util.Console;
@@ -20,9 +21,11 @@ public class AddToShoppingCartUI extends AbstractUI {
 
         System.out.println("\n\n");
         String productID= Console.readLine("Product's ID:");
-        controller.AddProductToShoppingCart(prodcutID);
-
-
+        ProductsList pl = controller.AddProductToShoppingCart(productID);
+        if(!pl.productsList().isEmpty())
+            System.out.println("Shopping Cart Content:\n\n" + pl.toString() + "\nProduct added to Shopping Cart successfully.");
+        else
+            System.out.println("Fail adding the Product to the Shopping Cart.");
         return false;
     }
 

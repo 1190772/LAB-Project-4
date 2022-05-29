@@ -52,9 +52,9 @@ public class ProductsList {
 
     @Override
     public String toString() {
-        String s="ProductsList{\n";
+        String s="ProductsList{";
         for(Map.Entry<Product, Integer> prod : products.entrySet()){
-            s.concat("\n\tProduct:" + prod.getKey() +"\n\tQuantidade:" + prod.getValue().intValue() + "\n\tPriceWithoutTaxes=" + prod.getKey().priceWithoutTaxes() +
+            s.concat("\n\t{Product:" + prod.getKey() +"\n\tQuantidade:" + prod.getValue().intValue() + "\n\tPriceWithoutTaxes=" + prod.getKey().priceWithoutTaxes() +
             "\n\tPriceWithTaxes=" + prod.getKey().priceWithTaxes() + "}\n");
         }
         s.concat("}");
