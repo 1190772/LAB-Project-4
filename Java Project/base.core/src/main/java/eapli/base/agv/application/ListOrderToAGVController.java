@@ -21,7 +21,8 @@ public class ListOrderToAGVController {
         order=ListOrderToAGVService.findOrderById(id);
     }
 
-    public void listOrderToAGV(Long id) {
+    public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
+        return false;
     }
 }
