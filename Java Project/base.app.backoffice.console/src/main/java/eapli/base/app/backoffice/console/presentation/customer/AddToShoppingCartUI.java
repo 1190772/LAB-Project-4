@@ -1,6 +1,7 @@
-/*package eapli.base.app.backoffice.console.presentation.customer;
+package eapli.base.app.backoffice.console.presentation.customer;
 
 import eapli.base.customer.application.AddToShoppingCartController;
+import eapli.base.product.domain.model.Product;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;
@@ -16,8 +17,10 @@ public class AddToShoppingCartUI extends AbstractUI {
     @Override
     protected boolean doShow() {
 
-        System.out.println("Orders Prepared for Delivery: \n");
-        controller.getAvaliableProducts();
+        System.out.println("Available Porducts: \n");
+        for(Product p:controller.getAvaliableProducts()){
+            System.out.println(p.toString());
+        }
 
         System.out.println("\n\n");
         String productID= Console.readLine("Product's ID:");
@@ -33,4 +36,4 @@ public class AddToShoppingCartUI extends AbstractUI {
     public String headline() {
         return "Add an Available Product to the Customer's Shopping Cart";
     }
-}*/
+}
