@@ -31,7 +31,7 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
 
     private Double maxWeight;
 
-    private Double autonamy;
+    private Double autonomy;
 
     @Enumerated(EnumType.ORDINAL)
     AGVStatus status;

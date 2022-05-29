@@ -1,0 +1,25 @@
+@startuml
+
+autonumber
+
+actor "Sales Manager" as SM
+
+activate SM
+SM -> ":System" : Wants to create a new survey
+activate ":System"
+":System" --> SM : Asks the data about the survey(id, message, title, question, section).
+deactivate ":System"
+
+SM -> ":System" : Inserts the requested data.
+activate ":System"
+":System" --> SM : Shows the inserted data and requests confirmation.
+deactivate ":System"
+
+SM -> ":System" : Confirms the information.
+activate ":System"
+":System" --> SM : Operation Successful
+deactivate ":System"
+
+deactivate SM
+
+@enduml

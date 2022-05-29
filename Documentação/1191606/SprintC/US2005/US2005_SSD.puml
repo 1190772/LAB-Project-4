@@ -1,0 +1,20 @@
+@startuml
+
+autonumber
+
+actor "Warehouse Employee" as WE
+
+activate WE
+WE -> ":System" : The Warehouse Employee I want to open a web dashboard presenting the current status of the \n AGVs as well as their position in the warehouse layout and keeps updated automatically.
+activate ":System"
+":System" --> WE : Displays the web dashboard.
+deactivate ":System"
+
+WE -> ":System" : Confirms the information.
+activate ":System"
+":System" --> WE : Operation Successful
+deactivate ":System"
+
+deactivate WE
+
+@enduml

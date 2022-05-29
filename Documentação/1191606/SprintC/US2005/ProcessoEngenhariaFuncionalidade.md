@@ -1,4 +1,4 @@
-# US3001
+# US2005
 
 
 # 1. Requirements engineering
@@ -6,43 +6,30 @@
 ### Brief format
 
 
-The Sales Manager wants to create a new questionnaire to be further answered by customers.
-The system asks for the data about the new questionnaire (id, message, title, question, section).
-The Sales Manager inserts the requested data.
-The system shows the inserted data and requests confirmation.
-The Sales Manager confirms.
-The system display all the data about the new questionnaire and informs the Sales Manager about the success of the operation.
+The Warehouse Employee I want to open a web dashboard presenting the current status of the AGVs as well as their position in the warehouse layout and keeps updated automatically.
+The system displays the web dashboard.
+The Warehouse Employee confirms.
+The system informs the Warehouse Employee about the success of the operation.
 
 
 ## 1.1. Relevant questions on the forum
 
-> Q: The User Story 3001  refers to the UC 3.3.1 -> "Create a new survey. A survey is characterized by an alphanumeric code, a description, the period( in days) it will be performed, the intended questionnaire, and a set of rules that allows the system to determine the survey target audience." But what are the constraints to the survey alphanumeric code and the description?
->
-> A: There are two distinct scenarios here:
-> * 1. The customer is registering him/herself in the system (cf. Use Case 3.1.4a). In this scenario, credentials are generated as soon as the account activation process is successfully completed.
-> * 2. A clerk is registering customers either manually or by importing files (cf. Use Case 3.1.4b and 3.1.4c respectively). In this scenario no account activation process is required and/or performed. Moreover, by default, no customer credentials are to be generated. If such credentials are needed, the clerk undergoes on another use case (cf. Use Case 3.1.5). As you already figure it out, it is an excellent idea that at the end of use case 3.1.4b to ask the clerk if (s)he want to perform the use case 3.1.5.
->
+> Q: - 1:It is mentioned that the warehouse is able to force a certain task to a certain AGV, but can this only happen when the AGV is free, or can the warehouse employee cancel a task and assign a new one.
+> - 2:Despite in the provided sprint user stories asking for the digital twin in a web dashboard along with its status and position, in user stories of the next sprint it is said that the development of the movement of the AGV is needed which causes a minor confusion. My question is in this sprint is it required to create the movement of the AGV?
+> - 3:How would you like the dashboard to look? A simple list of the AGVS along with its position and status?
+> 
+> A: - 1: In the scope of US 2003, the AGV is selected by the warehouse employee from the ones that are available and are able to perform the task. Tasks cannot be manually cancelled.
+> - 2: On Sprint C, the web dashboard needs to be thought and ready to show the current AGVs position, which is read from some where. Further, on sprint D, when simulating the AGV movement the AGV position will change and, therefore, we will be able to see the AGVs position changing accordingly on the web dashboard. Notice that, this is an integrative project developed following an iterative and incremental process. So, at the end, the pieces need to fit well together.
+> - 3: No! Preferably, the dashboard should be an approximation to what is depicted on Figure 8 of the specifications document.
+
+
 >---
 >
-> Q: Dear Client, Which will be the format of the file that contains the information about the clients that will be imported? Should we support different formats (XML ,JSON ,CSV, etc)?
+> Q: Regarding this US it is said that "It must be used the provided application protocol (SPOMS2022). The dashboard is intended to be displayed on a web page provided by an existing HTTP server in the ""BackOfficeApp"" application (...)". Our question is, between what applications should the SPOMS protocol be implemented? Should the HTTP server be part of the "BackOfficeApp" and communicate with the AGV Manager using the REQUESTS_API? Or should the HTTP server be its own application and communicate only with the "BackOfficeApp", which on the other hand communicates directly with the database?
 >
-> A: Multiple formats should be supported. Details about each format and data structure will be provided just when requesting such feature (through a US).
+> A: As it is being said the "HTTP Server" is part of the "Backoffice Application" in order to provide a local web page only. As so, the "HTTP Server" is a component of the "Backoffice Application". However, a question stands out: where the data to be presented by the "HTTP server" comes from? The "backoffice Application" (or one of its components) must, somehow, get the data from the "AGV Manager" (and/or the system database). In addition, you should notice that the SPOMS2002 protocol relies on the TCP and not on HTTP.
 >
->---
->
-> Q: Dear Client, Considering the creation of new customers, we have this information."Regarding customers, the minimum required information is its name, a valid Value-Added Tax (VAT) identifier, an email address, and a phone number. Optionally, customers might state their birthdate and gender and have/manage several billing and delivering postal addresses (...)". Some questions arose as to which format each information should be in, namely:
-> * Name - should we consider first name, last name or is there anything more worth capturing? Are there length restrictions? 
-> * VAT id- which length should it have? Is it only digits or could there be letters?
-> * Phone number: which lenght/format?
-> * Birthday - in which format?
-> * Address - What kind of format are we expecting for these? Street name, door number, postal code, city, country is a valid format or are we missing anything?
->
-> A: I hope this information is helpful:
-> * Name: at least a first and last name is required. Although, desirably the customer should specify his/her full name. Considering this, apply the min/max length you consider as reasonable to meet this requirement.
-> * VAT ID varies from one country to another. Usually it has letters and numbers (cf. here). The system must be prepared to support/recognize several VAT Ids.
-> * Phone number: according to international standards (e.g.: +351 934 563 123).
-> * Birthday: it is a date... you can adopt year/month/day.
-> * Address: I think you said it all.
+
 
 # 2. OO Analysis
 

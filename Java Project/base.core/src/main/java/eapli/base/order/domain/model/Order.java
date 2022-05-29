@@ -20,9 +20,11 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     private Long id;
 
     @Embedded
+    @Transient
     private ProductsList prod;
 
     @Embedded
+    @Transient
     @Column(name = "PriceWithoutTaxes")
     private Price priceWithoutTaxes;
 
@@ -52,7 +54,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         this.status=OrderStatus.NOT_PAID;
     }
 
-    protected Order() {
+    public Order() {
 
     }
 

@@ -1,5 +1,6 @@
 package eapli.base.app.backoffice.console.presentation.customer;
 
+import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
 import eapli.base.customer.application.AddToShoppingCartController;
 import eapli.base.product.domain.model.Product;
 import eapli.base.product.domain.model.ProductsList;
@@ -12,14 +13,14 @@ public class AddToShoppingCartUI extends AbstractUI {
 
 
     private final AddToShoppingCartController controller=new AddToShoppingCartController();
-    private final AuthorizationService authz = AuthzRegistry.authorizationService();
+    //private final AuthorizationService authz = AuthzRegistry.authorizationService();
 
     @Override
     protected boolean doShow() {
 
         System.out.println("Available Products: \n");
         for(Product p:controller.getAvailableProducts()){
-            System.out.println(p.toString());
+            new ListProductsUI().show();
         }
 
         System.out.println("\n\n");

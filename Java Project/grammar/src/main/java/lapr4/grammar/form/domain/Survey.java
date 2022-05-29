@@ -54,6 +54,10 @@ public class Survey implements AggregateRoot<Long>, Comparable<Long> {
 
     }
 
+    public Survey() {
+
+    }
+
 
     public SurveyId getSurveyId() {
         return surveyId;
@@ -84,4 +88,13 @@ public class Survey implements AggregateRoot<Long>, Comparable<Long> {
                 this.surveyId, this.message, this.title, this.question, this.section);
     }
 
+    @Override
+    public boolean sameAs(Object other) {
+        return false;
+    }
+
+    @Override
+    public Long identity() {
+        return null;
+    }
 }

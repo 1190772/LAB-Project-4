@@ -25,6 +25,7 @@ package eapli.base.app.backoffice.console.presentation;
 
 import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProductAction;
 import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVAction;
+import eapli.base.app.backoffice.console.presentation.agv.ListOrderToAGVAction;
 import eapli.base.app.backoffice.console.presentation.category.SpecifyCategoryAction;
 import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
 import eapli.base.app.backoffice.console.presentation.order.UpdateOrderAction;
@@ -91,7 +92,8 @@ public class MainMenu extends AbstractUI {
     // WAREHOUSE MENU
     private static final int CONFIG_AVG_OPTION = 1;
     private static final int OPEN_WEB_DASHBOARD = 2;
-    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 3;
+    private static final int ASSIGN_ORDER = 3;
+    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 4;
 
     // MAIN MENU
     private static final int MY_USER_OPTION = 1;
@@ -222,6 +224,7 @@ public class MainMenu extends AbstractUI {
 
         menu.addItem(CONFIG_AVG_OPTION, "Config AVG", new ConfigureAGVAction());
         menu.addItem(OPEN_WEB_DASHBOARD, "Web Warehouse Dashboard", new WebDashboardAction());
+        menu.addItem(ASSIGN_ORDER, "Assign Order to AGV", new ListOrderToAGVAction());
         //menu.addItem(SET_UP_WAREHOUSE_PLANT_OPTION, "Set Up Warehouse Plant", new ConfigureAGVAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
