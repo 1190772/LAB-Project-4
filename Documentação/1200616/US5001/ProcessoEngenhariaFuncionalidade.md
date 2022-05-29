@@ -10,54 +10,17 @@
 
 *Exemplo*
 
-**Demo1** Como Sales Clerk pretendo...
+**Demo1** Como Project Manager quero começar a trabalhar no modulo de entrada de comunicação do AGV Digital Twin para aceitar requests do "AGVManager".
 
-- Demo1.1. Filtrar o 'Product Catalog' por 'Brand'
-
-- Demo1.2. Filtrar o 'Product Catalog' por 'Category'
-
-- Demo1.3. Filtrar o 'Product Catalog' por 'Short Description'
-
-**Demo2** Como Sales Clerk pretendo...
-
-- Demo2.1. Ordenar os resultados por 'Internal Code'
-
-- Demo2.2. Ordenar os resultados por 'Brand'
-
-- Demo2.3. Ordenar os resultados por 'Category'
-
-- Demo2.4. Ordenar os resultados por 'Unit Price'
-
-A interpretação feita deste requisito foi no sentido de que o Sales Clerk precisa de uma opção para ver o catálogo de produtos e nela pode especificar como quer filtrar a pesquisa e também como quer ordenar os resultados.
-Não há nenhuma dependencia para além de ser preciso haver dados no catálogo de produtos para podes testar a pesquisa.
 
 ## 1.1. Questões Relevantes no fórum
 
-> Q: Should the sales clerk select/specify the catalog presentation order before he/she can see the catalog? Or the catalog is presented in a default order, and then if the sales clerk wants, he/she can change it? The same doubt came on the filtering.
+> Q: What type of communication do you want, i.e., what are the communications that you want to have between these two. Like AGV Manager says "Take a product" and AGV Digital Twin says "Taken"? Is it something like that? Or am i confused?
 >
-> A: Data to be used to filter the products catalog content should be asked ahead.
+> A: The communication must follow the SPOMS2022 protocol.It is up to you and your team to
+devise a set of messages fulfilling the business requirements properly.
 >
->---
->
-> Q: Talking about data presentation orders, which ones should exist?
->
-> A: Regarding presentation order, the necessary data can be asked either: ahead and after presenting them.
->
->---
->
-> Q: Regarding the product search, is there a field you want to use to filter the data and any desired data presentation order? And do you want to see all the fields or just a simplified summary?
->
-> A: Commonly fields used to filter products are:
->* Category
->* Description (any of the available descriptions)
->* Brand
->
-> User should select/specify a data presentation order. This applies to any similar US.
->
->At least the product' code, short description, brand, category and unit price should be presented.
->
->More details can be presented for a given/selected product at user request.
->
+
 
 
 # 2. Análise
@@ -70,7 +33,6 @@ Não há nenhuma dependencia para além de ser preciso haver dados no catálogo 
 
 ## 2.1. Diagrama de Sequência do Sistema
 
-![US1002_SSD](US1002_SSD.svg)
 
 # 3. Design
 
@@ -80,11 +42,11 @@ Não há nenhuma dependencia para além de ser preciso haver dados no catálogo 
 
 ## 3.1. Realização da Funcionalidade
 
-![US1002_SD](US1002_SD.svg)
+
 
 ## 3.2. Diagrama de Classes
 
-![US1002_CD](US1002_CD.svg)
+
 
 ## 3.3. Padrões Aplicados
 
