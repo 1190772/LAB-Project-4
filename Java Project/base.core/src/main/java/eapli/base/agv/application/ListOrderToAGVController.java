@@ -6,6 +6,8 @@ import eapli.base.order.domain.model.Order;
 
 public class ListOrderToAGVController {
 
+    private Order order;
+    private AGV agv;
 
     public ListOrderToAGVController(){
 
@@ -15,11 +17,11 @@ public class ListOrderToAGVController {
         return ListOrderToAGVService.preparedOrders();
     }
 
-    public Order findOrderById(Long id) {
-        return ListOrderToAGVService.findOrderById(id);
+    public void findOrderById(Long id) {
+        order=ListOrderToAGVService.findOrderById(id);
     }
 
-    public AGV findAGVById(Long id) {
-        return ListOrderToAGVService.findAGVById(id);
+    public void listOrderToAGV(Long id) {
+        agv=ListOrderToAGVService.findAGVById(id);
     }
 }

@@ -49,7 +49,7 @@ UI --> WE : solicita id do AGV
 deactivate UI
 WE -> UI : submete informação
 activate UI
-UI -> CTRL : findAGVById(id)
+UI -> CTRL : listOrderToAGV(id)
 activate CTRL
 CTRL -> PER : repositories()
 activate PER
