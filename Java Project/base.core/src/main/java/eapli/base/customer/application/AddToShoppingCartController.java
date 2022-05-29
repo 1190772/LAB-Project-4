@@ -23,7 +23,7 @@ public class AddToShoppingCartController {
 
     }
 
-    public Iterable<Product> getAvaliableProducts(){
+    public Iterable<Product> getAvailableProducts(){
         return svc.availableProducts();
     }
 

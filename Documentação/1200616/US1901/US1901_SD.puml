@@ -1,0 +1,26 @@
+@startuml US1901_SD
+
+participant CustomerApp <<client>>
+
+CustomerApp -> TcpOrdersServer : new
+CustomerApp -> TcpOrdersServer: start
+Activate TcpOrdersServer
+TcpOrdersServer -> TcpOrdersServer: accept
+
+CustomerApp --> TcpOrdersServer: request
+
+participant TcpOrdersServerThread <<thread>>
+activate TcpOrdersServerThread
+TcpOrdersServer -> TcpOrdersServerThread: start
+deactivate TcpOrdersServer
+
+CustomerApp --> TcpOrdersServerThread:Test Server
+TcpOrdersServerThread --> CustomerApp:Responds to the test
+
+TcpOrdersServerThread -> CustomerApp:Asks for Customer credentials
+CustomerApp -> TcpOrdersServerThread:Gives Customer credentials
+
+
+TcpOrdersServerThread -> CustomerApp: Has access to the customer menus
+
+@enduml

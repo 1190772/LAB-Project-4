@@ -9,6 +9,11 @@
 
 *Exemplo*
 
+**Demo1** Como Project Manager pretendo...
+
+- Demo1.1. que o "OrdersServer" suporte as necessidade de ver o product catalog e adicionar um produto ao shopping cart.
+
+- Demo1.1. que o "OrdersServer" suporte as necessidade de ver o estado atual de uma order.
 
 
 ## 1.1. Questões Relevantes no fórum
@@ -26,6 +31,10 @@
 
 *Recomenda-se que organize este conteúdo por subsecções.*
 
+## 2.1. Diagrama de Sequência do Sistema
+
+![US1901_SSD](US1901_SSD.svg)
+
 
 # 3. Design
 
@@ -33,18 +42,32 @@
 
 *Para além das secções sugeridas, podem ser incluídas outras.*
 
-# 2. Dados Servidor
+## 3.1. Realização de funcionalidades
 
-* In this US the "OrdersServer" is the server.
+![US1901_SD](US1901_SD.svg)
 
-     | Server IP  | Server Port |
-     |:---------- |:----------- |
-     |            |             |
+Não foi implementada a parte do customer dar login.
 
-
-## 3.3. Padrões Aplicados
+## 3.2. Padrões Aplicados
 
 *Nesta secção deve apresentar e explicar quais e como foram os padrões de design aplicados e as melhores práticas.*
+
+
+
+## 3.3. Fluxo de troca de mensagens ##
+
+1. **Abre** o Socket.
+2. **Espera** pela mensagem do **Cliente** com o **Código de Teste (0)**.
+3. **Manda** ao **Cliente** o **Código de Entendido (2)**.
+4. **Espera** pela mensagem do **Cliente** com o **Customer** que está **logado**.
+5. **Manda** informação de acordo com a opção :
+    -se a opção for 1 então o **Customer** acede ao product catalog e pode adicionar um produto ao shopping cart.
+
+    -se a opção for 2 então o **Customer** pode ver o estado atual de uma order.
+
+6. **Espera** pela mensagem do **Cliente** com o **Código de Fim (9)**.
+7. **Manda** ao **Cliente** o **Código de Entendido (2)**.
+8. **Fecha** o Socket.
 
 ## 3.4. Testes 
 *Nesta secção deve sistematizar como os testes foram concebidos para permitir uma correta aferição da satisfação dos requisitos.*
@@ -64,7 +87,9 @@
 
 # 5. Integração/Demonstração
 
-*Nesta secção a equipa deve descrever os esforços realizados no sentido de integrar a funcionalidade desenvolvida com as restantes funcionalidades do sistema.*
+
+Para demonstrar o servidor usaremos um PC como server e varios outros PC's como clients a aceder ao mesmo tempo. Logo não há um IP especifico.
+Precisaremos das User Stories 1004 e 1501 funcionais para efeitos de demonstração. 
 
 # 6. Observações
 

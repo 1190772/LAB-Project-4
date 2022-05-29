@@ -5,12 +5,8 @@ actor "Customer" as C
 activate C
 C -> ":System" : inicia a visualizacao do catalogo de produtos
 activate ":System"
-":System" --> C : apresenta o catalogo de produtos
-deactivate ":System"
 loop for each produto
-C -> ":System" : inicia selecao de um produto
-activate ":System"
-":System" --> C : solicita id do produto
+":System" --> C : apresenta o catalogo de produtos e solicita id do produto
 deactivate ":System"
 C -> ":System" : submete informação
 activate ":System"
