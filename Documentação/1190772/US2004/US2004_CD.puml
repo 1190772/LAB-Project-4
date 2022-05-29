@@ -4,13 +4,15 @@ skinparam classAttributeIconSize 0
 
 Package Presentation{
 class UpdateOrderUI {
++doShow();
 }
 }
 
 Package Application{
 
 class UpdateOrderController {
-
++ordersPrepared();
++orderUpdate(Long id);
 
 }
 }
@@ -18,7 +20,7 @@ class UpdateOrderController {
 Package Domain{
 
 class Order {
-
++readyOrders();
 
 }
 
@@ -31,11 +33,12 @@ class OrderFactory{
 
 Package Persistence{
 class RepositoryFactory{
++orderUpdate();
 
 }
 
 class OrderRepository{
-
++save(orderUpdate)
 }
 
 
