@@ -11,7 +11,9 @@ public abstract class Type<T> {
     }
 
 
-
+    public void setName(String name){
+        this.name=name;
+    }
     public String name(){
         return name;
     }

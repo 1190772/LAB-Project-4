@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class IncludeVisitor extends MainVisitor<Integer>{
-    
+
     public IncludeVisitor(MemoryFrame frame, Enviroment enviroment) {
         super(frame, enviroment);
     }
@@ -44,7 +44,7 @@ public class IncludeVisitor extends MainVisitor<Integer>{
         List<QuestionAbstraction> result = new LinkedList<>();
         for (Object q : questions) {
             JSONObject qJSON = ((JSONObject) q );
-            QuestionAbstraction qAbs = new QuestionAbstraction(Integer.parseInt(qJSON.get("index").toString()),Boolean.parseBoolean(qJSON.get("optional").toString()),qJSON.get("id").toString(),qJSON.get("validation").toString())
+            QuestionAbstraction qAbs = new QuestionAbstraction(Integer.parseInt(qJSON.get("index").toString()),Boolean.parseBoolean(qJSON.get("optional").toString()),qJSON.get("id").toString(),qJSON.get("validation").toString());
             result.add(qAbs);
         }
         return result;

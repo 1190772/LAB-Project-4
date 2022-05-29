@@ -40,13 +40,25 @@ public class ValidatorBaseListener implements ValidatorListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterVal(ValidatorParser.ValContext ctx) { }
+	@Override public void enterIntV(ValidatorParser.IntVContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitVal(ValidatorParser.ValContext ctx) { }
+	@Override public void exitIntV(ValidatorParser.IntVContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterIntO(ValidatorParser.IntOContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitIntO(ValidatorParser.IntOContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *

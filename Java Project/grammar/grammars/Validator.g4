@@ -6,7 +6,7 @@ start: include atrribution* (section | question)*;
 atrribution: NAME '<-' val;
 
 
-val: INT | optional;
+val: INT #intV| optional #intO;
 question: 'Q'opt='x'?'<-''{' INT',' INT','validation'}';
 section: 'S'opt='x'?'<-''{'INT'}';
 

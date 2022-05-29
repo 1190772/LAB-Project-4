@@ -23,11 +23,19 @@ public interface ValidatorVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitAtrribution(ValidatorParser.AtrributionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ValidatorParser#val}.
+	 * Visit a parse tree produced by the {@code intV}
+	 * labeled alternative in {@link ValidatorParser#val}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitVal(ValidatorParser.ValContext ctx);
+	T visitIntV(ValidatorParser.IntVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code intO}
+	 * labeled alternative in {@link ValidatorParser#val}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIntO(ValidatorParser.IntOContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ValidatorParser#question}.
 	 * @param ctx the parse tree

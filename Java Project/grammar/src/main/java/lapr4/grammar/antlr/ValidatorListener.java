@@ -28,15 +28,29 @@ public interface ValidatorListener extends ParseTreeListener {
 	 */
 	void exitAtrribution(ValidatorParser.AtrributionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ValidatorParser#val}.
+	 * Enter a parse tree produced by the {@code intV}
+	 * labeled alternative in {@link ValidatorParser#val}.
 	 * @param ctx the parse tree
 	 */
-	void enterVal(ValidatorParser.ValContext ctx);
+	void enterIntV(ValidatorParser.IntVContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ValidatorParser#val}.
+	 * Exit a parse tree produced by the {@code intV}
+	 * labeled alternative in {@link ValidatorParser#val}.
 	 * @param ctx the parse tree
 	 */
-	void exitVal(ValidatorParser.ValContext ctx);
+	void exitIntV(ValidatorParser.IntVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code intO}
+	 * labeled alternative in {@link ValidatorParser#val}.
+	 * @param ctx the parse tree
+	 */
+	void enterIntO(ValidatorParser.IntOContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code intO}
+	 * labeled alternative in {@link ValidatorParser#val}.
+	 * @param ctx the parse tree
+	 */
+	void exitIntO(ValidatorParser.IntOContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ValidatorParser#question}.
 	 * @param ctx the parse tree

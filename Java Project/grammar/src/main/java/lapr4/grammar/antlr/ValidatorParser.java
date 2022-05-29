@@ -254,25 +254,49 @@ public class ValidatorParser extends Parser {
 	}
 
 	public static class ValContext extends ParserRuleContext {
-		public TerminalNode INT() { return getToken(ValidatorParser.INT, 0); }
-		public OptionalContext optional() {
-			return getRuleContext(OptionalContext.class,0);
-		}
 		public ValContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_val; }
+	 
+		public ValContext() { }
+		public void copyFrom(ValContext ctx) {
+			super.copyFrom(ctx);
+		}
+	}
+	public static class IntOContext extends ValContext {
+		public OptionalContext optional() {
+			return getRuleContext(OptionalContext.class,0);
+		}
+		public IntOContext(ValContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).enterVal(this);
+			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).enterIntO(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).exitVal(this);
+			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).exitIntO(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof ValidatorVisitor ) return ((ValidatorVisitor<? extends T>)visitor).visitVal(this);
+			if ( visitor instanceof ValidatorVisitor ) return ((ValidatorVisitor<? extends T>)visitor).visitIntO(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class IntVContext extends ValContext {
+		public TerminalNode INT() { return getToken(ValidatorParser.INT, 0); }
+		public IntVContext(ValContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).enterIntV(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof ValidatorListener ) ((ValidatorListener)listener).exitIntV(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof ValidatorVisitor ) return ((ValidatorVisitor<? extends T>)visitor).visitIntV(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -285,6 +309,7 @@ public class ValidatorParser extends Parser {
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
 			case INT:
+				_localctx = new IntVContext(_localctx);
 				enterOuterAlt(_localctx, 1);
 				{
 				setState(38);
@@ -292,6 +317,7 @@ public class ValidatorParser extends Parser {
 				}
 				break;
 			case T__20:
+				_localctx = new IntOContext(_localctx);
 				enterOuterAlt(_localctx, 2);
 				{
 				setState(39);
