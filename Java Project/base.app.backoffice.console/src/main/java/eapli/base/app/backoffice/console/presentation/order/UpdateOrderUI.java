@@ -21,7 +21,7 @@ public class UpdateOrderUI extends AbstractUI {
             int response = Console.readInteger("Do you want to update any of these orders?\n 1 - Yes  |  2 - No\n");
             if(response == 1){
                 long orderID = Console.readLong("Insert the ID of the order you wish to update.");
-                ctrl.changeOrderToDispatched(orderID);
+                ctrl.orderUpdate(orderID);
             }
             if(response == 2){
                 break;

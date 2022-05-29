@@ -4,11 +4,8 @@
 
 # 1. Requisitos
 
-*Nesta secção a equipa deve indicar a funcionalidade desenvolvida bem como descrever a sua interpretação sobre a mesma e sua correlação e/ou dependência de/com outros requisitos.*
 
-*Exemplo*
-
-**Demo1** Como {Ator} pretendo...
+**Demo1** Como Warehouse Manager pretendo
 
 - Demo1.1. Blá Blá Blá ...
 

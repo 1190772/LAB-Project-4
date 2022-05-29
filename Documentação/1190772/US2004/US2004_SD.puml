@@ -4,22 +4,46 @@ hide footbox
 
 title SD - Register Customer
 
+        actor "Warehouse Manager" as wm
 		participant ":UpdateOrderUI" as ui
 		participant ":UpdateOrderController" as ctrl
 		participant ":PersistenceContext" as pc
 		participant ":RepositoryFactory" as rf
-		participant ":OrderRepository" as repoPC
+		database ":OrderRepository" as repoPC
         participant ":Order" as prod
+        activate wm
+
+        wm -> ui: Wishes to update an order
+        activate ui
 		ui->ui:doShow()
-        		ui->ctrl:orderUpdate(cat, name, cal, salt)
+        		ui->ctrl:orderUpdate(orderID)
+        		activate ctrl
+
+        		ctrl->repoPC:orders = orderRepository.readyOrders()
+        		activate repoPC
+        		repoPC->ctrl: ordersPrepared()
+        		deactivate repoPC
+        		ui --> wm :  shows order list and asks to select one
+        		wm -> ui : selects the order to update
+        		ctrl -> repoPC: findOrderByID(orderID)
+        		activate repoPC
+        		repoPC->ctrl: order
+        		deactivate repoPC
 
 
-        		ctrl->prod:orderUpdate = create(cat, name, ni)
+        		ctrl->ctrl: orderUpdate(orderID)
+        		ctrl -> prod : changeStatus(OrderStatus.DELIVERED)
+        		activate prod
+        		deactivate prod
 
-        		ctrl->pc:repositories()
-        		pc->rf:create
-        		rf->repoPC:create
+
         		ctrl->repoPC:save(orderUpdate)
+        		activate repoPC
+        		deactivate repoPC
+        		ui --> wm: successful operation
+        		deactivate ctrl
+        		deactivate ui
+        		deactivate wm
 
 
 
