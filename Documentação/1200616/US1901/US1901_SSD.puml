@@ -1,0 +1,19 @@
+@startuml US1901_SSD
+
+autonumber
+
+actor "Customer" as C
+
+activate C
+C -> ":System" : Starts the CustomerApp
+activate ":System"
+":System" --> C : Asks for Customer credentials
+deactivate ":System"
+C -> ":System" : Gives Customer credentials
+activate ":System"
+":System" --> C : Has access to the customer menus
+deactivate ":System"
+deactivate C
+
+
+@enduml
