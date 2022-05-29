@@ -3,10 +3,7 @@ package eapli.base.agv.application;
 import eapli.base.agv.Repository.AGVRepository;
 import eapli.base.agv.Repository.AutomaticTaskRepository;
 import eapli.base.agv.Repository.InfoRepository;
-import eapli.base.agv.domain.model.AGV;
-import eapli.base.agv.domain.model.AutomaticTask;
-import eapli.base.agv.domain.model.Info;
-import eapli.base.agv.domain.model.Status;
+import eapli.base.agv.domain.model.*;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
 import java.util.*;
@@ -71,7 +68,7 @@ public class AutomaticTaskController {
         } else {
             int contadorExecutoresOcupados=0;
             for(AGV et : executores){
-                if(et.isOcuppied()==true){
+                if(et.isOccupied()==true){
                     contadorExecutoresOcupados++;
                 }
             }
@@ -84,7 +81,7 @@ public class AutomaticTaskController {
 
             if(contadorExecutoresOcupados != 0 && contadorExecutoresOcupados < executores.size()){
                 for(AGV et : executores){
-                    if(et.isOcuppied()==false){
+                    if(et.isOccupied()==false){
                         executorEscolhido = et;
                         System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 1, pelo facto do executor não estar ocupado!\n", t1.getId());
                         guardarExecutorEscolhido(executorEscolhido, t1);
@@ -137,7 +134,7 @@ public class AutomaticTaskController {
         } else {
             int contadorExecutoresOcupados=0;
             for(AGV et : executores){
-                if(et.isOcuppied()==true){
+                if(et.isOccupied()==true){
                     contadorExecutoresOcupados++;
                 }
             }
@@ -150,7 +147,7 @@ public class AutomaticTaskController {
 
             if(contadorExecutoresOcupados != 0 && contadorExecutoresOcupados < executores.size()){
                 for(AGV et : executores){
-                    if(et.isOcuppied()==false){
+                    if(et.isOccupied()==false){
                         executorEscolhido = et;
                         System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 2, pelo facto do executor não estar ocupado!\n", t2.getId());
                         guardarExecutorEscolhido(executorEscolhido, t2);
@@ -179,8 +176,8 @@ public class AutomaticTaskController {
 
     public void guardarExecutorEscolhido(AGV executorEscolhido, Info infoTarefa){
         executorEscolhido.acceptTask(infoTarefa);
-        if(executorEscolhido.isOcuppied()==false){
-            executorEscolhido.changeOcuppied(true);
+        if(executorEscolhido.isOccupied()==false){
+            executorEscolhido.changeStatus(AGVStatus.OCCUPIED);
         }
         infoTarefa.associateAGV(executorEscolhido);
         infoTarefa.changeStatus(Status.ASSOCIATED);
