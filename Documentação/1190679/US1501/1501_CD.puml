@@ -1,0 +1,54 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class AddToShoppingCartUI {
+}
+}
+
+Package Application{
+class AddToShoppingCartController {
+  +getAvailableProducts()
+  +AddProductToShoppingCart(id)
+}
+}
+
+
+Package Domain{
+class Product {
+}
+
+class Customer {
+  +getShoppingCart()
+}
+
+class ShoppingCart {
+  +addProduct(Product prod)
+}
+}
+
+Package Persistence{
+class RepositoryFactory{
+  +products()
+}
+
+
+class ProductRepository{
+  +availableProducts(agv)
+}
+}
+
+
+
+AddToShoppingCartUI ..> AddToShoppingCartController
+AddToShoppingCartController ..> Customer
+AddToShoppingCartController ..> ShoppingCart
+AddToShoppingCartController ..> Product
+RepositoryFactory ..|> ProductRepository
+ProductRepository ..|> Product
+Customer "1" --> "1" ShoppingCart : tem
+ShoppingCart "1" --> "*" Product : contém
+
+
+@enduml

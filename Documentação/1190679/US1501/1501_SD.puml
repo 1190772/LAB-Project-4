@@ -33,12 +33,8 @@ prodREPO --> CTRL : availableProducts
 deactivate prodREPO
 CTRL --> UI : availableProducts
 deactivate CTRL
-UI --> C : apresenta o catalogo de produtos
-deactivate UI
 loop for each produto
-C -> UI : inicia selecao de um produto
-activate UI
-UI --> C : solicita id do produto
+UI --> C : apresenta o catalogo de produtos e solicita id do produto
 deactivate UI
 C -> UI : submete informação
 activate UI
