@@ -1,9 +1,6 @@
 package eapli.base.product.domain.model;
 
 
-import eapli.base.product.domain.model.PriceWithTaxes;
-import eapli.base.product.domain.model.PriceWithoutTaxes;
-import eapli.base.product.domain.model.Product;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.Embeddable;
@@ -27,9 +24,9 @@ public class ProductsList {
     }
 
     public void addProduct(Product prod){
-        Optional<PriceWithoutTaxes> pwot=prod.priceWithoutTaxes();
+        Optional<Price> pwot=prod.priceWithoutTaxes();
         priceWithoutTaxes+=pwot.get().priceValue().doubleValue();
-        Optional<PriceWithTaxes> pwt=prod.priceWithTaxes();
+        Optional<Price> pwt=prod.priceWithTaxes();
         priceWithTaxes+=pwt.get().priceValue().doubleValue();
         pwt.get().priceValue().doubleValue();
         if(products.containsKey(prod)){
@@ -43,11 +40,11 @@ public class ProductsList {
         return products;
     }
 
-    public PriceWithoutTaxes totalPrice(boolean withTax){
+    public Price totalPrice(boolean withTax){
         if(withTax)
-            return new PriceWithoutTaxes(priceWithTaxes);
+            return new Price(priceWithTaxes);
 
-        return new PriceWithoutTaxes(priceWithoutTaxes);
+        return new Price(priceWithoutTaxes);
     }
 
     @Override

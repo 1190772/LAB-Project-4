@@ -6,34 +6,35 @@ import eapli.framework.validations.Preconditions;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PriceWithoutTaxes implements ValueObject {
-    private Double priceWithoutTaxes;
+public class Price implements ValueObject {
+    private Double price;
 
-    public PriceWithoutTaxes(Double newPrice) {
+    public Price(Double newPrice) {
         Preconditions.nonNull(newPrice);
         if(!validateIfIsNegative(newPrice))
             throw new IllegalArgumentException("invalid price can't be negtive");
-        this.priceWithoutTaxes = newPrice;
+        this.price = newPrice;
     }
 
-    protected PriceWithoutTaxes() {
+
+    protected Price() {
     }
 
     public static boolean validateIfIsNegative(Double price) {
         return price >= 0;
     }
 
-    public static PriceWithoutTaxes pricedAs(double price) {
-        return new PriceWithoutTaxes(price);
+    public static Price pricedAs(double price) {
+        return new Price(price);
     }
 
     public Double priceValue(){
-        return priceWithoutTaxes;
+        return price;
     }
 
     @Override
     public String toString() {
-        return "PriceWithoutTaxes{ " + priceWithoutTaxes.doubleValue() +
+        return "Price{ " + price.doubleValue() +
                 " }";
     }
 }

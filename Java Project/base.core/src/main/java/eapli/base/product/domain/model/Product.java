@@ -59,10 +59,12 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     private Barcode barcode;
 
     @Embedded
-    private PriceWithTaxes priceWithTaxes;
+    @JoinColumn(name = "PriceWithTaxes")
+    private Price priceWithTaxes;
 
     @Embedded
-    private PriceWithoutTaxes priceWithoutTaxes;
+    @Transient
+    private Price priceWithoutTaxes;
 
     @Embedded
     private Mesurements mesurements;
@@ -76,7 +78,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
 
    public Product(Category productCategory, InternalCode internalCode, ShortDescription shortDescription,
                   ExtendedDescription extendedDescription, TechnicalDescription technicalDeescription,
-                  Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode, PriceWithTaxes priceWithTaxes, PriceWithoutTaxes priceWithoutTaxes
+                  Brand brand, Reference reference, ProductionCode productionCode, Barcode barcode, Price priceWithTaxes, Price priceWithoutTaxes
     ) {
         Preconditions.noneNull(productCategory, internalCode, shortDescription, extendedDescription, barcode);
         this.productCategory = productCategory;
@@ -146,14 +148,14 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     /**
      * @return the Price with taxes of this Product
      */
-    public Optional<PriceWithTaxes> priceWithTaxes() {
+    public Optional<Price> priceWithTaxes() {
         return Optional.ofNullable(priceWithTaxes);
     }
 
     /**
      * @return the Price with taxes of this Product
      */
-    public Optional<PriceWithoutTaxes> priceWithoutTaxes() {
+    public Optional<Price> priceWithoutTaxes() {
         return Optional.ofNullable(priceWithoutTaxes);
     }
 
@@ -309,7 +311,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
      *
      * @param newPriceWithoutTaxes the new price of this dish
      */
-    public void changePriceTo(final PriceWithoutTaxes newPriceWithoutTaxes) {
+    public void changePriceTo(final Price newPriceWithoutTaxes) {
         if (newPriceWithoutTaxes == null) {
             throw new IllegalArgumentException();
         }

@@ -2,6 +2,7 @@ package eapli.base.customer.domain.model;
 
 import eapli.base.product.domain.model.*;
 
+import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,17 +17,19 @@ public class ShoppingCart {
     private ProductsList prodList;
 
     @Embedded
-    private PriceWithoutTaxes pwTt;
+    @Column(name = "PriceWithoutTaxes")
+    private Price pwTt;
 
     @Embedded
-    private PriceWithTaxes pwt;
+    @Column(name = "PriceWithTaxes")
+    private Price pwt;
 
 
     public ShoppingCart(Long id){
         this.id=id;
         this.prodList = new ProductsList();
-        pwTt=new PriceWithoutTaxes((double) 0);
-        pwt=new PriceWithTaxes((double) 0);
+        pwTt=new Price((double) 0);
+        pwt=new Price((double) 0);
     }
 
     public ShoppingCart(){

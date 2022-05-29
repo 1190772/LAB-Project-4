@@ -33,8 +33,7 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
 
     private boolean ocuppied;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "AGV_id")
+    @Transient
     private List<Info> tasks = new ArrayList<>();
 
     public AGV() {
