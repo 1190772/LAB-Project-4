@@ -1,4 +1,4 @@
-package eapli.base.jsonreader.domain;
+package eapli.base.importwarehouse.domain;
 
 public interface JsonReader<T>{
 

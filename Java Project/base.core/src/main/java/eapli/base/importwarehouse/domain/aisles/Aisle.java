@@ -1,24 +1,25 @@
-package eapli.base.jsonreader.domain;
+package eapli.base.importwarehouse.domain.aisles;
 
-import eapli.base.jsonreader.domain.aisles.Accessibility;
-import eapli.base.jsonreader.domain.aisles.Coords;
+import java.util.List;
 
-public class AGVDock {
-    private AGVDockId id;
+public class Aisle {
+    private AisleId id;
     private Coords begin;
     private Coords end;
     private Coords depth;
     private Accessibility accessibility;
+    private List<AisleRow> rows;
 
-    public AGVDock(AGVDockId id, Coords begin, Coords end, Coords depth, Accessibility accessibility) {
+    public Aisle(AisleId id, Coords begin, Coords end, Coords depth, Accessibility accessibility, List<AisleRow> rows) {
         this.id = id;
         this.begin = begin;
         this.end = end;
         this.depth = depth;
         this.accessibility = accessibility;
+        this.rows = rows;
     }
 
-    public AGVDockId getId() {
+    public AisleId getId() {
         return id;
     }
 
@@ -37,5 +38,8 @@ public class AGVDock {
     public Accessibility getAccessibility() {
         return accessibility;
     }
-}
 
+    public List<AisleRow> getRows() {
+        return rows;
+    }
+}

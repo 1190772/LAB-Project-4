@@ -1,13 +1,13 @@
 package eapli.base.app.backoffice.console.presentation.order;
 
-import eapli.base.order.application.ChangeOrderToDeliveredController;
+import eapli.base.order.application.UpdateOrderController;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
-public class ChangeOrderToDeliveredUI extends AbstractUI {
+public class UpdateOrderUI extends AbstractUI {
 
-    private final ChangeOrderToDeliveredController ctrl = new ChangeOrderToDeliveredController();
+    private final UpdateOrderController ctrl = new UpdateOrderController();
     
 
     @Override

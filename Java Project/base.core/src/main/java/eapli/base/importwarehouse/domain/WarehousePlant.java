@@ -1,12 +1,10 @@
-package eapli.base.jsonreader.domain;
+package eapli.base.importwarehouse.domain;
 
 import java.util.LinkedList;
 import java.util.List;
-import eapli.base.jsonreader.domain.*;
-import eapli.base.jsonreader.domain.aisles.*;
-import eapli.base.jsonreader.domain.*;
-import eapli.base.jsonreader.domain.warehouse.Length;
-import eapli.base.jsonreader.domain.warehouse.Name;
+
+import eapli.base.importwarehouse.domain.warehouse.Length;
+import eapli.base.importwarehouse.domain.warehouse.Name;
 
 
 public class WarehousePlant {

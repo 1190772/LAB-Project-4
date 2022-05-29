@@ -1,4 +1,4 @@
-package eapli.base.jsonreader.domain.warehouse;
+package eapli.base.importwarehouse.domain.warehouse;
 
 public class Name {
     private String name;

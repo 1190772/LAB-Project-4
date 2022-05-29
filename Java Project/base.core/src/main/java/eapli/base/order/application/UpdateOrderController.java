@@ -11,7 +11,7 @@ import eapli.framework.infrastructure.authz.application.AuthzRegistry;
 import java.util.stream.Collectors;
 import java.util.stream.StreamSupport;
 
-public class ChangeOrderToDeliveredController {
+public class UpdateOrderController {
     private final OrderRepository orderRepository = PersistenceContext.repositories().order();
     private final AuthorizationService authz = AuthzRegistry.authorizationService();
 

@@ -1,4 +1,4 @@
-package eapli.base.jsonreader.domain.aisles;
+package eapli.base.importwarehouse.domain.aisles;
 
 public class Capacity {
     private int capacity;
