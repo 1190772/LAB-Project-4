@@ -2,7 +2,9 @@ package eapli.base.agv.application;
 
 
 import eapli.base.agv.domain.model.AGV;
+import eapli.base.agv.domain.model.AGVStatus;
 import eapli.base.order.domain.model.Order;
+import eapli.base.order.domain.model.OrderStatus;
 
 public class ListOrderToAGVController {
 
@@ -23,6 +25,8 @@ public class ListOrderToAGVController {
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
+        agv.changeStatus(AGVStatus.OCCUPIED);
+        order.changeStatus(OrderStatus.BEING_PREPARED);
         return false;
     }
 }
