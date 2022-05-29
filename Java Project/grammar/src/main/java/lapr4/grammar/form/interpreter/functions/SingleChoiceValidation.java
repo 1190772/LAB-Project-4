@@ -19,5 +19,9 @@ public class SingleChoiceValidation implements Validation<SingleChoiceValidation
         return false;
     }
 
+    public boolean validateT(OptionalType type){
+        return true;
+    }
+
 
 }

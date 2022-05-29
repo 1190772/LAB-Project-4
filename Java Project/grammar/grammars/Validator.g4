@@ -11,23 +11,23 @@ question: 'Q'opt='x'?'<-''{' INT',' INT','validation'}';
 section: 'S'opt='x'?'<-''{'INT'}';
 
 
-intArg: NAME | INT;
-optionalArg: NAME| optional;
+intArg: NAME #intVar | INT #intVal;
+optionalArg: NAME #optVar| optional #optVal;
 
 
-validation: 'text'('('')'|'('intArg','intArg')')
-           | 'isInt''()'
-           | 'isNumeric''()'
-           | 'singleChoice''('optionalArg')'
-           | 'multipleChoice''('optionalArg (',' intArg)? ')'
-           | 'singleChoiceT''('optionalArg')'
-           | 'multipleChoiceT''('optionalArg (',' intArg)? ')'
-           | 'sort''('optionalArg')'
-           | 'scale''('intArg ','optionalArg')'
+validation: 'text'('('')'|'('nLines=intArg','nCharPerLine=intArg')') #textV
+           | 'isInt''()' #isIntV
+           | 'isNumeric''()' #isNumericV
+           | 'singleChoice''('opt=optionalArg')' #singleChoiceV
+           | 'multipleChoice''('opt=optionalArg (',' maxChoices=intArg)? ')' #multipleChoiceV
+           | 'singleChoiceT''('opt=optionalArg')' #singleChoiceTV
+           | 'multipleChoiceT''('opt=optionalArg (',' maxChoices=intArg)? ')' #multipleChoiceTV
+           | 'sort''('opt=optionalArg')' #sortV
+           | 'scale''('sec=intArg ','opt=optionalArg')' # scaleV
            ;
 
 
-include: '#include' NAME;
+include: '#include' formName=NAME;
 
 
 optional: '|' (STRING ',')+ STRING '|';

@@ -58,35 +58,161 @@ public interface ValidatorListener extends ParseTreeListener {
 	 */
 	void exitSection(ValidatorParser.SectionContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ValidatorParser#intArg}.
+	 * Enter a parse tree produced by the {@code intVar}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 */
-	void enterIntArg(ValidatorParser.IntArgContext ctx);
+	void enterIntVar(ValidatorParser.IntVarContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ValidatorParser#intArg}.
+	 * Exit a parse tree produced by the {@code intVar}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 */
-	void exitIntArg(ValidatorParser.IntArgContext ctx);
+	void exitIntVar(ValidatorParser.IntVarContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ValidatorParser#optionalArg}.
+	 * Enter a parse tree produced by the {@code intVal}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 */
-	void enterOptionalArg(ValidatorParser.OptionalArgContext ctx);
+	void enterIntVal(ValidatorParser.IntValContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ValidatorParser#optionalArg}.
+	 * Exit a parse tree produced by the {@code intVal}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 */
-	void exitOptionalArg(ValidatorParser.OptionalArgContext ctx);
+	void exitIntVal(ValidatorParser.IntValContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link ValidatorParser#validation}.
+	 * Enter a parse tree produced by the {@code optVar}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
 	 * @param ctx the parse tree
 	 */
-	void enterValidation(ValidatorParser.ValidationContext ctx);
+	void enterOptVar(ValidatorParser.OptVarContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link ValidatorParser#validation}.
+	 * Exit a parse tree produced by the {@code optVar}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
 	 * @param ctx the parse tree
 	 */
-	void exitValidation(ValidatorParser.ValidationContext ctx);
+	void exitOptVar(ValidatorParser.OptVarContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code optVal}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
+	 * @param ctx the parse tree
+	 */
+	void enterOptVal(ValidatorParser.OptValContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code optVal}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
+	 * @param ctx the parse tree
+	 */
+	void exitOptVal(ValidatorParser.OptValContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code textV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterTextV(ValidatorParser.TextVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code textV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitTextV(ValidatorParser.TextVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code isIntV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterIsIntV(ValidatorParser.IsIntVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code isIntV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitIsIntV(ValidatorParser.IsIntVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code isNumericV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterIsNumericV(ValidatorParser.IsNumericVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code isNumericV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitIsNumericV(ValidatorParser.IsNumericVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code singleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleChoiceV(ValidatorParser.SingleChoiceVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code singleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleChoiceV(ValidatorParser.SingleChoiceVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code multipleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultipleChoiceV(ValidatorParser.MultipleChoiceVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code multipleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultipleChoiceV(ValidatorParser.MultipleChoiceVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code singleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterSingleChoiceTV(ValidatorParser.SingleChoiceTVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code singleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitSingleChoiceTV(ValidatorParser.SingleChoiceTVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code multipleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterMultipleChoiceTV(ValidatorParser.MultipleChoiceTVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code multipleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitMultipleChoiceTV(ValidatorParser.MultipleChoiceTVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code sortV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterSortV(ValidatorParser.SortVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code sortV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitSortV(ValidatorParser.SortVContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code scaleV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void enterScaleV(ValidatorParser.ScaleVContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code scaleV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 */
+	void exitScaleV(ValidatorParser.ScaleVContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link ValidatorParser#include}.
 	 * @param ctx the parse tree

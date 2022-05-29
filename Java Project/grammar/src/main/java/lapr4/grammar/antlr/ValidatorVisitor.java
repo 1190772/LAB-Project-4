@@ -41,23 +41,96 @@ public interface ValidatorVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitSection(ValidatorParser.SectionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ValidatorParser#intArg}.
+	 * Visit a parse tree produced by the {@code intVar}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitIntArg(ValidatorParser.IntArgContext ctx);
+	T visitIntVar(ValidatorParser.IntVarContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ValidatorParser#optionalArg}.
+	 * Visit a parse tree produced by the {@code intVal}
+	 * labeled alternative in {@link ValidatorParser#intArg}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitOptionalArg(ValidatorParser.OptionalArgContext ctx);
+	T visitIntVal(ValidatorParser.IntValContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link ValidatorParser#validation}.
+	 * Visit a parse tree produced by the {@code optVar}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitValidation(ValidatorParser.ValidationContext ctx);
+	T visitOptVar(ValidatorParser.OptVarContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code optVal}
+	 * labeled alternative in {@link ValidatorParser#optionalArg}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOptVal(ValidatorParser.OptValContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code textV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTextV(ValidatorParser.TextVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code isIntV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIsIntV(ValidatorParser.IsIntVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code isNumericV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIsNumericV(ValidatorParser.IsNumericVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code singleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleChoiceV(ValidatorParser.SingleChoiceVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code multipleChoiceV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultipleChoiceV(ValidatorParser.MultipleChoiceVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code singleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSingleChoiceTV(ValidatorParser.SingleChoiceTVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code multipleChoiceTV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMultipleChoiceTV(ValidatorParser.MultipleChoiceTVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code sortV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSortV(ValidatorParser.SortVContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code scaleV}
+	 * labeled alternative in {@link ValidatorParser#validation}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitScaleV(ValidatorParser.ScaleVContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link ValidatorParser#include}.
 	 * @param ctx the parse tree
