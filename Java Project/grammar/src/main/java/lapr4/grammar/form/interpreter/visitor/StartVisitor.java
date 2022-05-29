@@ -19,26 +19,31 @@ public class StartVisitor extends MainVisitor<Integer>{
 
     @Override
     public Integer visitStart(ValidatorParser.StartContext ctx) {
-        
+        return visit(ctx);
     }
 
     @Override
     public Integer visitAtrribution(ValidatorParser.AtrributionContext ctx) {
-        return super.visitAtrribution(ctx);
+        if (type.visit(ctx)==null) {
+            return 1;
+        }
+        return 0;
     }
 
     @Override
     public Integer visitQuestion(ValidatorParser.QuestionContext ctx) {
-        return super.visitQuestion(ctx);
+        return abstractionsVisitor.visit(ctx);
     }
 
     @Override
     public Integer visitSection(ValidatorParser.SectionContext ctx) {
-        return super.visitSection(ctx);
+        return abstractionsVisitor.visit(ctx);
     }
 
     @Override
     public Integer visitInclude(ValidatorParser.IncludeContext ctx) {
-        return super.visitInclude(ctx);
+        int val= include.visit(ctx);
+        frame.generate();
+        return val;
     }
 }

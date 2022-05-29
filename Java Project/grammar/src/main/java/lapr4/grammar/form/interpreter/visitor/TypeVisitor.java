@@ -27,6 +27,7 @@ public class TypeVisitor extends MainVisitor<Type>{
     public Type visitAtrribution(ValidatorParser.AtrributionContext ctx) {
        Type t =  visit(ctx.val());
        t.setName(ctx.NAME().getText());
+       frame.putConstant(t.name(),t);
        return t;
     }
 

@@ -11,8 +11,8 @@ public class ListOrderToAGVService {
     private static final OrderRepository orderRepository = PersistenceContext.repositories().order();
     private static final AGVRepository agvRepository = PersistenceContext.repositories().agv();
 
-    public static Iterable<Order> preparedOrders() {
-        return orderRepository.preparedOrders();
+    public static Iterable<Order> readyOrders() {
+        return orderRepository.readyOrders();
     }
 
     public static Order findOrderById(Long id) {
