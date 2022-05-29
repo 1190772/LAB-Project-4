@@ -22,14 +22,11 @@ public class ShoppingCart {
     private PriceWithTaxes pwt;
 
 
-    private double autonomy;
-
     public ShoppingCart(Long id){
         this.id=id;
         this.prodList = new ProductsList();
         pwTt=new PriceWithoutTaxes((double) 0);
         pwt=new PriceWithTaxes((double) 0);
-        this.autonomy=0;
     }
 
     public ShoppingCart(){
