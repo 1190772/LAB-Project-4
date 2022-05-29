@@ -15,8 +15,8 @@ public class ListOrderToAGVController {
 
     }
 
-    public Iterable<Order> getPreparedOrders() {
-        return ListOrderToAGVService.preparedOrders();
+    public Iterable<Order> getReadyOrders() {
+        return ListOrderToAGVService.readyOrders();
     }
 
     public void findOrderById(Long id) {

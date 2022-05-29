@@ -13,7 +13,7 @@ public class ListOrderToAGVUI extends AbstractUI {
     protected boolean doShow() {
 
         System.out.println("Orders Prepared for Delivery: \n");
-        for (Order o: theController.getPreparedOrders()) {
+        for (Order o: theController.getReadyOrders()) {
             System.out.println(o.toString());
         }
         System.out.println("\n\n");
