@@ -13,7 +13,7 @@ activate ":System"
 ":System" --> LC : shows order list and asks to select one
 deactivate ":System"
 
-LC -> ":System" : updates order
+LC -> ":System" : selects the order to update
 activate ":System"
 
 ":System" -> LC : successful

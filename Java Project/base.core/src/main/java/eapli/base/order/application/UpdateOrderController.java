@@ -21,7 +21,7 @@ public class UpdateOrderController {
         return StreamSupport.stream(orders.spliterator(),true).collect(Collectors.toUnmodifiableList());
     }
 
-    public void changeOrderToDispatched (Long id){
+    public void orderUpdate(Long id){
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
         Order order = (Order) orderRepository.findOrderById(id);
         if(order != null){
