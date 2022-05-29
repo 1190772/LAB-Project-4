@@ -7,17 +7,17 @@ import java.util.List;
 
 public class SortValidation implements Validation<SortValidation> {
     private String answer;
+    private List<String> list=new LinkedList<>();
 
-    public List<String> validate(OptionalType type) {
-        List<String> list = new LinkedList<>();
+    public boolean validate(OptionalType type) {
         String[] opts = answer.split(";");
         for (String s : opts) {
             if (!type.has(s)) {
-                return null;
+                return false;
             }
             list.add(s);
         }
-        return list;
+        return true;
     }
 
 

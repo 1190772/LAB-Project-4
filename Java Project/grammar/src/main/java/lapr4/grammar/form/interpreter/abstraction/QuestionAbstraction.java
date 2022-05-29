@@ -6,13 +6,28 @@ public class QuestionAbstraction {
     private boolean optional;
     private String id;
     private String validation;
+    private boolean validated;
+    private boolean valid;
 
     public QuestionAbstraction(int index, boolean optional, String id, String validation) {
         this.index = index;
         this.optional = optional;
         this.id = id;
         this.validation = validation;
+        this.validated=false;
+        this.valid=true;
     }
+
+    public QuestionAbstraction(int index, boolean optional, String id, boolean valid) {
+        this.index = index;
+        this.optional = optional;
+        this.id = id;
+        this.validation = "";
+        this.validated=true;
+        this.valid=valid;
+    }
+
+
 
     public int getIndex() {
         return index;
@@ -28,6 +43,12 @@ public class QuestionAbstraction {
 
     public String getValidation() {
         return validation;
+    }
+    public boolean isValidated() {
+        return validated;
+    }
+    public boolean isValid() {
+        return valid;
     }
 
 

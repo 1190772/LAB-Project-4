@@ -8,9 +8,10 @@ import lapr4.grammar.form.interpreter.memory.MemoryFrame;
 
 public class AbstractionsVisitor extends MainVisitor<Integer>{
 
-
+    private ValidationVisitor visitor;
     public AbstractionsVisitor(MemoryFrame frame, Enviroment enviroment) {
         super(frame, enviroment);
+        visitor=new ValidationVisitor(frame,enviroment);
     }
 
     @Override
@@ -21,8 +22,10 @@ public class AbstractionsVisitor extends MainVisitor<Integer>{
         }
 
         try {
+            //TODO put answer in stack
+            int i = visitor.visit(ctx.validation());
             frame.addQuestion(Integer.parseInt(ctx.secIndex.getText()),new QuestionAbstraction(
-                    Integer.parseInt(ctx.qIndex.getText()),optional,"",));
+                    Integer.parseInt(ctx.qIndex.getText()),optional,"", i==0));
         } catch (Exception e) {
             return 1;
         }

@@ -4,10 +4,13 @@ import lapr4.grammar.form.interpreter.abstraction.QuestionAbstraction;
 import lapr4.grammar.form.interpreter.abstraction.SectionAbstraction;
 import lapr4.grammar.form.interpreter.types.Type;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 
 public class MemoryFrame {
+    private Deque<String> stack;
     private Map<String, Type> constants;
     private Map<Integer,SectionAbstraction> sections;
     private Map<Integer,SectionAbstraction> abstractions;
@@ -39,5 +42,8 @@ public class MemoryFrame {
         }
     }
 
+    public Deque<String> getStack(){
+        return stack;
+    }
 
 }
