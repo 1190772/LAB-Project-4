@@ -47,7 +47,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         this.address=a;
     }
 
-    public Order() {
+    protected Order() {
 
     }
 
