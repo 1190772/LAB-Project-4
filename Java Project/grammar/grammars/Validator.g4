@@ -7,7 +7,7 @@ atrribution: NAME '<-' val;
 
 
 val: INT #intV| optional #intO;
-question: 'Q'opt='x'?'<-''{' INT',' INT','validation'}';
+question: 'Q'opt='x'?'<-''{' secIndex=INT',' qIndex=INT','validation'}';
 section: 'S'opt='x'?'<-''{'INT'}';
 
 
@@ -30,7 +30,10 @@ validation: 'text'('('')'|'('nLines=intArg','nCharPerLine=intArg')') #textV
 include: '#include' formName=NAME;
 
 
-optional: '|' (STRING ',')+ STRING '|';
+optional: '|' optionalBody '|';
+optionalBody: atom=STRING ',' optionalBody #optBodyMultiple
+            | atom=STRING #optBodyAtom
+            ;
 
 
 fragment LowerChar: [a-z];

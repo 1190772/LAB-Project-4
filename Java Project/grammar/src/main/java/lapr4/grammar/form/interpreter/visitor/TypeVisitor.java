@@ -20,7 +20,7 @@ public class TypeVisitor extends MainVisitor<Type>{
 
     @Override
     public OptionalType visitIntO(ValidatorParser.IntOContext ctx) {
-        return new OptionalType("",ctx.getText());
+        return visit(ctx.optional());
     }
 
     @Override
@@ -30,4 +30,18 @@ public class TypeVisitor extends MainVisitor<Type>{
        return t;
     }
 
+    @Override
+    public Type visitOptional(ValidatorParser.OptionalContext ctx) {
+        return super.visitOptional(ctx);
+    }
+
+    @Override
+    public Type visitOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx) {
+        return super.visitOptBodyMultiple(ctx);
+    }
+
+    @Override
+    public Type visitOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx) {
+        return super.visitOptBodyAtom(ctx);
+    }
 }

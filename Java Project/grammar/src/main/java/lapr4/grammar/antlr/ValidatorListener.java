@@ -247,4 +247,28 @@ public interface ValidatorListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitOptional(ValidatorParser.OptionalContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code optBodyMultiple}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code optBodyMultiple}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code optBodyAtom}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 */
+	void enterOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code optBodyAtom}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 */
+	void exitOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx);
 }

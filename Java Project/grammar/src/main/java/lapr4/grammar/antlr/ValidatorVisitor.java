@@ -151,4 +151,18 @@ public interface ValidatorVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitOptional(ValidatorParser.OptionalContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code optBodyMultiple}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code optBodyAtom}
+	 * labeled alternative in {@link ValidatorParser#optionalBody}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx);
 }

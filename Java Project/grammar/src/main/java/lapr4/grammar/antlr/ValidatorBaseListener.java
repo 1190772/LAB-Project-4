@@ -263,6 +263,30 @@ public class ValidatorBaseListener implements ValidatorListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitOptional(ValidatorParser.OptionalContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOptBodyMultiple(ValidatorParser.OptBodyMultipleContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOptBodyAtom(ValidatorParser.OptBodyAtomContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
