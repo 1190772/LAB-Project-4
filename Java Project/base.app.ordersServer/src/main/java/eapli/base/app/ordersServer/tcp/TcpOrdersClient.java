@@ -1,11 +1,9 @@
 package eapli.base.app.ordersServer.tcp;
 
-<<<<<<< HEAD
-//import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
-=======
 
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
->>>>>>> 759fdb41ce92647bd09a6a2e933f059e80bec0b3
+import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsUI;
+
 
 import java.io.*;
 import java.net.InetAddress;
@@ -64,12 +62,22 @@ public class TcpOrdersClient {
 
             serverMessage = sInData.readNBytes(4);
             if(serverMessage[1] == 3){
-            //    new ListProductsUI().show();
+                new ListProductsUI().show();
             }else if(serverMessage[1] == 4){
                 System.out.println("You are seeing orders status");
             }
 
+            //Mandar um pedido para o servido -> codigo: 9 (Fim)
+            byte[] clienteMessageEnd = {(byte) 0, (byte) 9, (byte) 0, (byte) 0};
+            sOutData.write(clienteMessageEnd);
+            sOutData.flush();
 
+            byte[] serverMessageEnd = sInData.readNBytes(4);
+            if (serverMessageEnd[1] == 2) {
+                sock.close();
+            } else {
+                System.out.println("==> SERVER ERROR");
+            }
 
         }
 
