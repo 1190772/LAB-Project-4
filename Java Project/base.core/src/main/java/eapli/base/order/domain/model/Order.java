@@ -1,7 +1,7 @@
 package eapli.base.order.domain.model;
 
 import eapli.base.customer.domain.model.Address;
-import eapli.base.product.domain.model.PriceWithoutTaxes;
+import eapli.base.product.domain.model.Price;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
@@ -22,10 +22,12 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     private ProductsList prod;
 
     @Embedded
-    private PriceWithoutTaxes priceWithoutTaxes;
+    @Column(name = "PriceWithoutTaxes")
+    private Price priceWithoutTaxes;
 
     @Embedded
-    private PriceWithoutTaxes priceWithoutTaxesWithTaxes;
+    @Column(name = "PriceWithTaxes")
+    private Price priceWithTaxes;
 
     private Date creationDate;
 
@@ -39,7 +41,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     public Order(ProductsList products, Date date, EmailAddress e, Address a) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
-        this.priceWithoutTaxesWithTaxes =products.totalPrice(true);
+        this.priceWithTaxes =products.totalPrice(true);
         this.creationDate=date;
         this.email=e;
         this.address=a;
@@ -69,7 +71,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
                 "id=" + id +
                 ", prod=" + prod +
                 ", priceWithoutTaxes=" + priceWithoutTaxes +
-                ", priceWithTaxes=" + priceWithoutTaxesWithTaxes +
+                ", priceWithTaxes=" + priceWithTaxes +
                 ", creationDate=" + creationDate +
                 ", email=" + email +
                 ", address=" + address +

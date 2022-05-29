@@ -19,9 +19,9 @@ public class ProductBuilder implements DomainFactory<Product> {
 
     private TechnicalDescription technicalDeescription;
 
-    private PriceWithTaxes priceWithTaxes;
+    private Price priceWithTaxes;
 
-    private PriceWithoutTaxes priceWithoutTaxes;
+    private Price priceWithoutTaxes;
 
     private Reference reference;
 
@@ -83,7 +83,7 @@ public class ProductBuilder implements DomainFactory<Product> {
         return this;
     }
 
-    public ProductBuilder costing(final PriceWithoutTaxes priceWithoutTaxes) {
+    public ProductBuilder costing(final Price pricewithoutTax) {
         buildOrThrow();
         product.changePriceTo(priceWithoutTaxes);
         return this;

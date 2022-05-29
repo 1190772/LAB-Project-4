@@ -55,9 +55,7 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     @JsonProperty
     private Gender gender;
 
-    @OneToOne
-    @XmlElement
-    @JsonProperty
+    @Transient
     private ShoppingCart shoppingCart;
 
     @OneToOne
