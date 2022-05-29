@@ -54,6 +54,8 @@ class TcpOrdersServerThread implements Runnable{
 
                 //Dizer ao cliente para continuar
                 byte[] serverMessage = {(byte) 0, (byte) 2, (byte) 0, (byte) 0};
+
+
                 byte[] serverpcMessage = {(byte) 0, (byte) 3, (byte) 0, (byte) 0};
                 byte[] serverosMessage = {(byte) 0, (byte) 4, (byte) 0, (byte) 0};
                 sOut.write(serverMessage);
@@ -63,21 +65,29 @@ class TcpOrdersServerThread implements Runnable{
 
 
                 if(option == 1){
-                    System.out.println("Showing Product Catalog to the client");
+                    System.out.println("==> Showing Product Catalog to the client");
                     sOut.write(serverpcMessage);
                     sOut.flush();
                 }else if(option == 2){
-                    System.out.println("Showing Order Status to the client");
+                    System.out.println("==> Showing Order Status to the client");
                     sOut.write(serverosMessage);
                     sOut.flush();
                 }
 
+                byte[] clienteMessageEnd = sIn.readNBytes(4);
+                if (clienteMessageEnd[1] == 9) {
+                    System.out.println("==> Request to end connection successful");
+                    //Dizer ao cliente que entendeu
+                    System.out.println("==> Sending message to the client to close Socket");
+                    byte[] serverMessageEnd = {(byte) 0, (byte) 2, (byte) 0, (byte) 0};
+                    sOut.write(serverMessageEnd);
+                    sOut.flush();
+                    System.out.println("Client " + clientIP.getHostAddress() + ", port number: " + this.s.getPort() + " disconnected");
 
+                } else {
+                    System.out.println("==> CLIENT ERROR");
+                }
             }
-
-            System.out.println("Client " + clientIP.getHostAddress() +
-                    ", port number: " + s.getPort() + " disconnected");
-            s.close();
 
         } catch (IOException e) {
             System.out.println("IO Exception");
