@@ -32,13 +32,8 @@ activate orderREPO
 orderREPO --> CTRL : preparedOrders
 deactivate orderREPO
 CTRL --> UI : preparedOrders
-deactivate CTRL
-UI --> WE : apresenta as encomendas correspondentes
-deactivate UI
 loop for each encomenda
-WE -> UI : inicia o pedido para uma encomenda ser preparada\npor um AGV
-activate UI
-UI --> WE : solicita id da encomenda
+UI --> WE : apresenta as encomendas correspondentes e\nsolicita id da encomenda pertendida
 deactivate UI
 WE -> UI : submete informação
 activate UI

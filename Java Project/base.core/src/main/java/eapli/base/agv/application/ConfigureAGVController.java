@@ -13,7 +13,7 @@ public class ConfigureAGVController {
     private final AuthorizationService authz = AuthzRegistry.authorizationService();
     final ProductsList products= new ProductsList();
 
-    public void CreateOrderBySaleClerkController() {
+    public ConfigureAGVController() {
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
     }
 
