@@ -6,4 +6,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
 
+    Iterable<Order> preparedOrders();
+
+    Iterable<Order> findOrderById(Long id);
+
 }

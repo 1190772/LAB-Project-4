@@ -32,14 +32,15 @@ activate orderREPO
 orderREPO --> CTRL : preparedOrders
 deactivate orderREPO
 CTRL --> UI : preparedOrders
+deactivate CTRL
 loop for each encomenda
 UI --> WE : apresenta as encomendas correspondentes e\nsolicita id da encomenda pertendida
 deactivate UI
 WE -> UI : submete informação
 activate UI
-UI -> CTRL : getOrderById(id)
+UI -> CTRL : findOrderById(id)
 activate CTRL
-CTRL -> orderREPO : getOrderById(id)
+CTRL -> orderREPO : findOrderById(id)
 activate orderREPO
 orderREPO --> CTRL : order
 deactivate orderREPO
@@ -48,7 +49,7 @@ UI --> WE : solicita id do AGV
 deactivate UI
 WE -> UI : submete informação
 activate UI
-UI -> CTRL : getAGVById(id)
+UI -> CTRL : findAGVById(id)
 activate CTRL
 CTRL -> PER : repositories()
 activate PER
@@ -60,9 +61,10 @@ activate REPOFACT
 REPOFACT -> agvREPO : create
 REPOFACT --> CTRL : agvRepository
 deactivate REPOFACT
-CTRL -> agvREPO : getAGVById(id)
+CTRL -> agvREPO : findAGVById(id)
 activate agvREPO
-orderREPO --> CTRL : agv
+agvREPO --> CTRL : agv
+deactivate agvREPO
 deactivate CTRL
 UI -> WE : informa do sucesso da operação
 end
