@@ -5,8 +5,8 @@ participant "ListOrderToAGVUI" as UI <<presentation>>
 participant "ListOrderToAGVController" as CTRL <<application>>
 participant PersistenceContext as PER <<persistence>>
 participant "RepositoryFactory" as REPOFACT <<factory>>
-participant "agv : AGV" as AGV <<domain>>
 participant "order : Order" as ORDER <<domain>>
+participant "agv : AGV" as AGV <<domain>>
 database "OrderRepository" as orderREPO <<repository>>
 database "AGVRepository" as agvREPO <<repository>>
 
@@ -65,6 +65,15 @@ CTRL -> agvREPO : findAGVById(id)
 activate agvREPO
 agvREPO --> CTRL : agv
 deactivate agvREPO
+CTRL -> ORDER : changeStatus(BEING_PREPARED)
+activate ORDER
+deactivate ORDER
+CTRL -> AGV : setOrderBeingPrepared(order)
+activate AGV
+AGV -> AGV : changeStatus(OCCUPIED)
+activate AGV
+deactivate AGV
+deactivate AGV
 deactivate CTRL
 UI -> WE : informa do sucesso da operação
 end

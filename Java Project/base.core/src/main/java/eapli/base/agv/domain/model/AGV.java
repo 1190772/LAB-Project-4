@@ -3,6 +3,7 @@ package eapli.base.agv.domain.model;
 
 import eapli.base.agv.domain.model.AGVModel;
 import eapli.base.agv.domain.model.Info;
+import eapli.base.order.domain.model.Order;
 import eapli.base.order.domain.model.OrderStatus;
 import eapli.base.product.domain.model.ShortDescription;
 import eapli.framework.domain.model.AggregateRoot;
@@ -35,6 +36,11 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
     @Enumerated(EnumType.ORDINAL)
     AGVStatus status;
 
+
+    @OneToOne
+    @JoinColumn(name = "order_id")
+    Order orderBeingPrepared;
+
     @Transient
     private List<Info> tasks = new ArrayList<>();
 
@@ -46,6 +52,7 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         this.model = model;
         this.maxWeight = limit;
         this.status = AGVStatus.FREE;
+        this.orderBeingPrepared=null;
     }
 
 
@@ -85,6 +92,20 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
 
     public void changeStatus(AGVStatus s){
         this.status=s;
+    }
+
+    public Order getOrderBeingPrepared() {
+        return orderBeingPrepared;
+    }
+
+    public void setOrderBeingPrepared(Order order) {
+        this.orderBeingPrepared = order;
+        this.changeStatus(AGVStatus.OCCUPIED);
+    }
+
+    public void endOfOrderPreparation() {
+        this.orderBeingPrepared=null;
+        this.changeStatus(AGVStatus.FREE);
     }
 
     public int getId() {

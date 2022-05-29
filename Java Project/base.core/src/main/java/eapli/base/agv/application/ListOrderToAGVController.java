@@ -25,8 +25,8 @@ public class ListOrderToAGVController {
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
-        agv.changeStatus(AGVStatus.OCCUPIED);
         order.changeStatus(OrderStatus.BEING_PREPARED);
+        agv.setOrderBeingPrepared(order);
         return false;
     }
 }
