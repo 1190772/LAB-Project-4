@@ -18,7 +18,7 @@ public class AddToShoppingCartUI extends AbstractUI {
     protected boolean doShow() {
 
         System.out.println("Available Products: \n");
-        for(Product p:controller.getAvaliableProducts()){
+        for(Product p:controller.getAvailableProducts()){
             System.out.println(p.toString());
         }
 
