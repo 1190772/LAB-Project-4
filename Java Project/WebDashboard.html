@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="css.css">
@@ -9,13 +10,42 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Warehouse Dashboard</title>
 </head>
+
 <body>
     <div class="container-fluid div text-center text-black">
         <h1 class="lora" style="font-size:7vmax;">Warehouse Dashboard</h1>
+        <h2 id="test">0 </h2>
     </div>
 
-    <div class="container-fluid imgdivjson">
+    <div id="update" class="container-fluid imgdivjson">
+
     </div>
+
+
+
+
+    <script>
+        var number = 1;
+        function loadDoc() {
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState === 4 && this.status === 200) {
+                    document.getElementById("update").innerHTML =
+                        this.responseURL;
+                        number++;
+                        document.getElementById("test").innerHTML = number;
+                }
+            };
+            xhttp.open("GET", "warehouse.png", true);
+            xhttp.send();
+        }
+
+        loadDoc(); // This will run on page load
+        setInterval(function(){
+            loadDoc() // this will run after every 5 seconds
+        }, 5000);
+    </script>
 
 </body>
+
 </html>
