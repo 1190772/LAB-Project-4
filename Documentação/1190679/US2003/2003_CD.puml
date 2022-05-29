@@ -1,0 +1,57 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class ListOrderToAGVUI {
+}
+}
+
+Package Application{
+class ListOrderToAGVController {
+  +getPreparedOrders()
+  +findOrderById(id)
+  +listOrderToAGV(id)
+}
+}
+
+
+Package Domain{
+class Order {
+  +changeStatus(Status s)
+}
+
+class AGV {
+  +setOrderBeingPrepared(order)
+}
+}
+
+Package Persistence{
+class RepositoryFactory{
+  +order()
+  +agv()
+}
+
+class OrderRepository{
+  +findPreparedOrders()
+  +findOrderById(id)
+}
+
+class AGVRepository{
+  +findAGVById(id)
+}
+}
+
+
+
+ListOrderToAGVUI ..> ListOrderToAGVController
+ListOrderToAGVController ..> Order
+ListOrderToAGVController ..> AGV
+RepositoryFactory ..|> OrderRepository
+RepositoryFactory ..|> AGVRepository
+OrderRepository ..|> Order
+AGVRepository ..|> AGV
+AGV "1" --> "1" Order : prepara
+
+
+@enduml

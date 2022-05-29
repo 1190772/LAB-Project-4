@@ -5,12 +5,8 @@ actor "Warehouse Employee" as WE
 activate WE
 WE -> ":System" : inicia a visualizacao das encomendas que precisam\nde ser preparadas pelo Warehouse Employee
 activate ":System"
-":System" --> WE : apresenta as encomendas correspondentes
-deactivate ":System"
 loop for each encomenda
-WE -> ":System" : inicia o pedido para uma encomenda ser preparada\npor um AGV
-activate ":System"
-":System" --> WE : solicita id da encomenda
+":System" --> WE : apresenta as encomendas correspondentes\ne solicita id da encomenda
 deactivate ":System"
 WE -> ":System" : submete informação
 activate ":System"
