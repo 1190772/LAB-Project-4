@@ -27,12 +27,7 @@ public class AddToShoppingCartController {
 
 
     public ProductsList AddProductToShoppingCart(String id){
-        ProductsList pl = new ProductsList();
         InternalCode ic=new InternalCode(id);
-        cust.getShoppingCart().addProduct((Product)productRepository.findProductByInternalCode(ic));
-        for(Product prod : productRepository.availableProducts()){
-            pl.addProduct(prod);
-        }
-        return pl;
+        return cust.getShoppingCart().addProduct((Product)productRepository.findProductByInternalCode(ic));
     }
 }

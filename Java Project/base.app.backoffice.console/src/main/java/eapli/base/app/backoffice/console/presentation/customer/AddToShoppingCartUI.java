@@ -15,18 +15,19 @@ public class AddToShoppingCartUI extends AbstractUI {
     @Override
     protected boolean doShow() {
 
+        System.out.println("Orders Prepared for Delivery: \n");
         controller.getAvaliableProducts();
 
-        controller.
+        System.out.println("\n\n");
+        String productID= Console.readLine("Product's ID:");
+        controller.AddProductToShoppingCart(prodcutID);
 
 
-
-        final String producId = Console.readLine("Customer ID: ");
         return false;
     }
 
     @Override
     public String headline() {
-        return "Add To Shopping Cart ";
+        return "Add an Available Product to the Customer's Shopping Cart";
     }
 }*/
