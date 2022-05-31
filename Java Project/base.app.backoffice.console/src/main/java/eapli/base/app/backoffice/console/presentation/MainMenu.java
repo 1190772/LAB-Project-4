@@ -87,13 +87,15 @@ public class MainMenu extends AbstractUI {
     private static final int SEARCH_PRODUCTS_OPTION = 2;
     private static final int NEW_PRODUCT_ORDER_OPTION = 3;
     private static final int NEW_CATEGORY_OPTION = 4;
-    private static final int CHANGE_ORDER_TO_DELIVERED_OPTION = 5;
+
 
     // WAREHOUSE MENU
     private static final int CONFIG_AVG_OPTION = 1;
     private static final int OPEN_WEB_DASHBOARD = 2;
     private static final int ASSIGN_ORDER = 3;
-    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 4;
+    private static final int CHANGE_ORDER_TO_DELIVERED_OPTION = 4;
+    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 5;
+
 
     // MAIN MENU
     private static final int MY_USER_OPTION = 1;
@@ -209,11 +211,10 @@ public class MainMenu extends AbstractUI {
     private Menu buildProductMenu() {
         final Menu menu = new Menu("Product >");
 
-        menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify Product", new SpecifyProductAction());
-        menu.addItem(SEARCH_PRODUCTS_OPTION, "Product Catalog", new ListProductsAction());
+        menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify New Product For Sale", new SpecifyProductAction());
+        menu.addItem(SEARCH_PRODUCTS_OPTION, "View Product Catalog", new ListProductsAction());
         menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
-        menu.addItem(CHANGE_ORDER_TO_DELIVERED_OPTION, "Change Order Status", new UpdateOrderAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
@@ -225,6 +226,7 @@ public class MainMenu extends AbstractUI {
         menu.addItem(CONFIG_AVG_OPTION, "Config AVG", new ConfigureAGVAction());
         menu.addItem(OPEN_WEB_DASHBOARD, "Web Warehouse Dashboard", new WebDashboardAction());
         menu.addItem(ASSIGN_ORDER, "Assign Order to AGV", new ListOrderToAGVAction());
+        menu.addItem(CHANGE_ORDER_TO_DELIVERED_OPTION, "Change a Client Order Status", new UpdateOrderAction());
         //menu.addItem(SET_UP_WAREHOUSE_PLANT_OPTION, "Set Up Warehouse Plant", new ConfigureAGVAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 

@@ -1,4 +1,4 @@
-/*
+
 package eapli.base.importwarehouse.domain.aisles;
 
 import java.util.List;
@@ -44,4 +44,4 @@ public class Aisle {
         return rows;
     }
 }
-*/
+
