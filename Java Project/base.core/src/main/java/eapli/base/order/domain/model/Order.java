@@ -13,6 +13,7 @@ import java.util.Objects;
 
 
 @Entity
+@Table(name = "Orders")
 public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
     @Id
