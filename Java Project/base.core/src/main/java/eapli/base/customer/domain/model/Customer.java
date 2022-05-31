@@ -58,10 +58,6 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     @Transient
     private ShoppingCart shoppingCart;
 
-    @OneToOne
-    private Customer customer;
-
-
 
     public Gender getGender() {
         return gender;
