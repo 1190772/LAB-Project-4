@@ -6,6 +6,7 @@ import eapli.base.agv.domain.model.AGV;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
+import javax.persistence.TypedQuery;
 import java.util.Optional;
 
 public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> implements AGVRepository {
@@ -21,9 +22,13 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
         super(autoTx, "id");
     }
 
-    @Override
-    public Iterable<AGV> findAGVById(Long id) {
-        return null;
+    public Iterable<AGV> findAGVById(Long id){
+        final TypedQuery<AGV> query = entityManager().createQuery(
+                "SELECT c FROM AGV c WHERE c.agvId = :id",
+                AGV.class);
+        query.setParameter("id", id);
+
+        return query.getResultList();
     }
 
 

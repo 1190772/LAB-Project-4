@@ -2,6 +2,7 @@ package eapli.base.order.domain.model;
 
 import eapli.base.customer.domain.model.Address;
 import eapli.base.customer.domain.model.Customer;
+import eapli.base.product.domain.model.Brand;
 import eapli.base.product.domain.model.Price;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.framework.domain.model.AggregateRoot;
@@ -10,7 +11,7 @@ import eapli.framework.general.domain.model.EmailAddress;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.Objects;
-
+import java.util.Optional;
 
 
 @Entity
@@ -75,6 +76,18 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         }
 
         return (Objects.equals(this.id, that.identity()));
+    }
+
+    public Long id() { return id;
+    }
+
+    public Long customerId() { return customer.identity();
+    }
+
+    public Price price() { return priceWithTaxes;
+    }
+
+    public OrderStatus status() { return status;
     }
 
     public void changeStatus(OrderStatus s){

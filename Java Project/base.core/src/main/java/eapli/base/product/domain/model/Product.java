@@ -128,7 +128,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     /**
      * @return the Brand of this Product
      */
-    public Optional<Brand> brand() { return Optional.ofNullable(brand);
+    public Brand brand() { return brand;
     }
 
     /**
@@ -150,6 +150,10 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
      */
     public Optional<Price> priceWithTaxes() {
         return Optional.ofNullable(priceWithTaxes);
+    }
+
+    public Price priceWithTaxesCatalog() {
+        return priceWithTaxes;
     }
 
     /**

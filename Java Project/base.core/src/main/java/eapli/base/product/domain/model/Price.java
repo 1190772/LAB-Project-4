@@ -34,7 +34,7 @@ public class Price implements ValueObject {
 
     @Override
     public String toString() {
-        return "Price{ " + price.doubleValue() +
-                " }";
+        return price +
+                " € ";
     }
 }
