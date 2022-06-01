@@ -1,5 +1,6 @@
 package eapli.base.product.application;
 
+import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.Category;
 import eapli.base.category.domain.persistence.CategoryRepository;
 import eapli.base.product.domain.persistence.ProductRepository;
@@ -37,6 +38,7 @@ public class SpecifyProductController {
           , final Double height, final Double weight, final double price, final Set<byte[]> photos) {
 
 
+
       final Product newProduct = new ProductBuilder()
               .ofType(productCategory)
               .internalCoded(InternalCode.valueOf(internalCode))
@@ -54,10 +56,38 @@ public class SpecifyProductController {
       return (Product) productRepository.save(newProduct);
   }
 
+    @Transactional
+    public Product registerProduct(final AlphaNumericCode productCategory, final String internalCode, final String shortDescription,
+                                   final String extendedDescription, final String technicalDescription, final String brand, final String reference,
+                                   final String productionCode, final Long barcode, final Double width, final Double length
+            , final Double height, final Double weight, final double price, final Set<byte[]> photos) {
+
+
+
+        final Product newProduct = new ProductBuilder()
+                .ofType(productCategory)
+                .internalCoded(InternalCode.valueOf(internalCode))
+                .shortDesignated(ShortDescription.shortDescriptedAs(shortDescription))
+                .extendedDesignated(ExtendedDescription.extendedDescriptedAs(extendedDescription))
+                .technicalDesignated(TechnicalDescription.tehcnincalDescriptedAs(technicalDescription))
+                .branded(Brand.fromBrand(brand))
+                .referenced(Reference.withReference(reference))
+                .productionCoded(ProductionCode.productedCodedAs(productionCode))
+                .barcoded(Barcode.withBarcode(barcode))
+                .mesuring(new Mesurements(width,length,height,weight))
+                .costing(Price.pricedAs(price))
+                .withPhotos(photos)
+                .build();
+        return (Product) productRepository.save(newProduct);
+    }
+
 
     public Iterable<Category> getCategories() {
         return this.categoryRepository.findAll();
     }
+
+
+
 
 
 }

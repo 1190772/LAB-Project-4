@@ -31,7 +31,7 @@ public class CreateOrderBySalesClerkUI extends AbstractUI {
 
         ProductsList pl = new ProductsList();
 
-        Customer customer;
+        Customer customer = null;
 
         Product product;
 
@@ -50,7 +50,7 @@ public class CreateOrderBySalesClerkUI extends AbstractUI {
                 theController.addProduct(product);
                 productId = Console.readLine("Product ID('end' to stop adding products): ");
             } catch (final Exception e) {
-                System.out.println("You inserted an invalid customerID.");
+                System.out.println("You inserted an invalid Product.");
             }
         }
 
@@ -60,7 +60,7 @@ public class CreateOrderBySalesClerkUI extends AbstractUI {
         String door = Console.readLine("Door's destiny adress: ");
         Address a= new Address(district,country,street,door);
         Date date = Calendar.getInstance().getTime();
-        Order o=theController.saveOrder(pl, date,authz.session().get().authenticatedUser().email(),a);
+        Order o=theController.saveOrder(pl, date,authz.session().get().authenticatedUser().email(),a, customer);
         if (o!=null){
             o.toString();
             System.out.println("Order Registration managed successfully");

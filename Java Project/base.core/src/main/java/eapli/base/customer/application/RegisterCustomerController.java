@@ -30,7 +30,7 @@ public class RegisterCustomerController {
                 .addressIs(Address.addressAs(district, county, street, door))
                 .genderIs(Gender.genderAs(gender))
                 .build();
-        return (Customer) customerRepository.save(newCustomer);
+        return customerRepository.save(newCustomer);
     }
 
 

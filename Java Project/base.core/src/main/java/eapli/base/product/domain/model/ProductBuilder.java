@@ -1,7 +1,9 @@
 package eapli.base.product.domain.model;
 
+import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.Category;
 import eapli.framework.domain.model.DomainFactory;
+import org.hibernate.loader.collection.plan.AbstractLoadPlanBasedCollectionInitializer;
 
 import java.util.Set;
 
@@ -10,6 +12,8 @@ public class ProductBuilder implements DomainFactory<Product> {
     private Product product;
 
     private Category category;
+
+    private AlphaNumericCode alphaNumericCode;
 
     private InternalCode internalCode;
 
@@ -35,6 +39,12 @@ public class ProductBuilder implements DomainFactory<Product> {
         category = categoriaProduto;
         return this;
     }
+
+    public ProductBuilder ofType(final AlphaNumericCode alphaNumericCodeProduto) {
+        alphaNumericCode = alphaNumericCodeProduto;
+        return this;
+    }
+
 
     public ProductBuilder internalCoded(final InternalCode code) {
         this.internalCode = code;
