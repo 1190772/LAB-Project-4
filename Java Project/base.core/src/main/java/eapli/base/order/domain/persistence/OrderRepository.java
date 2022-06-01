@@ -1,9 +1,11 @@
 package eapli.base.order.domain.persistence;
 
+import eapli.base.customer.domain.model.Customer;
 import eapli.base.order.domain.model.Order;
+import eapli.framework.domain.repositories.DomainRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface OrderRepository extends JpaRepository<Order, Long> {
+public interface OrderRepository extends DomainRepository<Long, Order> {
 
 
     Iterable<Order> readyOrders();

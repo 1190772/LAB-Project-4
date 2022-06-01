@@ -39,8 +39,8 @@ public class CreateOrderBySalesClerkController {
     }
 
 
-    public Order saveOrder(ProductsList pl, Date date, EmailAddress emailAddress, Address address){
-        Order order=new Order(pl,date,emailAddress,address);
+    public Order saveOrder(ProductsList pl, Date date, EmailAddress emailAddress, Address address, Customer customer){
+        Order order=new Order(pl,date,emailAddress,address, customer);
         return CreateOrderBySalesClerkService.saveOrder(order);
     }
 

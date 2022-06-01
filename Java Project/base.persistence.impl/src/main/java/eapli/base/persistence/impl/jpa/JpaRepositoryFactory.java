@@ -96,13 +96,12 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 
     @Override
     public OrderRepository order(TransactionalContext autoTx) {
-        //return new JpaOrderRepository(autoTx);
-        return null;
+        return new JpaOrderRepository(autoTx);
     }
 
     @Override
     public OrderRepository order() {
-        return null;
+        return new JpaOrderRepository(Application.settings().getPersistenceUnitName());
     }
 
 
