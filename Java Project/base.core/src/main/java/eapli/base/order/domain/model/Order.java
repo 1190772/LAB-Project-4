@@ -1,6 +1,7 @@
 package eapli.base.order.domain.model;
 
 import eapli.base.customer.domain.model.Address;
+import eapli.base.customer.domain.model.Customer;
 import eapli.base.product.domain.model.Price;
 import eapli.base.product.domain.model.ProductsList;
 import eapli.framework.domain.model.AggregateRoot;
@@ -44,8 +45,10 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Enumerated(EnumType.ORDINAL)
     OrderStatus status;
 
+    @OneToOne
+    private Customer customer;
 
-    public Order(ProductsList products, Date date, EmailAddress e, Address a) {
+    public Order(ProductsList products, Date date, EmailAddress e, Address a, Customer customer) {
         this.prod=products;
         this.priceWithoutTaxes=products.totalPrice(false);
         this.priceWithTaxes =products.totalPrice(true);
@@ -53,6 +56,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         this.email=e;
         this.address=a;
         this.status=OrderStatus.NOT_PAID;
+        this.customer=customer;
     }
 
     public Order() {
