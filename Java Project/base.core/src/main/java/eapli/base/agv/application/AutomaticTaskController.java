@@ -33,10 +33,10 @@ public class AutomaticTaskController {
 
     public List<AGV> obterExecutoresDisponiveisPorOrdemId(){
         List<AGV> executores = (List<AGV>) executorTarefasRepository.findAll();
-        Collections.sort(executores, new Comparator<AGV>() {
+        executores.sort(new Comparator<AGV>() {
             @Override
             public int compare(AGV et1, AGV et2) {
-                return et1.getId() - et2.getId();
+                return (int) (et1.identity() - et2.identity());
             }
         });
         return executores;

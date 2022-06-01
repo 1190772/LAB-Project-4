@@ -132,12 +132,12 @@ public class JpaRepositoryFactory implements RepositoryFactory {
 
     @Override
     public AGVRepository agvs(TransactionalContext autoTx) {
-        return null;
+        return new JpaAGVRepository(autoTx);
     }
 
     @Override
     public AGVRepository agvs() {
-        return null;
+        return new JpaAGVRepository(Application.settings().getPersistenceUnitName());
     }
 
     @Override

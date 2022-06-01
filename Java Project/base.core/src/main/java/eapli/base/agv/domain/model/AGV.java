@@ -1,12 +1,10 @@
 package eapli.base.agv.domain.model;
 
 
-import eapli.base.agv.domain.model.AGVModel;
-import eapli.base.agv.domain.model.Info;
 import eapli.base.order.domain.model.Order;
-import eapli.base.order.domain.model.OrderStatus;
 import eapli.base.product.domain.model.ShortDescription;
 import eapli.framework.domain.model.AggregateRoot;
+import org.springframework.lang.Nullable;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -14,15 +12,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class AGV  implements AggregateRoot<Integer>, Serializable {
+public class AGV  implements AggregateRoot<Long>, Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int id;
+    @Column(name = "id", unique = true, nullable = false)
+    private Long agvId;
 
-    @Column(unique = true, nullable = false)
-    private String agvId;
     @Embedded
     private ShortDescription description;
 
@@ -31,17 +27,19 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
 
     private Double maxWeight;
 
-    private Double autonomy;
+    private Double autonomy; // Minutes
 
     @Enumerated(EnumType.ORDINAL)
     AGVStatus status;
 
 
     @OneToOne
+    @Nullable
     @JoinColumn(name = "order_id")
     Order orderBeingPrepared;
 
     @Transient
+    @Nullable
     private List<Info> tasks = new ArrayList<>();
 
     public AGV() {
@@ -51,15 +49,11 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         this.description = description;
         this.model = model;
         this.maxWeight = limit;
+        this.autonomy = 300d;
         this.status = AGVStatus.FREE;
         this.orderBeingPrepared=null;
     }
 
-
-    @Override
-    public Integer identity() {
-        return id;
-    }
 
     public ShortDescription getDescription() {
         return description;
@@ -108,9 +102,6 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
         this.changeStatus(AGVStatus.FREE);
     }
 
-    public int getId() {
-        return id;
-    }
 
     public void acceptTask(Info tarefa) {
         tasks.add(tarefa);
@@ -119,10 +110,16 @@ public class AGV  implements AggregateRoot<Integer>, Serializable {
     @Override
     public String toString() {
         return "AGV{" +
-                "id=" + id +
+                "id=" + agvId +
                 ", shortDesc=" + description +
                 ", model=" + model +
                 ", maxWeight=" + maxWeight +
                 '}';
+    }
+
+
+    @Override
+    public Long identity() {
+        return agvId;
     }
 }

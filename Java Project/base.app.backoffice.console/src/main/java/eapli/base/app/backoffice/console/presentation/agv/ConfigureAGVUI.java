@@ -18,7 +18,6 @@ public class ConfigureAGVUI extends AbstractUI {
         String maxWeight= Console.readLine("AGV's maximum weight handled:");
         AGV agv=theController.saveAGV(new ShortDescription(shortDesc),new AGVModel(agvModel),Double.parseDouble(maxWeight));
         if (agv!=null){
-            agv.toString();
             System.out.println("AGV Configuration managed successfully");
         }else{
             System.out.println("AGV Configuration wasn't managed successfully");
