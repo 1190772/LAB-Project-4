@@ -13,12 +13,14 @@ public class UpdateOrderUI extends AbstractUI {
     @Override
     protected boolean doShow() {
         while (true) {
-            Iterable<eapli.base.order.domain.model.Order> order = ctrl.ordersPrepared();
+            Iterable<Order> order = ctrl.ordersPrepared();
             System.out.println("Orders Prepared:");
-            for (Order order1 : order ) {
-                System.out.println(order1);
+            for (Order o : order ) {
+                System.out.println("#  Customer ID      Price               Status              Order ID");
+                System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
+                        o.id());
             }
-            int response = Console.readInteger("Do you want to update any of these orders?\n 1 - Yes  |  2 - No\n");
+            int response = Console.readInteger("\nDo you want to update any of these orders?\n 1 - Yes  |  2 - No\n");
             if(response == 1){
                 long orderID = Console.readLong("Insert the ID of the order you wish to update.");
                 ctrl.orderUpdate(orderID);

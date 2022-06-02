@@ -17,14 +17,14 @@ public class UpdateOrderController {
 
     public Iterable<Order> ordersPrepared(){
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
-        final Iterable<Order> orders = orderRepository.readyOrders();
+        final Iterable<Order> orders = orderRepository.preparedOrders();
         return StreamSupport.stream(orders.spliterator(),true).collect(Collectors.toUnmodifiableList());
     }
 
     public void orderUpdate(Long id){
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
-        Order order = (Order) orderRepository.findOrderById(id);
-        if(order != null){
+        if(orderRepository.containsOfIdentity(id)){
+            Order order = (Order) orderRepository.findOrderById(id);
             order.changeStatus(OrderStatus.DELIVERED);
             orderRepository.save(order);
 

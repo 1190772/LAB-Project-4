@@ -10,6 +10,8 @@ public interface OrderRepository extends DomainRepository<Long, Order> {
 
     Iterable<Order> readyOrders();
 
+    Iterable<Order> preparedOrders();
+
     Iterable<Order> findOrderById(Long id);
 
 }

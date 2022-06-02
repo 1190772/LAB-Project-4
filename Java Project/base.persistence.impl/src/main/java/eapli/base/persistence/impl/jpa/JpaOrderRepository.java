@@ -1,13 +1,14 @@
 package eapli.base.persistence.impl.jpa;
 
 import eapli.base.Application;
-import eapli.base.customer.domain.model.Customer;
 import eapli.base.order.domain.model.Order;
 import eapli.base.order.domain.persistence.OrderRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
+
 import javax.persistence.TypedQuery;
+
 
 public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> implements OrderRepository {
 
@@ -27,6 +28,11 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
         return match("e.status=1");
     }
 
+    @Override
+    public Iterable<Order> preparedOrders(){
+         return match("e.status=3");
+    }
+
     public Iterable<Order> findOrderById(Long id){
         final TypedQuery<Order> query = entityManager().createQuery(
                 "SELECT c FROM Order c WHERE c.id = :id",
@@ -34,6 +40,7 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
         query.setParameter("id", id);
 
         return query.getResultList();
+
     }
 
 
