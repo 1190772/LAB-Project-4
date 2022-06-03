@@ -1,0 +1,57 @@
+@startuml
+autonumber
+hide footbox
+
+title SD - Update Order
+
+        actor "Sales Clerk" as sc
+		participant ":UpdateOrderUI" as ui
+		participant ":UpdateOrderController" as ctrl
+		participant ":PersistenceContext" as pc
+		participant ":RepositoryFactory" as rf
+		database ":OrderRepository" as repoPC
+        participant ":Order" as prod
+        activate sc
+
+        sc -> ui: Wishes to update an order
+        activate ui
+		ui->ui:doShow()
+        		ui->ctrl:orderUpdate(orderID)
+        		activate ctrl
+
+        		ctrl->repoPC:orders = orderRepository.readyOrders()
+        		activate repoPC
+        		repoPC->ctrl: ordersPrepared
+        		deactivate repoPC
+        		ctrl->ui: ordersPrepared
+        		deactivate ctrl
+        		ui --> sc :  shows order list and asks to select one
+        		deactivate ui
+        		sc -> ui : selects the order to update
+        		activate ui
+        		ui->ctrl: findOrderByID(orderID)
+        		activate ctrl
+        		ctrl -> repoPC: findOrderByID(orderID)
+        		activate repoPC
+        		repoPC->ctrl: order
+        		deactivate repoPC
+
+
+        		ctrl->ctrl: orderUpdate(orderID)
+        		ctrl -> prod : changeStatus(OrderStatus.DELIVERED)
+        		activate prod
+        		deactivate prod
+
+
+        		ctrl->repoPC:save(orderUpdate)
+        		activate repoPC
+        		deactivate repoPC
+        		ui --> sc: successful operation
+        		deactivate ctrl
+        		deactivate ui
+        		deactivate sc
+
+
+
+
+@enduml
