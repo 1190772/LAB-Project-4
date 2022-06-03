@@ -2,9 +2,9 @@
 autonumber
 hide footbox
 
-title SD - Register Customer
+title SD - Update Order
 
-        actor "Warehouse Manager" as wm
+        actor "Warehouse Employee" as wm
 		participant ":UpdateOrderUI" as ui
 		participant ":UpdateOrderController" as ctrl
 		participant ":PersistenceContext" as pc
