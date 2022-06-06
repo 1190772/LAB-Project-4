@@ -5,7 +5,7 @@ hide footbox
 title SD - Update Order
 
         actor "Sales Clerk" as sc
-		participant ":UpdateOrderUI" as ui
+		participant ":UpdateOrderToBeingDeliveredUI" as ui
 		participant ":UpdateOrderController" as ctrl
 		participant ":PersistenceContext" as pc
 		participant ":RepositoryFactory" as rf
