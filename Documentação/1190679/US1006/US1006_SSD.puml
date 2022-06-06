@@ -1,0 +1,25 @@
+@startuml
+autonumber
+hide footbox
+actor "Sales Clerk" as SC
+
+activate SC
+SC -> ":System" : Wishes to update an order to as being delivered
+
+
+
+
+activate ":System"
+":System" --> SC : shows list of orders that had been dispatched\nand asks to select one
+deactivate ":System"
+
+SC -> ":System" : selects the order to update
+activate ":System"
+
+":System" -> SC : successful
+deactivate ":System"
+
+deactivate SC
+
+
+@enduml
