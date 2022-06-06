@@ -44,7 +44,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     private ExtendedDescription extendedDescription;
 
     @Embedded
-    private TechnicalDescription technicalDeescription;
+    private TechnicalDescription technicalDescription;
 
     @Embedded
     private Brand brand;
@@ -85,7 +85,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         this.internalCode = internalCode;
         this.shortDescription = shortDescription;
         this.extendedDescription = extendedDescription;
-        this.technicalDeescription = technicalDeescription;
+        this.technicalDescription = technicalDeescription;
         this.brand = brand;
         this.reference = reference;
         this.productionCode = productionCode;
@@ -122,7 +122,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
      * @return the TechnicalDescription of this Product
      */
     public Optional<TechnicalDescription> technicalDescription() {
-        return Optional.ofNullable(technicalDeescription);
+        return Optional.ofNullable(technicalDescription);
     }
 
     /**
@@ -258,7 +258,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         if (technicalDescription == null) {
             throw new IllegalArgumentException();
         }
-        this.technicalDeescription = technicalDescription;
+        this.technicalDescription = technicalDescription;
     }
 
     /**
