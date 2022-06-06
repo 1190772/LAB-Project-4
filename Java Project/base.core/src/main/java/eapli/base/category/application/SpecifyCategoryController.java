@@ -23,7 +23,6 @@ public class SpecifyCategoryController {
         AlphaNumericCode cod=registerAlphaNumericCode(code);
         Description description1=registerDescription(description);
         final Category category=new Category(cod,description1);
-        System.out.println("4");
         return repository.save(category);
     }
 }

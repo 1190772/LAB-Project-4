@@ -15,7 +15,7 @@ public class TcpOrdersServer {
 
         try {
             sock = new ServerSocket(9999);
-            System.out.println("Server is Running!");
+            System.out.println("OrdersServer is Running!");
         }
         catch(IOException ex) {
             System.out.println("Failed to open server socket"); System.exit(1);
