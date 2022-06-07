@@ -11,7 +11,7 @@ public class OptionalType extends Type<OptionalType> {
     }
     
     public boolean has(String option){
-        
+        return true;
     }
 
 }
