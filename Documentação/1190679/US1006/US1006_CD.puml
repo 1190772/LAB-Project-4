@@ -1,0 +1,56 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+
+Package Presentation{
+class UpdateOrderToBeingDeliveredUI {
++doShow();
+}
+}
+
+Package Application{
+
+class UpdateOrderToBeingDeliveredController {
++ordersPrepared();
++orderUpdate(Long id);
+
+}
+}
+
+Package Domain{
+
+class Order {
++readyOrders();
+
+}
+
+class OrderFactory{
+}
+
+
+}
+
+
+Package Persistence{
+class RepositoryFactory{
++orderUpdate();
+
+}
+
+class OrderRepository{
++save(orderUpdate)
+}
+
+
+}
+
+UpdateOrderUI ..> UpdateOrderController
+UpdateOrderController ..> Order
+UpdateOrderController ..> OrderRepository
+UpdateOrderController ..> RepositoryFactory
+UpdateOrderController ..> OrderFactory
+RepositoryFactory ..> OrderRepository
+OrderFactory..> Order
+
+
+@enduml
