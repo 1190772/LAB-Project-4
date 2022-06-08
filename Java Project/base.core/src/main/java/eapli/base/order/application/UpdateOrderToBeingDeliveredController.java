@@ -1,4 +1,4 @@
-package eapli.base.app.backoffice.console.presentation.order;
+package eapli.base.order.application;
 
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.order.domain.model.Order;
@@ -15,7 +15,7 @@ public class UpdateOrderToBeingDeliveredController {
         private final OrderRepository orderRepository = PersistenceContext.repositories().order();
         private final AuthorizationService authz = AuthzRegistry.authorizationService();
 
-        public Iterable<Order> ordersPrepared(){
+        public Iterable<Order> ordersDispatched(){
             authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
             final Iterable<Order> orders = orderRepository.dispatchedOrders();
             return StreamSupport.stream(orders.spliterator(),true).collect(Collectors.toUnmodifiableList());
