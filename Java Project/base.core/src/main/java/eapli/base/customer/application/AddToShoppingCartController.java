@@ -37,7 +37,7 @@ public class AddToShoppingCartController {
         ProductsList pl=cust.getShoppingCart().addProduct(p);
         if(pl==null)
             return null;
-
+        
         return pl;
     }
 }
