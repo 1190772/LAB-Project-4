@@ -22,4 +22,12 @@ public class ListOrderToAGVService {
     public static AGV findAGVById(Long id) {
         return (AGV) agvRepository.findAGVById(id);
     }
+
+    public static void saveOrder(Order o) {
+         orderRepository.save(o);
+    }
+
+    public static void saveAGV(AGV agv) {
+        agvRepository.save(agv);
+    }
 }
