@@ -33,6 +33,11 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
          return match("e.status=3");
     }
 
+    @Override
+    public Iterable<Order> dispatchedOrders() {
+        return match("e.status=4");
+    }
+
     public Iterable<Order> findOrderById(Long id){
         final TypedQuery<Order> query = entityManager().createQuery(
                 "SELECT c FROM Order c WHERE c.id = :id",
