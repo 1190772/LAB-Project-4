@@ -34,6 +34,6 @@ public class UpdateOrderUI extends AbstractUI {
 
     @Override
     public String headline() {
-        return "Change Status to Delivered";
+        return "Change Status to Being Delivered";
     }
 }
