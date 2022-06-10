@@ -5,6 +5,8 @@ import eapli.base.order.domain.model.Order;
 import eapli.framework.domain.repositories.DomainRepository;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Optional;
+
 public interface OrderRepository extends DomainRepository<Long, Order> {
 
 
@@ -14,6 +16,6 @@ public interface OrderRepository extends DomainRepository<Long, Order> {
 
     Iterable<Order> dispatchedOrders();
 
-    Iterable<Order> findOrderById(Long id);
+    Optional<Order> findOrderById(Long id);
 
 }

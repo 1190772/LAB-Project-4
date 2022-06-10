@@ -8,6 +8,9 @@ import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 
 import javax.persistence.TypedQuery;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 
 public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> implements OrderRepository {
@@ -38,13 +41,10 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
         return match("e.status=4");
     }
 
-    public Iterable<Order> findOrderById(Long id){
-        final TypedQuery<Order> query = entityManager().createQuery(
-                "SELECT c FROM Order c WHERE c.id = :id",
-                Order.class);
-        query.setParameter("id", id);
-
-        return query.getResultList();
+    public Optional<Order> findOrderById(Long id){
+        final Map<String, Object> params = new HashMap<>();
+        params.put("id", id);
+        return matchOne("e.id=:id", params);
 
     }
 

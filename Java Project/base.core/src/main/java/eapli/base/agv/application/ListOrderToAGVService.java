@@ -16,7 +16,11 @@ public class ListOrderToAGVService {
     }
 
     public static Order findOrderById(Long id) {
-        return (Order) orderRepository.findOrderById(id);
+        Order o= (Order) orderRepository.findOrderById(id).get();
+        if(o!=null)
+            return  o;
+        else
+            return null;
     }
 
     public static AGV findAGVById(Long id) {

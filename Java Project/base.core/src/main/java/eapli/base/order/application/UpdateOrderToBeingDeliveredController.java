@@ -24,7 +24,7 @@ public class UpdateOrderToBeingDeliveredController {
         public void orderUpdate(Long id){
             authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
             if(orderRepository.containsOfIdentity(id)){
-                Order order = (Order) orderRepository.findOrderById(id);
+                Order order = orderRepository.findOrderById(id).get();
                 order.changeStatus(OrderStatus.BEING_DELIVERED);
                 orderRepository.save(order);
             }else{
