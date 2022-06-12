@@ -1,20 +1,20 @@
 package eapli.base.app.backoffice.console.presentation.order;
 
-import eapli.base.order.application.UpdateOrderController;
+import eapli.base.order.application.UpdateOrderToBeingDeliveredController;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractUI;
 
-public class UpdateOrderUI extends AbstractUI {
+public class UpdateOrderToBeingDeliveredUI extends AbstractUI {
 
-    private final UpdateOrderController ctrl = new UpdateOrderController();
-    
+    private final UpdateOrderToBeingDeliveredController ctrl = new UpdateOrderToBeingDeliveredController();
 
     @Override
     protected boolean doShow() {
+
         while (true) {
-            Iterable<Order> order = ctrl.ordersPrepared();
-            System.out.println("Orders Prepared:");
+            Iterable<Order> order = ctrl.ordersDispatched();
+            System.out.println("Orders Dispatched:");
             for (Order o : order ) {
                 System.out.println("#  Customer ID      Price               Status              Order ID");
                 System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
@@ -34,6 +34,6 @@ public class UpdateOrderUI extends AbstractUI {
 
     @Override
     public String headline() {
-        return "Change Status to Being Delivered";
+        return "Change Order to Being Delivered";
     }
 }

@@ -19,19 +19,17 @@ public class AddToShoppingCartUI extends AbstractUI {
     protected boolean doShow() {
 
         System.out.println("Available Products: \n");
-        for(Product p:controller.getAvailableProducts()){
             new ListProductsUI().show();
-        }
 
         System.out.println("\n\n");
         String productID= Console.readLine("Product's ID(0 to terminate operation):");
 
         while(productID!="0") {
-            ProductsList pl = controller.AddProductToShoppingCart(productID);
-            if (!pl.productsList().isEmpty() && pl != null)
-                System.out.println("Shopping Cart Content:\n\n" + pl.toString() + "\nProduct added to Shopping Cart successfully.");
-            else
+            if (controller.AddProductToShoppingCart(productID)) {
+                System.out.println("Product added to Shopping Cart successfully.");
+            }else {
                 System.out.println("Fail adding the Product to the Shopping Cart.");
+            }
 
             System.out.println("\n\n");
             productID= Console.readLine("Product's ID(0 to terminate operation):");

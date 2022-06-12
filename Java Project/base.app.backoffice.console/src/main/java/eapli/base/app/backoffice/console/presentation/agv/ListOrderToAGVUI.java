@@ -16,9 +16,9 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
 
     @Override
     protected boolean doShow() {
-
+        Iterable<Order> it= theController.getReadyOrders();
         System.out.println("Orders Ready to be prepared By an AGV: \n");
-        for (Order o: theController.getReadyOrders()) {
+        for (Order o : it) {
             System.out.println("#  Customer ID      Price               Status              Order ID");
             System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
                     o.id());
@@ -26,7 +26,7 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
         System.out.println("\n\n");
         String orderID= Console.readLine("Order's ID(0 to terminate operation):");
 
-        while(!Objects.equals(orderID, "0")) {
+        while(!orderID.equals("0")) {
             theController.findOrderById(Long.getLong(orderID));
             String agvID = Console.readLine("AGV's ID:");
             if (theController.listOrderToAGV(Long.getLong(agvID)))

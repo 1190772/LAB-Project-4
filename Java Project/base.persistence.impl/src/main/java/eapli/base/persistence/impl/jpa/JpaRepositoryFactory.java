@@ -21,9 +21,9 @@
 package eapli.base.persistence.impl.jpa;
 
 import eapli.base.Application;
-import eapli.base.agv.Repository.AGVRepository;
-import eapli.base.agv.Repository.AutomaticTaskRepository;
-import eapli.base.agv.Repository.InfoRepository;
+import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.agv.domain.persistence.AutomaticTaskRepository;
+import eapli.base.agv.domain.persistence.InfoRepository;
 import eapli.base.category.domain.persistence.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.customer.domain.persistence.CustomerRepository;

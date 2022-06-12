@@ -24,10 +24,9 @@ public class UpdateOrderController {
     public void orderUpdate(Long id){
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
         if(orderRepository.containsOfIdentity(id)){
-            Order order = (Order) orderRepository.findOrderById(id);
-            order.changeStatus(OrderStatus.DELIVERED);
+            Order order = orderRepository.findOrderById(id).get();
+            order.changeStatus(OrderStatus.DISPATCHED);
             orderRepository.save(order);
-
         }else{
             System.out.println("Invalid ID.");
         }

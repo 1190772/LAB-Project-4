@@ -28,8 +28,16 @@ public class AddToShoppingCartController {
     }
 
 
-    public ProductsList AddProductToShoppingCart(String id){
+    public boolean AddProductToShoppingCart(String id){
         InternalCode ic=new InternalCode(id);
-        return cust.getShoppingCart().addProduct((Product)productRepository.findProductByInternalCode(ic));
+        Product p= (Product)productRepository.findProductByInternalCode(ic);
+        if(p==null)
+            return false;
+
+        ProductsList pl=cust.getShoppingCart().addProduct(p);
+        if(pl==null || pl.productsList().isEmpty())
+            return false;
+
+        return true;
     }
 }

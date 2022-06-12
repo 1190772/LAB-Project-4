@@ -27,6 +27,8 @@ public class ListOrderToAGVController {
         agv=ListOrderToAGVService.findAGVById(id);
         order.changeStatus(OrderStatus.BEING_PREPARED);
         agv.setOrderBeingPrepared(order);
+        ListOrderToAGVService.saveOrder(order);
+        ListOrderToAGVService.saveAGV(agv);
         return (agv.isOccupied() && agv!=null && order!=null);
     }
 }
