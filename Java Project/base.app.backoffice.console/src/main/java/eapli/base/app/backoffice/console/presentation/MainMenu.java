@@ -87,6 +87,7 @@ public class MainMenu extends AbstractUI {
     private static final int SEARCH_PRODUCTS_OPTION = 2;
     private static final int NEW_PRODUCT_ORDER_OPTION = 3;
     private static final int NEW_CATEGORY_OPTION = 4;
+    private static final int UPDATE_ORDER_STATUS = 5;
 
 
     // WAREHOUSE MENU
