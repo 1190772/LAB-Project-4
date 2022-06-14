@@ -19,16 +19,23 @@ public class ListOrderToAGVController {
         return ListOrderToAGVService.readyOrders();
     }
 
-    public void findOrderById(Long id) {
+    public boolean findOrderById(Long id) {
         order=ListOrderToAGVService.findOrderById(id);
+        if(order==null)
+            return false;
+
+        return true;
     }
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
+        if (agv==null)
+            return false;
+
         order.changeStatus(OrderStatus.BEING_PREPARED);
         agv.setOrderBeingPrepared(order);
         ListOrderToAGVService.saveOrder(order);
         ListOrderToAGVService.saveAGV(agv);
-        return (agv.isOccupied() && agv!=null && order!=null);
+        return agv.isOccupied();
     }
 }
