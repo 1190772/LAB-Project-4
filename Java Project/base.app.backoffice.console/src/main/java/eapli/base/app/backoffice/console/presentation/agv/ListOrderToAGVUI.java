@@ -27,15 +27,16 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
         String orderID= Console.readLine("Order's ID(0 to terminate operation):");
 
         while(!orderID.equals("0")) {
-            theController.findOrderById(Long.getLong(orderID));
-            String agvID = Console.readLine("AGV's ID:");
-            if (theController.listOrderToAGV(Long.getLong(agvID)))
-                System.out.println("Order listed to AGV successfully.");
-            else
-                System.out.println("Unsuccessful Operation.");
+            if (theController.findOrderById(Long.getLong(orderID))) {
+                String agvID = Console.readLine("AGV's ID:");
+                if (theController.listOrderToAGV(Long.getLong(agvID)))
+                    System.out.println("Order listed to AGV successfully.");
+                else
+                    System.out.println("Unsuccessful Operation.");
 
-            System.out.println("\n\n");
-            orderID = Console.readLine("Order's ID(0 to terminate operation):");
+                System.out.println("\n\n");
+            }
+                orderID = Console.readLine("Order's ID(0 to terminate operation):");
         }
         return false;
     }
