@@ -30,6 +30,8 @@
         <module>base.bootstrappers</module>
         <module>base.core</module>
         <module>base.persistence.impl</module>
+        <module>base.app.AGVManager</module>
+        <module>base.app.AGVDigitalTwin</module>
         <module>grammar</module>
     </modules>
 
