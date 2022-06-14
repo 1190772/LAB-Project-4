@@ -1,5 +1,5 @@
 /*
-package main.java.eapli.base.app.AGVDigitalTwin.tcp;
+package eapli.base.app.AGVDigitalTwin.tcp;
 
 
 import eapli.base.agv.repositories.InfoRepository;

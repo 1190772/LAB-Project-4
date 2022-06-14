@@ -1,4 +1,4 @@
-package main.java.eapli.base.app.AGVManager.tcp;
+package eapli.base.app.AGVManager.tcp;
 
 public class ServerInitializer {
 
