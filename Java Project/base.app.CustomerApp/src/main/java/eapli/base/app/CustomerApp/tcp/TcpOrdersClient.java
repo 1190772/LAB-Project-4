@@ -1,4 +1,4 @@
-package eapli.base.app.ordersServer.tcp;
+package eapli.base.app.CustomerApp.tcp;
 
 
 import eapli.base.app.backoffice.console.presentation.customer.AddToShoppingCartUI;
