@@ -21,7 +21,7 @@ A interpretação feita deste requisito foi no sentido de que o Warehouse Employ
 
 ## 2.1. Diagrama de Sequência do Sistema
 
-![US2003_SSD](US2003_SSD.svg)
+![2003_SSD](2003_SSD.png)
 
 # 3. Design
 
@@ -29,11 +29,11 @@ A interpretação feita deste requisito foi no sentido de que o Warehouse Employ
 
 ## 3.1. Realização da Funcionalidade
 
-![US2003_SD](US2003_SD.svg)
+![2003_SD](2003_SD.png)
 
 ## 3.2. Diagrama de Classes
 
-![US2003_CD](US2003_CD.svg)
+![2003_CD](2003_CD.png)
 
 
 
