@@ -34,10 +34,7 @@ public class AddToShoppingCartController {
         if(p==null)
             return false;
 
-        ProductsList pl=cust.getShoppingCart().addProduct(p);
-        if(pl==null || pl.productsList().isEmpty())
-            return false;
-
+        cust.getShoppingCart().addProduct(p);
         return true;
     }
 }
