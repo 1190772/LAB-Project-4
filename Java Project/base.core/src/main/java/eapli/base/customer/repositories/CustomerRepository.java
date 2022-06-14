@@ -1,4 +1,4 @@
-package eapli.base.customer.domain.persistence;
+package eapli.base.customer.repositories;
 
 import eapli.base.customer.domain.model.Customer;
 import eapli.base.customer.domain.model.VATiD;

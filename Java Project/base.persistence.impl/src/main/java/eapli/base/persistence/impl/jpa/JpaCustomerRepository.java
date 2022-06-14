@@ -3,7 +3,7 @@ package eapli.base.persistence.impl.jpa;
 import eapli.base.Application;
 import eapli.base.customer.domain.model.Customer;
 import eapli.base.customer.domain.model.VATiD;
-import eapli.base.customer.domain.persistence.CustomerRepository;
+import eapli.base.customer.repositories.CustomerRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 import org.springframework.stereotype.Component;

@@ -3,7 +3,7 @@ package eapli.base.persistence.impl.inmemory;
 
 import eapli.base.category.domain.model.Category;
 import eapli.base.product.domain.model.*;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
 
 public class InMemoryProductRepository extends InMemoryDomainRepository<Product, InternalCode> implements ProductRepository {

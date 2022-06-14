@@ -1,4 +1,4 @@
-package eapli.base.product.domain.persistence;
+package eapli.base.product.repositories;
 
 import eapli.base.category.domain.model.Category;
 import eapli.base.product.domain.model.*;

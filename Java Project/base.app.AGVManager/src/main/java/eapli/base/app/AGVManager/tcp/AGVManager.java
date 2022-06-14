@@ -1,4 +1,4 @@
-package eapli.base.app.AGVmanegement.tcp;
+package main.java.eapli.base.app.AGVManager.tcp;
 
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
@@ -8,7 +8,6 @@ import java.net.Socket;
 import java.util.HashMap;
 
 public class AGVManager {
-
     private static HashMap<Socket, DataOutputStream> cliList = new HashMap<>();
 
     static final String TRUSTED_STORE = "KEYS/avgManager.jks";
@@ -53,6 +52,7 @@ public class AGVManager {
         try {
             serverSocket = new ServerSocket(32507); //new ServerSocket(port);
             // serverSocket.setNeedClientAuth(true);
+            System.out.printf("AGVManager is Running!");
         } catch (IOException ex) {
             System.out.println("Local port number not available.");
             System.exit(1);
@@ -92,10 +92,12 @@ class TcpChatSrvClient extends Thread {
         myS = s;
     }
 
+
+
     public void run() {
         int nChars;
         byte[] data = new byte[500];
-
+        System.out.printf("AGVManager is Running!");
         try {
             sIn = new DataInputStream(myS.getInputStream());
             while (true) {
@@ -175,4 +177,5 @@ class TcpChatSrvClient extends Thread {
         }
 
     }
+
 }

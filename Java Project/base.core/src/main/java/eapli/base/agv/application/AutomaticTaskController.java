@@ -1,8 +1,8 @@
 package eapli.base.agv.application;
 
-import eapli.base.agv.domain.persistence.AGVRepository;
-import eapli.base.agv.domain.persistence.AutomaticTaskRepository;
-import eapli.base.agv.domain.persistence.InfoRepository;
+import eapli.base.agv.repositories.AGVRepository;
+import eapli.base.agv.repositories.AutomaticTaskRepository;
+import eapli.base.agv.repositories.InfoRepository;
 import eapli.base.agv.domain.model.*;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 

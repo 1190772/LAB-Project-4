@@ -1,9 +1,9 @@
-package eapli.base.app.AGVmanegement.tcp;
+/*
+package main.java.eapli.base.app.AGVDigitalTwin.tcp;
 
 
-import eapli.base.agv.Repository.InfoRepository;
+import eapli.base.agv.repositories.InfoRepository;
 import eapli.base.agv.domain.model.Info;
-import eapli.base.customer.domain.model.Customer;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
 import java.io.*;
@@ -25,7 +25,6 @@ public class AGVDigitalTwin {
     private static final byte REJEITADO = 9;
     private static final byte DASHBOARD = 10;
 
-
     static InetAddress serverIP;
     //static SSLSocket sock;
     static Socket sock;
@@ -33,69 +32,79 @@ public class AGVDigitalTwin {
     static final String PASS = "1234567";
 
 
-    public void runMain(int opcao, int idPedido) throws Exception {
-        byte[] data = new byte[300];
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 
-        /*if(args.length!=1) {
-            System.out.println(
-                    "Server IPv4/IPv6 address or DNS name is required as argument");
-            System.exit(1); }*/
 
-        System.setProperty("javax.net.ssl.trustStore", TRUSTED_STORE);
-        System.setProperty("javax.net.ssl.trustStorePassword", PASS);
 
-        //Use this certificate and private key for client certificate when requested by the server
-        System.setProperty("javax.net.ssl.keyStore", TRUSTED_STORE);
-        System.setProperty("javax.net.ssl.keyStorePassword", PASS);
+            byte[] data = new byte[300];
 
-        // SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
 
-        try {
-            serverIP = InetAddress.getByName("localhost");
-        } catch (UnknownHostException ex) {
-            System.out.println("Invalid server: localhost");
-            System.exit(1);
-        }
 
-        try {
-            sock = new Socket(serverIP, 32507);//sf.createSocket(serverIP, 32507);
-        } catch (Exception ex) {
-            System.out.println("Failed to connect11111.");
-            System.exit(1);
-        }
+            if(args.length!=1) {
+                System.out.println(
+                        "Server IPv4/IPv6 address or DNS name is required as argument");
+                System.exit(1); }
 
-        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-        DataOutputStream sOut = new DataOutputStream(sock.getOutputStream());
 
-        System.out.println("Connected to server");
+            System.setProperty("javax.net.ssl.trustStore", TRUSTED_STORE);
+            System.setProperty("javax.net.ssl.trustStorePassword", PASS);
 
-        //  sock.startHandshake();
+            //Use this certificate and private key for client certificate when requested by the server
+            System.setProperty("javax.net.ssl.keyStore", TRUSTED_STORE);
+            System.setProperty("javax.net.ssl.keyStorePassword", PASS);
 
-        // start a thread to read incoming messages from the server
-        Thread serverConn = new Thread(new TcpChatCliConn(sock));
-        serverConn.start();
+            // SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
+
+            try {
+                serverIP = InetAddress.getByName("localhost");
+            } catch (UnknownHostException ex) {
+                System.out.println("Invalid server: localhost");
+                System.exit(1);
+            }
+
+            try {
+                sock = new Socket(serverIP, 32507);//sf.createSocket(serverIP, 32507);
+            } catch (Exception ex) {
+                System.out.println("Failed to connect11111.");
+                System.exit(1);
+            }
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            DataOutputStream sOut = new DataOutputStream(sock.getOutputStream());
+
+            System.out.println("Connected to server");
+
+            //  sock.startHandshake();
+
+            // start a thread to read incoming messages from the server
+            Thread serverConn = new Thread(new TcpChatCliConn(sock));
+            serverConn.start();
+
 
         if (opcao == 1) {
-            data[0] = VERSION;
-            data[1] = DASHBOARD;
-            data[2] = (Byte.SIZE / 8);
-            // data[3] = (byte) uniqueID;
-            sOut.write(data.length);
-            sOut.write(data, 0, data.length);
-        }
-        if (opcao == 2) {
-            data[0] = VERSION;
-            data[1] = ATUALIZAR_PEDIDO;
-            data[2] = (Byte.SIZE / 8);
-            data[3] = (byte) idPedido;
-            sOut.write(data.length);
-            sOut.write(data, 0, data.length);
-        }
+                data[0] = VERSION;
+                data[1] = DASHBOARD;
+                data[2] = (Byte.SIZE / 8);
+                // data[3] = (byte) uniqueID;
+                sOut.write(data.length);
+                sOut.write(data, 0, data.length);
+            }
+            if (opcao == 2) {
+                data[0] = VERSION;
+                data[1] = ATUALIZAR_PEDIDO;
+                data[2] = (Byte.SIZE / 8);
+                data[3] = (byte) idPedido;
+                sOut.write(data.length);
+                sOut.write(data, 0, data.length);
+            }
 
-        serverConn.join();
-        sock.close();
+            serverConn.join();
+            sock.close();
+
     }
+
+
 }
 
 class TcpChatCliConn implements Runnable {
@@ -245,4 +254,4 @@ class TcpChatCliConn implements Runnable {
                 " </ul><hr><p>" + fraseHtml3 + "</p><hr> </body ></html >" +
                 " </ul><hr><p>" + fraseHtml4 + "</p><hr> </body ></html >";
     }
-}
+}*/

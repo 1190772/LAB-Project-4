@@ -20,17 +20,17 @@
  */
 package eapli.base.persistence.impl.inmemory;
 
-import eapli.base.agv.domain.persistence.AGVRepository;
-import eapli.base.agv.domain.persistence.AutomaticTaskRepository;
-import eapli.base.agv.domain.persistence.InfoRepository;
-import eapli.base.category.domain.persistence.CategoryRepository;
+import eapli.base.agv.repositories.AGVRepository;
+import eapli.base.agv.repositories.AutomaticTaskRepository;
+import eapli.base.agv.repositories.InfoRepository;
+import eapli.base.category.repositories.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
-import eapli.base.customer.domain.persistence.CustomerRepository;
+import eapli.base.customer.repositories.CustomerRepository;
 import eapli.base.infrastructure.bootstrapers.BaseBootstrapper;
 import eapli.base.infrastructure.persistence.RepositoryFactory;
-import eapli.base.order.domain.persistence.OrderRepository;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.order.repositories.OrderRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.authz.domain.repositories.UserRepository;
 import eapli.framework.infrastructure.authz.repositories.impl.InMemoryUserRepository;

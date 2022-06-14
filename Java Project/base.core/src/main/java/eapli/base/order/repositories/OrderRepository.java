@@ -1,9 +1,7 @@
-package eapli.base.order.domain.persistence;
+package eapli.base.order.repositories;
 
-import eapli.base.customer.domain.model.Customer;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.domain.repositories.DomainRepository;
-import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 

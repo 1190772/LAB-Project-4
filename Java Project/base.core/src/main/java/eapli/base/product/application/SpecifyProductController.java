@@ -2,8 +2,8 @@ package eapli.base.product.application;
 
 import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.Category;
-import eapli.base.category.domain.persistence.CategoryRepository;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.category.repositories.CategoryRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.product.domain.model.*;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;

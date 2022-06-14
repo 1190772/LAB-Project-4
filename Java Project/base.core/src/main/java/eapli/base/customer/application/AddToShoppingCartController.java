@@ -7,8 +7,7 @@ import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.product.application.SearchProductCatalogService;
 import eapli.base.product.domain.model.InternalCode;
 import eapli.base.product.domain.model.Product;
-import eapli.base.product.domain.model.ProductsList;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 
 

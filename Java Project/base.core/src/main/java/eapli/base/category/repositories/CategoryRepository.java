@@ -1,4 +1,4 @@
-package eapli.base.category.domain.persistence;
+package eapli.base.category.repositories;
 
 import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.Category;

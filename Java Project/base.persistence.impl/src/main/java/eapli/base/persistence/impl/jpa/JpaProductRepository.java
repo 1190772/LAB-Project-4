@@ -3,7 +3,7 @@ package eapli.base.persistence.impl.jpa;
 import eapli.base.Application;
 import eapli.base.category.domain.model.Category;
 import eapli.base.product.domain.model.*;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 

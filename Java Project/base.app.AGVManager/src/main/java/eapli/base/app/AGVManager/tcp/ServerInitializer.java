@@ -1,9 +1,8 @@
-package eapli.base.app.AGVmanegement.tcp;
+package main.java.eapli.base.app.AGVManager.tcp;
 
-public class ThreadServer extends Thread {
+public class ServerInitializer {
 
-
-    public void run() {
+    public static void main(String[] args) {
         AGVManager server = new AGVManager();
         try {
             server.run();
