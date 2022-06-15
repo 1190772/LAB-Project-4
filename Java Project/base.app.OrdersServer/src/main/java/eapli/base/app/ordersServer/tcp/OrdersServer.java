@@ -5,35 +5,65 @@ import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class TcpOrdersServer {
+import eapli.base.AppSettings;
+import eapli.base.Application;
 
+import javax.net.ssl.SSLServerSocket;
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
+
+public class OrdersServer {
+
+    static AppSettings app = Application.settings();
+    //static final int serverPortProperties = app.getServerPortKey();
+    static final String trustedStoreProperties = app.getTrustedStore();
+    static final String keyStorePassProperties = app.getKeyStorePass();
     static ServerSocket sock;
 
 
     public static void main(String[] args) throws Exception {
         Socket cliSock;
+        SSLServerSocket sslServerSocket = null;
+        SSLSocket sslSocket = null;
+
+        //Security.addProvider(new Provider());
+
+        //specifing the keystore file which contains the certificate/public key and the private key
+        System.setProperty("javax.net.ssl.keyStore","myKeyStore.jks");
+        //specifing the password of the keystore file
+        System.setProperty("javax.net.ssl.keyStorePassword","123456");
 
         try {
-            sock = new ServerSocket(9999);
+            // SSLServerSocketFactory establishes the ssl context and creates SSLServerSocket
+            SSLServerSocketFactory sslServerSocketFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+            //Create SSLServerSocket using SSLServerSocketFactory established ssl context
+            sslServerSocket = (SSLServerSocket) sslServerSocketFactory.createServerSocket(9999);
+
             System.out.println("OrdersServer is Running!");
+
+
+
+            //sock = new ServerSocket(9999);
+
         }
         catch(IOException ex) {
             System.out.println("Failed to open server socket"); System.exit(1);
         }
         while(true) {
-            cliSock=sock.accept();
-            new Thread(new TcpOrdersServerThread(cliSock)).start();
+            //Wait for the SSL client to connect to this server
+            sslSocket = (SSLSocket) sslServerSocket.accept();
+            new Thread(new OrdersServerThread(sslSocket)).start();
         }
     }
 }
 
-class TcpOrdersServerThread implements Runnable{
+class OrdersServerThread implements Runnable{
 
     private final Socket s;
     private DataOutputStream sOut;
     private DataInputStream sIn;
 
-    public TcpOrdersServerThread(Socket cli_s){
+    public OrdersServerThread(Socket cli_s){
         s = cli_s;
     }
 
