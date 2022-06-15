@@ -5,16 +5,24 @@ import eapli.base.order.domain.model.Order;
 import eapli.base.order.repositories.OrderRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
-
+@Repository
+@Transactional
 public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> implements OrderRepository {
 
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
+
+    @PersistenceContext
+    EntityManager entityManager;
 
      public JpaOrderRepository(TransactionalContext autoTx) {
          super(autoTx, "id");
@@ -41,9 +49,7 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
     }
 
     public Optional<Order> findOrderById(Long id){
-        final Map<String, Object> params = new HashMap<>();
-        params.put("id", id);
-        return matchOne("e.id=:id", params);
+        return matchOne("e.id=id");
 
     }
 
