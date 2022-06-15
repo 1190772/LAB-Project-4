@@ -63,6 +63,14 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
         return model;
     }
 
+    public Double getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setMaxWeight(Double maxWeight) {
+        this.maxWeight = maxWeight;
+    }
+
     public boolean isFree() {
         return status==AGVStatus.FREE;
     }

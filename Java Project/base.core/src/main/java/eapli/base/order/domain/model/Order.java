@@ -47,6 +47,9 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @OneToOne
     private Customer customer;
 
+    @Transient
+    private Double weight;
+
     public Order(List<OrderedProduct> products,Price pwot, Price pwt, Date date, EmailAddress e, Address a, Customer customer) {
         this.listOfOrders=products;
         this.priceWithoutTaxes=pwot;
@@ -56,10 +59,27 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         this.address=a;
         this.status=OrderStatus.NOT_PAID;
         this.customer=customer;
+        this.weight=calculateWeight();
     }
 
     public Order() {
 
+    }
+
+    public Double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(Double weight) {
+        this.weight = weight;
+    }
+
+    private Double calculateWeight(){
+        double totalWeight=0;
+        for(OrderedProduct p : listOfOrders){
+            totalWeight+=p.getProduct().getMesurements().getWeight().doubleValue();
+        }
+        return Double.valueOf(totalWeight);
     }
 
     @Override

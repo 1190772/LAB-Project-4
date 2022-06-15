@@ -92,6 +92,14 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         this.productStatus = true;
    }
 
+    public Mesurements getMesurements() {
+        return mesurements;
+    }
+
+    public void setMesurements(Mesurements mesurements) {
+        this.mesurements = mesurements;
+    }
+
     @Override
     public InternalCode identity() {
         return internalCode;

@@ -25,9 +25,10 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
 
     @Override
     public Iterable<AGV> readyAGVs(){
-        return match("e.status=1");
+        return match("e.status=0");
     }
 
+    @Override
     public Optional<AGV> findAGVById(Long id){
 
         return matchOne("e.id=id");

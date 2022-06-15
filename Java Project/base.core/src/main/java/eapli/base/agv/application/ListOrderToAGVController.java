@@ -33,7 +33,7 @@ public class ListOrderToAGVController {
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
-        if (agv==null)
+        if ((agv==null)||(agv.getMaxWeight().doubleValue()<order.getWeight().doubleValue()))
             return false;
 
         order.changeStatus(OrderStatus.BEING_PREPARED);

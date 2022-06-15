@@ -36,7 +36,17 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
 
                 System.out.println("\n\n");
             }
-                orderID = Console.readLine("Order's ID(0 to terminate operation):");
+
+            it= theController.getReadyOrders();
+            System.out.println("Orders Ready to be prepared By an AGV: \n");
+            for (Order o : it) {
+                System.out.println("#  Customer ID      Price               Status              Order ID");
+                System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
+                        o.id());
+            }
+            System.out.println("\n\n");
+            orderID= Console.readLine("Order's ID(0 to terminate operation):");
+
         }
         return false;
     }

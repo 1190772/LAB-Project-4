@@ -48,6 +48,7 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
         return match("e.status=4");
     }
 
+    @Override
     public Optional<Order> findOrderById(Long id){
         return matchOne("e.id=id");
 
