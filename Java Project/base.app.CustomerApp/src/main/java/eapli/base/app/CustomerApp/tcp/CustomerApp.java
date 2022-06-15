@@ -4,30 +4,48 @@ package eapli.base.app.CustomerApp.tcp;
 import eapli.base.app.backoffice.console.presentation.customer.AddToShoppingCartUI;
 
 
-
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-public class TcpOrdersClient {
+public class CustomerApp {
 
     static InetAddress serverIP;
-    static Socket sock;
+    static SSLSocket sslSocket;
 
 
     public static void main(String[] args) throws Exception{
+
+        //specifing the trustStore file which contains the certificate & public of the server
+        System.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
+        //specifing the password of the trustStore file
+        System.setProperty("javax.net.ssl.trustStorePassword","123456");
+
+
 
         if(args.length!=1) {
             System.out.println("Server IPv4/IPv6 address or DNS name is required");
             System.exit(1); }
 
-        try { serverIP = InetAddress.getByName(args[0]); }
+        try {
+            serverIP = InetAddress.getByName(args[0]);
+        }
         catch(UnknownHostException ex) {
             System.out.println("Invalid server specified: " + args[0]);
             System.exit(1); }
 
-        try { sock = new Socket(serverIP, 9999); }
+        try {
+
+            //SSLSSocketFactory establishes the ssl context and and creates SSLSocket
+            SSLSocketFactory sslsocketfactory = (SSLSocketFactory)SSLSocketFactory.getDefault();
+            //Create SSLSocket using SSLServerFactory already established ssl context and connect to server
+            sslSocket = (SSLSocket)sslsocketfactory.createSocket(serverIP,9999);
+
+            //sock = new Socket(serverIP, 9999);
+        }
         catch(IOException ex) {
             System.out.println("Failed to establish TCP connection");
             System.exit(1); }
@@ -37,8 +55,10 @@ public class TcpOrdersClient {
 
         BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
 
-        DataOutputStream sOutData = new DataOutputStream(sock.getOutputStream());
-        DataInputStream sInData = new DataInputStream(sock.getInputStream());
+        //Create OutputStream to send message to server
+        DataOutputStream sOutData = new DataOutputStream(sslSocket.getOutputStream());
+        //Create InputStream to read messages send by the server
+        DataInputStream sInData = new DataInputStream(sslSocket.getInputStream());
 
 
 
@@ -74,7 +94,7 @@ public class TcpOrdersClient {
 
             byte[] serverMessageEnd = sInData.readNBytes(4);
             if (serverMessageEnd[1] == 2) {
-                sock.close();
+                sslSocket.close();
             } else {
                 System.out.println("==> SERVER ERROR");
             }
