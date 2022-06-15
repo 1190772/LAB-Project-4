@@ -1,10 +1,10 @@
 package eapli.base.agv.application;
 
-import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.agv.repositories.AGVRepository;
 import eapli.base.agv.domain.model.AGV;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.order.domain.model.Order;
-import eapli.base.order.domain.persistence.OrderRepository;
+import eapli.base.order.repositories.OrderRepository;
 
 public class ListOrderToAGVService {
 
@@ -16,11 +16,15 @@ public class ListOrderToAGVService {
     }
 
     public static Order findOrderById(Long id) {
+        try{
         Order o= (Order) orderRepository.findOrderById(id).get();
-        if(o!=null)
-            return  o;
-        else
-            return null;
+            if(o!=null)
+                return  o;
+            else
+                return null;
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public static AGV findAGVById(Long id) {

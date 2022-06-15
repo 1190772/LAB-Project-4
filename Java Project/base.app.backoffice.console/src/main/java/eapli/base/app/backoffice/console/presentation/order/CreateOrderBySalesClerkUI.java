@@ -46,8 +46,7 @@ public class CreateOrderBySalesClerkUI extends AbstractUI {
 
         while (!productId.equals("end")) {
             try {
-                product = theController.findProductById(new InternalCode(productId));
-                theController.addProduct(product);
+                theController.findProductById(productId);
                 productId = Console.readLine("Product ID('end' to stop adding products): ");
             } catch (final Exception e) {
                 System.out.println("You inserted an invalid Product.");

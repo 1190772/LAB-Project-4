@@ -25,7 +25,7 @@ public class Info implements AggregateRoot<Integer>, Serializable {
     private Status status;
     private int tempoDecorrido;
     private int prioridade; //prioridade
-
+    // so preciso order e agv
     @OneToOne
     private Order order;
 

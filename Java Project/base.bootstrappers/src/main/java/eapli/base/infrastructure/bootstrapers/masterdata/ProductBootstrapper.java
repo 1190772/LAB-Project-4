@@ -6,7 +6,7 @@ import eapli.base.category.domain.model.AlphaNumericCode;
 import eapli.base.category.domain.model.AlphaNumericCodeException;
 import eapli.base.category.domain.model.Category;
 import eapli.base.product.domain.model.Product;
-import eapli.base.category.domain.persistence.CategoryRepository;
+import eapli.base.category.repositories.CategoryRepository;
 import eapli.framework.actions.Action;
 import eapli.framework.domain.repositories.ConcurrencyException;
 import eapli.framework.domain.repositories.IntegrityViolationException;

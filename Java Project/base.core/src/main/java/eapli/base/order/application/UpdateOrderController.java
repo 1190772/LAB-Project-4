@@ -3,7 +3,7 @@ package eapli.base.order.application;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.order.domain.model.Order;
 import eapli.base.order.domain.model.OrderStatus;
-import eapli.base.order.domain.persistence.OrderRepository;
+import eapli.base.order.repositories.OrderRepository;
 import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;

@@ -5,7 +5,7 @@ import eapli.base.product.domain.model.Brand;
 import eapli.base.product.domain.model.Product;
 import eapli.base.product.domain.model.ShortDescription;
 import eapli.base.infrastructure.persistence.PersistenceContext;
-import eapli.base.product.domain.persistence.ProductRepository;
+import eapli.base.product.repositories.ProductRepository;
 import eapli.base.usermanagement.domain.BaseRoles;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 

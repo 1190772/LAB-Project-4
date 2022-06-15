@@ -24,12 +24,15 @@
         <module>base.app.backoffice.console</module>
         <module>base.app.user.console</module>
         <module>base.app.other.console</module>
+        <module>base.app.CustomerApp</module>
         <module>base.app.ordersServer</module>
         <module>base.app.common.console</module>
         <module>base.app.bootstrap</module>
         <module>base.bootstrappers</module>
         <module>base.core</module>
         <module>base.persistence.impl</module>
+        <module>base.app.AGVManager</module>
+        <module>base.app.AGVDigitalTwin</module>
         <module>grammar</module>
     </modules>
 

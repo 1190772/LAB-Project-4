@@ -2,7 +2,7 @@ package eapli.base.persistence.impl.inmemory;
 
 import eapli.base.customer.domain.model.Customer;
 import eapli.base.customer.domain.model.VATiD;
-import eapli.base.customer.domain.persistence.CustomerRepository;
+import eapli.base.customer.repositories.CustomerRepository;
 import eapli.framework.infrastructure.repositories.impl.inmemory.InMemoryDomainRepository;
 
 public class InMemoryCustomerRepository extends InMemoryDomainRepository<Customer, Long> implements CustomerRepository {

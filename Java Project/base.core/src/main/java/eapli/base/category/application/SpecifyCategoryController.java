@@ -1,7 +1,7 @@
 package eapli.base.category.application;
 
 import eapli.base.category.domain.model.*;
-import eapli.base.category.domain.persistence.CategoryRepository;
+import eapli.base.category.repositories.CategoryRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 import eapli.framework.infrastructure.authz.application.AuthzRegistry;

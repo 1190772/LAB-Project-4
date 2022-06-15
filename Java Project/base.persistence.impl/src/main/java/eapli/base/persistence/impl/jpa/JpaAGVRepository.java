@@ -1,7 +1,7 @@
 package eapli.base.persistence.impl.jpa;
 
 import eapli.base.Application;
-import eapli.base.agv.domain.persistence.AGVRepository;
+import eapli.base.agv.repositories.AGVRepository;
 import eapli.base.agv.domain.model.AGV;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;

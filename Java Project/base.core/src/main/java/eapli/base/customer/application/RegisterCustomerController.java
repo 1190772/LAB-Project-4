@@ -1,7 +1,7 @@
 package eapli.base.customer.application;
 
 import eapli.base.customer.domain.model.*;
-import eapli.base.customer.domain.persistence.CustomerRepository;
+import eapli.base.customer.repositories.CustomerRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.framework.infrastructure.authz.application.AuthorizationService;
 
