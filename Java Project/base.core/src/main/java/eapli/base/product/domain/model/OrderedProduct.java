@@ -30,4 +30,8 @@ public class OrderedProduct {
     public void incrementQuantity() {
         this.quantity++;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
 }
