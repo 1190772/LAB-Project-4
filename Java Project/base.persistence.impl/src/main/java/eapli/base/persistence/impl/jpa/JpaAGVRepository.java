@@ -3,10 +3,12 @@ package eapli.base.persistence.impl.jpa;
 import eapli.base.Application;
 import eapli.base.agv.repositories.AGVRepository;
 import eapli.base.agv.domain.model.AGV;
+import eapli.base.order.domain.model.Order;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 import javax.persistence.TypedQuery;
+import java.util.Optional;
 
 public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> implements AGVRepository {
 
@@ -21,13 +23,14 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
         super(autoTx, "id");
     }
 
-    public Iterable<AGV> findAGVById(Long id){
-        final TypedQuery<AGV> query = entityManager().createQuery(
-                "SELECT c FROM AGV c WHERE c.agvId = :id",
-                AGV.class);
-        query.setParameter("id", id);
+    @Override
+    public Iterable<AGV> readyAGVs(){
+        return match("e.status=1");
+    }
 
-        return query.getResultList();
+    public Optional<AGV> findAGVById(Long id){
+
+        return matchOne("e.id=id");
     }
 
 

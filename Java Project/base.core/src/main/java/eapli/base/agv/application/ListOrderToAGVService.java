@@ -15,6 +15,10 @@ public class ListOrderToAGVService {
         return orderRepository.readyOrders();
     }
 
+    public static Iterable<AGV> capableAGVs() {
+        return agvRepository.readyAGVs();
+    }
+
     public static Order findOrderById(Long id) {
         try{
         Order o= (Order) orderRepository.findOrderById(id).get();
@@ -28,7 +32,15 @@ public class ListOrderToAGVService {
     }
 
     public static AGV findAGVById(Long id) {
-        return (AGV) agvRepository.findAGVById(id);
+        try{
+            AGV agv= (AGV) agvRepository.findAGVById(id).get();
+            if(agv!=null)
+                return  agv;
+            else
+                return null;
+        } catch (Exception e) {
+        }
+        return null;
     }
 
     public static void saveOrder(Order o) {

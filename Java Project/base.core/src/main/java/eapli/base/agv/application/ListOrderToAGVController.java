@@ -11,12 +11,16 @@ public class ListOrderToAGVController {
     private Order order;
     private AGV agv;
 
-    public ListOrderToAGVController(){
+    public ListOrderToAGVController() {
 
     }
 
     public Iterable<Order> getReadyOrders() {
         return ListOrderToAGVService.readyOrders();
+    }
+
+    public Iterable<AGV> getCapableAGVs(){
+        return ListOrderToAGVService.capableAGVs();
     }
 
     public boolean findOrderById(Long id) {
