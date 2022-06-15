@@ -15,12 +15,12 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
 
 
-    public JpaAGVRepository(String persistenceUnitName) {
-        super(persistenceUnitName, Application.settings().getExtendedPersistenceProperties(), "id");
-    }
-
     public JpaAGVRepository(TransactionalContext autoTx) {
         super(autoTx, "id");
+    }
+
+    public JpaAGVRepository(String persistenceUnitName) {
+        super(persistenceUnitName, Application.settings().getExtendedPersistenceProperties(), "id");
     }
 
     @Override

@@ -35,7 +35,7 @@ public class ListOrderToAGVService {
         try{
             AGV agv= (AGV) agvRepository.findAGVById(id).get();
             if(agv!=null)
-                return  agv;
+                return agv;
             else
                 return null;
         } catch (Exception e) {

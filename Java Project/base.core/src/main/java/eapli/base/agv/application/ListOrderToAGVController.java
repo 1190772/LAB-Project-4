@@ -28,6 +28,8 @@ public class ListOrderToAGVController {
         if(order==null)
             return false;
 
+        System.out.println(order.toString());
+
         return true;
     }
 
