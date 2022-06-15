@@ -53,7 +53,7 @@ public class SpecifyProductUI extends AbstractUI {
 
         final double price = Console.readDouble("Price");
 
-        final Set<byte[]> photos = null;
+       final Set<byte[]> photos = null;
 
         try {
             theController.registerProduct(thecategory,internalCode,shortDescription,extendedDescription,technicalDescription,brand,reference,productionCode,barcode,width,length,height,weight,price,photos);

@@ -82,10 +82,6 @@ public class JpaProductRepository extends JpaAutoTxRepository<Product, InternalC
         return match("e.productStatus=true");
     }
 
-    @Override
-    public <S extends Product> S save(S entity) {
-                return null;
-            }
 
     @Override
     public Optional<Product> ofIdentity(InternalCode id) {
@@ -101,10 +97,7 @@ public class JpaProductRepository extends JpaAutoTxRepository<Product, InternalC
     public boolean contains(Product entity) {
         return ProductRepository.super.contains(entity);
     }
-
-    @Override
-    public void delete(Product entity) {
-    }
+    
 
     @Override
     public void deleteOfIdentity(InternalCode entityId) {

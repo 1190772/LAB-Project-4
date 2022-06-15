@@ -31,9 +31,6 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     @OneToOne
     private Category productCategory;
 
-  /*  @OneToOne
-    private StorageArea storageArea;
-*/
     @EmbeddedId
     private InternalCode internalCode;
 
@@ -95,13 +92,17 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
         this.productStatus = true;
    }
 
+    public Mesurements getMesurements() {
+        return mesurements;
+    }
+
+    public void setMesurements(Mesurements mesurements) {
+        this.mesurements = mesurements;
+    }
+
     @Override
     public InternalCode identity() {
         return internalCode;
-    }
-
-    public Category getProductCategory() {
-        return productCategory;
     }
 
     public InternalCode getInternalCode() { return internalCode; }
@@ -113,8 +114,6 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     public ExtendedDescription getExtendedDescription() {
         return extendedDescription;
     }
-
-    public Barcode getBarcode() { return barcode; }
 
     public Boolean productStatus() { return productStatus; }
 
@@ -162,15 +161,7 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
     public Optional<Price> priceWithoutTaxes() {
         return Optional.ofNullable(priceWithoutTaxes);
     }
-
-    /**
-     * @return the Mesurements of this Product
-     */
-    public Optional<Mesurements> mesurements() {
-        return Optional.ofNullable(mesurements);
-    }
-
-
+    
     /**
      * @param photo
      * @return

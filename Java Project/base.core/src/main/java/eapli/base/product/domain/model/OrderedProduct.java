@@ -27,15 +27,11 @@ public class OrderedProduct {
         this.product = p;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int q) {
-        this.quantity = q;
-    }
-
     public void incrementQuantity() {
         this.quantity++;
+    }
+
+    public int getQuantity() {
+        return quantity;
     }
 }

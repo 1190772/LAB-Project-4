@@ -11,7 +11,7 @@ public class ListOrderToAGVController {
     private Order order;
     private AGV agv;
 
-    public ListOrderToAGVController(){
+    public ListOrderToAGVController() {
 
     }
 
@@ -19,17 +19,23 @@ public class ListOrderToAGVController {
         return ListOrderToAGVService.readyOrders();
     }
 
+    public Iterable<AGV> getCapableAGVs(){
+        return ListOrderToAGVService.capableAGVs();
+    }
+
     public boolean findOrderById(Long id) {
         order=ListOrderToAGVService.findOrderById(id);
         if(order==null)
             return false;
+
+        System.out.println(order.toString());
 
         return true;
     }
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
-        if (agv==null)
+        if ((agv==null)||(agv.getMaxWeight().doubleValue()<order.getWeight().doubleValue()))
             return false;
 
         order.changeStatus(OrderStatus.BEING_PREPARED);
