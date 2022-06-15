@@ -1,6 +1,7 @@
 package eapli.base.app.backoffice.console.presentation.agv;
 
 import eapli.base.agv.application.ListOrderToAGVController;
+import eapli.base.agv.domain.model.AGV;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.io.util.Console;
 import eapli.framework.presentation.console.AbstractListUI;
@@ -28,6 +29,11 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
 
         while(!orderID.equals("0")) {
             if (theController.findOrderById(Long.getLong(orderID))) {
+                Iterable<AGV> itagv= theController.getCapableAGVs();
+                System.out.println("Orders Ready to be prepared By an AGV: \n");
+                for (AGV agv : itagv) {
+                    System.out.println(agv.toString());//to modify in the future
+                }
                 String agvID = Console.readLine("AGV's ID:");
                 if (theController.listOrderToAGV(Long.getLong(agvID)))
                     System.out.println("Order listed to AGV successfully.");
