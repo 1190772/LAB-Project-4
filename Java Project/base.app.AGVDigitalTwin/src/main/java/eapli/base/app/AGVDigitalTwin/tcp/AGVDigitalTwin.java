@@ -1,4 +1,3 @@
-/*
 package eapli.base.app.AGVDigitalTwin.tcp;
 
 
@@ -254,4 +253,4 @@ class TcpChatCliConn implements Runnable {
                 " </ul><hr><p>" + fraseHtml3 + "</p><hr> </body ></html >" +
                 " </ul><hr><p>" + fraseHtml4 + "</p><hr> </body ></html >";
     }
-}*/
+}
