@@ -46,6 +46,9 @@ public class AppSettings {
     private static final String HIGH_CALORIES_DISH_LIMIT = "HighCaloriesDishLimit";
     private static final String ALGORITHM_NUMBER_KEY = "algorithm_number";
     private static final String ALGORITHM_OPTION2 = "AlgortihmOption2";
+    private static final String SERVER_PORT_KEY = "serverPort";
+    private static final String TRUSTED_STORE_KEY = "myKeyStore.jks";
+    private static final String KEYS_STORE_PASS_KEY = "123456";
     private final Properties applicationProperties = new Properties();
 
     public AppSettings() {
@@ -112,5 +115,17 @@ public class AppSettings {
 
     public Integer getAlgortihmOption2(){
         return Integer.parseInt(this.applicationProperties.getProperty(ALGORITHM_OPTION2));
+    }
+
+    public int getServerPortKey() {
+        return Integer.parseInt(this.applicationProperties.getProperty(SERVER_PORT_KEY));
+    }
+
+    public String getTrustedStore() {
+        return this.applicationProperties.getProperty(TRUSTED_STORE_KEY);
+    }
+
+    public String getKeyStorePass() {
+        return this.applicationProperties.getProperty(KEYS_STORE_PASS_KEY);
     }
 }
