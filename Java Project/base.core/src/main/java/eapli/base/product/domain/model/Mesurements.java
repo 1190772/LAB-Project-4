@@ -39,9 +39,6 @@ public class Mesurements implements ValueObject, Serializable {
             return mesurment >= 0;
         }
 
-        public static Mesurements withMesurments(double width,double length,double height,double weight) {
-            return new Mesurements(width,length,height,weight);
-        }
 
         @Override
         public boolean equals(Object o) {
