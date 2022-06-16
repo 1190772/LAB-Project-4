@@ -34,15 +34,15 @@ public class ListOrderToAGVController {
 
     public boolean listOrderToAGV(Long id) {
         agv=ListOrderToAGVService.findAGVById(id);
-        if ((agv==null) || (agv.getMaxWeight().doubleValue()<order.getWeight().doubleValue()))
+        double agvMaxWeight=agv.getMaxWeight().doubleValue();
+        double orderWeight=order.getWeight().doubleValue();
+        if ((agv==null) || (agvMaxWeight<orderWeight))
             return false;
 
-        System.out.println(agv.toString());
-        return true;
-        /*order.changeStatus(OrderStatus.BEING_PREPARED);
+        order.changeStatus(OrderStatus.BEING_PREPARED);
         agv.setOrderBeingPrepared(order);
         ListOrderToAGVService.saveOrder(order);
         ListOrderToAGVService.saveAGV(agv);
-        return agv.isOccupied();*/
+        return agv.isOccupied();
     }
 }

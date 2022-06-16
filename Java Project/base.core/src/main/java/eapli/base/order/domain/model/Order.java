@@ -44,7 +44,6 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @OneToOne
     private Customer customer;
 
-    @Transient
     private Double weight;
 
     public Order(List<OrderedProduct> products,Price pwot, Price pwt, Date date, EmailAddress e, Address a, Customer customer) {
