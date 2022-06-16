@@ -11,7 +11,6 @@
 | **B**  | [US1900]() |
 | **C**  | [US1901](US1901/ProcessoEngenhariaFuncionalidade) |
 | **C**  | [US5001](US5001/ProcessoEngenhariaFuncionalidade) |
-| **C**  | [US2005](../1191606/US2005/ProcessoEngenhariaFuncionalidade)  |
-| **D**  | [USDemo3](USDemo5) |
-| **D**  | [USDemo3](USDemo6) |
-| **D**  | [USDemo3](USDemo7) |
+| **C**  | [US2005](../1191606/SprintC/US2005/ProcessoEngenhariaFuncionalidade)  |
+| **D**  | [US1902](US1902/ProcessoEngenhariaFuncionalidade) |
+| **D**  | [US4003](US4003/ProcessoEngenhariaFuncionalidade) |
