@@ -8,10 +8,6 @@ import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
@@ -21,9 +17,6 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
 
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
 
-    @PersistenceContext
-    EntityManager entityManager;
-
      public JpaOrderRepository(TransactionalContext autoTx) {
          super(autoTx, "id");
      }
@@ -31,6 +24,9 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
      public JpaOrderRepository(String persistenceUnitName) {
          super(persistenceUnitName, Application.settings().getExtendedPersistenceProperties(), "id");
      }
+    public JpaOrderRepository(String persistenceUnitName, Map properties, String identityFieldName) {
+        super(persistenceUnitName, properties, identityFieldName);
+    }
 
 
     @Override

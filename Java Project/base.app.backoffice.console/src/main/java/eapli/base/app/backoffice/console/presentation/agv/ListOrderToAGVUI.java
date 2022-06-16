@@ -29,6 +29,7 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
 
         while(!orderID.equals("0")) {
             if (theController.findOrderById(Long.getLong(orderID))) {
+
                 Iterable<AGV> itagv= theController.getCapableAGVs();
                 System.out.println("Orders Ready to be prepared By an AGV: \n");
                 for (AGV agv : itagv) {
@@ -47,7 +48,7 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
             System.out.println("Orders Ready to be prepared By an AGV: \n");
             System.out.println("#  Customer ID      Price               Status              Order ID");
             for (Order o : it) {
-                System.out.printf("%-20s%-20s%-20s%-4s1n", o.customerId(), o.price(), o.status(),
+                System.out.printf("%-20s%-20s%-20s%-4s\n", o.customerId(), o.price(), o.status(),
                         o.id());
             }
             System.out.println("\n\n");

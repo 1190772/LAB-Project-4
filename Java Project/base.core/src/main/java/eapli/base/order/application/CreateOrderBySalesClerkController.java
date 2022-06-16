@@ -20,7 +20,7 @@ public class CreateOrderBySalesClerkController {
     Order order;
     private List<OrderedProduct> listOfOrders;
 
-    public void CreateOrderBySaleClerkController() {
+    public CreateOrderBySalesClerkController() {
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
     }
 
