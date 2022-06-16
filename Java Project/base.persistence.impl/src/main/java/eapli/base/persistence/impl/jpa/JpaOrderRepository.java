@@ -33,7 +33,7 @@ public class JpaOrderRepository extends JpaAutoTxRepository<Order, Long, Long> i
 
     @Override
     public Iterable<Order> readyOrders(){
-        return match("e.status=1");
+         return match("e.status=1");
     }
 
     @Override

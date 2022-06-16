@@ -31,7 +31,7 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
             if (theController.findOrderById(Long.getLong(orderID))) {
 
                 Iterable<AGV> itagv= theController.getCapableAGVs();
-                System.out.println("Orders Ready to be prepared By an AGV: \n");
+                System.out.println("AGVs Free to start preparing the Order: \n");
                 for (AGV agv : itagv) {
                     System.out.println(agv.toString());//to modify in the future
                 }

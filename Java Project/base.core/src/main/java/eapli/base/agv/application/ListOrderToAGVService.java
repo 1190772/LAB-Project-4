@@ -9,7 +9,7 @@ import eapli.base.order.repositories.OrderRepository;
 public class ListOrderToAGVService {
 
     private static final OrderRepository orderRepository = PersistenceContext.repositories().order();
-    private static final AGVRepository agvRepository = PersistenceContext.repositories().agv();
+    private static final AGVRepository agvRepository = PersistenceContext.repositories().agvs();
 
     public static Iterable<Order> readyOrders() {
         return orderRepository.readyOrders();
