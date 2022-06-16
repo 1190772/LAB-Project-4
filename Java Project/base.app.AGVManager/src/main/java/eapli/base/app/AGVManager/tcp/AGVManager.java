@@ -1,8 +1,12 @@
 package eapli.base.app.AGVManager.tcp;
 
+import javax.net.ssl.SSLServerSocket;
+import javax.net.ssl.SSLServerSocketFactory;
+import javax.net.ssl.SSLSocket;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.HashMap;
@@ -36,7 +40,42 @@ public class AGVManager {
 
 
     public void run() throws Exception {
-        //   Server server = Server.createTcpServer().start();
+
+        Socket cliSock;
+        SSLServerSocket sslServerSocket = null;
+        SSLSocket sslSocket = null;
+
+        //Security.addProvider(new Provider());
+
+        //specifing the keystore file which contains the certificate/public key and the private key
+        System.setProperty("javax.net.ssl.keyStore","myKeyStore1.jks");
+        //specifing the password of the keystore file
+        System.setProperty("javax.net.ssl.keyStorePassword","123456");
+
+        try {
+            // SSLServerSocketFactory establishes the ssl context and creates SSLServerSocket
+            SSLServerSocketFactory sslServerSocketFactory = (SSLServerSocketFactory) SSLServerSocketFactory.getDefault();
+            //Create SSLServerSocket using SSLServerSocketFactory established ssl context
+            sslServerSocket = (SSLServerSocket) sslServerSocketFactory.createServerSocket(9999);
+
+            System.out.println("AGVManager is Running!");
+
+
+
+            //sock = new ServerSocket(9999);
+
+        }
+        catch(IOException ex) {
+            System.out.println("Failed to open server socket"); System.exit(1);
+        }
+        while(true) {
+            //Wait for the SSL client to connect to this server
+            sslSocket = (SSLSocket) sslServerSocket.accept();
+            new Thread(new TcpChatSrvClient(sslSocket)).start();
+        }
+
+    }
+        /*//   Server server = Server.createTcpServer().start();
         Socket cliSock;
         int i;
 
@@ -52,7 +91,7 @@ public class AGVManager {
         try {
             serverSocket = new ServerSocket(32507); //new ServerSocket(port);
             // serverSocket.setNeedClientAuth(true);
-            System.out.printf("AGVManager is Running!");
+            System.out.println("AGVManager is Running!");
         } catch (IOException ex) {
             System.out.println("Local port number not available.");
             System.exit(1);
@@ -65,7 +104,7 @@ public class AGVManager {
             cli.start();
         }
         //server.stop();
-    }
+    }*/
 }
 
 
@@ -97,8 +136,12 @@ class TcpChatSrvClient extends Thread {
     public void run() {
         int nChars;
         byte[] data = new byte[500];
-        System.out.printf("AGVManager is Running!");
+        InetAddress clientIP;
+
         try {
+            clientIP = myS.getInetAddress();
+            System.out.println("New client connection from " + clientIP.getHostAddress() + " , port number: " + myS.getPort());
+
             sIn = new DataInputStream(myS.getInputStream());
             while (true) {
                 nChars = sIn.read();
