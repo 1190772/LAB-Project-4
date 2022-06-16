@@ -130,6 +130,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
         return id;
     }
 
-
-
+    public Customer getCustomer() {
+        return customer;
+    }
 }

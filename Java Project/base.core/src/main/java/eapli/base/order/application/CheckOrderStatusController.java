@@ -1,5 +1,8 @@
 package eapli.base.order.application;
 
+import eapli.base.customer.domain.model.Customer;
+import eapli.base.customer.domain.model.Email;
+import eapli.base.customer.repositories.CustomerRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.order.domain.model.Order;
 import eapli.base.order.repositories.OrderRepository;
@@ -12,15 +15,15 @@ import java.util.List;
 public class CheckOrderStatusController {
 
     private final OrderRepository orderRepository = PersistenceContext.repositories().order();
+    private final CustomerRepository customerRepository = PersistenceContext.repositories().customers();
     private final AuthorizationService authz = AuthzRegistry.authorizationService();
+    private final String emailCustomer = authz.session().get().authenticatedUser().email().toString();
+    private final Customer customer = (Customer) customerRepository.findCustomerByEmail(emailCustomer);
 
-    public List<Order> checkOrderStatus(long id){
+    public Iterable<Order> checkOrderStatus(long id){
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.CUSTOMER);
-        while(orderRepository.containsOfIdentity(id)){
-            System.out.println(orderRepository);
-        }
-
+        Iterable<Order> order = orderRepository.findAll();
+        return order;
     }
-
 
 }
