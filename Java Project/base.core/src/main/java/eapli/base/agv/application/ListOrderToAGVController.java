@@ -5,6 +5,7 @@ import eapli.base.agv.domain.model.AGV;
 import eapli.base.agv.domain.model.AGVStatus;
 import eapli.base.order.domain.model.Order;
 import eapli.base.order.domain.model.OrderStatus;
+import jdk.swing.interop.SwingInterOpUtils;
 
 public class ListOrderToAGVController {
 
@@ -36,10 +37,12 @@ public class ListOrderToAGVController {
         if ((agv==null) || (agv.getMaxWeight().doubleValue()<order.getWeight().doubleValue()))
             return false;
 
-        order.changeStatus(OrderStatus.BEING_PREPARED);
+        System.out.println(agv.toString());
+        return true;
+        /*order.changeStatus(OrderStatus.BEING_PREPARED);
         agv.setOrderBeingPrepared(order);
         ListOrderToAGVService.saveOrder(order);
         ListOrderToAGVService.saveAGV(agv);
-        return agv.isOccupied();
+        return agv.isOccupied();*/
     }
 }

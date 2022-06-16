@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface AGVRepository extends DomainRepository<Long, AGV> {
 
-    Iterable<AGV> readyAGVs();
+    Iterable<AGV> capableAGVs();
 
     Optional<AGV> findAGVById(Long id);
 

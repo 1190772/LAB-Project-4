@@ -6,11 +6,15 @@ import eapli.base.agv.domain.model.AGV;
 import eapli.base.order.domain.model.Order;
 import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.TypedQuery;
 import java.util.Map;
 import java.util.Optional;
 
+@Repository
+@Transactional
 public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> implements AGVRepository {
 
     private static final String NOT_SUPPORTED = "This feature is not yet supported";
@@ -28,7 +32,7 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
         super(persistenceUnitName, properties, identityFieldName);
     }
     @Override
-    public Iterable<AGV> readyAGVs(){
+    public Iterable<AGV> capableAGVs(){
         return match("e.status=0");
     }
 

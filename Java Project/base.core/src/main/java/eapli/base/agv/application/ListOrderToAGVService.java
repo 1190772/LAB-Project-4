@@ -16,7 +16,7 @@ public class ListOrderToAGVService {
     }
 
     public static Iterable<AGV> capableAGVs() {
-        return agvRepository.readyAGVs();
+        return agvRepository.capableAGVs();
     }
 
     public static Order findOrderById(Long id) {
