@@ -19,9 +19,9 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
     protected boolean doShow() {
         Iterable<Order> it= theController.getReadyOrders();
         System.out.println("Orders Ready to be prepared By an AGV: \n");
+        System.out.println("#  Customer ID      Price               Status              Order ID");
         for (Order o : it) {
-            System.out.println("#  Customer ID      Price               Status              Order ID");
-            System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
+            System.out.printf("%-20s%-20s%-20s%-4s\n", o.customerId(), o.price(), o.status(),
                     o.id());
         }
         System.out.println("\n\n");
@@ -45,9 +45,9 @@ public class ListOrderToAGVUI extends AbstractListUI<Order> {
 
             it= theController.getReadyOrders();
             System.out.println("Orders Ready to be prepared By an AGV: \n");
+            System.out.println("#  Customer ID      Price               Status              Order ID");
             for (Order o : it) {
-                System.out.println("#  Customer ID      Price               Status              Order ID");
-                System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
+                System.out.printf("%-20s%-20s%-20s%-4s1n", o.customerId(), o.price(), o.status(),
                         o.id());
             }
             System.out.println("\n\n");
