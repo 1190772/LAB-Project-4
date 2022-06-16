@@ -43,6 +43,6 @@ public class ListOrderToAGVController {
         agv.setOrderBeingPrepared(order);
         ListOrderToAGVService.saveOrder(order);
         ListOrderToAGVService.saveAGV(agv);
-        return agv.isOccupied();
+        return ((agv.isOccupied())&&(order.status()==OrderStatus.BEING_PREPARED)&&(agv.getOrderBeingPrepared().equals(order)));
     }
 }
