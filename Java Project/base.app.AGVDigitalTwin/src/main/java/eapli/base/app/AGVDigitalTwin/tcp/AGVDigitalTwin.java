@@ -5,6 +5,8 @@ import eapli.base.agv.repositories.InfoRepository;
 import eapli.base.agv.domain.model.Info;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
 import java.io.*;
 import java.net.InetAddress;
 import java.net.Socket;
@@ -24,22 +26,66 @@ public class AGVDigitalTwin {
     private static final byte REJEITADO = 9;
     private static final byte DASHBOARD = 10;
 
-    static InetAddress serverIP;
+    //static InetAddress serverIP;
     //static SSLSocket sock;
     static Socket sock;
     static final String TRUSTED_STORE = "KEYS/portalUtilizador.jks";
     static final String PASS = "1234567";
 
+    static InetAddress serverIP;
+    static SSLSocket sslSocket;
 
     public static void main(String[] args) throws IOException, InterruptedException {
 
+        //specifing the trustStore file which contains the certificate & public of the server
+        System.setProperty("javax.net.ssl.trustStore","myTrustStore1.jts");
+        //specifing the password of the trustStore file
+        System.setProperty("javax.net.ssl.trustStorePassword","123456");
 
 
 
-            byte[] data = new byte[300];
+        if(args.length!=1) {
+            System.out.println("Server IPv4/IPv6 address or DNS name is required");
+            System.exit(1); }
+
+        try {
+            serverIP = InetAddress.getByName(args[0]);
+        }
+        catch(UnknownHostException ex) {
+            System.out.println("Invalid server specified: " + args[0]);
+            System.exit(1); }
+
+        try {
+
+            //SSLSSocketFactory establishes the ssl context and and creates SSLSocket
+            SSLSocketFactory sslsocketfactory = (SSLSocketFactory)SSLSocketFactory.getDefault();
+            //Create SSLSocket using SSLServerFactory already established ssl context and connect to server
+            sslSocket = (SSLSocket)sslsocketfactory.createSocket(serverIP,9999);
+
+            //sock = new Socket(serverIP, 9999);
+        }
+        catch(IOException ex) {
+            System.out.println("Failed to establish TCP connection");
+            System.exit(1); }
+
+
+        System.out.println("Connected to: " + serverIP.getHostAddress());
+
+        BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
+        //Create OutputStream to send message to server
+        DataOutputStream sOutData = new DataOutputStream(sslSocket.getOutputStream());
+        //Create InputStream to read messages send by the server
+        DataInputStream sInData = new DataInputStream(sslSocket.getInputStream());
 
 
 
+        byte[] data = new byte[300];
+        Thread serverConn;
+        int opcao = 2;
+        Object idPedido = 1;
+
+/*
             if(args.length!=1) {
                 System.out.println(
                         "Server IPv4/IPv6 address or DNS name is required as argument");
@@ -56,16 +102,16 @@ public class AGVDigitalTwin {
             // SSLSocketFactory sf = (SSLSocketFactory) SSLSocketFactory.getDefault();
 
             try {
-                serverIP = InetAddress.getByName("localhost");
+                serverIP = InetAddress.getByName(args[0]);
             } catch (UnknownHostException ex) {
                 System.out.println("Invalid server: localhost");
                 System.exit(1);
             }
 
             try {
-                sock = new Socket(serverIP, 32507);//sf.createSocket(serverIP, 32507);
+                sock = new Socket(serverIP, 9999);//sf.createSocket(serverIP, 32507);
             } catch (Exception ex) {
-                System.out.println("Failed to connect11111.");
+                System.out.println("Failed to connect.");
                 System.exit(1);
             }
 
@@ -81,26 +127,36 @@ public class AGVDigitalTwin {
             serverConn.start();
 
 
+
+
+        while(true) {
+            //Wait for the SSL client to connect to this server
+            sslSocket.startHandshake();
+            serverConn =  new Thread(new TcpChatCliConn(sslSocket));
+
+
+
         if (opcao == 1) {
                 data[0] = VERSION;
                 data[1] = DASHBOARD;
                 data[2] = (Byte.SIZE / 8);
                 // data[3] = (byte) uniqueID;
-                sOut.write(data.length);
-                sOut.write(data, 0, data.length);
+                sOutData.write(data.length);
+                sOutData.write(data, 0, data.length);
             }
             if (opcao == 2) {
                 data[0] = VERSION;
                 data[1] = ATUALIZAR_PEDIDO;
                 data[2] = (Byte.SIZE / 8);
                 data[3] = (byte) idPedido;
-                sOut.write(data.length);
-                sOut.write(data, 0, data.length);
+                sOutData.write(data.length);
+                sOutData.write(data, 0, data.length);
             }
 
             serverConn.join();
             sock.close();
-
+        }
+*/
     }
 
 
