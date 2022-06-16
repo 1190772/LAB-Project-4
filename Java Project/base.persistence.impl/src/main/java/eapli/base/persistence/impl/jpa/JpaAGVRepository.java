@@ -8,6 +8,7 @@ import eapli.framework.domain.repositories.TransactionalContext;
 import eapli.framework.infrastructure.repositories.impl.jpa.JpaAutoTxRepository;
 
 import javax.persistence.TypedQuery;
+import java.util.Map;
 import java.util.Optional;
 
 public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> implements AGVRepository {
@@ -23,6 +24,9 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
         super(persistenceUnitName, Application.settings().getExtendedPersistenceProperties(), "id");
     }
 
+    public JpaAGVRepository(String persistenceUnitName, Map properties, String identityFieldName) {
+        super(persistenceUnitName, properties, identityFieldName);
+    }
     @Override
     public Iterable<AGV> readyAGVs(){
         return match("e.status=0");

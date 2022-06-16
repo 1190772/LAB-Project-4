@@ -27,8 +27,8 @@ public class ListOrderToAGVService {
             else
                 return null;
         } catch (Exception e) {
+            return null;
         }
-        return null;
     }
 
     public static AGV findAGVById(Long id) {
@@ -39,8 +39,8 @@ public class ListOrderToAGVService {
             else
                 return null;
         } catch (Exception e) {
+            return null;
         }
-        return null;
     }
 
     public static void saveOrder(Order o) {
