@@ -16,5 +16,10 @@ public class InMemoryCustomerRepository extends InMemoryDomainRepository<Custome
         return null;
     }
 
+    @Override
+    public Iterable<Customer> findCustomerByEmail(String email) {
+        return null;
+    }
+
 
 }

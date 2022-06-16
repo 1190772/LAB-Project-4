@@ -31,4 +31,13 @@ class JpaCustomerRepository extends JpaAutoTxRepository<Customer, Long, Long> im
 
         return query.getResultList();
     }
+
+    @Override
+    public Iterable<Customer> findCustomerByEmail(String email) {
+        final TypedQuery<Customer> query = entityManager().createQuery(
+                "SELECT c FROM Customer c WHERE c.email = :email",
+                Customer.class);
+        query.setParameter("email", email);
+        return query.getResultList();
+    }
 }

@@ -52,4 +52,12 @@ public class Barcode implements ValueObject, Comparable<Barcode> {
     public String toString() {
         return Long.toString(this.barcode);
     }
+
+    public long getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(long barcode) {
+        this.barcode = barcode;
+    }
 }

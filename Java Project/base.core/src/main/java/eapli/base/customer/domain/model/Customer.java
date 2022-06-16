@@ -258,5 +258,9 @@ public class Customer implements AggregateRoot<Long>, Comparable<Long> {
     public Long identity() {
         return id;
     }
+
+    public CustomerDTO toDTO() {
+        return new CustomerDTO( id,  name.toString(), vatId.toString(), birthdate.birthDate(), phoneNumber.toString(), email.toString(), address.toString(), gender.toString());
+    }
 }
 

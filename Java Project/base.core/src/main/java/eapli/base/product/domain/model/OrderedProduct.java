@@ -34,4 +34,8 @@ public class OrderedProduct {
     public int getQuantity() {
         return quantity;
     }
+
+    public OrderedProductDTO toDTO() {
+        return new OrderedProductDTO(product.toDTO(), quantity);
+    }
 }

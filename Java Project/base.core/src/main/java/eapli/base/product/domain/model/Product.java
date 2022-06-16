@@ -4,6 +4,7 @@ import eapli.base.category.domain.model.Category;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.domain.model.DomainEntities;
 import eapli.framework.validations.Preconditions;
+import org.springframework.security.core.parameters.P;
 
 import javax.persistence.*;
 import java.util.Collections;
@@ -323,6 +324,10 @@ public class Product implements AggregateRoot<InternalCode>, Comparable<Internal
             throw new IllegalArgumentException();
         }
         this.mesurements = mesurements;
+    }
+
+    public ProductDTO toDTO() {
+        return new ProductDTO(productCategory.toDTO(), internalCode.toString(), shortDescription.toString(), extendedDescription.toString(), technicalDescription.toString(), brand.toString(), reference.toString(), productionCode.toString(), barcode.getBarcode(), priceWithTaxes.priceValue(), priceWithoutTaxes.priceValue(), mesurements.getWidth(), mesurements.getLength(), mesurements.getHeight(),mesurements.getWeight(), productStatus);
     }
 
     /**

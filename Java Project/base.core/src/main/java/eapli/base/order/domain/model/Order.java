@@ -2,10 +2,7 @@ package eapli.base.order.domain.model;
 
 import eapli.base.customer.domain.model.Address;
 import eapli.base.customer.domain.model.Customer;
-import eapli.base.product.domain.model.Brand;
-import eapli.base.product.domain.model.OrderedProduct;
-import eapli.base.product.domain.model.Price;
-import eapli.base.product.domain.model.ProductsList;
+import eapli.base.product.domain.model.*;
 import eapli.framework.domain.model.AggregateRoot;
 import eapli.framework.general.domain.model.EmailAddress;
 
@@ -132,5 +129,11 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
 
     public Customer getCustomer() {
         return customer;
+    }
+
+    public OrderDTO toDTO() {
+        List<OrderedProductDTO> result = new LinkedList<>();
+        listOfOrders.forEach(lo -> result.add(lo.toDTO()));
+        return new OrderDTO(id, result, priceWithoutTaxes.priceValue(), priceWithTaxes.priceValue(), creationDate, email.toString(), address.toString(), status, weight, customer.toDTO());
     }
 }

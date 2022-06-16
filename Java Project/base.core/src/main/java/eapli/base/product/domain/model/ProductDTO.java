@@ -4,6 +4,10 @@ import eapli.base.category.domain.model.CategoryDTO;
 
 public class ProductDTO {
 
+    public double width;
+    public double length;
+    public double weight;
+    public double height;
     public CategoryDTO category;
     public String internalCode;
     public String shortDescription;
@@ -15,11 +19,12 @@ public class ProductDTO {
     public long barcode;
     public double priceWithTaxes;
     public double priceWithoutTaxes;
-    public double mesurements;
     public boolean productStatus;
 
-    public ProductDTO(CategoryDTO category, String internalCode, String shortDescription, String extendedDescription, String technicalDescription, String brand, String reference,
-                      String productionCode, long barcode, double priceWithTaxes, double priceWithoutTaxes, double mesurements, boolean productStatus) {
+
+
+    public ProductDTO(CategoryDTO category, String internalCode, String shortDescription, String extendedDescription, String technicalDescription, String brand, String reference, String productionCode, long barcode,
+                      Double priceWithTaxes, Double priceWithoutTaxes, Double width, Double length, Double height, Double weight, boolean productStatus) {
         this.category = category;
         this.internalCode = internalCode;
         this.shortDescription = shortDescription;
@@ -31,7 +36,10 @@ public class ProductDTO {
         this.barcode = barcode;
         this.priceWithTaxes = priceWithTaxes;
         this.priceWithoutTaxes = priceWithoutTaxes;
-        this.mesurements = mesurements;
         this.productStatus = productStatus;
+        this.width = width;
+        this.length = length;
+        this.weight = weight;
+        this.height = height;
     }
 }

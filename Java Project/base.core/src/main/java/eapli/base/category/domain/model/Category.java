@@ -106,5 +106,9 @@ public class Category implements AggregateRoot<AlphaNumericCode>{
     public void changeDescriptionTo(Description descricao) {
         this.description = descricao;
     }
+
+    public CategoryDTO toDTO() {
+        return new CategoryDTO(alphaNumericCode().toString(), description.toString());
+    }
 }
 
