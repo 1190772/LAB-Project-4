@@ -14,8 +14,8 @@ import java.util.HashMap;
 public class AGVManager {
     private static HashMap<Socket, DataOutputStream> cliList = new HashMap<>();
 
-    static final String TRUSTED_STORE = "KEYS/avgManager.jks";
-    static final String PASS = "1234567";
+    static final String TRUSTED_STORE = "myKeyStore1.jks";
+    static final String PASSWORD = "123456";
 
     public static synchronized void sendToAll(int len, byte[] data) throws Exception {
         for (DataOutputStream cOut : cliList.values()) {
@@ -48,9 +48,13 @@ public class AGVManager {
         //Security.addProvider(new Provider());
 
         //specifing the keystore file which contains the certificate/public key and the private key
-        System.setProperty("javax.net.ssl.keyStore","myKeyStore1.jks");
+        System.setProperty("javax.net.ssl.keyStore",TRUSTED_STORE);
         //specifing the password of the keystore file
-        System.setProperty("javax.net.ssl.keyStorePassword","123456");
+        System.setProperty("javax.net.ssl.keyStorePassword",PASSWORD);
+
+        //Use this certificate and private key for client certificate when requested by the server
+        System.setProperty("javax.net.ssl.trustStore", TRUSTED_STORE);
+        System.setProperty("javax.net.ssl.trustStorePassword", PASSWORD);
 
         try {
             // SSLServerSocketFactory establishes the ssl context and creates SSLServerSocket
