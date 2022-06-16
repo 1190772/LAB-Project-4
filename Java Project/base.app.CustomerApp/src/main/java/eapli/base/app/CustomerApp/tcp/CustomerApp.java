@@ -15,15 +15,20 @@ public class CustomerApp {
 
     static InetAddress serverIP;
     static SSLSocket sslSocket;
+    static final String TRUSTED_STORE = "myTrustStore.jts";
+    static final String PASSWORD = "123456";
 
 
     public static void main(String[] args) throws Exception{
 
         //specifing the trustStore file which contains the certificate & public of the server
-        System.setProperty("javax.net.ssl.trustStore","myTrustStore.jts");
+        System.setProperty("javax.net.ssl.trustStore", TRUSTED_STORE);
         //specifing the password of the trustStore file
-        System.setProperty("javax.net.ssl.trustStorePassword","123456");
+        System.setProperty("javax.net.ssl.trustStorePassword", PASSWORD);
 
+        //Use this certificate and private key for client certificate when requested by the server
+        System.setProperty("javax.net.ssl.keyStore", TRUSTED_STORE);
+        System.setProperty("javax.net.ssl.keyStorePassword", PASSWORD);
 
 
         if(args.length!=1) {

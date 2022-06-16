@@ -29,8 +29,8 @@ public class AGVDigitalTwin {
     //static InetAddress serverIP;
     //static SSLSocket sock;
     static Socket sock;
-    static final String TRUSTED_STORE = "KEYS/portalUtilizador.jks";
-    static final String PASS = "1234567";
+    static final String TRUSTED_STORE = "myTrustStore1.jts";
+    static final String PASSWORD = "123456";
 
     static InetAddress serverIP;
     static SSLSocket sslSocket;
@@ -38,10 +38,13 @@ public class AGVDigitalTwin {
     public static void main(String[] args) throws IOException, InterruptedException {
 
         //specifing the trustStore file which contains the certificate & public of the server
-        System.setProperty("javax.net.ssl.trustStore","myTrustStore1.jts");
+        System.setProperty("javax.net.ssl.trustStore",TRUSTED_STORE);
         //specifing the password of the trustStore file
-        System.setProperty("javax.net.ssl.trustStorePassword","123456");
+        System.setProperty("javax.net.ssl.trustStorePassword",PASSWORD);
 
+        //Use this certificate and private key for client certificate when requested by the server
+        System.setProperty("javax.net.ssl.keyStore", TRUSTED_STORE);
+        System.setProperty("javax.net.ssl.keyStorePassword", PASSWORD);
 
 
         if(args.length!=1) {
