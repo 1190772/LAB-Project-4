@@ -6,7 +6,7 @@ title SD - Update Order
 
         actor "Sales Clerk" as sc
 		participant ":UpdateOrderToBeingDeliveredUI" as ui
-		participant ":UpdateOrderController" as ctrl
+		participant ":UpdateOrderToBeingDeliveredController" as ctrl
 		participant ":PersistenceContext" as pc
 		participant ":RepositoryFactory" as rf
 		database ":OrderRepository" as repoPC
@@ -15,8 +15,7 @@ title SD - Update Order
 
         sc -> ui: Wishes to update an order
         activate ui
-		ui->ui:doShow()
-        		ui->ctrl:orderUpdate(orderID)
+        		ui->ctrl:ordersDispatched()
         		activate ctrl
 
         		ctrl->repoPC:orders = orderRepository.readyOrders()
@@ -29,19 +28,16 @@ title SD - Update Order
         		deactivate ui
         		sc -> ui : selects the order to update
         		activate ui
-        		ui->ctrl: findOrderByID(orderID)
+        		ui->ctrl: orderUpdate(orderID)
         		activate ctrl
         		ctrl -> repoPC: findOrderByID(orderID)
         		activate repoPC
         		repoPC->ctrl: order
         		deactivate repoPC
 
-
-        		ctrl->ctrl: orderUpdate(orderID)
         		ctrl -> prod : changeStatus(OrderStatus.DELIVERED)
         		activate prod
         		deactivate prod
-
 
         		ctrl->repoPC:save(orderUpdate)
         		activate repoPC

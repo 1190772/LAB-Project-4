@@ -17,8 +17,7 @@ public class UpdateOrderToBeingDeliveredController {
 
         public Iterable<Order> ordersDispatched(){
             authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.SALES_CLERK);
-            final Iterable<Order> orders = orderRepository.dispatchedOrders();
-            return StreamSupport.stream(orders.spliterator(),true).collect(Collectors.toUnmodifiableList());
+            return orderRepository.dispatchedOrders();
         }
 
         public void orderUpdate(Long id){
