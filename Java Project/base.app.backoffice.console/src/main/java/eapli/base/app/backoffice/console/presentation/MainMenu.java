@@ -32,6 +32,7 @@ import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerA
 import eapli.base.app.backoffice.console.presentation.order.UpdateOrderAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
+import eapli.base.app.backoffice.console.presentation.warehouse.ImportWarehouseAction;
 import eapli.base.app.backoffice.console.presentation.webdashboard.WebDashboardAction;
 import eapli.base.app.common.console.presentation.authz.MyUserMenu;
 import eapli.base.Application;
@@ -97,7 +98,7 @@ public class MainMenu extends AbstractUI {
     private static final int OPEN_WEB_DASHBOARD = 2;
     private static final int ASSIGN_ORDER = 3;
     private static final int CHANGE_ORDER_TO_DELIVERED_OPTION = 4;
-    private static final int SET_UP_WAREHOUSE_PLANT_OPTION = 5;
+    private static final int IMPORT_WAREHOUSE_PLANT = 5;
 
 
     // MAIN MENU
@@ -231,7 +232,7 @@ public class MainMenu extends AbstractUI {
         menu.addItem(OPEN_WEB_DASHBOARD, "Web Warehouse Dashboard", new WebDashboardAction());
         menu.addItem(ASSIGN_ORDER, "Assign Order to AGV", new ListOrderToAGVAction());
         menu.addItem(CHANGE_ORDER_TO_DELIVERED_OPTION, "Change a Client Order Status", new UpdateOrderAction());
-        //menu.addItem(SET_UP_WAREHOUSE_PLANT_OPTION, "Set Up Warehouse Plant", new ConfigureAGVAction());
+        menu.addItem(IMPORT_WAREHOUSE_PLANT, "Import Warehouse Plant", new ImportWarehouseAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
