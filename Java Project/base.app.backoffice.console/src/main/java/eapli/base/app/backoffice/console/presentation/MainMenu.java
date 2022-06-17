@@ -27,6 +27,7 @@ import eapli.base.app.backoffice.console.presentation.SpecifyProduct.SpecifyProd
 import eapli.base.app.backoffice.console.presentation.agv.ConfigureAGVAction;
 import eapli.base.app.backoffice.console.presentation.agv.ListOrderToAGVAction;
 import eapli.base.app.backoffice.console.presentation.category.SpecifyCategoryAction;
+import eapli.base.app.backoffice.console.presentation.customer.CheckOrderStatusAction;
 import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
 import eapli.base.app.backoffice.console.presentation.order.UpdateOrderAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
@@ -81,6 +82,7 @@ public class MainMenu extends AbstractUI {
 
     // CUSTOMER MENU
     private static final int REGISTER_CUSTOMER_OPTION = 1;
+    private static final int CHECK_ORDER_STATUS_OPTION = 2;
 
     // PRODUCT MENU
     private static final int SPECIFY_PRODUCT_OPTION = 1;
@@ -204,6 +206,7 @@ public class MainMenu extends AbstractUI {
         final Menu menu = new Menu("Customer >");
 
         menu.addItem(REGISTER_CUSTOMER_OPTION, "Register Customer", new RegisterCustomerAction());
+        menu.addItem(CHECK_ORDER_STATUS_OPTION, "Check Order Status " , new CheckOrderStatusAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
