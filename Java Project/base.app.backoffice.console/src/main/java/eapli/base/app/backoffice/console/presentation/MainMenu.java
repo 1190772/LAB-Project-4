@@ -31,6 +31,7 @@ import eapli.base.app.backoffice.console.presentation.customer.CheckOrderStatusA
 import eapli.base.app.backoffice.console.presentation.customer.RegisterCustomerAction;
 import eapli.base.app.backoffice.console.presentation.order.UpdateOrderAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
+import eapli.base.app.backoffice.console.presentation.order.UpdateOrderToBeingDeliveredAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
 import eapli.base.app.backoffice.console.presentation.warehouse.ImportWarehouseAction;
 import eapli.base.app.backoffice.console.presentation.webdashboard.WebDashboardAction;
@@ -77,6 +78,7 @@ public class MainMenu extends AbstractUI {
     //Sales Clerk
     private static final int CUSTOMER_OPTION = 2;
     private static final int PRODUCT_OPTION = 3;
+    private static final int ORDER_OPTION = 4;
 
     //Warehouse Employee
     private static final int WAREHOUSE_OPTION = 2;
@@ -92,6 +94,8 @@ public class MainMenu extends AbstractUI {
     private static final int NEW_CATEGORY_OPTION = 4;
     private static final int UPDATE_ORDER_STATUS = 5;
 
+    // ORDER MENU
+    private static final int UPDATE_ORDER_TO_BEING_DELIVERED_OPTION = 1;
 
     // WAREHOUSE MENU
     private static final int CONFIG_AVG_OPTION = 1;
@@ -164,7 +168,9 @@ public class MainMenu extends AbstractUI {
             mainMenu.addSubMenu(CUSTOMER_OPTION, customerMenu);
             final Menu productMenu = buildProductMenu();
             mainMenu.addSubMenu(PRODUCT_OPTION, productMenu);
-        }
+            final Menu orderMenu = buildOrderMenu();
+            mainMenu.addSubMenu(ORDER_OPTION, orderMenu);
+            }
 
         if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.WAREHOUSE_EMPLOYEE)) {
             final Menu warehouseMenu = buildWarehouseMenu();
@@ -220,6 +226,15 @@ public class MainMenu extends AbstractUI {
         menu.addItem(SEARCH_PRODUCTS_OPTION, "View Product Catalog", new ListProductsAction());
         menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
+        menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
+
+        return menu;
+    }
+
+    private Menu buildOrderMenu() {
+        final Menu menu = new Menu("Order >");
+
+        menu.addItem(UPDATE_ORDER_TO_BEING_DELIVERED_OPTION, "Update a Order to As Being Delivered", new UpdateOrderToBeingDeliveredAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
