@@ -1,7 +1,6 @@
 package eapli.base.order.application;
 
 import eapli.base.customer.domain.model.Customer;
-import eapli.base.customer.domain.model.Email;
 import eapli.base.customer.repositories.CustomerRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 import eapli.base.order.domain.model.Order;
