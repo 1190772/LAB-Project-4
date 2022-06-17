@@ -2,10 +2,8 @@ package eapli.base.agv.application;
 
 
 import eapli.base.agv.domain.model.AGV;
-import eapli.base.agv.domain.model.AGVStatus;
 import eapli.base.order.domain.model.Order;
 import eapli.base.order.domain.model.OrderStatus;
-import jdk.swing.interop.SwingInterOpUtils;
 
 public class ListOrderToAGVController {
 
