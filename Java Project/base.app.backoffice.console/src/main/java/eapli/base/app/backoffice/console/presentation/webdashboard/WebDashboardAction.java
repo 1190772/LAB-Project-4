@@ -9,11 +9,6 @@ import java.net.URISyntaxException;
 public class WebDashboardAction implements Action {
     @Override
     public boolean execute() {
-        try {
-            return new WebDashboardUI().show();
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
-        return false;
+        return new WebDashboardUI().show();
     }
 }

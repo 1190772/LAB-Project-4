@@ -1,17 +1,27 @@
 package eapli.base.app.backoffice.console.presentation.webdashboard;
 
+import eapli.framework.presentation.console.AbstractUI;
+
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.AbstractList;
 
-public class WebDashboardUI{
+public class WebDashboardUI extends AbstractUI {
 
-    protected boolean show() throws IOException, URISyntaxException {
 
-        URI uri = new URI("http://localhost:8000/WebDashboard.html");
-        Desktop.getDesktop().browse(uri);
+    public boolean doShow() {
+
+        URI uri = null;
+        try {
+            uri = new URI("http://localhost:8000/WebDashboard.html");
+            Desktop.getDesktop().browse(uri);
+        } catch (URISyntaxException | IOException e) {
+            e.printStackTrace();
+        }
+
         /*File htmlFile = new File("WebDashboard.html");
 
         if(!htmlFile.isFile()){
@@ -22,6 +32,10 @@ public class WebDashboardUI{
         return false;
     }
 
+    @Override
+    public String headline() {
+        return null;
+    }
 
 
 }
