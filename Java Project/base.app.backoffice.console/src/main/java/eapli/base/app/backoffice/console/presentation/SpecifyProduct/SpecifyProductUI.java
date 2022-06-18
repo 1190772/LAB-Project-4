@@ -17,8 +17,8 @@ public class SpecifyProductUI extends AbstractUI {
 
     private static final Logger LOGGER = LogManager.getLogger(SpecifyProductUI.class);
 
-    @Autowired
-    private SpecifyProductController theController;
+
+    private SpecifyProductController theController = new SpecifyProductController();
 
     @Override
     protected boolean doShow() {
