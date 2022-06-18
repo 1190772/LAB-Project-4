@@ -30,6 +30,7 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     @Column(name = "PriceWithTaxes")
     private Price priceWithTaxes;
 
+    @Temporal(TemporalType.DATE)
     private Date creationDate;
 
     @Embedded
@@ -101,10 +102,17 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
     public Price price() { return priceWithTaxes;
     }
 
+    public Date getDate() {
+        return creationDate;
+    }
+
     public OrderStatus status() { return status;
     }
 
     public void changeStatus(OrderStatus s){
+        if (s == null) {
+            throw new IllegalArgumentException();
+        }
         this.status=s;
     }
 
