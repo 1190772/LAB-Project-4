@@ -1,0 +1,26 @@
+@startuml
+
+participant AGV_DIGITAL_TWIN <<client>>
+
+AGV_DIGITAL_TWIN -> AVG_MANAGER : new
+loop true
+AGV_DIGITAL_TWIN -> AVG_MANAGER: start
+Activate AVG_MANAGER
+AGV_DIGITAL_TWIN -> AVG_MANAGER: accept
+
+AGV_DIGITAL_TWIN --> AVG_MANAGER
+
+participant HandleClient <<thread>>
+activate HandleClient
+AVG_MANAGER -\ HandleClient: start
+deactivate AVG_MANAGER
+end
+
+HandleClient -> SPOMSMenssage:parse
+HandleClient -> HandleClient: execute
+HandleClient -> SPOMSMenssage:build
+
+HandleClient --> AGV_DIGITAL_TWIN
+deactivate HandleClient
+
+@enduml
