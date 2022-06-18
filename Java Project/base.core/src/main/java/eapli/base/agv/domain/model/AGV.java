@@ -33,6 +33,10 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
     AGVStatus status;
 
 
+    private Long positionX;
+
+    private Long positionY;
+
     @OneToOne
     @Nullable
     @JoinColumn(name = "order_id")
@@ -110,6 +114,21 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
         this.changeStatus(AGVStatus.FREE);
     }
 
+    public Long PositionX() {
+        return positionX;
+    }
+
+    public void changePositionX(Long positionX) {
+        this.positionX = positionX;
+    }
+
+    public Long PositionY() {
+        return positionY;
+    }
+
+    public void changePositionY(Long positionY) {
+        this.positionY = positionY;
+    }
 
     public void acceptTask(Info tarefa) {
         tasks.add(tarefa);
