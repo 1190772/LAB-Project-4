@@ -1,4 +1,5 @@
 var agv = document.getElementById("agv");
+var agvPos = document.getElementById("agvPos");
 /*function loadDoc() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -15,19 +16,37 @@ var agv = document.getElementById("agv");
 function loadJSON(){
     $.getJSON("AGV.json", function (json){
         console.log(json)
-        renderHtml(json);
+        renderStatus(json);
+        renderPos(json);
     })
 }
 
-function renderHtml(data){
+function renderStatus(data){
     var htmlString = "";
 
     for (i = 0; i < data.length; i++){
         var status = stat(data[i].STATUS);
-        htmlString += "<p> AGV with ID " + data[i].ID + " is " + status;
+        if(data[i].STATUS === 2){
+            htmlString += "<p> AGV with ID " + data[i].ID + " is " + status + " with the order of ID " + data[i].ORDER_ID;
+        }else{
+            htmlString += "<p> AGV with ID " + data[i].ID + " is " + status;
+        }
+
+
     }
 
     agv.insertAdjacentHTML("beforeend", htmlString);
+}
+
+function renderPos(data){
+    var htmlString = "";
+
+    for (i = 0; i < data.length; i++){
+            htmlString += "<p> AGV with ID " + data[i].ID + " is position (" + data[i].POSITIONX + ", " + data[i].POSITIONY + ") ";
+
+    }
+
+    agvPos.insertAdjacentHTML("beforeend", htmlString);
 }
 
 function stat(status){
@@ -46,7 +65,7 @@ function updateJSON(){
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            document.getElementById("update").innerHTML = this.responseURL;
+            document.getElementById("agv").innerHTML = this.responseURL;
         }
     };
 

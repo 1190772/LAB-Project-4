@@ -3,8 +3,10 @@
     "ID": 1,
     "AUTONOMY": 300,
     "SHTDESCRIPTION": "An AGV",
-    "MAXWEIGHT": 170,
-    "AGVMODEL": "20",
+    "MAXWEIGHT": 200,
+    "AGVMODEL": "190",
+    "POSITIONX": 30,
+    "POSITIONY": 10,
     "STATUS": 0,
     "ORDER_ID": null
   },
@@ -12,27 +14,33 @@
     "ID": 2,
     "AUTONOMY": 300,
     "SHTDESCRIPTION": "An AGV",
-    "MAXWEIGHT": 80,
-    "AGVMODEL": "120",
+    "MAXWEIGHT": 100,
+    "AGVMODEL": "200",
+    "POSITIONX": 14,
+    "POSITIONY": 4,
     "STATUS": 0,
     "ORDER_ID": null
   },
   {
     "ID": 3,
-    "AUTONOMY": 300,
+    "AUTONOMY": 0,
     "SHTDESCRIPTION": "An AGV",
     "MAXWEIGHT": 200,
-    "AGVMODEL": "100",
+    "AGVMODEL": "230",
+    "POSITIONX": 0,
+    "POSITIONY": 0,
     "STATUS": 1,
     "ORDER_ID": null
   },
   {
     "ID": 4,
-    "AUTONOMY": 300,
+    "AUTONOMY": 290,
     "SHTDESCRIPTION": "An AGV",
     "MAXWEIGHT": 300,
-    "AGVMODEL": "50",
+    "AGVMODEL": "400",
+    "POSITIONX": 24,
+    "POSITIONY": 12,
     "STATUS": 2,
-    "ORDER_ID": 1
+    "ORDER_ID": 2
   }
 ]
