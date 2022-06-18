@@ -1,189 +1,98 @@
 package eapli.base.agv.application;
 
+import eapli.base.agv.domain.model.AGV;
+import eapli.base.agv.domain.model.Priority;
+import eapli.base.agv.domain.model.Status;
+import eapli.base.agv.domain.model.Task;
 import eapli.base.agv.repositories.AGVRepository;
-import eapli.base.agv.repositories.AutomaticTaskRepository;
-import eapli.base.agv.repositories.InfoRepository;
-import eapli.base.agv.domain.model.*;
+import eapli.base.agv.repositories.TaskRepository;
+import eapli.base.customer.PasswordGenerator.PasswordGenerator;
 import eapli.base.infrastructure.persistence.PersistenceContext;
+import eapli.base.order.domain.model.Order;
+import eapli.base.order.domain.model.OrderStatus;
+import eapli.base.order.repositories.OrderRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class AutomaticTaskController {
 
 
-    private final InfoRepository infoTarefaRepository = PersistenceContext.repositories().info();
-    private final AutomaticTaskRepository tarefaAutomaticaRepository = PersistenceContext.repositories().automaticTask();
     private final AGVRepository executorTarefasRepository = PersistenceContext.repositories().agv();
+    private final TaskRepository taskRepository = PersistenceContext.repositories().tasks();
+    private final OrderRepository orderRepository = PersistenceContext.repositories().order();
 
-    public List<Info> listarTarefasAutomaticasPorAtribuir(){
-        List<Info> tarefas = (List<Info>) infoTarefaRepository.findAll();
-        List<AutomaticTask> tarefasAutomaticas = (List<AutomaticTask>) tarefaAutomaticaRepository.findAll();
-        List<Info> listaFinal = new ArrayList<>();
-        for(Info it : tarefas){
-            for(AutomaticTask ta : tarefasAutomaticas){
-                if(it.getTask().getId()==ta.getId()){
-                    if(it.getStatus()== Status.NOT_STARTED){
-                        listaFinal.add(it);
-                    }
-                }
+
+    public List<AGV> AvailableAGVs() { //Verificar se os robots tao ativos
+        List<AGV> executores = (List<AGV>) executorTarefasRepository.allActiveAGV();
+        List<AGV> usableAGVs = new ArrayList<>();
+        for (AGV agv1 : executores) {
+            if (agv1.isInUse()) {
+                usableAGVs.add(agv1);
             }
         }
-        return listaFinal;
-    }
-
-    public List<AGV> obterExecutoresDisponiveisPorOrdemId(){
-        List<AGV> executores = (List<AGV>) executorTarefasRepository.findAll();
-        executores.sort(new Comparator<AGV>() {
+        Collections.sort(usableAGVs, new Comparator<AGV>() {
             @Override
             public int compare(AGV et1, AGV et2) {
-                return (int) (et1.identity() - et2.identity());
+                return (int) (et1.getId() - et2.getId());
             }
         });
-        return executores;
+        return usableAGVs;
     }
 
-    public List<Info> fcfs() {
 
-        List<Info> tarefasPorAtribuir = listarTarefasAutomaticasPorAtribuir();
-        Collections.sort(tarefasPorAtribuir, new Comparator<Info>() {
+    public List<Order> OrderList() {
+        List<Order> orders = (List<Order>) orderRepository.findAll();
+        List<Order> orderList = new ArrayList<>();
+        for (Order order : orders) {
+            orderList.add(order);
+            // order.changeOrderStatus(OrderStatus.BEING_PREPARED,);
+        }
+        return orderList;
+    }
+
+    public List<Order> fifo() {
+        List<Order> ordersToDo = OrderList();
+        Collections.sort(ordersToDo, new Comparator<Order>() {
             @Override
-            public int compare(Info it1, Info it2) {
-                return it1.getDataInicio().compareTo(it2.getDataInicio());
+            public int compare(Order it1, Order it2) {
+                return it1.getDate().compareTo(it2.getDate());
             }
         });
-        return tarefasPorAtribuir;
+        return ordersToDo;
     }
 
-    public boolean atribuirTarefas1(Info t1){
-        AGV executorEscolhido = null;
-        List<AGV> executores = obterExecutoresDisponiveisPorOrdemId();
-        if(executores.size()==0){
-            System.out.println("Não existem executores disponíveis para a tarefa"+t1.getId()+"!\n");
-            return false;
-        } else if(executores.size()==1){
-            executorEscolhido = executores.get(0);
-            System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 1, pelo facto de só haver um executor de tarefas disponível!\n", t1.getId());
-            guardarExecutorEscolhido(executorEscolhido, t1);
-            return true;
-        } else {
-            int contadorExecutoresOcupados=0;
-            for(AGV et : executores){
-                if(et.isOccupied()==true){
-                    contadorExecutoresOcupados++;
-                }
-            }
-            if(contadorExecutoresOcupados==0){
-                executorEscolhido = executores.get(0);
-                System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 1, pelo facto de nenhum executor estar ocupado!\n", t1.getId());
-                guardarExecutorEscolhido(executorEscolhido, t1);
-                return true;
-            }
 
-            if(contadorExecutoresOcupados != 0 && contadorExecutoresOcupados < executores.size()){
-                for(AGV et : executores){
-                    if(et.isOccupied()==false){
-                        executorEscolhido = et;
-                        System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 1, pelo facto do executor não estar ocupado!\n", t1.getId());
-                        guardarExecutorEscolhido(executorEscolhido, t1);
-                        return true;
-                    }
+    public List<Task> createTask() {
+        List<Order> orderList = fifo();
+        int i;
+        List<AGV> agvList = AvailableAGVs();
+        List<Task> taskList = new ArrayList<>();
+        for (i = 0; i < orderList.size(); i++) {
+            if (agvList.contains(i)) {
+                String id = PasswordGenerator.passwordGenerator();
+                Task t1 = new Task(id,agvList.get(i), orderList.get(i), Status.DOING, new Priority(0));
+                orderList.get(i).changeStatus(OrderStatus.BEING_PREPARED);
+                orderRepository.save(orderList.get(i));
+                taskList.add(t1);
+                taskRepository.save(t1);
+            } else {
+                for (int j = 0; j < agvList.size(); j++) {
+                    String id = PasswordGenerator.passwordGenerator();
+                    Task t2 = new Task(id,agvList.get(j), orderList.get(i), Status.NOT_STARTED, new Priority(0));
+                    orderList.get(i).changeStatus(OrderStatus.BEING_PREPARED);
+                    orderRepository.save(orderList.get(i));
+                    taskList.add(t2);
+                    taskRepository.save(t2);
                 }
             }
-            if(contadorExecutoresOcupados == executores.size()){
-                Date dataMaisRecenteExecutor = executores.get(0).getTasks().get(0).getDataInicio();
-                Date dataMaisAntigaGeral = dataMaisRecenteExecutor;
-                executorEscolhido = executores.get(0);
-                for(AGV et : executores){
-                    List<Info> tarefasExecutor = et.getTasks();
-                    if(et!=executores.get(0)){
-                        dataMaisRecenteExecutor = et.getTasks().get(0).getDataInicio();
-                    }
-                    for(Info it : tarefasExecutor){
-                        if(it.getDataInicio().compareTo(dataMaisRecenteExecutor)>0){
-                            dataMaisRecenteExecutor = it.getDataInicio();
-                        }
-                    }
-                    if(et==executores.get(0)){
-                        dataMaisAntigaGeral = dataMaisRecenteExecutor;
-                    }
-                    if(dataMaisRecenteExecutor.compareTo(dataMaisAntigaGeral)<0){
-                        dataMaisAntigaGeral = dataMaisRecenteExecutor;
-                        executorEscolhido = et;
-                    }
-                }
-                System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 1 a um executor!\n", t1.getId());
-                guardarExecutorEscolhido(executorEscolhido, t1);
-                return true;
-            }
-
         }
-        return true;
+
+
+        return taskList;
+
     }
-
-    public boolean atribuirTarefas2(Info t2){
-        AGV executorEscolhido = null;
-        List<AGV> executores = obterExecutoresDisponiveisPorOrdemId();
-        if(executores.size()==0){
-            System.out.println("Não existem executores disponíveis para a tarefa"+t2.getId()+"!\n");
-            return false;
-        } else if(executores.size()==1){
-            executorEscolhido = executores.get(0);
-            System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 2, pelo facto de só haver um executor de tarefas disponível!\n", t2.getId());
-            guardarExecutorEscolhido(executorEscolhido, t2);
-            return true;
-        } else {
-            int contadorExecutoresOcupados=0;
-            for(AGV et : executores){
-                if(et.isOccupied()==true){
-                    contadorExecutoresOcupados++;
-                }
-            }
-            if(contadorExecutoresOcupados==0){
-                executorEscolhido = executores.get(0);
-                System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 2, pelo facto de nenhum executor estar ocupado!\n", t2.getId());
-                guardarExecutorEscolhido(executorEscolhido, t2);
-                return true;
-            }
-
-            if(contadorExecutoresOcupados != 0 && contadorExecutoresOcupados < executores.size()){
-                for(AGV et : executores){
-                    if(et.isOccupied()==false){
-                        executorEscolhido = et;
-                        System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 2, pelo facto do executor não estar ocupado!\n", t2.getId());
-                        guardarExecutorEscolhido(executorEscolhido, t2);
-                        return true;
-                    }
-                }
-            }
-            if(contadorExecutoresOcupados == executores.size()){
-                int numeroTarefasExecutor = executores.get(0).getTasks().size();
-                executorEscolhido = executores.get(0);
-                for(AGV et : executores){
-                    if(et.getTasks().size() < numeroTarefasExecutor){
-                        numeroTarefasExecutor = et.getTasks().size();
-                        executorEscolhido = et;
-                    }
-                }
-                System.out.printf("InfoTarefa com o id %d atribuída com sucesso pela forma 2 a um executor!\n", t2.getId());
-                guardarExecutorEscolhido(executorEscolhido, t2);
-                return true;
-            }
-
-        }
-        return true;
-    }
-
-
-    public void guardarExecutorEscolhido(AGV executorEscolhido, Info infoTarefa){
-        executorEscolhido.acceptTask(infoTarefa);
-        if(executorEscolhido.isOccupied()==false){
-            executorEscolhido.changeStatus(AGVStatus.OCCUPIED);
-        }
-        infoTarefa.associateAGV(executorEscolhido);
-        infoTarefa.changeStatus(Status.ASSOCIATED);
-        executorTarefasRepository.save(executorEscolhido);
-        infoTarefaRepository.save(infoTarefa);
-    }
-
 
 }
