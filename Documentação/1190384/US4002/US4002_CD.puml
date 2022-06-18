@@ -2,14 +2,15 @@
 skinparam classAttributeIconSize 0
 
 
-Package Presentation{
-class TaskAssignUI {
-}
-}
+
 
 Package Application{
 
-class TaskAssignController {
+class AutomaticTaskController {
++List<AGV> AvailableAGVs()
++List<Order> OrderList()
++List<Order> fifo()
++List<Task> createTask()
 
 }
 }
@@ -17,14 +18,34 @@ class TaskAssignController {
 Package Domain{
 
 class Order {
-
+   -NumericID numericID;
+    -Custumer customer;
+    -ShoppingCart shoppingCart;
+    -BOP bop;
+    -ShippingMeyhd shipmentMethod;
+    -PaymentMethod paymentMethod;
+    -PriceWithShipping priceWithShipping;
+    -LocalDateTime dateTime;
+    -OrderStatus orderStatus;
 
 }
 
-class AGVFactory{
+class Task{
+ -int id
+  -Priority priority
+ -Status status
+ +Task(AGV agv,Order order,Status status , Priority priority)
 }
 
-
+class AGV{
+     -int id;
+     -Description description;
+     -Model model;
+     -MaxWeight maxWeight;
+     -Autonomy autonomy;
+     -boolean ocuppied;
+     -boolean inUse;
+}
 }
 
 
@@ -36,17 +57,30 @@ class RepositoryFactory{
 class OrderRepository{
 
 }
+class TaskRepository{
+TaskById(Integer id);
+TaskByOrder(NumericID id);
+
+}
+class AGVRepository{
+
+}
 
 
 }
 
-TaskAssignUI ..> TaskAssignController
-TaskAssignController ..> Order
-TaskAssignController ..> OrderRepository
-TaskAssignController ..> AGVFactory
-TaskAssignController ..> AGVFactory
+
+AutomaticTaskController ..> Task
+AutomaticTaskController ..> TaskRepository
+AutomaticTaskController ..> RepositoryFactory
 RepositoryFactory ..> OrderRepository
-AGVFactory..> Order
+RepositoryFactory ..> TaskRepository
+RepositoryFactory ..> AGVRepository
+OrderRepository ..> TaskRepository
+AGVRepository ..> TaskRepository
+Task ..> Order
+Task ..> AGV
+
 
 
 @enduml
