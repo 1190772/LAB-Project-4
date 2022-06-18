@@ -1,0 +1,26 @@
+@startuml use-case-realization.svg
+
+participant AVG_MANAGER <<server>>
+
+AVG_MANAGER -> BookingServer : new
+loop true
+AVG_MANAGER -> BookingServer: start
+Activate BookingServer
+AVG_MANAGER -> BookingServer: accept
+
+BackOffice --> BookingServer
+
+participant HandleClient <<thread>>
+activate HandleClient
+BookingServer -\ HandleClient: start
+deactivate BookingServer
+end
+
+HandleClient -> SPOMSMenssage:parse
+HandleClient -> HandleClient: execute
+HandleClient -> MessageBuilder:build
+
+HandleClient --> Kiosk
+deactivate HandleClient
+
+@enduml
