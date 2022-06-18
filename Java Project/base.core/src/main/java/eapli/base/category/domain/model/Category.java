@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 @Entity
-public class Category implements AggregateRoot<AlphaNumericCode>{
+public class Category implements AggregateRoot<AlphaNumericCode>, Comparable<AlphaNumericCode>{
 
     @EmbeddedId
     private AlphaNumericCode code;
