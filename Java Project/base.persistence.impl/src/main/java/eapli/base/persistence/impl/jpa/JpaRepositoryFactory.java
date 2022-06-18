@@ -22,8 +22,8 @@ package eapli.base.persistence.impl.jpa;
 
 import eapli.base.Application;
 import eapli.base.agv.repositories.AGVRepository;
-import eapli.base.agv.repositories.AutomaticTaskRepository;
 import eapli.base.agv.repositories.InfoRepository;
+import eapli.base.agv.repositories.TaskRepository;
 import eapli.base.category.repositories.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.customer.repositories.CustomerRepository;
@@ -116,17 +116,10 @@ public class JpaRepositoryFactory implements RepositoryFactory {
     }
 
     @Override
-    public InfoRepository info() {
-        return null;
-    }
+    public TaskRepository tasks() { return new JpaTaskRepository();}
 
     @Override
     public AGVRepository agv() {
-        return null;
-    }
-
-    @Override
-    public AutomaticTaskRepository automaticTask() {
         return null;
     }
 
@@ -138,6 +131,11 @@ public class JpaRepositoryFactory implements RepositoryFactory {
     @Override
     public AGVRepository agvs() {
         return new JpaAGVRepository(Application.settings().getPersistenceUnitName());
+    }
+
+    @Override
+    public InfoRepository info() {
+        return null;
     }
 
     @Override

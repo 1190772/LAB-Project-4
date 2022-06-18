@@ -21,8 +21,8 @@
 package eapli.base.persistence.impl.inmemory;
 
 import eapli.base.agv.repositories.AGVRepository;
-import eapli.base.agv.repositories.AutomaticTaskRepository;
 import eapli.base.agv.repositories.InfoRepository;
+import eapli.base.agv.repositories.TaskRepository;
 import eapli.base.category.repositories.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
@@ -114,10 +114,7 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
         return null;
     }
 
-    @Override
-    public InfoRepository info() {
-        return null;
-    }
+
 
     @Override
     public AGVRepository agv() {
@@ -125,9 +122,7 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
     }
 
     @Override
-    public AutomaticTaskRepository automaticTask() {
-        return null;
-    }
+    public TaskRepository tasks() { return new InMemoryTaskRepository();}
 
     @Override
     public AGVRepository agvs(TransactionalContext autoTx) {
@@ -136,6 +131,11 @@ public class InMemoryRepositoryFactory implements RepositoryFactory {
 
     @Override
     public AGVRepository agvs() {
+        return null;
+    }
+
+    @Override
+    public InfoRepository info() {
         return null;
     }
 
