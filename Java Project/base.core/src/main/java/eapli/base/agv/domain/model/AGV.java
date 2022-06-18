@@ -32,6 +32,7 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
     @Enumerated(EnumType.ORDINAL)
     AGVStatus status;
 
+    private boolean inUse;
 
     private Long positionX;
 
@@ -42,9 +43,7 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
     @JoinColumn(name = "order_id")
     Order orderBeingPrepared;
 
-    @Transient
-    @Nullable
-    private List<Info> tasks = new ArrayList<>();
+
 
     public AGV() {
     }
@@ -58,7 +57,9 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
         this.orderBeingPrepared=null;
     }
 
-
+    public Long getId() {
+        return agvId;
+    }
     public ShortDescription getDescription() {
         return description;
     }
@@ -85,10 +86,6 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
 
     public boolean isOccupied() {
         return status==AGVStatus.OCCUPIED;
-    }
-
-    public List<Info> getTasks() {
-        return tasks;
     }
 
     @Override
@@ -130,9 +127,6 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
         this.positionY = positionY;
     }
 
-    public void acceptTask(Info tarefa) {
-        tasks.add(tarefa);
-    }
 
     @Override
     public String toString() {
@@ -148,5 +142,9 @@ public class AGV  implements AggregateRoot<Long>, Serializable {
     @Override
     public Long identity() {
         return agvId;
+    }
+
+    public boolean isInUse() {
+        return inUse;
     }
 }

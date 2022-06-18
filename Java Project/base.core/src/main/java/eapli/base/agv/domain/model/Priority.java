@@ -6,6 +6,7 @@ import eapli.framework.validations.Preconditions;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 public class Priority implements ValueObject, Serializable, Comparable<Priority> {
 
     private int priority;

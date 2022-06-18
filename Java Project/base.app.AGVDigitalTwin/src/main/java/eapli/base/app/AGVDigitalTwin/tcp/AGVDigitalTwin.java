@@ -1,8 +1,8 @@
 package eapli.base.app.AGVDigitalTwin.tcp;
 
 
-import eapli.base.agv.repositories.InfoRepository;
 import eapli.base.agv.domain.model.Info;
+import eapli.base.agv.repositories.InfoRepository;
 import eapli.base.infrastructure.persistence.PersistenceContext;
 
 import javax.net.ssl.SSLSocket;

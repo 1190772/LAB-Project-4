@@ -2,24 +2,49 @@
 autonumber
 hide footbox
 
-title SD - Register Customer
+title SD - Automatic task assignment
 
-		participant ":TaskAssignUI" as ui
-		participant ":TaskAssignController" as ctrl
+actor "Project Manager" as C
+
+		participant ":AutomaticTaskController" as ui
 		participant ":PersistenceContext" as pc
 		participant ":RepositoryFactory" as rf
-		participant ":OrderRepository" as repoPC
-        participant ":Order" as prod
-		ui->ui:doShow()
-        		ui->ctrl:addCustomer(cat, name, cal, salt)
+		participant ":Order" as prod
+		participant ":OrderRepository" as repoC
+		participant ":TaskRepository" as repoT
+		participant ":AGVRepository" as repoA
+
+        activate C
+        C->ui:Automatic task assignment.
+        deactivate C
+        activate ui
+        ui->repoA:  List<AGV> AvailableAGVs()
+        activate repoA
+        repoA -> ui : AvailableAGVs
+        deactivate repoA
+        ui -> repoC:List<Order> OrderList()
+         activate repoC
+        repoC -> ui: OrderList
+         deactivate repoC
+         ui->ui: List<Order> fifo()
+         ui->ui: List<Task> createTask()
+
+         ui->pc: repositories();
+         activate pc
+         pc->rf: save(task)
+         activate rf
+         rf->repoT: save(task)
+         activate repoT
+         deactivate pc
+          deactivate rf
+          ui->C: success
+           deactivate ui
 
 
-        		ctrl->prod:newCustomer = create(cat, name, ni)
 
-        		ctrl->pc:repositories()
-        		pc->rf:create
-        		rf->repoPC:create
-        		ctrl->repoPC:save(newCustomer)
+
+
+
 
 
 
