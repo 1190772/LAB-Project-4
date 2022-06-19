@@ -118,14 +118,14 @@ public class Map {
         }
 
 
-        Comparator<Integer> compint = new Comparator<Integer>() {
+        Comparator<Integer> compareInt = new Comparator<Integer>() {
             @Override
             public int compare(Integer o1, Integer o2) {
                 return (o1 - o2);
             }
         };
 
-        BinaryOperator<Integer> summ = new BinaryOperator<Integer>() {
+        BinaryOperator<Integer> sum = new BinaryOperator<Integer>() {
             @Override
             public Integer apply(Integer aDouble, Integer aDouble2) {
                 return aDouble + aDouble2;
@@ -133,12 +133,26 @@ public class Map {
         };
 
         LinkedList<Location> shortPath = new LinkedList<>();
-        Algorithms.shortestPath(graph, graph.getVertex(3,1),graph.getVertex(12,14), compint, summ,0,shortPath);
+        Algorithms.shortestPath(graph, graph.getVertex(3,1),graph.getVertex(12,14), compareInt, sum,0,shortPath);
 
 
         System.out.println(shortPath);
 
     }
+
+   public void repositioningAGV(Location previousLocation, Location newLocation) {
+        for (Location l : map) {
+            if (l.getX() == previousLocation.getX() && l.getY() == previousLocation.getY()) {
+                l.setObstacle(previousLocation.getObstacle());
+            }
+            if (l.getX() == newLocation.getX() && l.getY() == newLocation.getY()) {
+                l.setObstacle(3);
+            }
+        }
+
+    }
+
+
 
     public void addDockPosition(Location location) {
         for (Location l : map) {
@@ -159,30 +173,8 @@ public class Map {
     }
 
 
-    public void changeAgvPosition(Location previousLocation, Location newLocation) {
-        for (Location l : map) {
-            if (l.getX() == previousLocation.getX() && l.getY() == previousLocation.getY()) {
-                l.setObstacle(previousLocation.getObstacle());
-            }
-            if (l.getX() == newLocation.getX() && l.getY() == newLocation.getY()) {
-                l.setObstacle(3);
-            }
-        }
 
-    }
-
-
-    public Location returnDownLocation(Location location) {
-        Location location1 = null;
-        for (Location l : map) {
-            if (l.getX() == location.getX() - 1 && l.getY() == location.getY()) {
-                location1 = l;
-            }
-        }
-        return location1;
-    }
-
-    public Location returnUpLocation(Location location) {
+    public Location locationGoingUp(Location location) {
         Location location1 = null;
         for (Location l : map) {
             if (l.getX() == location.getX() + 1 && l.getY() == location.getY()) {
@@ -192,7 +184,19 @@ public class Map {
         return location1;
     }
 
-    public Location returnRightLocation(Location location) {
+
+
+    public Location locationGoingDown(Location location) {
+        Location location1 = null;
+        for (Location l : map) {
+            if (l.getX() == location.getX() - 1 && l.getY() == location.getY()) {
+                location1 = l;
+            }
+        }
+        return location1;
+    }
+
+    public Location locationGoingRight(Location location) {
         Location location1 = null;
         for (Location l : map) {
             if (l.getX() == location.getX() && l.getY() == location.getY() + 1) {
@@ -202,7 +206,7 @@ public class Map {
         return location1;
     }
 
-    public Location returnLeftLocation(Location location) {
+    public Location locationGoingLeft(Location location) {
         Location location1 = null;
         for (Location l : map) {
             if (l.getX() == location.getX() && l.getY() == location.getY() - 1) {
@@ -215,26 +219,25 @@ public class Map {
     public void printMap() {
 
         Location loc = map.get(map.size() - 1);
-        int intial = 0;
-        System.out.println("\n   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |10 |11 |12 |13 |14 |15 |16 |17 |18 |19 |20 |");
-        for (int l = 0; l < loc.getX(); l++) {
+
+        for (int l = 0; l < loc.getY(); l++) {
             String linha = "";
-            if (l < 9) {
-                linha = linha.concat(String.valueOf(l + 1)) + "  | ";
-            } else {
-                linha = linha.concat(String.valueOf(l + 1)) + " | ";
+
+            for (int k = 0; k < loc.getX(); k++) {
+                if (l < 9) {
+                    linha = linha.concat(String.valueOf(l + 1)) + "  | ";
+                } else {
+                    linha = linha.concat(String.valueOf(l + 1)) + " | ";
+                }
+                linha = linha.concat(map.get(k).getObstacle() + "  | ");
             }
-            int fin = loc.getY() + intial;
-            for (int k = intial; k < fin; k++) {
-                linha = linha.concat(map.get(k).getObstacle() + " | ");
-                intial++;
-            }
+
             System.out.println(linha);
         }
         System.out.println("\n0 -> No obstacles");
         System.out.println("1 -> AGV Dock");
-        System.out.println("2 -> Shelf");
-        System.out.println("3 -> AGV");
+        System.out.println("2 -> AGV");
+        System.out.println("3 -> Shelf");
     }
 
 }

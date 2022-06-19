@@ -13,4 +13,6 @@ public interface AGVRepository extends DomainRepository<Long, AGV> {
     Optional<AGV> findAGVById(Long id);
 
     Iterable<AGV> allActiveAGV();
+
+    Iterable<AGV> allActiveNotInUseAGV();
 }

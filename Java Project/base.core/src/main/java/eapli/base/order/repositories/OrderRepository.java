@@ -19,4 +19,5 @@ public interface OrderRepository extends DomainRepository<Long, Order> {
 
     Iterable<Order> findOrderByClient(Customer customer);
 
+    Iterable<Order> totalOrders();
 }
