@@ -33,6 +33,8 @@ import eapli.base.app.backoffice.console.presentation.order.UpdateOrderAction;
 import eapli.base.app.backoffice.console.presentation.order.CreateOrderBySalesClerkAction;
 import eapli.base.app.backoffice.console.presentation.order.UpdateOrderToBeingDeliveredAction;
 import eapli.base.app.backoffice.console.presentation.productCatalog.ListProductsAction;
+import eapli.base.app.backoffice.console.presentation.surveymanagement.CreateSurveyAction;
+import eapli.base.app.backoffice.console.presentation.surveymanagement.GetStatisticalReportAction;
 import eapli.base.app.backoffice.console.presentation.warehouse.ImportWarehouseAction;
 import eapli.base.app.backoffice.console.presentation.webdashboard.WebDashboardAction;
 import eapli.base.app.common.console.presentation.authz.MyUserMenu;
@@ -75,13 +77,16 @@ public class MainMenu extends AbstractUI {
     // SETTINGS
     private static final int SET_KITCHEN_ALERT_LIMIT_OPTION = 1;
 
-    //Sales Clerk
+    // SALES CLERK
     private static final int CUSTOMER_OPTION = 2;
     private static final int PRODUCT_OPTION = 3;
     private static final int ORDER_OPTION = 4;
 
-    //Warehouse Employee
+    // WAREHOUSE EMPLOYEE
     private static final int WAREHOUSE_OPTION = 2;
+
+    // SALES MANAGER
+    private static final int SURVEY_OPTION = 2;
 
     // CUSTOMER MENU
     private static final int REGISTER_CUSTOMER_OPTION = 1;
@@ -103,6 +108,10 @@ public class MainMenu extends AbstractUI {
     private static final int ASSIGN_ORDER = 3;
     private static final int CHANGE_ORDER_TO_DELIVERED_OPTION = 4;
     private static final int IMPORT_WAREHOUSE_PLANT = 5;
+
+    // SURVEY MENU
+    private static final int CREATE_SURVEY_OPTION = 1;
+    private static final int GET_STATISTICAL_REPORT_OPTION = 2;
 
 
     // MAIN MENU
@@ -172,6 +181,12 @@ public class MainMenu extends AbstractUI {
             mainMenu.addSubMenu(ORDER_OPTION, orderMenu);
             }
 
+        if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.SALES_MANAGER)) {
+            final Menu surveyMenu = buildSurveyMenu();
+            mainMenu.addSubMenu(SURVEY_OPTION, surveyMenu);
+
+        }
+
         if (authz.isAuthenticatedUserAuthorizedTo(BaseRoles.WAREHOUSE_EMPLOYEE)) {
             final Menu warehouseMenu = buildWarehouseMenu();
             mainMenu.addSubMenu(WAREHOUSE_OPTION, warehouseMenu);
@@ -204,6 +219,16 @@ public class MainMenu extends AbstractUI {
         menu.addItem(DEACTIVATE_USER_OPTION, "Deactivate User", new DeactivateUserAction());
         menu.addItem(ACCEPT_REFUSE_SIGNUP_REQUEST_OPTION, "Accept/Refuse Signup Request",
                 new AcceptRefuseSignupRequestAction());
+        menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
+
+        return menu;
+    }
+
+    private Menu buildSurveyMenu() {
+        final Menu menu = new Menu("Survey >");
+
+        menu.addItem(CREATE_SURVEY_OPTION, "Create Survey", new CreateSurveyAction());
+        menu.addItem(GET_STATISTICAL_REPORT_OPTION, "Get Statistical Report" , new GetStatisticalReportAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
         return menu;
