@@ -11,6 +11,10 @@ public class AGVDockId {
         return id;
     }
 
-
-
+    @Override
+    public String toString() {
+        return "AGVDockId{" +
+                "id='" + id + '\'' +
+                '}';
+    }
 }

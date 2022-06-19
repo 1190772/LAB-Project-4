@@ -18,7 +18,7 @@ public class Accessibility {
         }
         char dir = accessibility.charAt(0);
         char or = accessibility.charAt(1);
-        if (dir!='w' || dir !='l' || or!='+' || or!='-'){
+        if ((dir!='w' && dir !='l') || (or!='+' && or!='-')){
             throw new IllegalArgumentException("Accessibility must be a char between 'w' and 'l', and another char between '+' or '-'");
         }
         return new Accessibility(dir,or);
@@ -30,5 +30,13 @@ public class Accessibility {
 
     public char getOrientation() {
         return orientation;
+    }
+
+    @Override
+    public String toString() {
+        return "Accessibility{" +
+                "direction=" + direction +
+                ", orientation=" + orientation +
+                '}';
     }
 }

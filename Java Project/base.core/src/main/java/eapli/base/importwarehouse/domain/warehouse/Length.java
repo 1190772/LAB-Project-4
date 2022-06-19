@@ -14,4 +14,11 @@ public class Length {
     public double length(){
         return len;
     }
+
+    @Override
+    public String toString() {
+        return "Length{" +
+                "len=" + len +
+                '}';
+    }
 }

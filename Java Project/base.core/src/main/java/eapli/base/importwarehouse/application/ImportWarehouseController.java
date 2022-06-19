@@ -14,7 +14,7 @@ public class ImportWarehouseController {
 
     public WarehousePlant jsonParser() throws IOException {
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
-        return jsonReader.parse("warehouse1.json");
+        return jsonReader.parse("C:\\Users\\Nandinho\\Desktop\\projeto_lapr4\\Java Project\\warehouse1.json");
     }
 
 }

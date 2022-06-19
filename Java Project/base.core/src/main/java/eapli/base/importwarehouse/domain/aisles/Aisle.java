@@ -43,5 +43,17 @@ public class Aisle {
     public List<AisleRow> getRows() {
         return rows;
     }
+
+    @Override
+    public String toString() {
+        return "Aisle{" +
+                "id=" + id +
+                ", begin=" + begin +
+                ", end=" + end +
+                ", depth=" + depth +
+                ", accessibility=" + accessibility +
+                ", rows=" + rows +
+                '}';
+    }
 }
 

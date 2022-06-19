@@ -28,4 +28,12 @@ public class Coords {
     public int getwSquare() {
         return wSquare;
     }
+
+    @Override
+    public String toString() {
+        return "Coords{" +
+                "lSquare=" + lSquare +
+                ", wSquare=" + wSquare +
+                '}';
+    }
 }

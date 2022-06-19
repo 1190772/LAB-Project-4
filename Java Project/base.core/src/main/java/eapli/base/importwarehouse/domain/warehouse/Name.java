@@ -15,4 +15,10 @@ public class Name {
         return name;
     }
 
+    @Override
+    public String toString() {
+        return "Name{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }

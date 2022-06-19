@@ -15,7 +15,8 @@ public class ImportWarehouseUI extends AbstractUI {
         int response = Console.readInteger(("\nDo you wish to import the warehouse plant?\n 1 - Yes  |  2 - No\n"));
         if (response == 1) {
             try {
-                ctrl.jsonParser();
+                System.out.println(ctrl.jsonParser().toString());
+
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }

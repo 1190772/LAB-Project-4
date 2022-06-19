@@ -14,5 +14,12 @@ public class Capacity {
     public int getCapacity() {
         return capacity;
     }
+
+    @Override
+    public String toString() {
+        return "Capacity{" +
+                "capacity=" + capacity +
+                '}';
+    }
 }
 

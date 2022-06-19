@@ -14,4 +14,11 @@ public class AisleId {
     public Long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "AisleId{" +
+                "id=" + id +
+                '}';
+    }
 }

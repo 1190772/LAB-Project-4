@@ -28,4 +28,14 @@ public class AisleRow {
     public Capacity getCapacity() {
         return capacity;
     }
+
+    @Override
+    public String toString() {
+        return "AisleRow{" +
+                "id=" + id +
+                ", begin=" + begin +
+                ", end=" + end +
+                ", capacity=" + capacity +
+                '}';
+    }
 }

@@ -56,7 +56,16 @@ public class WarehousePlant {
     }
 
 
-
-
-
+    @Override
+    public String toString() {
+        return "WarehousePlant{" +
+                "name=" + name +
+                ", length=" + length +
+                ", width=" + width +
+                ", area=" + area +
+                ", unit=" + unit +
+                ", aisles=" + aisles +
+                ", docks=" + docks +
+                '}';
+    }
 }

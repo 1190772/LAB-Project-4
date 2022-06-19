@@ -10,4 +10,11 @@ public class AisleRowId {
     public long getId() {
         return id;
     }
+
+    @Override
+    public String toString() {
+        return "AisleRowId{" +
+                "id=" + id +
+                '}';
+    }
 }

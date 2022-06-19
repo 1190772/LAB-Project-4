@@ -38,5 +38,16 @@ public class AGVDock {
     public Accessibility getAccessibility() {
         return accessibility;
     }
+
+    @Override
+    public String toString() {
+        return "AGVDock{" +
+                "id=" + id +
+                ", begin=" + begin +
+                ", end=" + end +
+                ", depth=" + depth +
+                ", accessibility=" + accessibility +
+                '}';
+    }
 }
 

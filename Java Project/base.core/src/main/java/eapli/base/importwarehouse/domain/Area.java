@@ -18,4 +18,11 @@ public class Area {
     public double getArea() {
         return area;
     }
+
+    @Override
+    public String toString() {
+        return "Area{" +
+                "area=" + area +
+                '}';
+    }
 }
