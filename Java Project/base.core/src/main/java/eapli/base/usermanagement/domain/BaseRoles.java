@@ -69,7 +69,7 @@ public final class BaseRoles {
      * @return
      */
     public static Role[] nonUserValues() {
-        return new Role[] { ADMIN, SALES_CLERK, MENU_MANAGER, WAREHOUSE_EMPLOYEE };
+        return new Role[] { ADMIN, SALES_CLERK, MENU_MANAGER, WAREHOUSE_EMPLOYEE, SALES_MANAGER };
     }
 
     public boolean isCollaborator(final Role role) {

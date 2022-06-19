@@ -19,6 +19,7 @@ public class CreateSurveyUI extends AbstractUI {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+        System.out.println("Not implemented yet");
         return true;
     }
 
