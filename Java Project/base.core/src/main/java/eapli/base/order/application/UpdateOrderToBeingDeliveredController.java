@@ -20,15 +20,18 @@ public class UpdateOrderToBeingDeliveredController {
             return orderRepository.dispatchedOrders();
         }
 
-        public void orderUpdate(Long id){
-            authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.WAREHOUSE_EMPLOYEE);
+        public boolean orderUpdate(Long id){
             if(orderRepository.containsOfIdentity(id)){
                 Order order = orderRepository.findOrderById(id).get();
                 order.changeStatus(OrderStatus.BEING_DELIVERED);
-                orderRepository.save(order);
-            }else{
-                System.out.println("Invalid ID.");
+                try {
+                    orderRepository.save(order);
+                }catch(Exception e){
+                    return false;
+                }
+                return (order.status()==OrderStatus.BEING_DELIVERED);
             }
+                return false;
         }
 }
 

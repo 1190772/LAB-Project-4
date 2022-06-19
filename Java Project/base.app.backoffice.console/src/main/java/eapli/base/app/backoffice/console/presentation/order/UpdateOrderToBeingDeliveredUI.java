@@ -20,12 +20,15 @@ public class UpdateOrderToBeingDeliveredUI extends AbstractUI {
                 System.out.printf("%-20s%-20s%-20s%-4s", o.customerId(), o.price(), o.status(),
                         o.id());
             }
-            int response = Console.readInteger("\nDo you want to update any of these orders?\n 1 - Yes  |  2 - No\n");
-            if(response == 1){
-                long orderID = Console.readLong("Insert the ID of the order you wish to update.");
-                ctrl.orderUpdate(orderID);
+            String response = Console.readLine("\nDo you want to update any of these orders?\n 1 - Yes  |  2 - No\n");
+            if(response.equals("1")){
+                String orderID = Console.readLine("Insert the ID of the order you wish to update.");
+                if(ctrl.orderUpdate(Long.getLong(orderID))) {
+                    System.out.println("Order Updated successfully");
+                }else
+                    System.out.println("Order wasn't Updated successfully");
             }
-            if(response == 2){
+            if(response.equals("2")){
                 break;
             }
         }
