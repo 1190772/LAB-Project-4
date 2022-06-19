@@ -21,17 +21,14 @@ public class UpdateOrderToBeingDeliveredController {
         }
 
         public boolean orderUpdate(Long id){
-            if(orderRepository.containsOfIdentity(id)){
-                Order order = orderRepository.findOrderById(id).get();
-                order.changeStatus(OrderStatus.BEING_DELIVERED);
                 try {
+                    Order order = orderRepository.findOrderById(id).get();
+                    order.changeStatus(OrderStatus.BEING_DELIVERED);
                     orderRepository.save(order);
+                    return true;
                 }catch(Exception e){
                     return false;
                 }
-                return (order.status()==OrderStatus.BEING_DELIVERED);
-            }
-                return false;
         }
 }
 
