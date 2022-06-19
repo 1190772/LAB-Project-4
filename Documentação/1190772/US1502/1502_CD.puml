@@ -3,45 +3,49 @@ skinparam classAttributeIconSize 0
 
 
 Package Presentation{
-class SpecifyCategoryUI {
+class CheckOrderStatusUI {
 +doShow();
 }
 }
 
 Package Application{
-class SpecifyCategoryController {
-  +registerAlphaNumericCode(String code)
-  +registerDescription(String descricao)
-  +specifyCategory(final String code, final String description)
+class CheckOrderStatusController {
+  +checkOrderStatus()
 }
 }
 
 
 Package Domain{
-class Category {
+class Customer {
+findCustomerByVATiD(VATiD vatId)
 }
 
 }
 
 Package Persistence{
+
 class RepositoryFactory{
-  +category()
 }
 
-class CategoryRepository{
-  +save(category)
+class CustomerRepository{
+  +findCustomerByVATiD(VATiD vatId)
+}
+
+class OrderRepository{
+  +findOrderByCustomer(VATiD vatId)
 }
 
 }
 
 
 
-SpecifyCategoryUI ..> SpecifyCategoryController
-SpecifyCategoryController ..> Category
-SpecifyCategoryController ..> RepositoryFactory
-SpecifyCategoryController ..> CategoryRepository
-RepositoryFactory ..|> CategoryRepository
-CategoryRepository ..|> Category
+CheckOrderStatusUI ..> CheckOrderStatusController
+CheckOrderStatusController ..> Customer
+CheckOrderStatusController ..> RepositoryFactory
+CheckOrderStatusController ..> CustomerRepository
+RepositoryFactory ..|> CustomerRepository
+CustomerRepository ..|> Customer
+CustomerRepository ..|> OrderRepository
 
 
 
