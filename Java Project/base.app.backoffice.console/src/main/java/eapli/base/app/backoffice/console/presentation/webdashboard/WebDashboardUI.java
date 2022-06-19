@@ -14,13 +14,25 @@ public class WebDashboardUI extends AbstractUI {
 
     public boolean doShow() {
 
-        URI uri = null;
+        Thread webDash = new HTTPServer();
+        webDash.start();
+
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            try {
+                Desktop.getDesktop().browse(new URI("https://localhost:9980"));
+            } catch (IOException | URISyntaxException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+
+        /*URI uri = null;
         try {
             uri = new URI("http://localhost:8000/WebDashboard.html");
             Desktop.getDesktop().browse(uri);
         } catch (URISyntaxException | IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
         /*File htmlFile = new File("WebDashboard.html");
 
