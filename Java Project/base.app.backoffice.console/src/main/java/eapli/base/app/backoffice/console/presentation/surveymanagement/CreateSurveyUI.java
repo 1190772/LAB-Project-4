@@ -5,8 +5,6 @@ import eapli.framework.presentation.console.AbstractUI;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import java.io.IOException;
-
 public class CreateSurveyUI extends AbstractUI {
     private static final Logger LOGGER = LogManager.getLogger(CreateSurveyUI.class);
 

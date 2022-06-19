@@ -1,6 +1,9 @@
-// Generated from C:/Users/pedro/OneDrive/Documentos/lei21_22_s4_2de_05/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application\surveyGrammar.g4 by ANTLR 4.10.1
+// Generated from C:/Users/pedro/OneDrive/Documentos/lei21_22_s4_2de_05/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application4\surveyGrammar.g4 by ANTLR 4.10.1
 package eapli.base.surveymanagement.application;
-import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
+
+    import java.lang.*;
+
+    import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 
 /**
  * This class provides an empty implementation of {@link eapli.base.surveymanagement.application.surveyGrammarVisitor},
@@ -24,96 +27,89 @@ public class surveyGrammarBaseVisitor<T> extends AbstractParseTreeVisitor<T> imp
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSurveyID(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyIDContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSurvey(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitTitle(eapli.base.surveymanagement.application.surveyGrammarParser.TitleContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPrgf(eapli.base.surveymanagement.application.surveyGrammarParser.PrgfContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitMessage(eapli.base.surveymanagement.application.surveyGrammarParser.MessageContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSurvID(eapli.base.surveymanagement.application.surveyGrammarParser.SurvIDContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitId(eapli.base.surveymanagement.application.surveyGrammarParser.IdContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTlt(eapli.base.surveymanagement.application.surveyGrammarParser.TltContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.AnswerContext ctx) { return visitChildren(ctx); }
+	@Override public T visitMsg(eapli.base.surveymanagement.application.surveyGrammarParser.MsgContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitChoice(eapli.base.surveymanagement.application.surveyGrammarParser.ChoiceContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFinalMsg(eapli.base.surveymanagement.application.surveyGrammarParser.FinalMsgContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitNumeric(eapli.base.surveymanagement.application.surveyGrammarParser.NumericContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSction(eapli.base.surveymanagement.application.surveyGrammarParser.SctionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFree(eapli.base.surveymanagement.application.surveyGrammarParser.FreeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOpenAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OpenAnswerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitQuestionType(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionTypeContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOptionAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OptionAnswerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitQuestionQ(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionQContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFreeAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.FreeAnswerContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitQuestion(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNormalOption(eapli.base.surveymanagement.application.surveyGrammarParser.NormalOptionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitCondition(eapli.base.surveymanagement.application.surveyGrammarParser.ConditionContext ctx) { return visitChildren(ctx); }
+	@Override public T visitOtherOption(eapli.base.surveymanagement.application.surveyGrammarParser.OtherOptionContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitSection(eapli.base.surveymanagement.application.surveyGrammarParser.SectionContext ctx) { return visitChildren(ctx); }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation returns the result of calling
-	 * {@link #visitChildren} on {@code ctx}.</p>
-	 */
-	@Override public T visitSurvey(surveyGrammarParser.SurveyContext ctx) { return visitChildren(ctx); }
+	@Override public T visitFreeOption(surveyGrammarParser.FreeOptionContext ctx) { return visitChildren(ctx); }
 }

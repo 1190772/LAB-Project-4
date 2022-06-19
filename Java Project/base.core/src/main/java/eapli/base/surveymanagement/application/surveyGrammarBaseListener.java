@@ -1,7 +1,10 @@
-// Generated from C:/Users/pedro/OneDrive/Documentos/lei21_22_s4_2de_05/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application\surveyGrammar.g4 by ANTLR 4.10.1
+// Generated from C:/Users/pedro/OneDrive/Documentos/lei21_22_s4_2de_05/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application4\surveyGrammar.g4 by ANTLR 4.10.1
 package eapli.base.surveymanagement.application;
 
-import org.antlr.v4.runtime.ParserRuleContext;
+    import java.lang.*;
+
+
+    import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
@@ -28,169 +31,157 @@ public class surveyGrammarBaseListener implements surveyGrammarListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSurveyID(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyIDContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSurveyID(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyIDContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterTitle(eapli.base.surveymanagement.application.surveyGrammarParser.TitleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitTitle(eapli.base.surveymanagement.application.surveyGrammarParser.TitleContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterMessage(eapli.base.surveymanagement.application.surveyGrammarParser.MessageContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitMessage(eapli.base.surveymanagement.application.surveyGrammarParser.MessageContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterId(eapli.base.surveymanagement.application.surveyGrammarParser.IdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitId(eapli.base.surveymanagement.application.surveyGrammarParser.IdContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.AnswerContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.AnswerContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterChoice(eapli.base.surveymanagement.application.surveyGrammarParser.ChoiceContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitChoice(eapli.base.surveymanagement.application.surveyGrammarParser.ChoiceContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterNumeric(eapli.base.surveymanagement.application.surveyGrammarParser.NumericContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitNumeric(eapli.base.surveymanagement.application.surveyGrammarParser.NumericContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterFree(eapli.base.surveymanagement.application.surveyGrammarParser.FreeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitFree(eapli.base.surveymanagement.application.surveyGrammarParser.FreeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQuestionType(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQuestionType(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionTypeContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQuestionQ(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionQContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQuestionQ(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionQContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterQuestion(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitQuestion(eapli.base.surveymanagement.application.surveyGrammarParser.QuestionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterCondition(eapli.base.surveymanagement.application.surveyGrammarParser.ConditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitCondition(eapli.base.surveymanagement.application.surveyGrammarParser.ConditionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterSection(eapli.base.surveymanagement.application.surveyGrammarParser.SectionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitSection(eapli.base.surveymanagement.application.surveyGrammarParser.SectionContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterSurvey(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSurvey(surveyGrammarParser.SurveyContext ctx) { }
+	@Override public void exitSurvey(eapli.base.surveymanagement.application.surveyGrammarParser.SurveyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterPrgf(eapli.base.surveymanagement.application.surveyGrammarParser.PrgfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitPrgf(eapli.base.surveymanagement.application.surveyGrammarParser.PrgfContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSurvID(eapli.base.surveymanagement.application.surveyGrammarParser.SurvIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSurvID(eapli.base.surveymanagement.application.surveyGrammarParser.SurvIDContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterTlt(eapli.base.surveymanagement.application.surveyGrammarParser.TltContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTlt(eapli.base.surveymanagement.application.surveyGrammarParser.TltContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterMsg(eapli.base.surveymanagement.application.surveyGrammarParser.MsgContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitMsg(eapli.base.surveymanagement.application.surveyGrammarParser.MsgContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFinalMsg(eapli.base.surveymanagement.application.surveyGrammarParser.FinalMsgContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFinalMsg(eapli.base.surveymanagement.application.surveyGrammarParser.FinalMsgContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterSction(eapli.base.surveymanagement.application.surveyGrammarParser.SctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitSction(eapli.base.surveymanagement.application.surveyGrammarParser.SctionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOpenAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OpenAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOpenAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OpenAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOptionAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OptionAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOptionAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.OptionAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFreeAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.FreeAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFreeAnswer(eapli.base.surveymanagement.application.surveyGrammarParser.FreeAnswerContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNormalOption(eapli.base.surveymanagement.application.surveyGrammarParser.NormalOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNormalOption(eapli.base.surveymanagement.application.surveyGrammarParser.NormalOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterOtherOption(eapli.base.surveymanagement.application.surveyGrammarParser.OtherOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitOtherOption(eapli.base.surveymanagement.application.surveyGrammarParser.OtherOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterFreeOption(eapli.base.surveymanagement.application.surveyGrammarParser.FreeOptionContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitFreeOption(surveyGrammarParser.FreeOptionContext ctx) { }
 
 	/**
 	 * {@inheritDoc}
