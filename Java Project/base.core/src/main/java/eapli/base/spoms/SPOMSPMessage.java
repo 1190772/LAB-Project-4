@@ -12,7 +12,7 @@ public class SPOMSPMessage {
     private static byte[] data;
 
 
-    static byte[] read(DataInputStream in) throws IOException {
+    public static byte[] read(DataInputStream in) throws IOException {
 
         byte[] data;
         version = ( in.read());
@@ -39,7 +39,7 @@ public class SPOMSPMessage {
     }
 
 
-    static byte[] write(Integer code, byte[] data, Integer dataLength) {
+    public static byte[] write(Integer code, byte[] data, Integer dataLength) {
 
         byte[] data1 = new byte[dataLength +4];
 
