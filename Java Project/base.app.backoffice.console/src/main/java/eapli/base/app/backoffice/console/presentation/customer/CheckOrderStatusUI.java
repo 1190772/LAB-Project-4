@@ -28,7 +28,7 @@ public class CheckOrderStatusUI extends AbstractUI {
 
         int response = Console.readInteger(("\nDo you wish to see the status of your orders?\n 1 - Yes  |  2 - No\n"));
         if (response == 1) {
-            ctrl.checkOrderStatus();
+            System.out.println(ctrl.checkOrderStatus().toString());
         } else {
             System.exit(1);
 

@@ -33,4 +33,11 @@ public class OrderDTO {
         this.weight = weight;
         this.customerDTO = customerDTO;
     }
+
+    @Override
+    public String toString() {
+        return "OrderDTO{" +
+                "orderStatus=" + orderStatus +
+                '}';
+    }
 }

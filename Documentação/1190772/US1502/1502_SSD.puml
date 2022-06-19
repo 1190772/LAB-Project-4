@@ -5,6 +5,8 @@ actor "Customer" as CU
 activate CU
 CU -> ":System" : pretende verificar o status das suas orders
 activate ":System"
+":System" --> CU : pede o id do cliente
+CU -> ":System": fornece o seu id de cliente
 ":System" --> CU : mostra o status das suas orders
 deactivate ":System"
 

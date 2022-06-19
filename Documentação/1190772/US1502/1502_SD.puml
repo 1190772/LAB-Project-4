@@ -1,37 +1,27 @@
 @startuml
 autonumber
-actor "SalesClerk" as SC
-participant "SpecifyCategoryUI" as UI <<presentation>>
-participant "SpeficyCategoryController" as CTRL <<application>>
-participant PersistenceContext as PER <<persistence>>
-participant "RepositoryFactory" as REPOFACT <<factory>>
-participant "category : Category" as CUST <<domain>>
-database "CategoryRepository" as custREPO <<repository>>
+actor "Customer" as CU
+participant "CheckOrderStatusUI" as UI <<presentation>>
+participant "CheckOrderStatusController" as CTRL <<application>>
+participant "customer : Customer" as CUST <<domain>>
+database "CustomerRepository" as custREPO <<repository>>
+database "OrderRepository" as orderREPO <<repository>>
 
 
 
-activate SC
-SC -> UI : inicia a especificação de uma nova categoria
+activate CU
+CU -> UI : pretende verificar o status das suas orders
 activate UI
-UI --> SC : solicita o código alfanumérico e a descrição da categoria
-SC -> UI : submete informação
-UI -> CTRL : specifyCategory(alphaNumericCode,description);
+UI-> CU : pede o id do cliente
+CU-> UI : insere o seu id de cliente
+UI -> CTRL : findCustomerById(new VATiD(customerId))
 activate CTRL
-CTRL -> PER : repositories()
-activate PER
-PER -> REPOFACT : create
-PER --> CTRL : factory
-deactivate PER
-CTRL -> REPOFACT : categories()
-activate REPOFACT
-REPOFACT -> custREPO : create
-REPOFACT --> CTRL : categoryRepository
-deactivate REPOFACT
-CTRL -> CUST : specifyCategory(alphaNumericCode,description);
-CTRL -> custREPO: save(Category);
-CTRL -> UI : category
-UI --> SC : informa do sucesso da operação e mostra a categoria criada
+CTRL -> custREPO : findCustomerById(new VATiD(customerId))
+CTRL -> CTRL : checkOrderStatus()
+CTRL-> orderREPO : orderRepository.findOrderByClient(customer);
+
+UI --> CU : informa do sucesso da operação e mostra o status das suas operacoes
 deactivate UI
-deactivate SC
+deactivate CU
 
 @enduml

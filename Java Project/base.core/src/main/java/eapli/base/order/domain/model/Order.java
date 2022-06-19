@@ -129,6 +129,12 @@ public class Order implements AggregateRoot<Long>, Comparable<Long> {
                 '}';
     }
 
+    public String toStringStatus() {
+        return "Order{" +
+                "status=" + status +
+                '}';
+    }
+
     @Override
     public Long identity() {
         return id;
