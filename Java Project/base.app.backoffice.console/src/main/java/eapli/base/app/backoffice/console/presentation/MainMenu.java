@@ -95,12 +95,12 @@ public class MainMenu extends AbstractUI {
     // PRODUCT MENU
     private static final int SPECIFY_PRODUCT_OPTION = 1;
     private static final int SEARCH_PRODUCTS_OPTION = 2;
-    private static final int NEW_PRODUCT_ORDER_OPTION = 3;
-    private static final int NEW_CATEGORY_OPTION = 4;
-    private static final int UPDATE_ORDER_STATUS = 5;
+    private static final int NEW_CATEGORY_OPTION = 3;
 
     // ORDER MENU
-    private static final int UPDATE_ORDER_TO_BEING_DELIVERED_OPTION = 1;
+    private static final int NEW_PRODUCT_ORDER_OPTION = 1;
+    private static final int UPDATE_ORDER_TO_BEING_DELIVERED_OPTION = 2;
+
 
     // WAREHOUSE MENU
     private static final int CONFIG_AVG_OPTION = 1;
@@ -249,7 +249,6 @@ public class MainMenu extends AbstractUI {
 
         menu.addItem(SPECIFY_PRODUCT_OPTION, "Specify New Product For Sale", new SpecifyProductAction());
         menu.addItem(SEARCH_PRODUCTS_OPTION, "View Product Catalog", new ListProductsAction());
-        menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(NEW_CATEGORY_OPTION, "Define a new Category of Products", new SpecifyCategoryAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
@@ -259,6 +258,7 @@ public class MainMenu extends AbstractUI {
     private Menu buildOrderMenu() {
         final Menu menu = new Menu("Order >");
 
+        menu.addItem(NEW_PRODUCT_ORDER_OPTION, "New Product Order", new CreateOrderBySalesClerkAction());
         menu.addItem(UPDATE_ORDER_TO_BEING_DELIVERED_OPTION, "Update a Order to As Being Delivered", new UpdateOrderToBeingDeliveredAction());
         menu.addItem(EXIT_OPTION, RETURN_LABEL, Actions.SUCCESS);
 
