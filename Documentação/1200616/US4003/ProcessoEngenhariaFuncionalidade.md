@@ -1,5 +1,7 @@
 # US4003 - As Project Manager, I want the communications (of the AGVManager) made through the SPOMS2022 protocol to be secured/protected.
-=================================
+
+
+Developed by: [**1200616**](../ListaFuncionalidadesEstudante.md)
 
 
 # 1. Requisitos

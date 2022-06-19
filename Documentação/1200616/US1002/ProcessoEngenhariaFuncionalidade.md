@@ -1,6 +1,7 @@
 # US1002 - As Sales Clerk, I want to view/search the products catalog.
-=================================
 
+
+Developed by: [**1200616**](../ListaFuncionalidadesEstudante.md)
 
 # 1. Requisitos
 

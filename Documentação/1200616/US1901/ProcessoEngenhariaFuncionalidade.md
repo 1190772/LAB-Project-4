@@ -1,5 +1,6 @@
 # US1901 - As Project Manager, I want that the "OrdersServer" component supports properly, at request, the needs of the "CustomerApp" application.
-=================================
+
+Developed by: [**1200616**](../ListaFuncionalidadesEstudante.md)
 
 
 # 1. Requisitos

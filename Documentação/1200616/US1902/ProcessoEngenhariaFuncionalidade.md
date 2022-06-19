@@ -1,5 +1,7 @@
 # US1902 - As Project Manager, I want the communications made through the SPOMS2022 protocol to be secured/protected.
-=================================
+
+
+Developed by: [**1200616**](../ListaFuncionalidadesEstudante.md)
 
 
 # 1. Requisitos
