@@ -12,73 +12,61 @@ grammar surveyGrammar;
         }
 }
 
+@parser::members {
+
+
+}
+
 prog: survey;
 
 
 // All Rules
 
-surveyID: (NUMBER+ '_' STRING+) NEWLINE    #survID;
+survey: surveyID title message section+ finalMessage  newline;
 
-title: (SENTENCE) NEWLINE    #tlt;
+newline: NEWLINE+   #prgf;
 
-message: SENTENCE NEWLINE  #msg;
+surveyID: NUMBER+ '_' title    #survID;
 
+title: STRING+ newline    #tlt;
 
-/*answer: STRING;
+message: title    #msg;
 
-choice: (id answer)+;
-
-numeric: NUMBER+;
-
-free: STRING*;
-
-questionType: TYPE (free|numeric|choice) NEWLINE;
-
-questionQ: SENTENCE'?'NEWLINE;
-
-question: (id questionType OBLIGATORINESS questionQ message?) | (id questionType condition questionQ message?);
-
-condition: 'Dependent about the question: ' id 'and on the section: ' id NEWLINE;
-
-section: id title message question+ NEWLINE;
-*/
+finalMessage: STRING+        #finalMsg;
 
 section: SECTION title align+       #sction;
 
-align: ALIGN STRING+ MANDATORY? NEWLINE #openAnswer
-       | ALIGN STRING+ MANDATORY? (OPTION CHOICEMUL? || OPTION) NEWLINE option+  #optionAnswer
-       | ALIGN STRING+ MANDATORY? FREE? NEWLINE free*   #freeAnswer
+align: ALIGN STRING+ MANDATORY? newline    #openAnswer
+       | ALIGN STRING+ MANDATORY? (OPTION CHOICEMUL? || OPTION) newline option+  #optionAnswer
+       | ALIGN STRING+ MANDATORY? FREE? newline free*   #freeAnswer
        ;
 
-option: OPTION (STRING|NUMBER)+ ';' NEWLINE  #normalOption
-        | OPTION STRING ':' NEWLINE          #otherOption
+option: OPTION  (STRING|NUMBER)+ ';' newline  #normalOption
+        | OPTION STRING ':' newline          #otherOption
         ;
 
-free: (SYMBOLS|STRING|NUMBER|ALFANUMERIC)+ NEWLINE    #freeOption;
-
-
-survey: surveyID title message section+ message NEWLINE;
+free: (SYMBOLS|STRING|NUMBER|ALFANUMERIC)+ newline    #freeOption;
 
 
 // Tokens
 
 NUMBER: [0-9]+;
 
-LETTER: [a-zA-Z];
+//LETTER: [a-zA-Z];
 
-STRING: LETTER+;
+STRING: [a-zA-Z]+;
 
 ALFANUMERIC: STRING | NUMBER;
 
-SPACE:' ';
 
-SENTENCE: STRING (SPACE STRING)*;
 
-NEWLINE: ('\r'?'\n')+;
+//SENTENCE: STRING (' ' STRING)*;
+
+NEWLINE: '\r'?'\n';
 
 SECTION: NUMBER+'-';
 
-ALIGN: LETTER+')';
+ALIGN: [a-z]+')';
 
 OPTION: ('i''x'|'i''v'|(('v')?('i'|'ii'|'iii')?))'.';
 
@@ -87,9 +75,7 @@ MANDATORY: '*';
 OPTIONAL: 'x';
 FREE: 'free';
 
-//OBLIGATORINESS: 'obligatory' | 'optional' | 'condition dependent';
-
-//TYPE: 'Numeric' | 'Free Text' | 'Sorting' | 'Multiple Choice' | 'Single Choice' | 'Multiple Choice Input Value' | 'Single Choice Input Value' | 'Scaling';
-
 SYMBOLS : ('['|']'|','|'?');
+
+WS :[ \t\r\n]->skip;
 
