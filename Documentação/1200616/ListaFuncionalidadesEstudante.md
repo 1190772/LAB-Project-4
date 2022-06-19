@@ -14,3 +14,7 @@
 | **C**  | [US2005](../1191606/SprintC/US2005/ProcessoEngenhariaFuncionalidade)  |
 | **D**  | [US1902](US1902/ProcessoEngenhariaFuncionalidade) |
 | **D**  | [US4003](US4003/ProcessoEngenhariaFuncionalidade) |
+| **D**  | [US2006](US2006/ProcessoEngenhariaFuncionalidade) |
+
+
+[Voltar ao Planeamento](../Planeamento/Planeamento.md)
