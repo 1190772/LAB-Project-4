@@ -1,0 +1,39 @@
+002_SurveyYogurtB
+
+Yogurts Survey
+
+Hello this is as survey about your yogurts preference
+
+1-General Yogurt Questions
+
+a) Lactose x
+
+i. with;
+ii. without;
+
+b) Yogurts eaten per day *
+
+
+c) Type of yogurt x 
+
+i. Non fat;
+ii. Low fat;
+iii. Regular;
+
+2-Marketing Questions
+
+a) Type of yogurt container x
+
+i. Single serving;
+ii. Small pack;
+iii. Family size;
+
+b) Where you purchase Yogurts x
+
+i. Continente;
+ii. Lidl;
+iii. Mercadona;
+iv. Other;
+
+We appreciate the time you took to answer this survey
+

@@ -1,0 +1,55 @@
+001_SurveyPersonalA
+
+Personal Data Survey
+
+Hello this is as survey about your personal data
+
+1-Basic Data
+
+a) Name *
+
+b) Gender x
+
+i. Male;
+ii. Female;
+iii. Other;
+
+c) Age x
+i. Less than 18;
+ii. Between 18 and 30;
+iii. Above 30;
+
+
+2-Address
+
+a) Street Name
+
+b) Door Number
+
+c) City *
+
+d) Country *
+
+3-Education
+
+a) Degree x
+
+i. Graduation;
+ii. Postgraduation;
+iii. Master degree;
+iv. Doctorate;
+v. None;
+
+b) Area of interest
+
+c) Experience in the area x
+
+i. None;
+ii. Between 1 and 3 years;
+iii. Between 4 and 8 years;
+iv. Above 8 years;
+
+
+We appreciate the time you took to answer this survey
+
+
