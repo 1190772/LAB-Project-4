@@ -27,6 +27,7 @@ import eapli.base.category.repositories.CategoryRepository;
 import eapli.base.clientusermanagement.repositories.ClientUserRepository;
 import eapli.base.clientusermanagement.repositories.SignupRequestRepository;
 import eapli.base.customer.repositories.CustomerRepository;
+import eapli.base.importwarehouse.repositories.WarehouseRepository;
 import eapli.base.order.repositories.OrderRepository;
 import eapli.base.product.repositories.ProductRepository;
 import eapli.framework.domain.repositories.TransactionalContext;
@@ -115,4 +116,6 @@ public interface RepositoryFactory {
     AGVRepository agvs();
 
     InfoRepository info();
+
+    WarehouseRepository warehouse();
 }
