@@ -21,11 +21,13 @@ public class CheckOrderStatusController {
     private final String emailCustomer = authz.session().get().authenticatedUser().email().toString();
     private final Customer customer = (Customer) customerRepository.findCustomerByEmail(emailCustomer);
 
-    public Iterable<OrderDTO> checkOrderStatus(){
+    public Iterable<OrderDTO> checkOrderStatus() {
         authz.ensureAuthenticatedUserHasAnyOf(BaseRoles.CUSTOMER);
         Iterable<Order> order = orderRepository.findOrderByClient(customer);
         List<OrderDTO> result = new LinkedList<>();
-        order.forEach(order1 -> {result.add(order1.toDTO());});
+        order.forEach(order1 -> {
+            result.add(order1.toDTO());
+        });
         return result;
     }
 
