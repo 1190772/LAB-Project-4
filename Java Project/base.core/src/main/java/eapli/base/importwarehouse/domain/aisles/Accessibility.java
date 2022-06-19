@@ -1,5 +1,9 @@
 package eapli.base.importwarehouse.domain.aisles;
 
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Accessibility {
     private char direction;
     private char orientation;
@@ -7,6 +11,10 @@ public class Accessibility {
     private Accessibility(char direction,char orientation){
         this.direction=direction;
         this.orientation=orientation;
+    }
+
+    public Accessibility() {
+
     }
 
     public static Accessibility of(String accessibility){

@@ -1,5 +1,9 @@
 package eapli.base.importwarehouse.domain.aisles;
 
+
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Capacity {
     private int capacity;
 
@@ -7,13 +11,15 @@ public class Capacity {
         this.capacity=capacity;
     }
 
+    public Capacity() {
+
+    }
+
     public static Capacity of(int capacity){
         return new Capacity(capacity);
     }
 
-    public int getCapacity() {
-        return capacity;
-    }
+
 
     @Override
     public String toString() {

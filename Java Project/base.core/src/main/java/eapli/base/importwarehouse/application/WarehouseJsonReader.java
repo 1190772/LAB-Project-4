@@ -5,6 +5,7 @@ import eapli.base.importwarehouse.domain.*;
 import eapli.base.importwarehouse.domain.aisles.*;
 import eapli.base.importwarehouse.domain.warehouse.Length;
 import eapli.base.importwarehouse.domain.warehouse.Name;
+import eapli.base.importwarehouse.domain.warehouse.Width;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -27,7 +28,7 @@ public class WarehouseJsonReader implements JsonReader<WarehousePlant> {
             List<AGVDock> docks = readDocks(root);
             Name name = Name.of(root.get("Warehouse").toString());
             Length length = Length.of(Double.parseDouble(root.get("Length").toString()));
-            Length width = Length.of(Double.parseDouble(root.get("Width").toString()));
+            Width width = Width.of(Double.parseDouble(root.get("Width").toString()));
             Area area = Area.of(Double.parseDouble(root.get("Square").toString()));
             Name unit = Name.of(root.get("Unit").toString());
             return new WarehousePlant(name, length, width, area, unit, aisles, docks);

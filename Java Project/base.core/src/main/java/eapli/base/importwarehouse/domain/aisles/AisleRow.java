@@ -1,16 +1,35 @@
 package eapli.base.importwarehouse.domain.aisles;
 import eapli.base.importwarehouse.domain.aisles.AisleRowId;
+
+import javax.persistence.Embeddable;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+
+@Embeddable
 public class AisleRow {
+
+    @EmbeddedId
     private AisleRowId id;
+
+    @Embedded
     private Coords begin;
+
+    @Embedded
     private Coords end;
+
+    @Embedded
     private Capacity capacity;
+
 
     public AisleRow(AisleRowId id, Coords begin, Coords end, Capacity capacity) {
         this.id = id;
         this.begin = begin;
         this.end = end;
         this.capacity = capacity;
+    }
+
+    public AisleRow() {
+
     }
 
     public AisleRowId getId() {

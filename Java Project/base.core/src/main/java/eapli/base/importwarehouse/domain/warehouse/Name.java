@@ -1,10 +1,17 @@
 package eapli.base.importwarehouse.domain.warehouse;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Name {
     private String name;
 
     private Name(String name){
         this.name=name;
+    }
+
+    public Name() {
+
     }
 
     public static Name of(String name){

@@ -1,10 +1,17 @@
 package eapli.base.importwarehouse.domain;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Area {
     private double area;
 
     private Area(double area){
         this.area=area;
+    }
+
+    public Area() {
+
     }
 
     public static Area of(double area){

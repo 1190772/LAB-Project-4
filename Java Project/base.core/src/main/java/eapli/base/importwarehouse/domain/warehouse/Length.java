@@ -1,10 +1,17 @@
 package eapli.base.importwarehouse.domain.warehouse;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Length {
-    private double len;
+    private double length;
 
     private Length(double len){
-        this.len =len;
+        this.length =len;
+    }
+
+    public Length() {
+
     }
 
     public static Length of(double len){
@@ -12,13 +19,13 @@ public class Length {
     }
 
     public double length(){
-        return len;
+        return length;
     }
 
     @Override
     public String toString() {
         return "Length{" +
-                "len=" + len +
+                "length=" + length +
                 '}';
     }
 }

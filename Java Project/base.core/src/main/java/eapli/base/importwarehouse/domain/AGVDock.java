@@ -4,11 +4,26 @@ import eapli.base.importwarehouse.domain.aisles.Accessibility;
 import eapli.base.importwarehouse.domain.aisles.Coords;
 import eapli.base.importwarehouse.domain.AGVDockId;
 
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
+@Entity
 public class AGVDock {
+
+    @EmbeddedId
     private AGVDockId id;
+
+    @Embedded
     private Coords begin;
+
+    @Embedded
     private Coords end;
+
+    @Embedded
     private Coords depth;
+
+    @Embedded
     private Accessibility accessibility;
 
     public AGVDock(AGVDockId id, Coords begin, Coords end, Coords depth, Accessibility accessibility) {
@@ -17,6 +32,10 @@ public class AGVDock {
         this.end = end;
         this.depth = depth;
         this.accessibility = accessibility;
+    }
+
+    public AGVDock() {
+
     }
 
     public AGVDockId getId() {

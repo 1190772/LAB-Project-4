@@ -8,22 +8,20 @@ import eapli.base.customer.domain.model.Customer;
 import eapli.base.importwarehouse.domain.warehouse.Length;
 import eapli.base.importwarehouse.domain.warehouse.Name;
 import eapli.base.importwarehouse.domain.aisles.Aisle;
+import eapli.base.importwarehouse.domain.warehouse.Width;
 import eapli.framework.domain.model.AggregateRoot;
 
-import javax.persistence.Embedded;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.xml.bind.annotation.XmlElement;
 
-
+@Entity
 public class WarehousePlant implements AggregateRoot<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Embedded
+    @Transient
     @XmlElement
     @JsonProperty
     private Name name;
@@ -36,7 +34,7 @@ public class WarehousePlant implements AggregateRoot<Long> {
     @Embedded
     @XmlElement
     @JsonProperty
-    private Length width;
+    private Width width;
 
     @Embedded
     @XmlElement
@@ -46,20 +44,21 @@ public class WarehousePlant implements AggregateRoot<Long> {
     @Embedded
     @XmlElement
     @JsonProperty
+    @Column(name = "Unit")
     private Name unit;
 
-    @Embedded
+    @Transient
     @XmlElement
     @JsonProperty
     private List<Aisle> aisles;
 
-    @Embedded
+    @Transient
     @XmlElement
     @JsonProperty
     private List<AGVDock> docks;
 
 
-    public WarehousePlant(Name name, Length length, Length width, Area area, Name unit, List<Aisle> aisles, List<AGVDock> docks) {
+    public WarehousePlant(Name name, Length length, Width width, Area area, Name unit, List<Aisle> aisles, List<AGVDock> docks) {
         this.name = name;
         this.length = length;
         this.width = width;
@@ -67,6 +66,10 @@ public class WarehousePlant implements AggregateRoot<Long> {
         this.unit = unit;
         this.aisles = new LinkedList<>(aisles);
         this.docks = new LinkedList<>(docks);
+    }
+
+    public WarehousePlant() {
+
     }
 
     public Name getName() {
@@ -77,7 +80,7 @@ public class WarehousePlant implements AggregateRoot<Long> {
         return length;
     }
 
-    public Length getWidth() {
+    public Width getWidth() {
         return width;
     }
 

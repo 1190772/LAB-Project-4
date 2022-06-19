@@ -1,14 +1,28 @@
 
 package eapli.base.importwarehouse.domain.aisles;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Aisle {
+
+    @EmbeddedId
     private AisleId id;
+
+    @Embedded
     private Coords begin;
+
+    @Embedded
     private Coords end;
+
+    @Embedded
     private Coords depth;
+
+    @Embedded
     private Accessibility accessibility;
+
+    @Embedded
     private List<AisleRow> rows;
 
     public Aisle(AisleId id, Coords begin, Coords end, Coords depth, Accessibility accessibility, List<AisleRow> rows) {
@@ -18,6 +32,10 @@ public class Aisle {
         this.depth = depth;
         this.accessibility = accessibility;
         this.rows = rows;
+    }
+
+    public Aisle() {
+
     }
 
     public AisleId getId() {

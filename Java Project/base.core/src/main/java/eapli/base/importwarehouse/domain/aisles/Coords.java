@@ -1,5 +1,8 @@
 package eapli.base.importwarehouse.domain.aisles;
 
+import javax.persistence.Embeddable;
+
+@Embeddable
 public class Coords {
     private int lSquare;
     private int wSquare;
@@ -7,6 +10,10 @@ public class Coords {
     private Coords(int lSquare, int wSquare){
         this.lSquare=lSquare;
         this.wSquare=wSquare;
+    }
+
+    public Coords() {
+
     }
 
     public static Coords of(int l, int w){
