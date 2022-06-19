@@ -34,6 +34,7 @@
         <module>base.app.AGVManager</module>
         <module>base.app.AGVDigitalTwin</module>
         <module>grammar</module>
+        <module>movementagvmanagement</module>
     </modules>
 
     <dependencies>
