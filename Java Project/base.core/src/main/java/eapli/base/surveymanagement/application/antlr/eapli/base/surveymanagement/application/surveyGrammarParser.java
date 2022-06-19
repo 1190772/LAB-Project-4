@@ -1,5 +1,6 @@
+/*
 // Generated from C:/Users/Nandinho/Desktop/projeto_lapr4/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application\surveyGrammar.g4 by ANTLR 4.10.1
-package eapli.base.surveymanagement.application;
+package eapli.base.surveymanagement.application.antlr.eapli.base.surveymanagement.application;
 import org.antlr.v4.runtime.atn.*;
 import org.antlr.v4.runtime.dfa.DFA;
 import org.antlr.v4.runtime.*;
@@ -49,9 +50,11 @@ public class surveyGrammarParser extends Parser {
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
-	/**
+	*/
+/**
 	 * @deprecated Use {@link #VOCABULARY} instead.
-	 */
+	 *//*
+
 	@Deprecated
 	public static final String[] tokenNames;
 	static {
@@ -1199,4 +1202,4 @@ public class surveyGrammarParser extends Parser {
 			_decisionToDFA[i] = new DFA(_ATN.getDecisionState(i), i);
 		}
 	}
-}
+}*/

@@ -1,6 +1,7 @@
 // Generated from C:/Users/Nandinho/Desktop/projeto_lapr4/Java Project/base.core/src/main/java/eapli/base/surveymanagement/application\surveyGrammar.g4 by ANTLR 4.10.1
-package eapli.base.surveymanagement.application;
+package eapli.base.surveymanagement.application.antlr.eapli.base.surveymanagement.application;
 
+import eapli.base.surveymanagement.application.surveyGrammarParser;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
