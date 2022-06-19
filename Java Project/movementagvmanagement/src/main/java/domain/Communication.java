@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class Communication {
 
-    //Sensores
+
     private int sensor_norte;
 
     private int sensor_nordeste;
@@ -21,21 +21,18 @@ public class Communication {
 
     private int sensor_noroeste;
 
-    //Direccao pode ser esquerda, direita, cima, baixo
+
     private String direccao;
 
 
-    //Velocidade
     private Double velocity;
 
 
-    //Bateria
     private final Double MAX_BATTERY;
 
     private Double actualBattery;
 
 
-    //Posicoes
     private final Location DOCK_LOCATION;
 
     private LinkedList<Location> productLocations;
@@ -44,7 +41,7 @@ public class Communication {
 
     private LinkedList<Location> route;
 
-    //Construtor
+
     public Communication(int sensor_norte, int sensor_nordeste, int sensor_este, int sensor_sudeste, int sensor_sul, int sensor_sudoeste,
                          int sensor_oeste, int sensor_noroeste, Double battery, Location dock, LinkedList<Location> productLocations) {
         this.sensor_norte = sensor_norte;
@@ -66,7 +63,7 @@ public class Communication {
     }
 
 
-    //Setters dos sensores
+
     public void setSensor_norte(int sensor_norte) {
         this.sensor_norte = sensor_norte;
     }
@@ -100,7 +97,7 @@ public class Communication {
     }
 
 
-    //Getters dos Sensores
+
     public int getSensor_norte() {
         return sensor_norte;
     }
@@ -134,7 +131,7 @@ public class Communication {
     }
 
 
-    //Direcao
+
     public String getDireccao() {
         return direccao;
     }
@@ -143,7 +140,7 @@ public class Communication {
         this.direccao = direccao;
     }
 
-    //Velocidade
+
     public Double getVelocity() {
         return velocity;
     }
@@ -153,7 +150,7 @@ public class Communication {
     }
 
 
-    //Batteria actual
+
     public Double getMAX_BATTERY() {
         return MAX_BATTERY;
     }
@@ -167,7 +164,7 @@ public class Communication {
     }
 
 
-    //Actualiza positcao actual
+
     public Location getActualPosition() {
         return actualPosition;
     }
@@ -177,23 +174,23 @@ public class Communication {
     }
 
 
-    //Quando encontra produto remove da lista
+
     public LinkedList<Location> getProductLocations() {
         return productLocations;
     }
 
-    //Prepara nova ordem de produtos
+
     public void setProductLocations(LinkedList<Location> productLocations) {
         this.productLocations = productLocations;
     }
 
 
-    //Devolve rota para se mover
+
     public LinkedList<Location> getRoute() {
         return route;
     }
 
-    //Recebe rota
+
     public void setRoute(LinkedList<Location> route) {
         this.route = route;
     }
