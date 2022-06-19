@@ -18,8 +18,8 @@
     "AGVMODEL": "200",
     "POSITIONX": 14,
     "POSITIONY": 4,
-    "STATUS": 0,
-    "ORDER_ID": null
+    "STATUS": 2,
+    "ORDER_ID": 4
   },
   {
     "ID": 3,
@@ -38,7 +38,7 @@
     "SHTDESCRIPTION": "An AGV",
     "MAXWEIGHT": 300,
     "AGVMODEL": "400",
-    "POSITIONX": 24,
+    "POSITIONX": 20,
     "POSITIONY": 12,
     "STATUS": 2,
     "ORDER_ID": 2

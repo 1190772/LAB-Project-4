@@ -1,17 +1,5 @@
 var agv = document.getElementById("agv");
 var agvPos = document.getElementById("agvPos");
-/*function loadDoc() {
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            document.getElementById("update").innerHTML = this.responseURL;
-            number++;
-            document.getElementById("test").innerHTML = number;
-        }
-    };
-    xhttp.open("GET", "warehouse.png", true);
-    xhttp.send();
-}*/
 
 function loadJSON(){
     $.getJSON("AGV.json", function (json){
@@ -71,10 +59,10 @@ function updateJSON(){
 
 }
 
-//loadDoc(); // This will run on page load
-loadJSON();
+
+loadJSON(); // This will run on page load
 
 setInterval(function(){
-    //loadDoc() // this will run after every 5 seconds
-    updateJSON()
+    updateJSON() // this will run after every 5 seconds
+
 }, 5000);
