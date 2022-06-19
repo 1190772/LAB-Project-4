@@ -1,5 +1,6 @@
 package eapli.base.app.backoffice.console.presentation.customer;
 
+import eapli.base.customer.application.AddToShoppingCartController;
 import eapli.base.customer.application.RegisterCustomerController;
 import eapli.base.customer.domain.model.EmailException;
 import eapli.base.customer.domain.model.NameException;
@@ -19,7 +20,7 @@ public class RegisterCustomerUI extends AbstractUI {
     private static final Logger LOGGER = LogManager.getLogger(RegisterCustomerUI.class);
 
     @Autowired
-    private RegisterCustomerController controller;
+    private RegisterCustomerController controller = new RegisterCustomerController();
 
     @Override
     protected boolean doShow() {
