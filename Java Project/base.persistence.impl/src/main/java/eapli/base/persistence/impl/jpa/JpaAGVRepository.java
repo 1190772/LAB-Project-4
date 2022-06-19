@@ -47,5 +47,10 @@ public class JpaAGVRepository extends JpaAutoTxRepository<AGV, Long, Long> imple
         return match("e.ocuppied=false");
     }
 
+    @Override
+    public Iterable<AGV> allActiveNotInUseAGV() {
+        return null;
+    }
+
 
 }
