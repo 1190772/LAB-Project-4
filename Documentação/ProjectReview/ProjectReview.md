@@ -1,9 +1,12 @@
-# LAPR4 Review
+LAPR4 Project Review
+--------------------------------
+
+## Initial Comments
 
 First, we would like to note that it was a project full of ups and downs.
 The first sprint delayed us a lot and we had in the following sprints to amend what was not done correctly in the previous ones.
 
-# By sprints:
+# Division by sprints:
 
 ## SPRINT A/B
 
