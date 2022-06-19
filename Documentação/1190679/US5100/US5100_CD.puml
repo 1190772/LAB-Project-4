@@ -1,0 +1,23 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Battery{}
+
+class ControlSystem{}
+
+class PositioningInformation{}
+
+class PathPlanner{}
+
+class MovementSensor{}
+
+
+
+Main->ControlSystem
+ControlSystem->Map
+ControlSystem->PositioningInformation
+ControlSystem->Battery
+ControlSystem->PathPlanner
+ControlSystem->MovementSensor
+
+@enduml
